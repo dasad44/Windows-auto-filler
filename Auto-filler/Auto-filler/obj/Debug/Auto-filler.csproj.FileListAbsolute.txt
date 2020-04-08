@@ -1,0 +1,14 @@
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\bin\Debug\Auto-filler.exe.config
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\bin\Debug\Auto-filler.exe
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\bin\Debug\Auto-filler.pdb
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.csprojAssemblyReference.cache
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\MainWindow.g.cs
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\App.g.cs
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler_MarkupCompile.cache
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler_MarkupCompile.lref
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\MainWindow.baml
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.g.resources
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto_filler.Properties.Resources.resources
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.csproj.GenerateResource.cache
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.exe
+C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.pdb
