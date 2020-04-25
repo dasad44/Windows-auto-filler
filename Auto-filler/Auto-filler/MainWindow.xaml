@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_filler"
         mc:Ignorable="d"
-        Title="Windows Auto Filler" Height="450" Width="800">
+        Title="Windows Auto Filler" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="328,337,0,0" VerticalAlignment="Top" Width="99" Height="34" Click="HideButton_Click"/>
     </Grid>

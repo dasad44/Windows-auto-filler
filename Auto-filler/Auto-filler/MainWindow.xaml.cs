@@ -17,6 +17,8 @@ namespace Auto_filler
 {
     public partial class MainWindow : Window
     {
+
+        private KeyboardListener _listener;
         public MainWindow()
         {
             InitializeComponent();
@@ -25,6 +27,24 @@ namespace Auto_filler
         private void HideButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
+        }
+
+        void _listener_OnKeyPressed(object sender, KeyPressedArgs e)
+        {    
+            if (Keyboard.IsKeyDown(Key.G)
+                && Keyboard.IsKeyDown(Key.LeftCtrl)
+                && Keyboard.IsKeyDown(Key.LeftAlt)
+                || Keyboard.IsKeyDown(Key.G)
+                && Keyboard.IsKeyDown(Key.RightCtrl)
+                && Keyboard.IsKeyDown(Key.RightAlt))
+                this.Show();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _listener = new KeyboardListener();
+            _listener.OnKeyPressed += _listener_OnKeyPressed;
+            _listener.HookKeyboard();
         }
     }
 }
