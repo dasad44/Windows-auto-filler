@@ -15,14 +15,16 @@ using System.Windows.Shapes;
 
 namespace Auto_filler
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void HideButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
         }
     }
 }
