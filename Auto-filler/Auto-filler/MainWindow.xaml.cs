@@ -17,7 +17,6 @@ namespace Auto_filler
 {
     public partial class MainWindow : Window
     {
-
         private KeyboardListener _listener;
         public MainWindow()
         {
@@ -42,7 +41,7 @@ namespace Auto_filler
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _listener = new KeyboardListener();
+            _listener = new KeyboardListener(this);
             _listener.OnKeyPressed += _listener_OnKeyPressed;
             _listener.HookKeyboard();
         }

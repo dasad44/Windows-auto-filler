@@ -20,8 +20,6 @@ namespace Auto_filler
         static bool ctrlPressed = false;
         static bool altPressed = false;
 
-        Auto_filler.MainWindow mw = new MainWindow();
-
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
 
@@ -42,9 +40,12 @@ namespace Auto_filler
         private LowLevelKeyboardProc _proc;
         private IntPtr _hookID = IntPtr.Zero;
 
-        public KeyboardListener()
+        public MainWindow Mainwindow { get; }
+
+        public KeyboardListener(MainWindow mainwindow)
         {
             _proc = HookCallback;
+            Mainwindow = mainwindow;
         }
 
         public void HookKeyboard()
@@ -99,25 +100,9 @@ namespace Auto_filler
 
         public void AppShow(IntPtr lParam, IntPtr wParam)
         {
-            int vkCode = Marshal.ReadInt32(lParam);
-            if (vkCode == 162 || vkCode == 163) //162 is Left Ctrl, 163 is Right Ctrl
+            if(Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.G))
             {
-                ctrlPressed = true;
-            }
-            else if (vkCode == 164 || vkCode == 165 && ctrlPressed == true) //162 is Left Alt, 163 is Right Alt
-            {
-                ctrlPressed = false;
-                altPressed = true;
-            }
-            else if (vkCode == 71 && altPressed == true) //is G key
-            {
-                ctrlPressed = false;
-                altPressed = false;
-            }
-            else
-            {
-                ctrlPressed = false;
-                altPressed = false;
+                Mainwindow.Show();
             }
         }
     }
