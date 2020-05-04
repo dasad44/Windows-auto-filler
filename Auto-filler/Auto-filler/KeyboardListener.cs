@@ -71,25 +71,13 @@ namespace Auto_filler
             if (nCode >= 0 && wParam == (IntPtr)WM_KEYUP || wParam == (IntPtr)WM_SYSKEYDOWN)
             {
                 // int vkCode = Marshal.ReadInt32(lParam);
-                CtrlCHandler();
-                CtrlCCHandler();
+                MultiClipboard();
                 AppShow();
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
-        
-        private void CtrlCHandler()
-        {
-            if (Keyboard.IsKeyDown(Key.C)
-            && Keyboard.IsKeyDown(Key.LeftCtrl)
-            || Keyboard.IsKeyDown(Key.RightCtrl) 
-            && Keyboard.IsKeyDown(Key.C))
-            {
-                //Clipboard.SetDataObject("aaasda");
-            }
-        }
 
-        private void CtrlCCHandler()
+        private void MultiClipboard()
         {
             if (Keyboard.IsKeyDown(Key.C)
           && Keyboard.IsKeyDown(Key.LeftCtrl) && cond == false
@@ -100,7 +88,14 @@ namespace Auto_filler
                 //MessageBox.Show("D1111");
                 cond = true;
             }
-            else if(Keyboard.IsKeyDown(Key.C)
+            else if (Keyboard.IsKeyUp(Key.C)
+          && Keyboard.IsKeyUp(Key.LeftCtrl)
+          || Keyboard.IsKeyUp(Key.RightCtrl)
+          && Keyboard.IsKeyUp(Key.C))
+            {
+                cond = false;
+            }
+            else if (Keyboard.IsKeyDown(Key.C)
           && Keyboard.IsKeyDown(Key.LeftCtrl) && cond == true
           || Keyboard.IsKeyDown(Key.RightCtrl)
           && Keyboard.IsKeyDown(Key.C) && cond == true)
@@ -108,8 +103,8 @@ namespace Auto_filler
                 cond = false;
                 Clipboard.SetDataObject("bbbbbbbbb");
                 //MessageBox.Show("D1111");
-
             }
+            
         }
 
         public void AppShow()
