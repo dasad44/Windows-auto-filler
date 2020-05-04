@@ -18,7 +18,9 @@ namespace Auto_filler
         private const int WM_KEYDOWN = 0x0100;
         private const int WM_SYSKEYDOWN = 0x0104;
         private const int WM_KEYUP = 0x0101;
-        bool cond = false;
+        private bool ctrl1clicked = false, ctrl2clicked = false;
+        private string text = "";
+
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
 
@@ -79,32 +81,52 @@ namespace Auto_filler
 
         private void MultiClipboard()
         {
-            if (Keyboard.IsKeyDown(Key.C)
-          && Keyboard.IsKeyDown(Key.LeftCtrl) && cond == false
+            if (Keyboard.IsKeyDown(Key.C)           //ctrl+C
+          && Keyboard.IsKeyDown(Key.LeftCtrl) && ctrl1clicked == false && ctrl2clicked == false
           || Keyboard.IsKeyDown(Key.RightCtrl)
-          && Keyboard.IsKeyDown(Key.C) && cond == false)
+          && Keyboard.IsKeyDown(Key.C) && ctrl1clicked == false && ctrl2clicked == false)
             {
-                Clipboard.SetDataObject("aaaaaaaaa");
+                text = Clipboard.GetText();
+                Clipboard.SetDataObject(text);
                 //MessageBox.Show("D1111");
-                cond = true;
+                ctrl1clicked = true;
             }
             else if (Keyboard.IsKeyUp(Key.C)
           && Keyboard.IsKeyUp(Key.LeftCtrl)
           || Keyboard.IsKeyUp(Key.RightCtrl)
           && Keyboard.IsKeyUp(Key.C))
             {
-                cond = false;
+                ctrl1clicked = false;
+                ctrl2clicked = false;
             }
-            else if (Keyboard.IsKeyDown(Key.C)
-          && Keyboard.IsKeyDown(Key.LeftCtrl) && cond == true
+            else if (Keyboard.IsKeyDown(Key.C)           //ctrl+CC
+          && Keyboard.IsKeyDown(Key.LeftCtrl) && ctrl1clicked == true && ctrl2clicked == false
           || Keyboard.IsKeyDown(Key.RightCtrl)
-          && Keyboard.IsKeyDown(Key.C) && cond == true)
+          && Keyboard.IsKeyDown(Key.C) && ctrl1clicked == true && ctrl2clicked == false)
             {
-                cond = false;
+                //ctrl1clicked = false;
                 Clipboard.SetDataObject("bbbbbbbbb");
+                ctrl2clicked = true;
                 //MessageBox.Show("D1111");
             }
-            
+            else if (Keyboard.IsKeyUp(Key.C)
+          && Keyboard.IsKeyUp(Key.LeftCtrl)
+          || Keyboard.IsKeyUp(Key.RightCtrl)
+          && Keyboard.IsKeyUp(Key.C))
+            {
+                ctrl1clicked = false;
+                ctrl2clicked = false;
+            }
+            else if (Keyboard.IsKeyDown(Key.C)                  //ctrl+CCC
+          && Keyboard.IsKeyDown(Key.LeftCtrl) && ctrl2clicked == true && ctrl2clicked == true
+          || Keyboard.IsKeyDown(Key.RightCtrl)
+          && Keyboard.IsKeyDown(Key.C) && ctrl2clicked == true && ctrl2clicked == true)
+            {
+                Clipboard.SetDataObject("cccccccccc");
+                ctrl2clicked = false;
+                ctrl1clicked = false;
+            }
+
         }
 
         public void AppShow()
