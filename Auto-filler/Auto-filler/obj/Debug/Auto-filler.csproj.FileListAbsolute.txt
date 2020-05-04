@@ -12,3 +12,17 @@ C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debu
 C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.csproj.GenerateResource.cache
 C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.exe
 C:\Users\SoChi\source\repos\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.pdb
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\bin\Debug\Auto-filler.exe.config
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\bin\Debug\Auto-filler.exe
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\bin\Debug\Auto-filler.pdb
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.csprojAssemblyReference.cache
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\MainWindow.g.cs
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\App.g.cs
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler_MarkupCompile.cache
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler_MarkupCompile.lref
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\MainWindow.baml
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.g.resources
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto_filler.Properties.Resources.resources
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.csproj.GenerateResource.cache
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.exe
+I:\Inżynierka\Windows-auto-filler\Auto-filler\Auto-filler\obj\Debug\Auto-filler.pdb

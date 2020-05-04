@@ -73,6 +73,7 @@ namespace Auto_filler
             {
                 CtrlCHandler(lParam);
                 AppShow(lParam, wParam);
+                ScreenShot(lParam, wParam);
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
@@ -103,6 +104,13 @@ namespace Auto_filler
             if(Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.G))
             {
                 Mainwindow.Show();
+            }
+        }
+        public void ScreenShot(IntPtr lParam, IntPtr wParam)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.S))
+            {
+                Mainwindow.CaptureMyScreen();
             }
         }
     }
