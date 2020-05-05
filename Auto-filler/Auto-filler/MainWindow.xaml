@@ -9,5 +9,7 @@
     <Grid>
         <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="328,337,0,0" VerticalAlignment="Top" Width="99" Height="34" Click="HideButton_Click"/>
         <CheckBox x:Name="ScreenshotCheck" Content="Screenshot" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Margin="25,177,0,0" Height="40" Unchecked="ScreenshotCheck_Unchecked" Checked="ScreenshotCheck_Checked"/>
+        <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="48" Margin="53,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" TextChanged="ValueHolder_TextChanged"/>
+        <Button x:Name="ValueSaver" Content="Zapisz" HorizontalAlignment="Left" Margin="207,279,0,0" VerticalAlignment="Top" Width="75" Click="ValueSaver_Click"/>
     </Grid>
 </Window>

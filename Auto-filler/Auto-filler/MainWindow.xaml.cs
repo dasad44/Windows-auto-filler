@@ -79,5 +79,16 @@ namespace Auto_filler
                 }
             }
         }
+
+        private void ValueSaver_Click(object sender, RoutedEventArgs e)
+        {
+            string link = ValueHolder.Text;
+            _listener.CatchLink(link);
+        }
+
+        private void ValueHolder_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

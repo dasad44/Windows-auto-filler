@@ -17,6 +17,9 @@ namespace Auto_filler
         private const int WM_SYSKEYDOWN = 0x0104;
         private const int WM_KEYUP = 0x0101;
 
+        string _link;
+        CatchLink cl = new CatchLink();
+
         static bool ctrlPressed = false;
         static bool altPressed = false;
 
@@ -74,6 +77,7 @@ namespace Auto_filler
                 CtrlCHandler(lParam);
                 AppShow(lParam, wParam);
                 ScreenShot(lParam, wParam);
+                LinkButton();
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
@@ -111,6 +115,17 @@ namespace Auto_filler
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.S))
             {
                 Mainwindow.CaptureMyScreen();
+            }
+        }
+        public void CatchLink(string link)
+        {
+            _link = link;
+        }
+        public void LinkButton()
+        {
+            if (Keyboard.IsKeyDown(Key.NumPad1))
+            {
+                cl.LinkOpen(_link);
             }
         }
     }

@@ -65,6 +65,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CatchLink.cs" />
     <Compile Include="ScreenshotSave.cs" />
     <Compile Include="ClipboardHandler.cs" />
     <Compile Include="KeyboardListener.cs" />
