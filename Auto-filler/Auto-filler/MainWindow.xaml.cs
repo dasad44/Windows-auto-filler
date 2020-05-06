@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
 using System.Drawing.Imaging;
+using Microsoft.Win32;
+using System.IO;
 
 namespace Auto_filler
 {
@@ -89,6 +91,15 @@ namespace Auto_filler
         private void ValueHolder_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        RegistryKey reg;
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            reg.SetValue("Auto filler", System.IO.Path.GetFullPath("Auto-filler.exe"));
+            MessageBox.Show("Udało się!");
         }
     }
 }

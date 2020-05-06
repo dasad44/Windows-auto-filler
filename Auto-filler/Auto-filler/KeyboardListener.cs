@@ -7,6 +7,9 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Input;
 using System.Windows;
+using Microsoft.Win32;
+using System.IO;
+
 
 namespace Auto_filler
 {
@@ -105,7 +108,7 @@ namespace Auto_filler
 
         public void AppShow(IntPtr lParam, IntPtr wParam)
         {
-            if(Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.G))
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.G))
             {
                 Mainwindow.Show();
             }
@@ -140,4 +143,3 @@ namespace Auto_filler
         }
     }
 }
-
