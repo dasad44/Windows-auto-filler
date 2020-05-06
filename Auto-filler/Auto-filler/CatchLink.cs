@@ -14,7 +14,7 @@ namespace Auto_filler
         {
             try
             {
-                Process.Start(link);
+                Process.Start("https://"+link);
             }
             catch(InvalidOperationException e)
             {
