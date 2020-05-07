@@ -30,13 +30,7 @@ namespace Auto_filler
 
         void _listener_OnKeyPressed(object sender, KeyPressedArgs e)
         {
-           // if (Keyboard.IsKeyDown(Key.G)
-           // && Keyboard.IsKeyDown(Key.LeftCtrl)
-           // && Keyboard.IsKeyDown(Key.LeftAlt)
-          //  || Keyboard.IsKeyDown(Key.G)
-           // && Keyboard.IsKeyDown(Key.RightCtrl)
-          //  && Keyboard.IsKeyDown(Key.RightAlt))
-           //     this.Show();
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
