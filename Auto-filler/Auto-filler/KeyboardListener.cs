@@ -21,15 +21,11 @@ namespace Auto_filler
         private const int WM_KEYUP = 0x0101;
 
         private bool ctrl1clicked = false, ctrl2clicked = false;
-        string text_1 = "aaa", text_2 = "bbb", text_3 = "ccc", tmp1 = "", tmp2 = "";
+        string text_1 = "", text_2 = "", text_3 = "", tmp1 = "";
         ClipboardHandler clipboardhandler = new ClipboardHandler();
 
         string _link;
         CatchLink cl = new CatchLink();
-
-        static bool ctrlPressed = false;
-        static bool altPressed = false;
-
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
 
