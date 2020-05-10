@@ -9,7 +9,8 @@ using System.Windows.Input;
 using System.Windows;
 using Microsoft.Win32;
 using System.IO;
-
+using System.Drawing;
+using System.Windows.Media.Imaging;
 
 namespace Auto_filler
 {
@@ -81,10 +82,19 @@ namespace Auto_filler
                 AppShow();
                 ScreenShot();
                 LinkButton();
+                saveImg();
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
 
+        private void saveImg()
+        {
+            if (Keyboard.IsKeyDown(Key.PrintScreen))
+            {
+                BitmapSource bitmap = Clipboard.GetImage();
+                Clipboard.SetData(DataFormats.Bitmap, bitmap);
+            }
+        }
         private void SaveMultiClipboard()
         {
             if (Keyboard.IsKeyDown(Key.C)           //ctrl+C
