@@ -9,8 +9,7 @@ using System.Windows.Input;
 using System.Windows;
 using Microsoft.Win32;
 using System.IO;
-using System.Drawing;
-using System.Windows.Media.Imaging;
+
 
 namespace Auto_filler
 {
@@ -22,11 +21,15 @@ namespace Auto_filler
         private const int WM_KEYUP = 0x0101;
 
         private bool ctrl1clicked = false, ctrl2clicked = false;
-        string text_1 = "", text_2 = "", text_3 = "", tmp1 = "";
+        string text_1 = "aaa", text_2 = "bbb", text_3 = "ccc", tmp1 = "", tmp2 = "";
         ClipboardHandler clipboardhandler = new ClipboardHandler();
 
         string _link;
         CatchLink cl = new CatchLink();
+
+        static bool ctrlPressed = false;
+        static bool altPressed = false;
+
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
 
@@ -82,19 +85,10 @@ namespace Auto_filler
                 AppShow();
                 ScreenShot();
                 LinkButton();
-                saveImg();
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
 
-        private void saveImg()
-        {
-            if (Keyboard.IsKeyDown(Key.PrintScreen))
-            {
-                BitmapSource bitmap = Clipboard.GetImage();
-                Clipboard.SetData(DataFormats.Bitmap, bitmap);
-            }
-        }
         private void SaveMultiClipboard()
         {
             if (Keyboard.IsKeyDown(Key.C)           //ctrl+C
@@ -162,11 +156,15 @@ namespace Auto_filler
                 Mainwindow.Show();
             }
         }
+        private ScreenshotSave _screenSave;
+        
         public void ScreenShot()
         {
+            
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.S))
             {
-                Mainwindow.CaptureMyScreen();
+                _screenSave = new ScreenshotSave();
+                _screenSave.CaptureMyScreen();
             }
         }
         public void CatchLink(string link)
