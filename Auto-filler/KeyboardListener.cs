@@ -24,7 +24,8 @@ namespace Auto_filler
         private bool ctrl1clicked = false, ctrl2clicked = false;
         string text_1 = "", text_2 = "", text_3 = "", tmp1 = "";
         ClipboardHandler clipboardhandler = new ClipboardHandler();
-
+        BitmapSource bitmap;
+        BitmapSource tmpbitmap;
         string _link;
         CatchLink cl = new CatchLink();
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
@@ -91,8 +92,7 @@ namespace Auto_filler
         {
             if (Keyboard.IsKeyDown(Key.PrintScreen))
             {
-                BitmapSource bitmap = Clipboard.GetImage();
-                Clipboard.SetData(DataFormats.Bitmap, bitmap);
+                bitmap = Clipboard.GetImage();
             }
         }
         private void SaveMultiClipboard()
@@ -103,16 +103,26 @@ namespace Auto_filler
           && Keyboard.IsKeyDown(Key.C) && ctrl1clicked == false && ctrl2clicked == false)
             {
                 tmp1 = Clipboard.GetText();
-                if (tmp1 == null || tmp1 == text_2 || tmp1 == text_3 || tmp1 == text_1)
+                if (bitmap == null || tmp1 != "")
                 {
-                    Clipboard.SetDataObject(text_1);
+                    if (tmp1 == null || tmp1 == text_2 || tmp1 == text_3 || tmp1 == text_1)
+                    {
+                        Clipboard.SetDataObject(text_1);
+                    }
+                    else
+                    {
+                        text_3 = text_2;
+                        text_2 = text_1;
+                        text_1 = clipboardhandler.SaveText();
+                    }
                 }
                 else
                 {
-                    text_3 = text_2;
-                    text_2 = text_1;
-                    text_1 = clipboardhandler.SaveText();
+                    tmpbitmap = bitmap;
+                    Clipboard.SetData(DataFormats.Bitmap, tmpbitmap);
                 }
+                bitmap = null;
+
                 ctrl1clicked = true;
             }
             else if (Keyboard.IsKeyUp(Key.C)
