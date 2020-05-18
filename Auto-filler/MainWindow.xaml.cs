@@ -22,7 +22,9 @@ namespace Auto_filler
     public partial class MainWindow : Window
     {
         private KeyboardListener _listener;
-        bool ScreenShot = false;
+        public static bool ScreenShot;
+        public static String path;
+        public static System.Windows.Point pos;
         public MainWindow()
         {
             InitializeComponent();
@@ -50,37 +52,35 @@ namespace Auto_filler
             _listener.OnKeyPressed += _listener_OnKeyPressed;
             _listener.HookKeyboard();
         }
-
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+            pos = e.GetPosition(this);
+        }
         private void ScreenshotCheck_Checked(object sender, RoutedEventArgs e)
         {
-                ScreenShot = true;
+            ScreenShot = true;
+            SaverDirectory.Visibility = Visibility.Visible;
+            SaverDirectoryButton.Visibility = Visibility.Visible;
         }
         private void ScreenshotCheck_Unchecked(object sender, RoutedEventArgs e)
         {
-                ScreenShot = false;
+            ScreenShot = false;
+            SaverDirectory.Visibility = Visibility.Hidden;
+            SaverDirectoryButton.Visibility = Visibility.Hidden;
         }
-        public void CaptureMyScreen()
-
+        private void SaverDirectoryButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ScreenShot)
+            System.Windows.Forms.FolderBrowserDialog fbd = new System.Windows.Forms.FolderBrowserDialog();
+            fbd.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd.Description = "Wybierz folder";
+            fbd.ShowNewFolderButton = false;
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                try
-                {
-                    int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
-                    int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
-                    Bitmap captureBitmap = new Bitmap(screenWidth, screenHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-                    System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.AllScreens[0].Bounds;
-                    Graphics captureGraphics = Graphics.FromImage(captureBitmap);
-                    captureGraphics.CopyFromScreen(captureRectangle.Left, captureRectangle.Top, 0, 0, captureRectangle.Size);
-                    //captureBitmap.Save(@"I:\Capture.jpg", ImageFormat.Jpeg); Nie zapisuje na C:\ (Coś z uprawnieniami)
-                    MessageBox.Show("Screen Captured");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                SaverDirectory.Text = fbd.SelectedPath;
+                path = SaverDirectory.Text;
             }
         }
+
 
         private void ValueSaver_Click(object sender, RoutedEventArgs e)
         {

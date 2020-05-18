@@ -162,11 +162,15 @@ namespace Auto_filler
                 Mainwindow.Show();
             }
         }
+        private ScreenshotSave _screenSave;
+
         public void ScreenShot()
         {
+
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.S))
             {
-                Mainwindow.CaptureMyScreen();
+                _screenSave = new ScreenshotSave();
+                _screenSave.CaptureMyScreen();
             }
         }
         public void CatchLink(string link)

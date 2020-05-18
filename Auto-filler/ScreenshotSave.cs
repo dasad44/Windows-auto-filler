@@ -14,52 +14,43 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Diagnostics;
 
 namespace Auto_filler
 {
-    //Narazie nie używana
     class ScreenshotSave
     {
-        bool ScreenShot = false;
         //string path = @Environment.GetFolderPath(Environment.SpecialFolder.Desktop); 
         public void CaptureMyScreen()
 
         {
-            if (!ScreenShot)
+            if (MainWindow.ScreenShot)
             {
                 try
                 {
-                    Bitmap captureBitmap = new Bitmap(1024, 768, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                    string path = MainWindow.path + "\\Capture.jpg";
+                    double Xd = MainWindow.pos.X;
+                    double Yd = MainWindow.pos.Y;
+                    int X = (int)Xd;
+                    int Y = (int)Yd;
+                    int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+                    int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
+                    Bitmap captureBitmap = new Bitmap(screenWidth, screenHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
                     System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.AllScreens[0].Bounds;
                     Graphics captureGraphics = Graphics.FromImage(captureBitmap);
                     captureGraphics.CopyFromScreen(captureRectangle.Left, captureRectangle.Top, 0, 0, captureRectangle.Size);
-                    //captureBitmap.Save(@"I:\Capture.jpg", ImageFormat.Jpeg);    Nie może zapisać na C:\ (Brak uprawnień??)
-                    MessageBox.Show("Screen Captured");
+                    captureBitmap.Save(@path, ImageFormat.Jpeg);
+                    MessageBox.Show("Screen Captured " + X + " " + Y);
+                    Process photoViewer = new Process();
+                    photoViewer.StartInfo.FileName = @path;
+                    photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
+                    photoViewer.Start();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
-        }
-
-
-        private void ScreenSaveOnn()
-        {
-            if (!ScreenShot)
-            {
-                MessageBox.Show("Screenshot ON");
-                ScreenShot = true;
-            }
-            else if(ScreenShot)
-            {
-                MessageBox.Show("Screenshot OFF");
-                ScreenShot = false;
-            }
-        }
-        public void ScreenSaveOn()
-        {
-            ScreenSaveOnn();
         }
     }
 }
