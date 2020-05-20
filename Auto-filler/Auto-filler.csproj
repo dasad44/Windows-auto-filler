@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="CatchLink.cs" />
     <Compile Include="Notification.cs" />
+    <Compile Include="RegistryOnOff.cs" />
     <Compile Include="ScreenshotSave.cs" />
     <Compile Include="ClipboardHandler.cs" />
     <Compile Include="KeyboardListener.cs" />

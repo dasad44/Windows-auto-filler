@@ -25,6 +25,7 @@ namespace Auto_filler
         public static bool ScreenShot;
         public static String path;
         public static System.Windows.Point pos;
+        RegistryOnOff regis = new RegistryOnOff();
         public MainWindow()
         {
             InitializeComponent();
@@ -93,19 +94,15 @@ namespace Auto_filler
 
         }
 
-        RegistryKey reg;
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AutoTurnon_Click(object sender, RoutedEventArgs e)
         {
-            
-            reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            reg.SetValue("Auto filler", System.IO.Path.GetFullPath("Auto-filler.exe"));
+            regis.AutoStartOn();
             MessageBox.Show("Udało się!");
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void TurningOff_Click(object sender, RoutedEventArgs e)
         {
-            reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            reg.DeleteValue("Auto filler");
+            regis.AutoStartOff();
             MessageBox.Show("Udało się!");
         }
     }

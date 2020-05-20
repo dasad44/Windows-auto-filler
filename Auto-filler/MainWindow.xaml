@@ -11,9 +11,9 @@
         <CheckBox x:Name="ScreenshotCheck" Content="Screenshot" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Margin="30,70,0,0" Height="40" Unchecked="ScreenshotCheck_Unchecked" Checked="ScreenshotCheck_Checked"/>
         <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="48" Margin="53,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" TextChanged="ValueHolder_TextChanged"/>
         <Button x:Name="ValueSaver" Content="Zapisz" HorizontalAlignment="Left" Margin="207,279,0,0" VerticalAlignment="Top" Width="75" Click="ValueSaver_Click"/>
-        <Button x:Name="AutoTurnon" Content="Uruchamiaj przy&#xD;&#xA;starcie systemu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127" Margin="555,162,0,0" Height="36" Click="Button_Click"/>
+        <Button x:Name="AutoTurnon" Content="Uruchamiaj przy&#xD;&#xA;starcie systemu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127" Margin="555,162,0,0" Height="36" Click="AutoTurnon_Click"/>
         <Button x:Name="SaverDirectoryButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="190,70,0,0" Click="SaverDirectoryButton_Click" Visibility="Hidden"/>
         <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Width="222" Margin="190,118,0,0" Visibility="Hidden"/>
-        <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xD;&#xA;przy starcie systemu" HorizontalAlignment="Left" Margin="555,231,0,0" VerticalAlignment="Top" Width="127" Height="37" Click="Button_Click_1"/>
+        <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xD;&#xA;przy starcie systemu" HorizontalAlignment="Left" Margin="555,231,0,0" VerticalAlignment="Top" Width="127" Height="37" Click="TurningOff_Click"/>
     </Grid>
 </Window>
