@@ -25,7 +25,9 @@ namespace Auto_filler
         string text_1 = "", text_2 = "", text_3 = "", tmp1 = "";
         ClipboardHandler clipboardhandler = new ClipboardHandler();
         BitmapSource bitmap;
-        BitmapSource tmpbitmap;
+        BitmapSource tmpbitmap, tmpbitmap2, tmpbitmap3;
+        bool isImage = false, isImage2 = false;
+        
         string _link;
         CatchLink cl = new CatchLink();
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
@@ -93,6 +95,18 @@ namespace Auto_filler
             if (Keyboard.IsKeyDown(Key.PrintScreen))
             {
                 bitmap = Clipboard.GetImage();
+                if (bitmap == null || bitmap == tmpbitmap || bitmap == tmpbitmap2 || bitmap == tmpbitmap3)
+                {
+                    Clipboard.SetData(DataFormats.Bitmap, tmpbitmap);
+                    isImage = true;
+                }
+                else
+                {
+                    tmpbitmap3 = tmpbitmap2;
+                    tmpbitmap2 = tmpbitmap;
+                    tmpbitmap = Clipboard.GetImage();
+                }
+
             }
         }
         private void SaveMultiClipboard()
@@ -108,6 +122,7 @@ namespace Auto_filler
                     if (tmp1 == null || tmp1 == text_2 || tmp1 == text_3 || tmp1 == text_1)
                     {
                         Clipboard.SetDataObject(text_1);
+                        isImage = false;
                     }
                     else
                     {
@@ -118,10 +133,10 @@ namespace Auto_filler
                 }
                 else
                 {
-                    tmpbitmap = bitmap;
                     Clipboard.SetData(DataFormats.Bitmap, tmpbitmap);
+
                 }
-                bitmap = null;
+                //bitmap = null;
 
                 ctrl1clicked = true;
             }
@@ -141,8 +156,15 @@ namespace Auto_filler
                 //ctrl1clicked = false;
                 //text_1 = clipboardhandler.SaveText();
                 ctrl2clicked = true;
-                Clipboard.SetDataObject(text_2);
-                //MessageBox.Show("D1111");
+               // if (isImage == false)
+              //  {
+                  //  Clipboard.SetData(DataFormats.Bitmap, tmpbitmap);
+              //  }
+             //   else
+             //   {
+             //       Clipboard.SetDataObject(text_2);
+             //   }
+
             }
             else if (Keyboard.IsKeyUp(Key.C)
           && Keyboard.IsKeyUp(Key.LeftCtrl)
