@@ -101,5 +101,12 @@ namespace Auto_filler
             reg.SetValue("Auto filler", System.IO.Path.GetFullPath("Auto-filler.exe"));
             MessageBox.Show("Udało się!");
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            reg.DeleteValue("Auto filler");
+            MessageBox.Show("Udało się!");
+        }
     }
 }
