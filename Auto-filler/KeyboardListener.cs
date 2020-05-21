@@ -86,29 +86,41 @@ namespace Auto_filler
                 ScreenShot();
                 LinkButton();
                 saveImg();
+                test();
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
-
+        IDataObject d;
         private void saveImg()
         {
             if (Keyboard.IsKeyDown(Key.PrintScreen))
             {
                 bitmap = Clipboard.GetImage();
-                if (bitmap == null || bitmap == tmpbitmap || bitmap == tmpbitmap2 || bitmap == tmpbitmap3)
-                {
-                    Clipboard.SetData(DataFormats.Bitmap, tmpbitmap);
-                    isImage = true;
-                }
-                else
-                {
-                    tmpbitmap3 = tmpbitmap2;
-                    tmpbitmap2 = tmpbitmap;
-                    tmpbitmap = Clipboard.GetImage();
-                }
+                d = Clipboard.GetDataObject();
 
+                tmpbitmap2 = (BitmapSource)d.GetData(DataFormats.Bitmap);
             }
         }
+        private void test()
+        {
+            if (Keyboard.IsKeyDown(Key.D))
+            {
+                //d = Clipboard.GetDataObject();
+                // string dd = d.GetData(DataFormats.Text).ToString();
+               // string dd = d.GetData(DataFormats.Bitmap).ToString();
+
+
+                try
+                {
+                    Clipboard.SetData(DataFormats.Bitmap, tmpbitmap2);
+                }
+                catch(Exception e)
+                {
+
+                }
+            }
+        }
+
         private void SaveMultiClipboard()
         {
             if (Keyboard.IsKeyDown(Key.C)           //ctrl+C
@@ -117,12 +129,16 @@ namespace Auto_filler
           && Keyboard.IsKeyDown(Key.C) && ctrl1clicked == false && ctrl2clicked == false)
             {
                 tmp1 = Clipboard.GetText();
-                if (bitmap == null || tmp1 != "")
+                if (Clipboard.ContainsImage())
+                {
+                    Clipboard.SetData(DataFormats.Bitmap, bitmap);
+                }
+                else
                 {
                     if (tmp1 == null || tmp1 == text_2 || tmp1 == text_3 || tmp1 == text_1)
                     {
                         Clipboard.SetDataObject(text_1);
-                        isImage = false;
+                       // isImage = false;
                     }
                     else
                     {
@@ -131,12 +147,7 @@ namespace Auto_filler
                         text_1 = clipboardhandler.SaveText();
                     }
                 }
-                else
-                {
-                    Clipboard.SetData(DataFormats.Bitmap, tmpbitmap);
-
-                }
-                //bitmap = null;
+                //bitmap = null;aaa
 
                 ctrl1clicked = true;
             }
@@ -162,7 +173,7 @@ namespace Auto_filler
               //  }
              //   else
              //   {
-             //       Clipboard.SetDataObject(text_2);
+               Clipboard.SetDataObject(text_2);
              //   }
 
             }
