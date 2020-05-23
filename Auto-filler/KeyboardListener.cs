@@ -17,24 +17,18 @@ namespace Auto_filler
     class KeyboardListener
     {
         private const int WH_KEYBOARD_LL = 13;
-        private const int WM_SYSKEYDOWN = 0x0104;
+        //private const int WM_SYSKEYDOWN = 0x0104;
         private const int WM_SYSKEYUP = 0x0105;
         private const int WM_KEYUP = 0x0101;
       
         private bool ctrl1clicked = false, ctrl2clicked = false;
         string text_1 = "", text_2 = "", text_3 = "", tmp1 = "";
         ClipboardHandler clipboardhandler = new ClipboardHandler();
-        BitmapSource bitmap;
-        BitmapSource tmpbitmap, tmpbitmap2, tmpbitmap3;
-        IDataObject d, c, tmp_clipboard;
-        DataObject doo = new DataObject();
-        DataObject coo = new DataObject();
+        IDataObject tmp_clipboard;
         DataObject clipboard_1 = new DataObject("");
         DataObject clipboard_2 = new DataObject("");
         DataObject clipboard_3 = new DataObject("");
-        DataObject tmpclipboard = new DataObject();
-
-        bool isImage = false, isImage2 = false;
+        DataObject actualclipboard = new DataObject();
 
         string _link;
         CatchLink cl = new CatchLink();
@@ -94,8 +88,6 @@ namespace Auto_filler
                 ScreenShot();
                 LinkButton();
                 saveImg();
-              //  test();
-               // test2();
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
@@ -108,36 +100,8 @@ namespace Auto_filler
                 clipboard_3 = clipboard_2;
                 clipboard_2 = clipboard_1;
                 clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
-                //  d = Clipboard.GetDataObject();
-
-                //tmpbitmap2 = (BitmapSource)d.GetData(DataFormats.Bitmap);
             }
         }
-
-
-        //format IdataObject to DataObject
-
-     //   public void test()
-     //   {
-        //    if (Keyboard.IsKeyDown(Key.D))
-       //     {
-        //        doo = ReadClipboard(d);
-       //         coo = doo;
-       //         //string dd = doo.GetData(DataFormats.Text).ToString();      //content
-      //          UpdateClipboard(doo);
-                //MessageBox.Show(dd);
-    //        }
-    //    }
-
-     //   private void test2()
-       // {
-        //    if (Keyboard.IsKeyDown(Key.S))
-       //     {
-               // string dd = coo.GetData(DataFormats.Text).ToString();      //content
-       //         UpdateClipboard(coo);
-               // MessageBox.Show(dd);
-     //       }
-    //    }
 
         private void SaveMultiClipboard()
         {
@@ -147,10 +111,11 @@ namespace Auto_filler
           && Keyboard.IsKeyDown(Key.C) && ctrl1clicked == false && ctrl2clicked == false)
             {
                 tmp_clipboard = Clipboard.GetDataObject();
-                tmpclipboard = clipboardhandler.ReadClipboard(tmp_clipboard);
+                actualclipboard = clipboardhandler.ReadClipboard(tmp_clipboard);
+                //checking if clipboard has new value(is marked)
                 tmp1 = Clipboard.GetText();
 
-                if (tmpclipboard.Equals(clipboard_1) || tmpclipboard.Equals(clipboard_2) || tmpclipboard.Equals(clipboard_3) || tmp1 == "" || tmp1 == text_2 || tmp1 == text_3 || tmp1 == text_1)
+                if (actualclipboard.Equals(clipboard_1) || actualclipboard.Equals(clipboard_2) || actualclipboard.Equals(clipboard_3) || tmp1 == "" || tmp1 == text_2 || tmp1 == text_3 || tmp1 == text_1)
                 {
                     clipboardhandler.UpdateClipboard(clipboard_1);
                 }
@@ -163,7 +128,6 @@ namespace Auto_filler
                     text_2 = text_1;
                     text_1 = clipboardhandler.SaveText();
                 }
-                //bitmap = null;aaa
 
                 ctrl1clicked = true;
             }
@@ -182,7 +146,6 @@ namespace Auto_filler
             {
                 ctrl2clicked = true;
                 clipboardhandler.UpdateClipboard(clipboard_2);
-
             }
             else if (Keyboard.IsKeyUp(Key.C)
           && Keyboard.IsKeyUp(Key.LeftCtrl)
@@ -203,7 +166,6 @@ namespace Auto_filler
                 ctrl1clicked = false;
             }
         }
-
 
         public void AppShow()
         {

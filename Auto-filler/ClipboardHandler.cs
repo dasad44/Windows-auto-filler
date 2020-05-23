@@ -11,13 +11,12 @@ namespace Auto_filler
 {
     class ClipboardHandler
     {
-        //Clipboard formats
+        //list of formats to exclude. Doesn't cover all possible cases but most of it.
         private static readonly string[] clipboardMetaFormats = { "application/x-moz-nativeimage", "FileContents", "EnhancedMetafile", "System.Drawing.Imaging.Metafile", "MetaFilePict", "Object Descriptor", "ObjectLink", "Link Source Descriptor", "Link Source", "Embed Source", "Hyperlink" };
         string text = "";
         public string SaveText()
         {
             text = Clipboard.GetText();
-            //Clipboard.SetDataObject(text);
             return text;
         }
 
@@ -34,7 +33,8 @@ namespace Auto_filler
             }
         }
 
-        //format IdataObject to DataObject
+        //format IDataObject to DataObject
+        //IDataObject is clearing itself while clipboard changing - we must save IDataObject data to some Object
         public DataObject ReadClipboard(IDataObject d)
         {
             DataObject result = new DataObject();
