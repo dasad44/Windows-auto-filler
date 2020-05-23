@@ -20,16 +20,20 @@ namespace Auto_filler
         //private const int WM_KEYDOWN = 0x0100;
         private const int WM_SYSKEYDOWN = 0x0104;
         private const int WM_KEYUP = 0x0101;
-        //Clipboard formats
-        private static readonly string[] clipboardMetaFormats = { "application/x-moz-nativeimage", "FileContents", "EnhancedMetafile", "System.Drawing.Imaging.Metafile", "MetaFilePict", "Object Descriptor", "ObjectLink", "Link Source Descriptor", "Link Source", "Embed Source", "Hyperlink" };
+      
         private bool ctrl1clicked = false, ctrl2clicked = false;
         string text_1 = "", text_2 = "", text_3 = "", tmp1 = "";
         ClipboardHandler clipboardhandler = new ClipboardHandler();
         BitmapSource bitmap;
         BitmapSource tmpbitmap, tmpbitmap2, tmpbitmap3;
-        IDataObject d, c, clipboard_1, clipboard_2, clipboard_3, tmp_clipboard;
+        IDataObject d, c, tmp_clipboard;
         DataObject doo = new DataObject();
         DataObject coo = new DataObject();
+        DataObject clipboard_1 = new DataObject("");
+        DataObject clipboard_2 = new DataObject("");
+        DataObject clipboard_3 = new DataObject("");
+        DataObject tmpclipboard = new DataObject();
+
         bool isImage = false, isImage2 = false;
 
         string _link;
@@ -90,77 +94,50 @@ namespace Auto_filler
                 ScreenShot();
                 LinkButton();
                 saveImg();
-                test();
-                test2();
+              //  test();
+               // test2();
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
 
         private void saveImg()
         {
-            if (Keyboard.IsKeyDown(Key.PrintScreen))
+            if (Keyboard.IsKeyDown(Key.PrintScreen) || Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.LeftAlt) || Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.RightAlt))
             {
-                bitmap = Clipboard.GetImage();
+                tmp_clipboard = Clipboard.GetDataObject();
+                clipboard_3 = clipboard_2;
+                clipboard_2 = clipboard_1;
+                clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
                 //  d = Clipboard.GetDataObject();
 
                 //tmpbitmap2 = (BitmapSource)d.GetData(DataFormats.Bitmap);
             }
         }
+
+
         //format IdataObject to DataObject
-        private DataObject ReadClipboard(IDataObject d)
-        {
-            DataObject result = new DataObject();
-            d = Clipboard.GetDataObject();
-            string[] formats = d.GetFormats()?.Except(clipboardMetaFormats).ToArray() ?? Array.Empty<string>();
-            foreach (string format in formats)
-            {
-                try
-                {
-                    object data = d.GetData(format);
-                    if (data != null) result.SetData(format, data);
-                }
-                catch (ExternalException ex)
-                {
-                    Debug.WriteLine($"Error {ex.ErrorCode}: {ex.Message}");
-                }
-            }
-            return result;
-        }
 
-        private void UpdateClipboard(DataObject data)
-        {
-            if (data == null) return;
-            try
-            {
-                Clipboard.SetDataObject(data);
-            }
-            catch (ExternalException ex)
-            {
-                Debug.WriteLine($"Error {ex.ErrorCode}: {ex.Message}");
-            }
-        }
+     //   public void test()
+     //   {
+        //    if (Keyboard.IsKeyDown(Key.D))
+       //     {
+        //        doo = ReadClipboard(d);
+       //         coo = doo;
+       //         //string dd = doo.GetData(DataFormats.Text).ToString();      //content
+      //          UpdateClipboard(doo);
+                //MessageBox.Show(dd);
+    //        }
+    //    }
 
-
-        public void test()
-        {
-            if (Keyboard.IsKeyDown(Key.D))
-            {
-                doo = ReadClipboard(d);
-                coo = doo;
-                string dd = doo.GetData(DataFormats.Text).ToString();      //content
-                MessageBox.Show(dd);
-            }
-        }
-
-        private void test2()
-        {
-            if (Keyboard.IsKeyDown(Key.S))
-            {
-                string dd = coo.GetData(DataFormats.Text).ToString();      //content
-
-                MessageBox.Show(dd);
-            }
-        }
+     //   private void test2()
+       // {
+        //    if (Keyboard.IsKeyDown(Key.S))
+       //     {
+               // string dd = coo.GetData(DataFormats.Text).ToString();      //content
+       //         UpdateClipboard(coo);
+               // MessageBox.Show(dd);
+     //       }
+    //    }
 
         private void SaveMultiClipboard()
         {
@@ -170,21 +147,22 @@ namespace Auto_filler
           && Keyboard.IsKeyDown(Key.C) && ctrl1clicked == false && ctrl2clicked == false)
             {
                 tmp_clipboard = Clipboard.GetDataObject();
+                tmpclipboard = clipboardhandler.ReadClipboard(tmp_clipboard);
+                tmp1 = Clipboard.GetText();
 
-                if (tmp_clipboard == null || tmp_clipboard == clipboard_1 || tmp_clipboard == clipboard_2 || tmp_clipboard == clipboard_3)
+                if (tmpclipboard.Equals(clipboard_1) || tmpclipboard.Equals(clipboard_2) || tmpclipboard.Equals(clipboard_3) || tmp1 == "" || tmp1 == text_2 || tmp1 == text_3 || tmp1 == text_1)
                 {
-                    Clipboard.SetDataObject(text_1);
+                    clipboardhandler.UpdateClipboard(clipboard_1);
                 }
                 else
                 {
                     clipboard_3 = clipboard_2;
                     clipboard_2 = clipboard_1;
-                    clipboard_1 = Clipboard.GetDataObject();
-                    text_1 = clipboard_1.GetData(DataFormats.Text).ToString();
-                    
+                    clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
+                    text_3 = text_2;
+                    text_2 = text_1;
+                    text_1 = clipboardhandler.SaveText();
                 }
-
-
                 //bitmap = null;aaa
 
                 ctrl1clicked = true;
@@ -203,8 +181,7 @@ namespace Auto_filler
           && Keyboard.IsKeyDown(Key.C) && ctrl1clicked == true && ctrl2clicked == false)
             {
                 ctrl2clicked = true;
-                text_2 = clipboard_2.GetData(DataFormats.Text).ToString();
-                Clipboard.SetDataObject(text_2);
+                clipboardhandler.UpdateClipboard(clipboard_2);
 
             }
             else if (Keyboard.IsKeyUp(Key.C)
@@ -221,8 +198,7 @@ namespace Auto_filler
           && Keyboard.IsKeyDown(Key.C) && ctrl2clicked == true && ctrl2clicked == true)
             {
                 //text_1 = clipboardhandler.SaveText();
-                text_3 = clipboard_3.GetData(DataFormats.Text).ToString();
-                Clipboard.SetDataObject(text_3);
+                clipboardhandler.UpdateClipboard(clipboard_3);
                 ctrl2clicked = false;
                 ctrl1clicked = false;
             }
