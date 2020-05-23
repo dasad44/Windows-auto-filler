@@ -17,8 +17,8 @@ namespace Auto_filler
     class KeyboardListener
     {
         private const int WH_KEYBOARD_LL = 13;
-        //private const int WM_KEYDOWN = 0x0100;
         private const int WM_SYSKEYDOWN = 0x0104;
+        private const int WM_SYSKEYUP = 0x0105;
         private const int WM_KEYUP = 0x0101;
       
         private bool ctrl1clicked = false, ctrl2clicked = false;
@@ -87,7 +87,7 @@ namespace Auto_filler
         //main function
         private IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (nCode >= 0 && wParam == (IntPtr)WM_KEYUP || wParam == (IntPtr)WM_SYSKEYDOWN)
+            if (nCode >= 0 && wParam == (IntPtr)WM_KEYUP || wParam == (IntPtr)WM_SYSKEYUP)
             {
                 SaveMultiClipboard();
                 AppShow();
@@ -102,7 +102,7 @@ namespace Auto_filler
 
         private void saveImg()
         {
-            if (Keyboard.IsKeyDown(Key.PrintScreen) || Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.LeftAlt) || Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.RightAlt))
+            if (Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.LeftAlt) || Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.RightAlt) || Keyboard.IsKeyDown(Key.PrintScreen))
             {
                 tmp_clipboard = Clipboard.GetDataObject();
                 clipboard_3 = clipboard_2;
