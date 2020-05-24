@@ -66,6 +66,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CatchLink.cs" />
+    <Compile Include="ScreenshotAutoDelete.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="RegistryOnOff.cs" />
     <Compile Include="ScreenshotSave.cs" />
