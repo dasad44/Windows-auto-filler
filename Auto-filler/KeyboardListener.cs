@@ -20,7 +20,7 @@ namespace Auto_filler
         //private const int WM_SYSKEYDOWN = 0x0104;
         private const int WM_SYSKEYUP = 0x0105;
         private const int WM_KEYUP = 0x0101;
-      
+
         private bool ctrl1clicked = false, ctrl2clicked = false;
         string text_1 = "", text_2 = "", text_3 = "", tmp1 = "";
         ClipboardHandler clipboardhandler = new ClipboardHandler();
@@ -134,7 +134,9 @@ namespace Auto_filler
             else if (Keyboard.IsKeyUp(Key.C)
           && Keyboard.IsKeyUp(Key.LeftCtrl)
           || Keyboard.IsKeyUp(Key.RightCtrl)
-          && Keyboard.IsKeyUp(Key.C))
+          && Keyboard.IsKeyUp(Key.C)
+          || Keyboard.IsKeyUp(Key.LeftCtrl)
+          || Keyboard.IsKeyUp(Key.C))
             {
                 ctrl1clicked = false;
                 ctrl2clicked = false;
@@ -150,7 +152,9 @@ namespace Auto_filler
             else if (Keyboard.IsKeyUp(Key.C)
           && Keyboard.IsKeyUp(Key.LeftCtrl)
           || Keyboard.IsKeyUp(Key.RightCtrl)
-          && Keyboard.IsKeyUp(Key.C))
+          && Keyboard.IsKeyUp(Key.C) 
+          || Keyboard.IsKeyUp(Key.LeftCtrl)
+          || Keyboard.IsKeyUp(Key.C))
             {
                 ctrl1clicked = false;
                 ctrl2clicked = false;
