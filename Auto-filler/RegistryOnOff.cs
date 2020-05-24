@@ -19,8 +19,15 @@ namespace Auto_filler
 
         public void AutoStartOff()
         {
-            reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            reg.DeleteValue("Auto filler");
+            try
+            {
+                reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                reg.DeleteValue("Auto filler");
+            }
+            catch (ArgumentException e)
+            {
+
+            }
         }
     }
 }
