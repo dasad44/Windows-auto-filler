@@ -22,6 +22,7 @@ namespace Auto_filler
     public partial class MainWindow : Window
     {
         private KeyboardListener _listener;
+        private ScreenshotAutoDelete _autoDelete;
         public static bool ScreenShot;
         public static String path;
         public static System.Windows.Point pos;
@@ -52,6 +53,10 @@ namespace Auto_filler
             _listener = new KeyboardListener(this);
             _listener.OnKeyPressed += _listener_OnKeyPressed;
             _listener.HookKeyboard();
+            _autoDelete = new ScreenshotAutoDelete();
+            _autoDelete.AutoDelete();
+            SaverDirectory.Text = Properties.Settings.Default.Ścieżka;
+
         }
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
@@ -79,6 +84,8 @@ namespace Auto_filler
             {
                 SaverDirectory.Text = fbd.SelectedPath;
                 path = SaverDirectory.Text;
+                Properties.Settings.Default.Ścieżka = path;
+                Properties.Settings.Default.Save();
             }
         }
 
