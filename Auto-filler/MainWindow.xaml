@@ -5,15 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_filler"
         mc:Ignorable="d"
-        Title="Windows Auto Filler" Height="450" Width="800" Loaded="Window_Loaded" MouseMove="Window_MouseMove">
+        Title="Windows Auto Filler" Height="435.326" Width="800" Loaded="Window_Loaded" MouseMove="Window_MouseMove">
     <StackPanel>
         <Grid Height="50" Background="DarkRed">
-            <TextBlock TextAlignment="Center" FontFamily="Retro" FontSize="30">WINDOWS AUTO FILLER</TextBlock>
+            <TextBlock TextAlignment="Center" FontFamily="Retro" FontSize="30"></TextBlock>
         </Grid>
-        <Grid>
-
-
-            <TabControl TabStripPlacement="Left" BorderThickness="2">
+        <Grid Height="355">
+            <TabControl TabStripPlacement="Left" BorderThickness="2" Background="#fcfcfd">
                 <TabItem Width="150" Height="70" Header="Properties">
                     <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5">
                         <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="17,0,0,0" VerticalAlignment="Top" Width="99" Height="34" Click="HideButton_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
@@ -45,15 +43,7 @@
                     </UniformGrid>
 
                 </TabItem>
-                <TabItem Width="150" Height="70" Header="Feature 4">
-
-                </TabItem>
             </TabControl>
-
-
-
-
-
         </Grid>
 
     </StackPanel>
