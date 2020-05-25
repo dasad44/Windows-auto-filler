@@ -182,7 +182,6 @@ namespace Auto_filler
 
         public void ScreenShot()
         {
-
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.S))
             {
                 _screenSave = new ScreenshotSave();

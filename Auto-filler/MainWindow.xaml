@@ -24,7 +24,7 @@
                     </UniformGrid>
                 </TabItem>
 
-                <TabItem Width="150" Height="70" Header="Feature 1">
+                <TabItem Width="150" Height="70" Header="Save Screenshot">
                     <UniformGrid Columns="1">
                         <DockPanel>
                             <Button x:Name="SaverDirectoryButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="SaverDirectoryButton_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
@@ -33,13 +33,13 @@
                     </UniformGrid>
                 </TabItem>
 
-                <TabItem Width="150" Height="70" Header="Feature 2">
+                <TabItem Width="150" Height="70" Header="Multi Clipboard">
                     <UniformGrid Columns="1">
 
                     </UniformGrid>
 
                 </TabItem>
-                <TabItem Width="150" Height="70" Header="Feature 3">
+                <TabItem Width="150" Height="70" Header="Snipping Tool">
                     <UniformGrid Columns="1">
 
                     </UniformGrid>
