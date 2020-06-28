@@ -5,25 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_filler"
         mc:Ignorable="d"
-        Title="Windows Auto Filler" Height="435.326" Width="800" Loaded="Window_Loaded" MouseMove="Window_MouseMove">
-    <StackPanel>
-        <Grid Height="50" Background="DarkRed">
-            <TextBlock TextAlignment="Center" FontFamily="Retro" FontSize="30"></TextBlock>
-        </Grid>
+        Title="Windows Auto Filler" Height="362" Width="803.333" Loaded="Window_Loaded" MouseMove="Window_MouseMove" WindowStyle="None">
+    <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
             <TabControl TabStripPlacement="Left" BorderThickness="2" Background="#fcfcfd">
-                <TabItem Width="150" Height="70" Header="Properties">
+                <TabItem Width="150" Height="70" Header="Properties" Background="#2a2a29" Foreground="White">
                     <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5">
+                        <Grid Height="13" Background="#cb1b42" Margin="0,0,0,44"/>
                         <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="17,0,0,0" VerticalAlignment="Top" Width="99" Height="34" Click="HideButton_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
-                        <Button x:Name="AutoTurnon" Content="Uruchamiaj przy&#xD;&#xA;starcie systemu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124"  Height="35" Click="AutoTurnon_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
-                        <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xD;&#xA;przy starcie systemu" VerticalAlignment="Center" Width="161" Height="37" Click="TurningOff_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
+                        <Button x:Name="AutoTurnon" Content="Uruchamiaj przy&#xA;starcie systemu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124"  Height="35" Click="AutoTurnon_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
+                        <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xA;przy starcie systemu" VerticalAlignment="Center" Width="161" Height="37" Click="TurningOff_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
                         <Button x:Name="ValueSaver" Content="Zapisz" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="ValueSaver_Click" Grid.Column="2"/>
                         <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="48"  TextWrapping="Wrap" VerticalAlignment="Top" Width="129" TextChanged="ValueHolder_TextChanged"/>
                     </UniformGrid>
                 </TabItem>
 
-                <TabItem Width="150" Height="70" Header="Save Screenshot">
+                <TabItem Width="150" Height="70" Header="Save Screenshot" Background="#2a2a29" Foreground="White">
                     <UniformGrid Columns="1">
+                        <Grid Height="13" Background="#cb1b42" Margin="0,0,0,160"/>
                         <DockPanel>
                             <Button x:Name="SaverDirectoryButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="SaverDirectoryButton_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
                             <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Width="222"  Grid.ColumnSpan="3" Grid.Column="1"/>
@@ -31,17 +30,22 @@
                     </UniformGrid>
                 </TabItem>
 
-                <TabItem Width="150" Height="70" Header="Multi Clipboard">
+                <TabItem Width="150" Height="70" Header="Multi Clipboard" Background="#2a2a29" Foreground="White">
                     <UniformGrid Columns="1">
-
+                        <Grid Height="13" Background="#cb1b42" Margin="0,0,0,333"/>
                     </UniformGrid>
 
                 </TabItem>
-                <TabItem Width="150" Height="70" Header="Snipping Tool">
+                <TabItem Width="150" Height="70" Header="Snipping Tool" Background="#2a2a29" Foreground="White">
                     <UniformGrid Columns="1">
-
+                        <Grid Height="13" Background="#cb1b42" Margin="0,0,0,334"/>
                     </UniformGrid>
 
+                </TabItem>
+                <TabItem Width="150" Height="70" Foreground="White" Background="#2a2a29">
+                    <UniformGrid Columns="1">
+                        <Grid Height="13" Background="#cb1b42" Margin="0,0,0,333"/>
+                    </UniformGrid>
                 </TabItem>
             </TabControl>
         </Grid>
