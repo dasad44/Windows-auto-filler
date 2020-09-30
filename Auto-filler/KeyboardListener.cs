@@ -178,14 +178,32 @@ namespace Auto_filler
                 Mainwindow.Show();
             }
         }
+
+        private System.Windows.Point mouseStart;
+        private System.Windows.Point mouseEnd;
         private ScreenshotSave _screenSave;
 
         public void ScreenShot()
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.S))
             {
+
+                if (MainWindow.leftButton == true)
+                {
+                    MessageBox.Show("The Left Mouse Button is pressed");
+                }
+                if (MainWindow.leftButton == true)
+                {
+                    MessageBox.Show("yes");
+                    mouseStart = MainWindow.pos;
+                    while (MainWindow.leftButton == true)
+                    {
+                        mouseStart = MainWindow.pos;
+                    }
+                }
+                
                 _screenSave = new ScreenshotSave();
-                _screenSave.CaptureMyScreen();
+                _screenSave.CaptureMyScreen(mouseStart, mouseEnd);
             }
         }
         public void CatchLink(string link)

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_filler"
         mc:Ignorable="d"
-        Title="Windows Auto Filler" Height="362" Width="803.333" Loaded="Window_Loaded" MouseMove="Window_MouseMove" WindowStyle="None">
+        Title="Windows Auto Filler" Height="362" Width="803.333" Loaded="Window_Loaded" WindowStyle="None">
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
             <TabControl TabStripPlacement="Left" BorderThickness="2" Background="#fcfcfd">
@@ -22,11 +22,45 @@
 
                 <TabItem Width="150" Height="70" Header="Save Screenshot" Background="#2a2a29" Foreground="White">
                     <UniformGrid Columns="1">
-                        <Grid Height="13" Background="#cb1b42" Margin="0,0,0,160"/>
-                        <DockPanel>
+                        <Grid Background="#cb1b42" Width="631" Margin="0,0,0,55"/>
+                        <DockPanel RenderTransformOrigin="0.509,-0.093" Margin="0,-68,0,91">
+                            <CheckBox x:Name="ScreenshotCheck" Content="ScreenShot ON" Height="18" VerticalAlignment="Top" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="0,45,0,-17"/>
+                        </DockPanel>
+                        <DockPanel Margin="0,-68,0,0" Height="39" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
                             <Button x:Name="SaverDirectoryButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="SaverDirectoryButton_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
                             <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Width="222"  Grid.ColumnSpan="3" Grid.Column="1"/>
+                            <Button x:Name="ListRefresh" Content="Odśwież"  VerticalAlignment="Top" Width="75"  Click="ListRefresh_Click" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.947,0.364"/>
+                            <Button x:Name="CancelDeleteList" Content="Button"  VerticalAlignment="Top" Width="75" Click="CancelDeleteList_Click" Grid.ColumnSpan="5" Grid.Column="1" RenderTransformOrigin="1.467,0.409"/>
                         </DockPanel>
+                        <DockPanel Margin="10,-72,0,0" Height="34" VerticalAlignment="Top">
+                            <Button x:Name="AllScreenList" Content="All" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"  Click="AllScreenList_Click"/>
+                            <Button x:Name="ImportantScreenList" Content="Important" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"  Click="ImportantScreenList_Click"/>
+                            <Button x:Name="TempScreenList" Content="Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="TempScreenList_Click"/>
+                        </DockPanel>
+                        <DockPanel Margin="0,-116,0,0" Height="173" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
+                            <ListBox x:Name="SaverListView"
+                                ItemsSource="{Binding Items}"
+                                HorizontalAlignment="Right"
+                                SelectionMode="Multiple" Width="628" Height="174" VerticalAlignment="Bottom">
+                                <ListBox.Resources>
+                                    <Style TargetType="{x:Type ListBoxItem}">
+                                        <Setter Property="OverridesDefaultStyle" Value="true" />
+                                        <Setter Property="SnapsToDevicePixels" Value="true" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                                    <CheckBox Margin="5,2"
+                                          IsChecked="{Binding IsSelected,RelativeSource={RelativeSource TemplatedParent}}">
+                                                        <ContentPresenter />
+                                                    </CheckBox>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListBox.Resources>
+                            </ListBox>
+                        </DockPanel>
+
                     </UniformGrid>
                 </TabItem>
 

@@ -22,8 +22,9 @@ namespace Auto_filler
     public partial class MainWindow : Window
     {
         private KeyboardListener _listener;
-       // private ScreenshotAutoDelete _autoDelete;
+        private ScreenshotAutoDelete _autoDelete;
         public static bool ScreenShot;
+        public static bool leftButton;
         public static String path;
         public static System.Windows.Point pos;
         RegistryOnOff regis = new RegistryOnOff();
@@ -53,26 +54,121 @@ namespace Auto_filler
             _listener = new KeyboardListener(this);
             _listener.OnKeyPressed += _listener_OnKeyPressed;
             _listener.HookKeyboard();
-        //    _autoDelete = new ScreenshotAutoDelete();
-        //    _autoDelete.AutoDelete();
+            _autoDelete = new ScreenshotAutoDelete();
+            _autoDelete.AutoDelete();
             SaverDirectory.Text = Properties.Settings.Default.Ścieżka;
-
+            AllList();
         }
-        private void Window_MouseMove(object sender, MouseEventArgs e)
+        
+        private void Timer_(object sender, MouseEventArgs e)
         {
             pos = e.GetPosition(this);
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                leftButton = true;
+                MessageBox.Show("dasda");
+            }
+            else if (e.LeftButton == MouseButtonState.Released)
+            {
+                leftButton = false;
+                MessageBox.Show("hoy");
+            }
+        }
+        public void AllList()
+        {
+            SaverListView.Items.Clear();
+            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.Ścieżka);
+            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
+            foreach (FileInfo file in Files)
+            {
+                SaverListView.Items.Add(file.Name);
+            }
+            string path = Properties.Settings.Default.Ścieżka + "\\AutoFiller-Important";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            dinfo = new DirectoryInfo(@path);
+            Files = dinfo.GetFiles("AutoFiller*.jpg");
+            foreach (FileInfo file in Files)
+            {
+                SaverListView.Items.Add(file.Name);
+            }
+        }
+        public void ImportantList()
+        {
+            SaverListView.Items.Clear();
+            string path = Properties.Settings.Default.Ścieżka + "\\AutoFiller-Important";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            DirectoryInfo dinfo = new DirectoryInfo(path);
+            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
+            foreach (FileInfo file in Files)
+            {
+                SaverListView.Items.Add(file.Name);
+            }
+        }
+        public void TempList()
+        {
+            SaverListView.Items.Clear();
+            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.Ścieżka);
+            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
+            foreach (FileInfo file in Files)
+            {
+                SaverListView.Items.Add(file.Name);
+            }
+        }
+        private void CancelDeleteList_Click(object sender, RoutedEventArgs e)
+        {
+            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.Ścieżka);
+            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
+            string path = Properties.Settings.Default.Ścieżka + "\\AutoFiller-Important";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            for (int i = 0; i < SaverListView.SelectedItems.Count; i++)
+            {
+                var list = SaverListView.SelectedItems;
+                string sourceFile = System.IO.Path.Combine(@Properties.Settings.Default.Ścieżka, list[i].ToString());
+                string destFile = System.IO.Path.Combine(path, list[i].ToString());
+                File.Move(sourceFile, destFile);
+            }
+        }
+        private void ListRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            AllList();
+        }
+        private void AllScreenList_Click(object sender, RoutedEventArgs e)
+        {
+            AllList();
+        }
+        private void ImportantScreenList_Click(object sender, RoutedEventArgs e)
+        {
+            ImportantList();
+        }
+        private void TempScreenList_Click(object sender, RoutedEventArgs e)
+        {
+            TempList();
         }
         private void ScreenshotCheck_Checked(object sender, RoutedEventArgs e)
         {
             ScreenShot = true;
             SaverDirectory.Visibility = Visibility.Visible;
             SaverDirectoryButton.Visibility = Visibility.Visible;
+            SaverListView.Visibility = Visibility.Visible;
+            ListRefresh.Visibility = Visibility.Visible;
         }
         private void ScreenshotCheck_Unchecked(object sender, RoutedEventArgs e)
         {
             ScreenShot = false;
             SaverDirectory.Visibility = Visibility.Hidden;
             SaverDirectoryButton.Visibility = Visibility.Hidden;
+            SaverListView.Visibility = Visibility.Hidden;
+            ListRefresh.Visibility = Visibility.Hidden;
         }
         private void SaverDirectoryButton_Click(object sender, RoutedEventArgs e)
         {
@@ -88,7 +184,7 @@ namespace Auto_filler
                 Properties.Settings.Default.Save();
             }
         }
-
+        
 
         private void ValueSaver_Click(object sender, RoutedEventArgs e)
         {
@@ -112,5 +208,7 @@ namespace Auto_filler
             regis.AutoStartOff();
             MessageBox.Show("Udało się!");
         }
+
+        
     }
 }

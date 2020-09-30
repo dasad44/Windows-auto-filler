@@ -25,7 +25,7 @@ namespace Auto_filler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("@Environment.GetFolderPath(Environment.SpecialFolder.Desktop)")]
         public string Ścieżka {
             get {
                 return ((string)(this["Ścieżka"]));

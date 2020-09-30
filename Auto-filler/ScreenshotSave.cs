@@ -20,10 +20,11 @@ namespace Auto_filler
 {
     class ScreenshotSave
     {
-        //string path = @Environment.GetFolderPath(Environment.SpecialFolder.Desktop); 
-        public void CaptureMyScreen()
-
+       
+    public void CaptureMyScreen(System.Windows.Point mouseStart,
+        System.Windows.Point mouseEnd)
         {
+            
             if (MainWindow.ScreenShot)
             {
                 try
@@ -69,7 +70,7 @@ namespace Auto_filler
                     Graphics captureGraphics = Graphics.FromImage(captureBitmap);
                     captureGraphics.CopyFromScreen(captureRectangle.Left, captureRectangle.Top, 0, 0, captureRectangle.Size);
                     captureBitmap.Save(@path, ImageFormat.Jpeg);
-                    MessageBox.Show("Screen Captured " + X + " " + Date);
+                    MessageBox.Show("Screen Captured " + X + " " + Date + "ssss" + mouseStart + " ss " + mouseEnd);
                     Process photoViewer = new Process();
                     photoViewer.StartInfo.FileName = @path;
                     photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
@@ -81,5 +82,8 @@ namespace Auto_filler
                 }
             }
         }
+       
+
+
     }
 }
