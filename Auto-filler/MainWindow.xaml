@@ -5,24 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_filler"
         mc:Ignorable="d"
-        Title="Windows Auto Filler" Height="332.087" Width="803" Loaded="Window_Loaded" WindowStyle="None" AllowsTransparency="True">
+        Title="Windows Auto Filler" Height="351.087" Width="803" Loaded="Window_Loaded" WindowStyle="None" AllowsTransparency="True">
+    <Window.Resources>
+        <SolidColorBrush x:Key="MenuBrush" Color="#2a2a29"/>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border 
+                                Name="Border"
+                                Margin="0,0,-4,0" 
+                                Background="{StaticResource MenuBrush}"
+                                BorderThickness="1,1,1,1">
+                                <ContentPresenter x:Name="ContentSite"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    ContentSource="Header"
+                                    Margin="12,2,12,2"
+                                    RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource MenuBrush}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
-            <TabControl TabStripPlacement="Left" BorderThickness="2" Background="#fcfcfd" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,-0.333,0">
-                <TabItem BorderBrush="Transparent" Width="150" Height="70" Header="Properties" Background="#2a2a29" Foreground="White" Margin="-4 -4 4 4">
-                    <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5">
-                        <Grid Height="13" Background="#cb1b42" Margin="0,0,0,44"/>
-                        <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="17,0,0,0" VerticalAlignment="Top" Width="99" Height="34" Click="HideButton_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
+            <TabControl TabStripPlacement="Left" BorderThickness="2" Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,-2,0">
+                <TabItem BorderBrush="Transparent" Height="60" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-4,-42,4">
+                    <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5" Margin="41,0,0,0">
+                        <Grid Background="#cb1b42" Margin="-4,-4,-4,52.5"/>
+                        <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top" Width="99" Height="34" Click="HideButton_Click"/>
                         <Button x:Name="AutoTurnon" Content="Uruchamiaj przy&#xA;starcie systemu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124"  Height="35" Click="AutoTurnon_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
                         <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xA;przy starcie systemu" VerticalAlignment="Center" Width="161" Height="37" Click="TurningOff_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
                         <Button x:Name="ValueSaver" Content="Zapisz" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="ValueSaver_Click" Grid.Column="2"/>
-                        <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="48"  TextWrapping="Wrap" VerticalAlignment="Top" Width="129" TextChanged="ValueHolder_TextChanged"/>
+                        <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="48"  TextWrapping="Wrap" VerticalAlignment="Top" Width="129" TextChanged="ValueHolder_TextChanged" Margin="80,0,0,0"/>
                     </UniformGrid>
                 </TabItem>
 
-                <TabItem BorderBrush="Transparent" Width="150" Height="70" Header="Save Screenshot" Background="#2a2a29" Foreground="White" Margin="-4 -7 4 7">
-                    <UniformGrid Columns="1">
-                        <Grid Background="#cb1b42" Width="631" Margin="0,0,0,55"/>
+                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="ScreenShot" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-7,-42,0" VerticalAlignment="Top">
+                    <UniformGrid Columns="1" Margin="41,0,0,0">
+                        <Grid Background="#cb1b42" Margin="-4,-4,-4,64"/>
                         <DockPanel RenderTransformOrigin="0.509,-0.093" Margin="0,-68,0,91">
                             <CheckBox x:Name="ScreenshotCheck" Content="ScreenShot ON" Height="18" VerticalAlignment="Top" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="0,45,0,-17"/>
                         </DockPanel>
@@ -64,21 +96,26 @@
                     </UniformGrid>
                 </TabItem>
 
-                <TabItem BorderBrush="Transparent" Width="150" Height="70" Header="Multi Clipboard" Background="#2a2a29" Foreground="White" Margin="-4 -11 4 11">
-                    <UniformGrid Columns="1">
-                        <Grid Height="13" Background="#cb1b42" Margin="0,0,0,333"/>
+                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-11,-42,11">
+                    <UniformGrid Columns="1" Margin="41,0,0,0">
+                        <Grid Height="13" Background="#cb1b42" Margin="-1,-4,-4,341.6"/>
                     </UniformGrid>
 
                 </TabItem>
-                <TabItem BorderBrush="Transparent" Width="150" Height="70" Header="Snipping Tool" Background="#2a2a29" Foreground="White" Margin="-4 -15 4 15">
-                    <UniformGrid Columns="1">
-                        <Grid Height="13" Background="#cb1b42" Margin="0,0,0,334"/>
+                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-42,15">
+                    <UniformGrid Columns="1" Margin="41,0,0,0">
+                        <Grid Height="13" Background="#cb1b42" Margin="-1,-4,-4,341.6"/>
                     </UniformGrid>
 
                 </TabItem>
-                <TabItem BorderBrush="Transparent" Width="150" Height="70" Header="PageHotKey" Foreground="White" Background="#2a2a29" Margin="-4 -19 4 19">
-                    <UniformGrid Columns="1">
-                        <Grid Height="13" Background="#cb1b42" Margin="0,0,0,333"/>
+                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="   Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-3,-19,-42,19">
+                    <UniformGrid Columns="1" Margin="41,0,0,0">
+                        <Grid Height="13" Background="#cb1b42" Margin="-1,-4,-4,341.6"/>
+                    </UniformGrid>
+                </TabItem>
+
+                <TabItem BorderBrush="Transparent" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-22,-42,-39">
+                    <UniformGrid Columns="1" Margin="41,0,0,0">
                     </UniformGrid>
                 </TabItem>
             </TabControl>
