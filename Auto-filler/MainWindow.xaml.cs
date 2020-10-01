@@ -209,6 +209,9 @@ namespace Auto_filler
             MessageBox.Show("Udało się!");
         }
 
-        
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
