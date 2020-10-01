@@ -21,7 +21,7 @@ namespace Auto_filler
 {
     class ScreenshotAutoDelete
     {
-        readonly string[] filePaths = Directory.GetFiles(@Properties.Settings.Default.Ścieżka, "AutoFiller*.jpg");
+        readonly string[] filePaths = Directory.GetFiles(@Properties.Settings.Default.ScreenPath, "AutoFiller*.jpg");
         public void AutoDelete()
         {
             foreach (string element in filePaths)

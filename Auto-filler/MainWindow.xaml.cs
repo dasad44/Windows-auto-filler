@@ -56,7 +56,7 @@ namespace Auto_filler
             _listener.HookKeyboard();
             _autoDelete = new ScreenshotAutoDelete();
             _autoDelete.AutoDelete();
-            SaverDirectory.Text = Properties.Settings.Default.Ścieżka;
+            SaverDirectory.Text = Properties.Settings.Default.ScreenPath;
             AllList();
         }
         
@@ -78,13 +78,13 @@ namespace Auto_filler
         public void AllList()
         {
             SaverListView.Items.Clear();
-            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.Ścieżka);
+            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
             FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
             foreach (FileInfo file in Files)
             {
                 SaverListView.Items.Add(file.Name);
             }
-            string path = Properties.Settings.Default.Ścieżka + "\\AutoFiller-Important";
+            string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-Important";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -99,7 +99,7 @@ namespace Auto_filler
         public void ImportantList()
         {
             SaverListView.Items.Clear();
-            string path = Properties.Settings.Default.Ścieżka + "\\AutoFiller-Important";
+            string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-Important";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -114,7 +114,7 @@ namespace Auto_filler
         public void TempList()
         {
             SaverListView.Items.Clear();
-            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.Ścieżka);
+            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
             FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
             foreach (FileInfo file in Files)
             {
@@ -123,9 +123,9 @@ namespace Auto_filler
         }
         private void CancelDeleteList_Click(object sender, RoutedEventArgs e)
         {
-            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.Ścieżka);
+            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
             FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
-            string path = Properties.Settings.Default.Ścieżka + "\\AutoFiller-Important";
+            string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-Important";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -133,7 +133,7 @@ namespace Auto_filler
             for (int i = 0; i < SaverListView.SelectedItems.Count; i++)
             {
                 var list = SaverListView.SelectedItems;
-                string sourceFile = System.IO.Path.Combine(@Properties.Settings.Default.Ścieżka, list[i].ToString());
+                string sourceFile = System.IO.Path.Combine(@Properties.Settings.Default.ScreenPath, list[i].ToString());
                 string destFile = System.IO.Path.Combine(path, list[i].ToString());
                 File.Move(sourceFile, destFile);
             }
@@ -180,7 +180,7 @@ namespace Auto_filler
             {
                 SaverDirectory.Text = fbd.SelectedPath;
                 path = SaverDirectory.Text;
-                Properties.Settings.Default.Ścieżka = path;
+                Properties.Settings.Default.ScreenPath = path;
                 Properties.Settings.Default.Save();
             }
         }

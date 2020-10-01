@@ -58,7 +58,7 @@ namespace Auto_filler
                     String Date = localDate.Year.ToString() + "." + Month +
                          "." + Day + "_" + Hour + "-" + Minute + "-" + Second;
 
-                    string path = Properties.Settings.Default.Ścieżka + "\\AutoFiller-" + Date + ".jpg";
+                    string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-" + Date + ".jpg";
                     double Xd = MainWindow.pos.X;
                     double Yd = MainWindow.pos.Y;
                     int X = (int)Xd;

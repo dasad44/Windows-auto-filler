@@ -26,12 +26,12 @@ namespace Auto_filler.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("@Environment.GetFolderPath(Environment.SpecialFolder.Desktop)")]
-        public string Ścieżka {
+        public string ScreenPath {
             get {
-                return ((string)(this["Ścieżka"]));
+                return ((string)(this["ScreenPath"]));
             }
             set {
-                this["Ścieżka"] = value;
+                this["ScreenPath"] = value;
             }
         }
     }
