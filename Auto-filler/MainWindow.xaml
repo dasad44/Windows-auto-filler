@@ -76,7 +76,7 @@
                     </UniformGrid>
 
                 </TabItem>
-                <TabItem Width="150" Height="70" Foreground="White" Background="#2a2a29">
+                <TabItem Width="150" Height="70" Header="PageHotKey" Foreground="White" Background="#2a2a29">
                     <UniformGrid Columns="1">
                         <Grid Height="13" Background="#cb1b42" Margin="0,0,0,333"/>
                     </UniformGrid>
