@@ -78,7 +78,7 @@ namespace Auto_filler
         public void AllList()
         {
             SaverListView.Items.Clear();
-            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
+            DirectoryInfo dinfo = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
             FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
             foreach (FileInfo file in Files)
             {
