@@ -41,8 +41,8 @@
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
             <TabControl TabStripPlacement="Left" BorderThickness="2" Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,-2,0">
-                <TabItem BorderBrush="Transparent" Height="60" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-4,-42,4">
-                    <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5" Margin="41,0,0,0">
+                <TabItem BorderBrush="Transparent" Height="60" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-4,-54,4">
+                    <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5" Margin="54,0,0,0">
                         <Grid Background="#cb1b42" Margin="-4,-4,-4,52.5"/>
                         <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top" Width="99" Height="34" Click="HideButton_Click"/>
                         <Button x:Name="AutoTurnon" Content="Uruchamiaj przy&#xA;starcie systemu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124"  Height="35" Click="AutoTurnon_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
@@ -52,8 +52,8 @@
                     </UniformGrid>
                 </TabItem>
 
-                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="ScreenShot" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-7,-42,0" VerticalAlignment="Top">
-                    <UniformGrid Columns="1" Margin="41,0,0,0">
+                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="ScreenShot" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-7,-54,0" VerticalAlignment="Top">
+                    <UniformGrid Columns="1" Margin="54,0,0,0">
                         <Grid Background="#cb1b42" Margin="-4,-4,-4,64"/>
                         <DockPanel RenderTransformOrigin="0.509,-0.093" Margin="0,-68,0,91">
                             <CheckBox x:Name="ScreenshotCheck" Content="ScreenShot ON" Height="18" VerticalAlignment="Top" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="0,45,0,-17"/>
@@ -73,7 +73,7 @@
                             <ListBox x:Name="SaverListView"
                                 ItemsSource="{Binding Items}"
                                 HorizontalAlignment="Right"
-                                SelectionMode="Multiple" Width="628" Height="174" VerticalAlignment="Bottom">
+                                SelectionMode="Multiple" Width="576" Height="174" VerticalAlignment="Bottom" Margin="0,-1,0,0">
                                 <ListBox.Resources>
                                     <Style TargetType="{x:Type ListBoxItem}">
                                         <Setter Property="OverridesDefaultStyle" Value="true" />
@@ -96,30 +96,30 @@
                     </UniformGrid>
                 </TabItem>
 
-                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-11,-42,11">
-                    <UniformGrid Columns="1" Margin="41,0,0,0">
+                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="      Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-11,-54,11">
+                    <UniformGrid Columns="1" Margin="54,0,0,0">
                         <Grid Height="13" Background="#cb1b42" Margin="-1,-4,-4,341.6"/>
                     </UniformGrid>
 
                 </TabItem>
-                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-42,15">
-                    <UniformGrid Columns="1" Margin="41,0,0,0">
+                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-54,15">
+                    <UniformGrid Columns="1" Margin="54,0,0,0">
                         <Grid Height="13" Background="#cb1b42" Margin="-1,-4,-4,341.6"/>
                     </UniformGrid>
 
                 </TabItem>
-                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="   Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-3,-19,-42,19">
-                    <UniformGrid Columns="1" Margin="41,0,0,0">
+                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="    Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-3,-19,-54,19">
+                    <UniformGrid Columns="1" Margin="54,0,0,0">
                         <Grid Height="13" Background="#cb1b42" Margin="-1,-4,-4,341.6"/>
                     </UniformGrid>
                 </TabItem>
 
-                <TabItem BorderBrush="Transparent" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-22,-42,-39">
-                    <UniformGrid Columns="1" Margin="41,0,0,0">
+                <TabItem BorderBrush="Transparent" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-22,-54,-39">
+                    <UniformGrid Columns="1" Margin="54,0,0,0">
                     </UniformGrid>
                 </TabItem>
             </TabControl>
+            <Image IsHitTestVisible="False" Source="images\screenshot.png" Width="60" Height="50" Margin="0,196,743,109"/>
         </Grid>
-
     </StackPanel>
 </Window>
