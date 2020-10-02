@@ -114,12 +114,17 @@
                     </UniformGrid>
                 </TabItem>
 
-                <TabItem BorderBrush="Transparent" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-22,-54,-39">
+                <TabItem BorderBrush="Transparent" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-21.667,-54,-39.667">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
                     </UniformGrid>
                 </TabItem>
             </TabControl>
-            <Image IsHitTestVisible="False" Source="images\screenshot.png" Width="60" Height="50" Margin="0,196,743,109"/>
+            <Image IsHitTestVisible="False" Source="images\screenshot.png" Margin="10,56,742.667,252"/>
+            <Image IsHitTestVisible="False" Source="images\multiclipboard.png" Margin="10,103,742.667,206"/>
+            <Image IsHitTestVisible="False" Source="images\snippingtool.png" Margin="7,149,742.667,162"/>
+            <Image IsHitTestVisible="False" Source="images\pagehotkey.png" Margin="11,197,738.667,116"/>
+            <Image IsHitTestVisible="False" Source="images\turnonoff.png" Margin="755,18,-0.333,310"/>
+            <Image IsHitTestVisible="False" Source="images\settings.png" Margin="721,22,43.667,313"/>
         </Grid>
     </StackPanel>
 </Window>

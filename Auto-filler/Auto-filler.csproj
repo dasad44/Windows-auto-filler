@@ -104,9 +104,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\multiclipboard.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="images\screenshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\snippingtool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\pagehotkey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\turnonoff.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
