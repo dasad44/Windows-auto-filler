@@ -44,7 +44,7 @@
                 <TabItem BorderBrush="Transparent" Height="60" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-4,-54,4">
                     <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5" Margin="54,0,0,0">
                         <Grid Background="#b20837" Margin="-4,-4,-4,52.5"/>
-                        <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top" Width="99" Height="34" Click="HideButton_Click"/>
+                        <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="190,0,0,0" VerticalAlignment="Top" Width="99" Height="34" Click="HideButton_Click"/>
                         <Button x:Name="AutoTurnon" Content="Uruchamiaj przy&#xA;starcie systemu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124"  Height="35" Click="AutoTurnon_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
                         <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xA;przy starcie systemu" VerticalAlignment="Center" Width="161" Height="37" Click="TurningOff_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
                         <Button x:Name="ValueSaver" Content="Zapisz" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="ValueSaver_Click" Grid.Column="2"/>
@@ -56,13 +56,13 @@
                     <UniformGrid Columns="1" Margin="54,0,0,0">
                         <Grid Background="#b20837" Margin="-4,-4,-4,64"/>
                         <DockPanel RenderTransformOrigin="0.509,-0.093" Margin="0,-68,0,91">
-                            <CheckBox x:Name="ScreenshotCheck" Content="ScreenShot ON" Height="18" VerticalAlignment="Top" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="0,45,0,-17"/>
+                            <CheckBox x:Name="ScreenshotCheck" Content="ScreenShot ON" Height="18" VerticalAlignment="Top" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="290,45,0,-17"/>
                         </DockPanel>
                         <DockPanel Margin="0,-68,0,0" Height="39" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
-                            <Button x:Name="SaverDirectoryButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="SaverDirectoryButton_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
-                            <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Width="222"  Grid.ColumnSpan="3" Grid.Column="1"/>
-                            <Button x:Name="ListRefresh" Content="Odśwież"  VerticalAlignment="Top" Width="75"  Click="ListRefresh_Click" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.947,0.364"/>
-                            <Button x:Name="CancelDeleteList" Content="Button"  VerticalAlignment="Top" Width="75" Click="CancelDeleteList_Click" Grid.ColumnSpan="5" Grid.Column="1" RenderTransformOrigin="1.467,0.409"/>
+                            <Button x:Name="SaverDirectoryButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="SaverDirectoryButton_Click" Grid.ColumnSpan="2" Grid.Column="1" Margin="180 32 -20 -32"/>
+                            <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Width="222"  Grid.ColumnSpan="3" Grid.Column="1" Margin="80 32 -20 -32"/>
+                            <Button x:Name="ListRefresh" Content="Odśwież"  VerticalAlignment="Top" Width="75"  Click="ListRefresh_Click" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.947,0.364" Margin="-190 0 0 0"/>
+                            <Button x:Name="CancelDeleteList" Content="Button"  VerticalAlignment="Top" Width="75" Click="CancelDeleteList_Click" Grid.ColumnSpan="5" Grid.Column="1" RenderTransformOrigin="1.467,0.409" Margin="-80 0 0 0"/>
                         </DockPanel>
                         <DockPanel Margin="10,-72,0,0" Height="34" VerticalAlignment="Top">
                             <Button x:Name="AllScreenList" Content="All" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"  Click="AllScreenList_Click"/>
@@ -125,6 +125,7 @@
             <Image IsHitTestVisible="False" Source="images\pagehotkey.png" Margin="11,197,738.667,116"/>
             <Image IsHitTestVisible="False" Source="images\turnonoff.png" Margin="755,18,-0.333,310"/>
             <Image IsHitTestVisible="False" Source="images\settings.png" Margin="721,22,43.667,313"/>
+            <Image IsHitTestVisible="False" Source="images\Logo.png" Margin="240,8,468,252"/>
         </Grid>
     </StackPanel>
 </Window>
