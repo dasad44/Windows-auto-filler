@@ -117,13 +117,19 @@
     <Resource Include="images\pagehotkey.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\turnonoff.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\Logo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\settings.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\turnoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\turnoffhover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\settingshover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
