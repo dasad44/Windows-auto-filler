@@ -28,6 +28,7 @@ namespace Auto_filler
         public static String path;
         public static System.Windows.Point pos;
         RegistryOnOff regis = new RegistryOnOff();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -210,6 +211,11 @@ namespace Auto_filler
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

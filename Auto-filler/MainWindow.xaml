@@ -103,6 +103,8 @@
                 <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-54,15">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
                         <Grid Height="13" Background="#b20837" Margin="-1,-4,-4,341.6"/>
+                        <Button Content="Button" VerticalAlignment="Top" Width="75" Margin="180,32,0,0" Click="Button_Click"/>
+
                     </UniformGrid>
 
                 </TabItem>
