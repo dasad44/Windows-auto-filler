@@ -13,7 +13,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TabItem}">
                         <Grid>
-                            <Border 
+                                <Border 
                                 Name="Border"
                                 Margin="0,0,-4,0" 
                                 Background="{StaticResource MenuBrush}"
@@ -125,7 +125,7 @@
             <Image IsHitTestVisible="False" Source="images\multiclipboard.png" Margin="10,103,742.667,206"/>
             <Image IsHitTestVisible="False" Source="images\snippingtool.png" Margin="7,149,742.667,162"/>
             <Image IsHitTestVisible="False" Source="images\pagehotkey.png" Margin="11,197,738.667,116"/>
-            <Image IsHitTestVisible="False" Source="images\turnonoff.png" Margin="755,18,-0.333,310"/>
+            <Image IsHitTestVisible="False" Source="images\turnonoff.png" Margin="755,18,0,310" HorizontalAlignment="Left" Width="48" RenderTransformOrigin="0.438,-0.074"/>
             <Image IsHitTestVisible="False" Source="images\settings.png" Margin="721,22,43.667,313"/>
             <Image IsHitTestVisible="False" Source="images\Logo.png" Margin="240,8,468,252"/>
         </Grid>

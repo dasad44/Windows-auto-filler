@@ -29,6 +29,7 @@ namespace Auto_filler
         public static System.Windows.Point pos;
         RegistryOnOff regis = new RegistryOnOff();
 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -219,5 +220,11 @@ namespace Auto_filler
         {
 
         }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Visibility = Visibility.Hidden;
+        }
+
     }
 }
