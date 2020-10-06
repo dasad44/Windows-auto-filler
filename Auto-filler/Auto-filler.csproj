@@ -137,5 +137,8 @@
   <ItemGroup>
     <Resource Include="images\minimalizehover.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\favicon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
