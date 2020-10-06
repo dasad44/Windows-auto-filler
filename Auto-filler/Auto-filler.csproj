@@ -105,37 +105,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\multiclipboard.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\screenshot.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\snippingtool.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\pagehotkey.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\Logo.PNG" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\settings.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\turnoff.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\turnoffhover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\settingshover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\minimalize.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\minimalizehover.png" />
+    <Resource Include="bin\Debug\images\favicon.ico" />
+    <Resource Include="bin\Debug\images\Logo.PNG" />
+    <Resource Include="bin\Debug\images\minimalize.png" />
+    <Resource Include="bin\Debug\images\minimalizehover.png" />
+    <Resource Include="bin\Debug\images\multiclipboard.png" />
+    <Resource Include="bin\Debug\images\pagehotkey.png" />
+    <Resource Include="bin\Debug\images\screenshot.png" />
+    <Resource Include="bin\Debug\images\settings.jpg" />
+    <Resource Include="bin\Debug\images\settingshover.png" />
+    <Resource Include="bin\Debug\images\snippingtool.png" />
+    <Resource Include="bin\Debug\images\turnoff.png" />
+    <Resource Include="bin\Debug\images\turnoffhover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

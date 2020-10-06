@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Drawing;
-
+using System.IO;
 
 namespace Auto_filler
 {
@@ -18,7 +18,7 @@ namespace Auto_filler
         System.Windows.Forms.NotifyIcon nIcon = new System.Windows.Forms.NotifyIcon();
         public App()
         {
-            nIcon.Icon = new Icon(@"images\favicon.ico");
+            nIcon.Icon = new Icon(@"images/favicon.ico");
             nIcon.Visible = true;
             nIcon.ShowBalloonTip(5000, "Auto Fillerek", "Schowałem się!", System.Windows.Forms.ToolTipIcon.Info);
             nIcon.Click += NIcon_Click;
