@@ -118,5 +118,8 @@
     <Resource Include="bin\Debug\images\turnoff.png" />
     <Resource Include="bin\Debug\images\turnoffhover.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\%40Environment.GetFolderPath%28Environment.SpecialFolder.Desktop%29\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
