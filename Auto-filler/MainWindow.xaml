@@ -36,7 +36,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            
+
         </Style>
     </Window.Resources>
     <StackPanel Height="352" VerticalAlignment="Top">
@@ -121,10 +121,10 @@
             <Image IsHitTestVisible="False" Source="images\multiclipboard.png" Margin="10,103,742.667,206"/>
             <Image IsHitTestVisible="False" Source="images\snippingtool.png" Margin="7,149,742.667,162"/>
             <Image IsHitTestVisible="False" Source="images\pagehotkey.png" Margin="11,197,738.667,116"/>
-            <Image Height="30" Width="45" Stretch="Fill" Margin="758,13,0,312">
+            <Image Height="30" Stretch="Fill" Margin="758,13,-2,312" HorizontalAlignment="Left" Width="47" MouseLeftButtonDown="CloseButton_Click">
                 <Image.Style>
                     <Style>
-                        <Setter Property="Image.Source" Value="images/turnoff.png" />
+                        <Setter Property="Image.Source" Value="images/turnoff.png"/>
                         <Style.Triggers>
                             <Trigger  Property="Image.IsMouseOver" Value="True">
                                 <Setter Property="Image.Source" Value="images/turnoffhover.png" />
@@ -133,7 +133,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image Height="30" Width="45" Stretch="Fill" Margin="713,13,45,312">
+            <Image Height="30" Width="45" Stretch="Fill" Margin="713,13,45,312" MouseLeftButtonDown="Image_MouseLeftButtonDown">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="images/settings.jpg" />

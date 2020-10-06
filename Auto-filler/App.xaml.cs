@@ -20,16 +20,15 @@ namespace Auto_filler
         {
             nIcon.Icon = new Icon(@"C:\Users\Michal\Desktop\favicon.ico");
             nIcon.Visible = true;
-            nIcon.ShowBalloonTip(5000, "Windows Auto Filler", "I'm still here!", System.Windows.Forms.ToolTipIcon.Info);
-            nIcon.Click += nIcon_Click;
+            nIcon.ShowBalloonTip(5000, "Auto Fillerek", "Schowałem się!", System.Windows.Forms.ToolTipIcon.Info);
+            nIcon.Click += NIcon_Click;
         }
 
-        void nIcon_Click(object sender, EventArgs e)
+        void NIcon_Click(object sender, EventArgs e)
         {
             MainWindow.Visibility = Visibility.Visible;
             MainWindow.WindowState = WindowState.Normal;
         }
     }
-
 }
 

@@ -220,11 +220,27 @@ namespace Auto_filler
         {
 
         }
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+       
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            e.Cancel = true;
-            this.Visibility = Visibility.Hidden;
+            Close();
         }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+
+
+        protected override void OnStateChanged(EventArgs e)
+        {
+            if (WindowState == WindowState.Minimized) this.Hide();
+            base.OnStateChanged(e);
+        }
+
+
 
     }
 }
