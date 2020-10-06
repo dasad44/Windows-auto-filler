@@ -131,5 +131,11 @@
   <ItemGroup>
     <Resource Include="images\settingshover.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\minimalize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\minimalizehover.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

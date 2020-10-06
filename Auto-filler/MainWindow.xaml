@@ -145,8 +145,20 @@
                     </Style>
                 </Image.Style>
             </Image>
+            <Image Height="30" Width="45" Stretch="Fill" Margin="668,13,90,312" MouseLeftButtonDown="Image_MouseLeftButtonDown">
+                <Image.Style>
+                    <Style>
+                        <Setter Property="Image.Source" Value="images/minimalize.png" />
+                        <Style.Triggers>
+                            <Trigger  Property="Image.IsMouseOver" Value="True">
+                                <Setter Property="Image.Source" Value="images/minimalizehover.png" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
             <Image IsHitTestVisible="False" Source="images\Logo.png" Margin="240,8,468,252"/>
-            <Grid Height="13" Background="#b20837" Margin="217,0,-2,342"/>
+            <Grid x:Name="redGrid" Height="13" Background="#b20837" Margin="217,0,-2,342"/>
         </Grid>
     </StackPanel>
 </Window>
