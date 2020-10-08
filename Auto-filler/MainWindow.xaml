@@ -124,10 +124,10 @@
             <Image Height="30" Stretch="Fill" Margin="758,13,-2,312" HorizontalAlignment="Left" Width="47" MouseLeftButtonDown="CloseButton_Click">
                 <Image.Style>
                     <Style>
-                        <Setter Property="Image.Source" Value="images/turnoff.png"/>
+                        <Setter Property="Image.Source" Value="bin/debug/images\turnoff.png"/>
                         <Style.Triggers>
                             <Trigger  Property="Image.IsMouseOver" Value="True">
-                                <Setter Property="Image.Source" Value="images/turnoffhover.png" />
+                                <Setter Property="Image.Source" Value="bin/debug/images\turnoffhover.png" />
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -136,10 +136,10 @@
             <Image Height="30" Width="45" Stretch="Fill" Margin="713,13,45,312">
                 <Image.Style>
                     <Style>
-                        <Setter Property="Image.Source" Value="images/settings.jpg" />
+                        <Setter Property="Image.Source" Value="bin/debug/images\settings.jpg" />
                         <Style.Triggers>
                             <Trigger  Property="Image.IsMouseOver" Value="True">
-                                <Setter Property="Image.Source" Value="images/settingshover.png" />
+                                <Setter Property="Image.Source" Value="bin/debug/images\settingshover.png" />
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -148,10 +148,10 @@
             <Image Height="30" Width="45" Stretch="Fill" Margin="668,13,90,312" MouseLeftButtonDown="Image_MouseLeftButtonDown">
                 <Image.Style>
                     <Style>
-                        <Setter Property="Image.Source" Value="images/minimalize.png" />
+                        <Setter Property="Image.Source" Value="bin/debug/images\minimalize.png" />
                         <Style.Triggers>
                             <Trigger  Property="Image.IsMouseOver" Value="True">
-                                <Setter Property="Image.Source" Value="images/minimalizehover.png" />
+                                <Setter Property="Image.Source" Value="bin/debug/images\minimalizehover.png" />
                             </Trigger>
                         </Style.Triggers>
                     </Style>
