@@ -117,17 +117,17 @@
                     </UniformGrid>
                 </TabItem>
             </TabControl>
-            <Image IsHitTestVisible="False" Source="bin\Debug\images\screenshot.png" Margin="10,56,742.667,252"/>
-            <Image IsHitTestVisible="False" Source="bin\Debug\images\multiclipboard.png" Margin="10,103,742.667,206"/>
-            <Image IsHitTestVisible="False" Source="bin\Debug\images\snippingtool.png" Margin="7,149,742.667,162"/>
-            <Image IsHitTestVisible="False" Source="bin\Debug\images\pagehotkey.png" Margin="11,197,738.667,116"/>
+            <Image IsHitTestVisible="False" Source="images\screenshot.png" Margin="10,56,742.667,252"/>
+            <Image IsHitTestVisible="False" Source="images\multiclipboard.png" Margin="10,103,742.667,206"/>
+            <Image IsHitTestVisible="False" Source="images\snippingtool.png" Margin="7,149,742.667,162"/>
+            <Image IsHitTestVisible="False" Source="images\pagehotkey.png" Margin="11,197,738.667,116"/>
             <Image Height="30" Stretch="Fill" Margin="758,13,-2,312" HorizontalAlignment="Left" Width="47" MouseLeftButtonDown="CloseButton_Click">
                 <Image.Style>
                     <Style>
-                        <Setter Property="Image.Source" Value="bin\Debug\images/turnoff.png"/>
+                        <Setter Property="Image.Source" Value="images/turnoff.png"/>
                         <Style.Triggers>
                             <Trigger  Property="Image.IsMouseOver" Value="True">
-                                <Setter Property="Image.Source" Value="bin\Debug\images/turnoffhover.png" />
+                                <Setter Property="Image.Source" Value="images/turnoffhover.png" />
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -136,10 +136,10 @@
             <Image Height="30" Width="45" Stretch="Fill" Margin="713,13,45,312">
                 <Image.Style>
                     <Style>
-                        <Setter Property="Image.Source" Value="bin\Debug\images/settings.jpg" />
+                        <Setter Property="Image.Source" Value="images/settings.jpg" />
                         <Style.Triggers>
                             <Trigger  Property="Image.IsMouseOver" Value="True">
-                                <Setter Property="Image.Source" Value="bin\Debug\images/settingshover.png" />
+                                <Setter Property="Image.Source" Value="images/settingshover.png" />
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -148,16 +148,16 @@
             <Image Height="30" Width="45" Stretch="Fill" Margin="668,13,90,312" MouseLeftButtonDown="Image_MouseLeftButtonDown">
                 <Image.Style>
                     <Style>
-                        <Setter Property="Image.Source" Value="bin\Debug\images/minimalize.png" />
+                        <Setter Property="Image.Source" Value="images/minimalize.png" />
                         <Style.Triggers>
                             <Trigger  Property="Image.IsMouseOver" Value="True">
-                                <Setter Property="Image.Source" Value="bin/Debug/images/minimalizehover.png" />
+                                <Setter Property="Image.Source" Value="images/minimalizehover.png" />
                             </Trigger>
                         </Style.Triggers>
                     </Style>
                 </Image.Style>
             </Image>
-            <Image IsHitTestVisible="False" Source="bin\Debug\images\Logo.png" Margin="240,8,468,252"/>
+            <Image IsHitTestVisible="False" Source="images\Logo.png" Margin="240,8,468,252"/>
             <Grid x:Name="redGrid" Height="13" Background="#b20837" Margin="217,0,-2,342"/>
         </Grid>
     </StackPanel>

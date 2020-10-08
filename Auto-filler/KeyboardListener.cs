@@ -180,7 +180,6 @@ namespace Auto_filler
             }
         }
 
-        private System.Windows.Point mouseEnd;
         private ScreenshotSave _screenSave;
 
         /*public void ScreenShot()
