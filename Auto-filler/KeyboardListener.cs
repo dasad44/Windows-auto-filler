@@ -85,9 +85,10 @@ namespace Auto_filler
             {
                 SaveMultiClipboard();
                 AppShow();
-                ScreenShot();
+                //ScreenShot();
                 LinkButton();
                 saveImg();
+                SnippingTool();
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
@@ -179,33 +180,27 @@ namespace Auto_filler
             }
         }
 
-        private System.Windows.Point mouseStart;
         private System.Windows.Point mouseEnd;
         private ScreenshotSave _screenSave;
 
-        public void ScreenShot()
+        /*public void ScreenShot()
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.S))
             {
-
-                if (MainWindow.leftButton == true)
-                {
-                    MessageBox.Show("The Left Mouse Button is pressed");
-                }
-                if (MainWindow.leftButton == true)
-                {
-                    MessageBox.Show("yes");
-                    mouseStart = MainWindow.pos;
-                    while (MainWindow.leftButton == true)
-                    {
-                        mouseStart = MainWindow.pos;
-                    }
-                }
                 
                 _screenSave = new ScreenshotSave();
                 _screenSave.CaptureMyScreen(mouseStart, mouseEnd);
             }
+        }*/
+        public void SnippingTool()
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.S))
+            {
+                _screenSave = new ScreenshotSave();
+                _screenSave.CaptureMyScreen(MainWindow.posStart, MainWindow.posEnd);
+            }
         }
+        
         public void CatchLink(string link)
         {
             _link = link;

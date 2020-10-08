@@ -26,7 +26,8 @@ namespace Auto_filler
         public static bool ScreenShot;
         public static bool leftButton;
         public static String path;
-        public static System.Windows.Point pos;
+        public static System.Windows.Point posStart;
+        public static System.Windows.Point posEnd;
         RegistryOnOff regis = new RegistryOnOff();
 
 
@@ -61,10 +62,9 @@ namespace Auto_filler
             SaverDirectory.Text = Properties.Settings.Default.ScreenPath;
             AllList();
         }
-        
         private void Timer_(object sender, MouseEventArgs e)
         {
-            pos = e.GetPosition(this);
+            posStart = e.GetPosition(this);
 
             if (e.LeftButton == MouseButtonState.Pressed)
             {
