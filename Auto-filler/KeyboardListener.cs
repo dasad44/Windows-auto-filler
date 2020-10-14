@@ -199,7 +199,6 @@ namespace Auto_filler
                 _screenSave.CaptureMyScreen(MainWindow.posStart, MainWindow.posEnd);
             }
         }
-        
         public void CatchLink(string link)
         {
             _link = link;

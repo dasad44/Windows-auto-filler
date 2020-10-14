@@ -66,6 +66,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CatchLink.cs" />
+    <Compile Include="ScreenCut.cs" />
+    <Compile Include="GetCurrentTime.cs" />
     <Compile Include="ScreenBrightness.cs" />
     <Compile Include="ScreenshotAutoDelete.cs" />
     <Compile Include="Notification.cs" />

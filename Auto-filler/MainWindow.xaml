@@ -59,12 +59,12 @@
                             <Button x:Name="SaverDirectoryButton" Content="Path"  Width="72" Click="SaverDirectoryButton_Click" Margin="0,32,0,19" RenderTransformOrigin="0.76,0.522"/>
                             <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Width="178"  Grid.ColumnSpan="3" Grid.Column="1" Margin="80,32,-20,0"/>
                             <Button x:Name="ListRefresh" Content="Odśwież"  VerticalAlignment="Top" Width="75"  Click="ListRefresh_Click" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.947,0.364" Margin="-190 0 0 0"/>
-                            <Button x:Name="CancelDeleteList" Content="Button"  VerticalAlignment="Top" Width="75" Click="CancelDeleteList_Click" Grid.ColumnSpan="5" Grid.Column="1" RenderTransformOrigin="1.467,0.409" Margin="-80 0 0 0"/>
                         </DockPanel>
                         <DockPanel Margin="10,45,0,0" Height="26" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.735">
                             <Button x:Name="AllScreenList" Content="All" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"  Click="AllScreenList_Click"/>
                             <Button x:Name="ImportantScreenList" Content="Important" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"  Click="ImportantScreenList_Click"/>
                             <Button x:Name="TempScreenList" Content="Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="TempScreenList_Click"/>
+                            <Button x:Name="CancelDeleteList" Content="Cancel Delete"  VerticalAlignment="Top" Width="115" Click="CancelDeleteList_Click" Grid.ColumnSpan="5" Grid.Column="1" RenderTransformOrigin="1.467,0.409" Margin="-80 0 0 0"/>
                         </DockPanel>
                         <DockPanel Margin="0,-39,0,0" Height="96" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
                             <ListBox x:Name="SaverListView"
