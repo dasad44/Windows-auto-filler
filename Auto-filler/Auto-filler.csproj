@@ -66,7 +66,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CatchLink.cs" />
-    <Compile Include="DisplayMark.cs" />
+    <Compile Include="MouseHook.cs" />
     <Compile Include="ScreenCut.cs" />
     <Compile Include="GetCurrentTime.cs" />
     <Compile Include="ScreenBrightness.cs" />

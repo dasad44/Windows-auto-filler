@@ -16,6 +16,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using Microsoft.Win32;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Auto_filler
 {
@@ -35,6 +36,13 @@ namespace Auto_filler
         {
             InitializeComponent();
         }
+        MouseHook mh = new MouseHook();
+
+        //private void Event(object sender, EventArgs e) => mh.mouse();
+
+
+
+
 
         private void HideButton_Click(object sender, RoutedEventArgs e)
         {
@@ -220,7 +228,8 @@ namespace Auto_filler
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            MouseHook.Start();
+            //MouseHook.MouseAction += new EventHandler(Event);
         }
        
 
