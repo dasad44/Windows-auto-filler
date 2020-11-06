@@ -62,6 +62,8 @@ namespace Auto_filler
             SaverDirectory.Text = Properties.Settings.Default.ScreenPath;
             AllList();
         }
+
+
         private void Timer_(object sender, MouseEventArgs e)
         {
             posStart = e.GetPosition(this);
@@ -239,7 +241,5 @@ namespace Auto_filler
             if (WindowState == WindowState.Minimized) this.Hide();
             base.OnStateChanged(e);
         }
-
-
     }
 }
