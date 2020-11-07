@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ScreenPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">@Environment.GetFolderPath(Environment.SpecialFolder.Desktop)</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
