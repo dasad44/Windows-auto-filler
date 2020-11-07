@@ -56,10 +56,17 @@ namespace Auto_filler
         {
             _listener = new KeyboardListener(this);
             _listener.OnKeyPressed += _listener_OnKeyPressed;
-            _listener.HookKeyboard();
+            _listener.HookKeyboard();    
+            if (@Properties.Settings.Default.ScreenPath == "")
+            {
+                SaverDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                Properties.Settings.Default.ScreenPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                Properties.Settings.Default.Save();
+            }
+            else
+                SaverDirectory.Text = Properties.Settings.Default.ScreenPath;
             _autoDelete = new ScreenshotAutoDelete();
             _autoDelete.AutoDelete();
-            SaverDirectory.Text = Properties.Settings.Default.ScreenPath;
             AllList();
         }
         private void Timer_(object sender, MouseEventArgs e)
@@ -81,14 +88,7 @@ namespace Auto_filler
         {
             DirectoryInfo dinfo;
             SaverListView.Items.Clear();
-            if (@Properties.Settings.Default.ScreenPath == "")
-            {
-                dinfo = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
-            }
-            else
-            {
-                 dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
-            }
+            dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
             FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
             foreach (FileInfo file in Files)
             {
@@ -123,8 +123,9 @@ namespace Auto_filler
         }
         public void TempList()
         {
+            DirectoryInfo dinfo;
             SaverListView.Items.Clear();
-            DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
+            dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
             FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
             foreach (FileInfo file in Files)
             {
