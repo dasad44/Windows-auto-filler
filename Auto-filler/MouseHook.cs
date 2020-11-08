@@ -33,7 +33,6 @@ namespace Auto_filler
         }
 
         private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
-
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
             if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam)
@@ -42,8 +41,16 @@ namespace Auto_filler
                 MouseAction(null, new EventArgs());
                 Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
             }
+            if (nCode >= 0 && MouseMessages.WM_LBUTTONUP == (MouseMessages)wParam)
+            {
+                MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
+                MouseAction(null, new EventArgs());
+                Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
+            }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
+
+
 
         private const int WH_MOUSE_LL = 14;
 
