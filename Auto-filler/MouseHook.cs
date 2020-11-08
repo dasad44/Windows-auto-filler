@@ -31,19 +31,41 @@ namespace Auto_filler
                   GetModuleHandle(curModule.ModuleName), 0);
             }
         }
-
+        static POINT StartPoint;
+        static POINT EndPoint;
         private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam || nCode >= 0 && MouseMessages.WM_LBUTTONUP == (MouseMessages)wParam)
+            if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam)
             {
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                 MouseAction(null, new EventArgs());
-                Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
+
+                StartPoint.x = Cursor.Position.X;
+                StartPoint.y = Cursor.Position.Y;
+                //Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
+            }
+            if (nCode >= 0 && MouseMessages.WM_LBUTTONUP == (MouseMessages)wParam)
+            {
+                MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
+                MouseAction(null, new EventArgs());
+
+                EndPoint.x = Cursor.Position.X;
+                EndPoint.y = Cursor.Position.Y;
+                //Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
 
+        public POINT getStartValue()
+        {
+            return StartPoint;
+        }
+
+        public POINT getEndValue()
+        {
+            return EndPoint;
+        }
 
 
         private const int WH_MOUSE_LL = 14;
