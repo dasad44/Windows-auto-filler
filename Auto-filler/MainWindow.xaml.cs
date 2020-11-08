@@ -16,6 +16,8 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using Microsoft.Win32;
 using System.IO;
+using System.Runtime.InteropServices;
+using static Auto_filler.MouseHook;
 
 namespace Auto_filler
 {
@@ -35,6 +37,8 @@ namespace Auto_filler
         {
             InitializeComponent();
         }
+
+        //private void Event(object sender, EventArgs e) => mh.mouse();
 
         private void HideButton_Click(object sender, RoutedEventArgs e)
         {
@@ -69,6 +73,8 @@ namespace Auto_filler
             _autoDelete.AutoDelete();
             AllList();
         }
+
+
         private void Timer_(object sender, MouseEventArgs e)
         {
             posStart = e.GetPosition(this);
@@ -227,7 +233,8 @@ namespace Auto_filler
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            MouseHook.Start();
+            //MouseHook.MouseAction += new EventHandler(Event);
         }
        
 
@@ -248,7 +255,5 @@ namespace Auto_filler
             if (WindowState == WindowState.Minimized) this.Hide();
             base.OnStateChanged(e);
         }
-
-
     }
 }
