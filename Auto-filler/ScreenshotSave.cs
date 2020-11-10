@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Diagnostics;
+using static Auto_filler.MouseHook;
 
 namespace Auto_filler
 {
@@ -22,8 +23,8 @@ namespace Auto_filler
     {
         private GetCurrentTime _getCurrentTime;
 
-        public void CaptureMyScreen(System.Windows.Point mouseStart,
-        System.Windows.Point mouseEnd)
+        public void CaptureMyScreen(POINT startV,
+        POINT endV)
         {
             
             if (MainWindow.ScreenShot)
@@ -33,19 +34,31 @@ namespace Auto_filler
                     _getCurrentTime = new GetCurrentTime();
                     String Date = _getCurrentTime.GetTime();
 
+                    if(startV.x > endV.x)
+                    {
+                        int t = startV.x;
+                        startV.x = endV.x;
+                        endV.x = t;
+                    }
+                    if (startV.y > endV.y)
+                    {
+                        int t = startV.y;
+                        startV.y = endV.y;
+                        endV.y = t;
+                    }
+                    //MessageBox.Show(startV.x + "  " + startV.y + "  " + endV.x + "  " + endV.y + "  ");
                     string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-" + Date + ".jpg";
-                    double Xd = MainWindow.posStart.X;
-                    double Yd = MainWindow.posStart.Y;
-                    int X = (int)Xd;
-                    int Y = (int)Yd;
-                    int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width - 500 - 200;
-                    int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height - 300 - 200;
-                    Bitmap captureBitmap = new Bitmap(screenWidth, screenHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-                    System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.AllScreens[0].Bounds;
+                    int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+                    int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
+                    int x = screenWidth - startV.x - (screenWidth - endV.x);
+                    int y = screenHeight - startV.y - (screenHeight - endV.y);
+                    //MessageBox.Show(startV.x + "  " + startV.y + "  " + endV.x + "  " + endV.y + "  "+x + "  " + y);
+                    Bitmap captureBitmap = new Bitmap(x,y, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                    System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
                     Graphics captureGraphics = Graphics.FromImage(captureBitmap);
-                    captureGraphics.CopyFromScreen(0,0, -500, -300, captureRectangle.Size);
+                    captureGraphics.CopyFromScreen(startV.x, startV.y, 0, 0, captureRectangle.Size);
                     captureBitmap.Save(@path, ImageFormat.Jpeg);
-                    MessageBox.Show("Screen Captured " + X + " " + Date + "ssss" + mouseStart + " ss " + mouseEnd);
+                    //MessageBox.Show("Screen Captured  " + startV.x + "  "+ startV.y + "  "+ endV.x + "  "+ endV.y + "  ");
                     Process photoViewer = new Process();
                     photoViewer.StartInfo.FileName = @path;
                     photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";

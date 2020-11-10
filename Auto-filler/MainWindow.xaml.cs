@@ -190,7 +190,6 @@ namespace Auto_filler
         private void SaverDirectoryButton_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.FolderBrowserDialog fbd = new System.Windows.Forms.FolderBrowserDialog();
-            fbd.RootFolder = Environment.SpecialFolder.Desktop;
             fbd.Description = "Wybierz folder";
             fbd.ShowNewFolderButton = false;
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -200,6 +199,7 @@ namespace Auto_filler
                 Properties.Settings.Default.ScreenPath = path;
                 Properties.Settings.Default.Save();
             }
+            AllList();
         }
         
 

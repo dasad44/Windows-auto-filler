@@ -11,6 +11,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Drawing;
 using System.Windows.Media.Imaging;
+using static Auto_filler.MouseHook;
 
 namespace Auto_filler
 {
@@ -85,10 +86,11 @@ namespace Auto_filler
             {
                 SaveMultiClipboard();
                 AppShow();
-                //ScreenShot();
+                ScreenShot();
                 LinkButton();
                 saveImg();
-                SnippingTool();
+                MouseHookOn();
+                MouseHookOff();
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
@@ -181,24 +183,37 @@ namespace Auto_filler
         }
 
         private ScreenshotSave _screenSave;
-
-        /*public void ScreenShot()
+        public void ScreenShot()
         {
-            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.S))
+            if (Keyboard.IsKeyDown(Key.PrintScreen))
             {
-                
+                POINT startV;
+                POINT endV;
+                startV.x = 0;
+                startV.y = 0;
+                endV.x = 0;
+                endV.y = 0;
                 _screenSave = new ScreenshotSave();
-                _screenSave.CaptureMyScreen(mouseStart, mouseEnd);
-            }
-        }*/
-        public void SnippingTool()
-        {
-            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.S))
-            {
-                _screenSave = new ScreenshotSave();
-                _screenSave.CaptureMyScreen(MainWindow.posStart, MainWindow.posEnd);
+                _screenSave.CaptureMyScreen(startV, endV);
             }
         }
+        public void MouseHookOn()
+        {
+
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.S))
+            {
+                MouseHook.Start();
+            }
+        }
+        public void MouseHookOff()
+        {
+
+            if (Keyboard.IsKeyDown(Key.Escape))
+            {
+                MouseHook.stop();
+            }
+        }
+
         public void CatchLink(string link)
         {
             _link = link;

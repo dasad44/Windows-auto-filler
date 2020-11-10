@@ -33,6 +33,7 @@ namespace Auto_filler
         }
         static POINT StartPoint;
         static POINT EndPoint;
+        private static SnippingTool _snippingTool;
         private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
@@ -43,7 +44,7 @@ namespace Auto_filler
 
                 StartPoint.x = Cursor.Position.X;
                 StartPoint.y = Cursor.Position.Y;
-                //Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
+                Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
             }
             if (nCode >= 0 && MouseMessages.WM_LBUTTONUP == (MouseMessages)wParam)
             {
@@ -52,17 +53,19 @@ namespace Auto_filler
 
                 EndPoint.x = Cursor.Position.X;
                 EndPoint.y = Cursor.Position.Y;
-                //Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
+                Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
+                _snippingTool = new SnippingTool();
+                _snippingTool.snippingTool(StartPoint, EndPoint);
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
 
-        public POINT getStartValue()
+        public static POINT getStartValue()
         {
             return StartPoint;
         }
 
-        public POINT getEndValue()
+        public static POINT getEndValue()
         {
             return EndPoint;
         }
