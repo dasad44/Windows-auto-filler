@@ -10,10 +10,8 @@ namespace Auto_filler
 {
     class Notification
     {
-        string title = "test test";
-        string body = "one two three";
-        int timeout = 1000;
-        public void Show()
+
+        public void Show(string title, string body, int timeout)
         {
             NotifyIcon notifyicon = new NotifyIcon();
             notifyicon.Visible = true;
@@ -21,5 +19,6 @@ namespace Auto_filler
             notifyicon.ShowBalloonTip(timeout, title, body, ToolTipIcon.Info);
             notifyicon.Dispose();
         }
+
     }
 }

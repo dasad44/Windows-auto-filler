@@ -22,7 +22,6 @@ namespace Auto_filler
     class ScreenshotSave
     {
         private GetCurrentTime _getCurrentTime;
-
         public void CaptureMyScreen(POINT startV,
         POINT endV)
         {
@@ -58,6 +57,7 @@ namespace Auto_filler
                     Graphics captureGraphics = Graphics.FromImage(captureBitmap);
                     captureGraphics.CopyFromScreen(startV.x, startV.y, 0, 0, captureRectangle.Size);
                     captureBitmap.Save(@path, ImageFormat.Jpeg);
+                    Clipboard.SetDataObject(captureBitmap);
                     //MessageBox.Show("Screen Captured  " + startV.x + "  "+ startV.y + "  "+ endV.x + "  "+ endV.y + "  ");
                     Process photoViewer = new Process();
                     photoViewer.StartInfo.FileName = @path;
