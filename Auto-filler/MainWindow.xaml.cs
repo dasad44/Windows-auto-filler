@@ -42,7 +42,9 @@ namespace Auto_filler
 
         private void HideButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            Notification n = new Notification();
+            n.ShowWithImage("dasdasd", @"C:\Users\User\Desktop\dd.jpg");
+            //this.Hide();
         }
 
         void _listener_OnKeyPressed(object sender, KeyPressedArgs e)
