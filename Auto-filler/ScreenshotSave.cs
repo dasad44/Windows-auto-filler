@@ -22,6 +22,7 @@ namespace Auto_filler
     class ScreenshotSave
     {
         private GetCurrentTime _getCurrentTime;
+        Notification notification = new Notification();
         public void CaptureMyScreen(POINT startV,
         POINT endV)
         {
@@ -61,7 +62,8 @@ namespace Auto_filler
                     //MessageBox.Show("Screen Captured  " + startV.x + "  "+ startV.y + "  "+ endV.x + "  "+ endV.y + "  ");
                     Process photoViewer = new Process();
                     photoViewer.StartInfo.FileName = @path;
-                    photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
+                    notification.ShowWithImage("ScreenShot has been captured!", path);
+                    photoViewer.StartInfo.Arguments = "\\Windows Photo Viewer\\PhotoViewer.dll";
                     photoViewer.Start();
                 }
                 catch (Exception ex)
