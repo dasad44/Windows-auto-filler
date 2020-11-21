@@ -24,12 +24,12 @@ namespace Auto_filler
                     Process.Start(link);
 
                 }
-                else //dla http nie działa, nie wiemy jak zrobić żeby działało z http, ale nie jest to aż tak istotne, 99% internetu to https
+                else
                 {                   
                     Process.Start("https://" + link);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Coś poszło nie tak :O. Sprawdź poprawność linku lub czy strona istnieje!");
                 

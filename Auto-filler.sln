@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auto-filler", "Auto-filler\
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "ToastNotification", "ToastNotification\ToastNotification.wapproj", "{DB3F8C32-A80D-4656-9329-8268CBAAAACE}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,16 @@ Global
 		{DB3F8C32-A80D-4656-9329-8268CBAAAACE}.Release|x86.ActiveCfg = Release|x86
 		{DB3F8C32-A80D-4656-9329-8268CBAAAACE}.Release|x86.Build.0 = Release|x86
 		{DB3F8C32-A80D-4656-9329-8268CBAAAACE}.Release|x86.Deploy.0 = Release|x86
+		{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}.Debug|Any CPU.ActiveCfg = Debug
+		{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}.Debug|ARM.ActiveCfg = Debug
+		{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}.Debug|ARM64.ActiveCfg = Debug
+		{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}.Debug|x64.ActiveCfg = Debug
+		{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}.Debug|x86.ActiveCfg = Debug
+		{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}.Release|Any CPU.ActiveCfg = Release
+		{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}.Release|ARM.ActiveCfg = Release
+		{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}.Release|ARM64.ActiveCfg = Release
+		{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}.Release|x64.ActiveCfg = Release
+		{FA3CB835-C976-4A6E-B7E2-BE2CCB41F491}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

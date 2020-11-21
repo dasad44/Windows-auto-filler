@@ -23,7 +23,7 @@ namespace Auto_filler
             ff = ff + "bin/Debug/images\\favicon.ico";
 
 
-            nIcon.Icon = new Icon(@ff);
+           // nIcon.Icon = new Icon(@ff);
             nIcon.Visible = true;
             nIcon.ShowBalloonTip(5000, "Auto Fillerek", "Schowałem się!", System.Windows.Forms.ToolTipIcon.Info);
             nIcon.Click += NIcon_Click;

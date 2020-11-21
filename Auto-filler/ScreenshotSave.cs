@@ -62,9 +62,10 @@ namespace Auto_filler
                     //MessageBox.Show("Screen Captured  " + startV.x + "  "+ startV.y + "  "+ endV.x + "  "+ endV.y + "  ");
                     Process photoViewer = new Process();
                     photoViewer.StartInfo.FileName = @path;
-                    notification.ShowWithImage("ScreenShot has been captured!", path);
+                    
                     photoViewer.StartInfo.Arguments = "\\Windows Photo Viewer\\PhotoViewer.dll";
                     photoViewer.Start();
+                    notification.ShowWithImage("ScreenShot has been captured!", path);
                 }
                 catch (Exception ex)
                 {
