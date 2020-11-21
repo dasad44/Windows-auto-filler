@@ -60,7 +60,19 @@ namespace Auto_filler
         {
             _listener = new KeyboardListener(this);
             _listener.OnKeyPressed += _listener_OnKeyPressed;
-            _listener.HookKeyboard();    
+            _listener.HookKeyboard();
+            if (@Properties.Settings.Default.ImageInAppFiles == "")
+            {
+                string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                path = path.Remove(path.Length - 25);
+                path = path + "bin/Debug/images";
+                Properties.Settings.Default.ImageInAppFiles = path;
+                Properties.Settings.Default.Save();
+                MessageBox.Show(Properties.Settings.Default.ImageInAppFiles);
+                //SaverDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                //Properties.Settings.Default.ScreenPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                //Properties.Settings.Default.Save();
+            }
             if (@Properties.Settings.Default.ScreenPath == "")
             {
                 SaverDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);

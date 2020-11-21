@@ -17,6 +17,7 @@ using System.Drawing.Imaging;
 using System.Diagnostics;
 using static Auto_filler.MouseHook;
 using System.Threading;
+using System.IO;
 
 namespace Auto_filler
 {
@@ -49,6 +50,7 @@ namespace Auto_filler
                     }
                     //MessageBox.Show(startV.x + "  " + startV.y + "  " + endV.x + "  " + endV.y + "  ");
                     string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-" + Date + ".jpg";
+                    string NotifiPath = Properties.Settings.Default.ImageInAppFiles + "\\AutoFiller-" + Date + ".jpg";
                     int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
                     int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
                     int x = screenWidth - startV.x - (screenWidth - endV.x);
@@ -59,6 +61,7 @@ namespace Auto_filler
                     Graphics captureGraphics = Graphics.FromImage(captureBitmap);
                     captureGraphics.CopyFromScreen(startV.x, startV.y, 0, 0, captureRectangle.Size);
                     captureBitmap.Save(@path, ImageFormat.Jpeg);
+                    captureBitmap.Save(@NotifiPath, ImageFormat.Jpeg);
                     Clipboard.SetDataObject(captureBitmap);
                     //MessageBox.Show("Screen Captured  " + startV.x + "  "+ startV.y + "  "+ endV.x + "  "+ endV.y + "  ");
                     Process photoViewer = new Process();
@@ -67,6 +70,7 @@ namespace Auto_filler
                     photoViewer.StartInfo.Arguments = "\\Windows Photo Viewer\\PhotoViewer.dll";
                     photoViewer.Start();
                     notification.ShowWithImage("ScreenShot has been captured!", path);
+                    File.Delete(@NotifiPath);
                 }
                 catch (Exception ex)
                 {
