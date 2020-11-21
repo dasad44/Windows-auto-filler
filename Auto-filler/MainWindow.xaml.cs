@@ -63,7 +63,7 @@ namespace Auto_filler
             _listener.HookKeyboard();
             string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
             path = System.IO.Path.Combine(path, "Auto_filler");
-            if (Directory.Exists(path))
+            if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
