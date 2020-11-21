@@ -16,6 +16,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Diagnostics;
 using static Auto_filler.MouseHook;
+using System.Threading;
 
 namespace Auto_filler
 {
@@ -62,7 +63,7 @@ namespace Auto_filler
                     //MessageBox.Show("Screen Captured  " + startV.x + "  "+ startV.y + "  "+ endV.x + "  "+ endV.y + "  ");
                     Process photoViewer = new Process();
                     photoViewer.StartInfo.FileName = @path;
-                    
+                    Thread.Sleep(1000);
                     photoViewer.StartInfo.Arguments = "\\Windows Photo Viewer\\PhotoViewer.dll";
                     photoViewer.Start();
                     notification.ShowWithImage("ScreenShot has been captured!", path);
