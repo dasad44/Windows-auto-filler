@@ -18,6 +18,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Runtime.InteropServices;
 using static Auto_filler.MouseHook;
+using System.Diagnostics;
 
 namespace Auto_filler
 {
@@ -62,12 +63,11 @@ namespace Auto_filler
             _listener.OnKeyPressed += _listener_OnKeyPressed;
             _listener.HookKeyboard();
             string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-            path = System.IO.Path.Combine(path, "Auto_filler");
+            path = path + @"\Auto_filler";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-
             Properties.Settings.Default.ImageInAppFiles = path;
             Properties.Settings.Default.Save();
             //SaverDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);

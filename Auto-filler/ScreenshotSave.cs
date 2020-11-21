@@ -68,9 +68,9 @@ namespace Auto_filler
                     photoViewer.StartInfo.FileName = @path;
                     Thread.Sleep(1000);
                     photoViewer.StartInfo.Arguments = "\\Windows Photo Viewer\\PhotoViewer.dll";
-                    photoViewer.Start();
+                    //photoViewer.Start();
                     notification.ShowWithImage("ScreenShot has been captured!", path);
-                    File.Delete(@NotifiPath);
+                   // File.Delete(@NotifiPath);
                 }
                 catch (TypeLoadException ex)
                 {
