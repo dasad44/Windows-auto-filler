@@ -67,11 +67,11 @@ namespace Auto_filler
                     Process photoViewer = new Process();
                     //MessageBox.Show(Properties.Settings.Default.ImageInAppFiles);
                     photoViewer.StartInfo.FileName = @path;
-                    Thread.Sleep(1000);
                     photoViewer.StartInfo.Arguments = "\\Windows Photo Viewer\\PhotoViewer.dll";
                     photoViewer.Start();
+                    Thread.Sleep(2000);
                     notification.ShowWithImage("ScreenShot has been captured!", @NotifiPath);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(2000);
                     File.Delete(@NotifiPath);
                 }
                 catch (Exception ex)

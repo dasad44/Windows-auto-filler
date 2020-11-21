@@ -47,13 +47,13 @@ namespace Auto_filler
 
         void _listener_OnKeyPressed(object sender, KeyPressedArgs e)
         {
-           // if (Keyboard.IsKeyDown(Key.G)
-           // && Keyboard.IsKeyDown(Key.LeftCtrl)
-           // && Keyboard.IsKeyDown(Key.LeftAlt)
-          //  || Keyboard.IsKeyDown(Key.G)
-           // && Keyboard.IsKeyDown(Key.RightCtrl)
-          //  && Keyboard.IsKeyDown(Key.RightAlt))
-           //     this.Show();
+            // if (Keyboard.IsKeyDown(Key.G)
+            // && Keyboard.IsKeyDown(Key.LeftCtrl)
+            // && Keyboard.IsKeyDown(Key.LeftAlt)
+            //  || Keyboard.IsKeyDown(Key.G)
+            // && Keyboard.IsKeyDown(Key.RightCtrl)
+            //  && Keyboard.IsKeyDown(Key.RightAlt))
+            //     this.Show();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -61,14 +61,18 @@ namespace Auto_filler
             _listener = new KeyboardListener(this);
             _listener.OnKeyPressed += _listener_OnKeyPressed;
             _listener.HookKeyboard();
-                string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                path = path.Remove(path.Length - 50);
-                path = path + "/images";
-                Properties.Settings.Default.ImageInAppFiles = path;
-                Properties.Settings.Default.Save();
-                //SaverDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                //Properties.Settings.Default.ScreenPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                //Properties.Settings.Default.Save();
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+            path = System.IO.Path.Combine(path, "Auto_filler");
+            if (Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            Properties.Settings.Default.ImageInAppFiles = path;
+            Properties.Settings.Default.Save();
+            //SaverDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //Properties.Settings.Default.ScreenPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //Properties.Settings.Default.Save();
             if (@Properties.Settings.Default.ScreenPath == "")
             {
                 SaverDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -209,7 +213,7 @@ namespace Auto_filler
             }
             AllList();
         }
-        
+
 
         private void ValueSaver_Click(object sender, RoutedEventArgs e)
         {
@@ -244,7 +248,7 @@ namespace Auto_filler
             MouseHook.Start();
             //MouseHook.MouseAction += new EventHandler(Event);
         }
-       
+
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
