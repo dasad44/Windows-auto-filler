@@ -65,11 +65,13 @@ namespace Auto_filler
                     Clipboard.SetDataObject(captureBitmap);
                     //MessageBox.Show("Screen Captured  " + startV.x + "  "+ startV.y + "  "+ endV.x + "  "+ endV.y + "  ");
                     Process photoViewer = new Process();
+                    //MessageBox.Show(Properties.Settings.Default.ImageInAppFiles);
                     photoViewer.StartInfo.FileName = @path;
                     Thread.Sleep(1000);
                     photoViewer.StartInfo.Arguments = "\\Windows Photo Viewer\\PhotoViewer.dll";
                     photoViewer.Start();
-                    notification.ShowWithImage("ScreenShot has been captured!", path);
+                    notification.ShowWithImage("ScreenShot has been captured!", @NotifiPath);
+                    Thread.Sleep(1000);
                     File.Delete(@NotifiPath);
                 }
                 catch (Exception ex)
