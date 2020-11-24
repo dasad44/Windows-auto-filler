@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,7 +29,8 @@ namespace Auto_filler
         {
             //setting Alert position
             this.Top = 785;
-            this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width - 20;           
+            this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width - 20;
         }
+
     }
 }
