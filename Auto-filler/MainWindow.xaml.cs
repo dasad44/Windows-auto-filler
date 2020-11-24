@@ -38,6 +38,8 @@ namespace Auto_filler
             InitializeComponent();
         }
 
+
+
         //private void Event(object sender, EventArgs e) => mh.mouse();
 
         private void HideButton_Click(object sender, RoutedEventArgs e)
@@ -82,12 +84,10 @@ namespace Auto_filler
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 leftButton = true;
-                MessageBox.Show("dasda");
             }
             else if (e.LeftButton == MouseButtonState.Released)
             {
                 leftButton = false;
-                MessageBox.Show("hoy");
             }
         }
         public void AllList()

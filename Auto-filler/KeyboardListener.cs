@@ -200,7 +200,7 @@ namespace Auto_filler
         public void MouseHookOn()
         {
 
-            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.S))
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q))
             {
                 MouseHook.Start();
             }

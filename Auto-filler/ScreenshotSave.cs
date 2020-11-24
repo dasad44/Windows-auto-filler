@@ -16,12 +16,15 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Diagnostics;
 using static Auto_filler.MouseHook;
+using System.Windows.Interop;
+using System.Runtime.InteropServices;
 
 namespace Auto_filler
 {
     class ScreenshotSave
     {
         private GetCurrentTime _getCurrentTime;
+        Notification notification = new Notification();
         public void CaptureMyScreen(POINT startV,
         POINT endV)
         {
@@ -62,7 +65,8 @@ namespace Auto_filler
                     Process photoViewer = new Process();
                     photoViewer.StartInfo.FileName = @path;
                     photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
-                    photoViewer.Start();
+                    notification.CustomNotifyImageAlert(captureBitmap);
+                    // photoViewer.Start();
                 }
                 catch (Exception ex)
                 {
@@ -70,8 +74,5 @@ namespace Auto_filler
                 }
             }
         }
-       
-
-
     }
 }
