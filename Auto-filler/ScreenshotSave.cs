@@ -62,8 +62,8 @@ namespace Auto_filler
                     Process photoViewer = new Process();
                     photoViewer.StartInfo.FileName = @path;
                     photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
-                    //notification.CustomNotifyImageAlert(captureBitmap);
-                    photoViewer.Start();
+                    notification.CustomNotifyImageAlert(captureBitmap);
+                    //photoViewer.Start();
                 }
                 catch (Exception ex)
                 {

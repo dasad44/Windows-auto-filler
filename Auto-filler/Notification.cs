@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Auto_filler
@@ -21,20 +22,14 @@ namespace Auto_filler
             notifyicon.Dispose();
         }
 
-        public void CustomNotifyImageAlert(Bitmap bitmap)
-        {
-            Bitmap threadbitmap = new Bitmap(bitmap);
-            Thread t = new Thread(()=> Delay(threadbitmap));
-            t.Start();
-        }
-
-        private void Delay(Bitmap bitmap)
+        public async void CustomNotifyImageAlert(Bitmap bitmap)
         {
             sta.screenshotimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
             sta.Show();
-            Thread.Sleep(2000);
+            await Task.Delay(2000);
             sta.Close();
         }
+
 
     }
 }

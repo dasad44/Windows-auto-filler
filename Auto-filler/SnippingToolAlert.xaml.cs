@@ -28,8 +28,8 @@ namespace Auto_filler
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //setting Alert position
-            this.Top = 785;
-            this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width - 20;
+            //this.Top = 785;
+            //this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width - 20;
         }
 
     }
