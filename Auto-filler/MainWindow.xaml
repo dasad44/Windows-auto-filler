@@ -116,8 +116,28 @@
                     <UniformGrid Columns="1" Margin="54,0,0,0">
                         <CheckBox x:Name="LinkCheck" Content="Link ON" Checked="LinkCheck_Checked" Unchecked="LinkCheck_Unchecked" Margin="230,32,195,19" RenderTransformOrigin="0.508,0.262"/>
 
-                        <Button x:Name="ValueSaver" Content="Zapisz" Width="75" Click="ValueSaver_Click" Margin="254,0,253,0" Height="22" VerticalAlignment="Top" />
-                        <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="48"  TextWrapping="Wrap" VerticalAlignment="Top" Width="129" TextChanged="ValueHolder_TextChanged" Margin="80,0,0,0"/>
+                        <Button x:Name="ValueSaver" Content="Zapisz" Click="ValueSaver_Click" Margin="292,72,220,-65" Height="25" VerticalAlignment="Top" />
+                        <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged" Margin="25,40,0,-33"/>
+                        <Button x:Name="ValueSaver2" Content="Zapisz" Click="ValueSaver_Click2" Margin="292,61,220,-54" Height="25" VerticalAlignment="Top" />
+                        <TextBox x:Name="ValueHolder2" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged2" Margin="25,29,0,-22"/>
+                        <Button x:Name="ValueSaver3" Content="Zapisz" Click="ValueSaver_Click3" Margin="292,43,220,-38" Height="27" VerticalAlignment="Top" />
+                        <TextBox x:Name="ValueHolder3" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged3" Margin="25,11,0,-6"/>
+                        <Button x:Name="ValueSaver4" Content="Zapisz" Click="ValueSaver_Click4" Margin="292,25,220,-21" />
+                        <TextBox x:Name="ValueHolder4" HorizontalAlignment="Left" Height="28"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged4" Margin="25,-7,0,0"/>
+                        <Button x:Name="ValueSaver5" Content="Zapisz" Click="ValueSaver_Click5" Margin="292,6,220,0" />
+                        <TextBox x:Name="ValueHolder5" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged5" Margin="25,-26,0,0"/>
+                        <ToggleButton Margin="422,-171,22,95" Name="Popups">
+                            <ToggleButton.Template>
+                                <ControlTemplate TargetType="ToggleButton">
+                                    <TextBlock>Instrukcja działania!</TextBlock>
+                                </ControlTemplate>
+                            </ToggleButton.Template>
+                        </ToggleButton>
+                        <Popup IsOpen="{Binding IsChecked ,ElementName=Popups}" StaysOpen="True" Margin="0,-7,0,0">
+                            <Border Background="blackw">
+                                <TextBlock>I'm the popup</TextBlock>
+                            </Border>
+                        </Popup>
                     </UniformGrid>
                 </TabItem>
 
@@ -166,7 +186,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\Logo.png" Margin="240,8,468,252"/>
+            <Image IsHitTestVisible="False" Source="bin/Debug/images\Logo.png" Margin="240,8,471,252"/>
             <Grid x:Name="redGrid" Height="13" Background="#b20837" Margin="217,0,-2,342"/>
         </Grid>
     </StackPanel>

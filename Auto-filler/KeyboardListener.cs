@@ -32,6 +32,10 @@ namespace Auto_filler
         DataObject actualclipboard = new DataObject();
 
         string _link;
+        string _link2;
+        string _link3;
+        string _link4;
+        string _link5;
         CatchLink cl = new CatchLink();
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
@@ -222,11 +226,63 @@ namespace Auto_filler
         {
             _link = link;
         }
+        public void CatchLink2(string link2)
+        {
+            _link2 = link2;
+        }
+        public void CatchLink3(string link3)
+        {
+            _link3 = link3;
+        }
+        public void CatchLink4(string link4)
+        {
+            _link4 = link4;
+        }
+        public void CatchLink5(string link5)
+        {
+            _link5 = link5;
+        }
         public void LinkButton()
         {
-            if (Keyboard.IsKeyDown(Key.NumPad1) && Properties.Settings.Default.LinkCheck == true)
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D1) && Properties.Settings.Default.LinkCheck == true)
             {
                 cl.LinkOpen(_link);
+            }
+            else if (Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D1) && Properties.Settings.Default.LinkCheck == true)
+            {
+                cl.LinkOpen(_link);
+            }
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D2) && Properties.Settings.Default.LinkCheck == true)
+            {
+                cl.LinkOpen2(_link2);
+            }
+            else if (Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D2) && Properties.Settings.Default.LinkCheck == true)
+            {
+                cl.LinkOpen2(_link2);
+            }
+            else if (Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D3) && Properties.Settings.Default.LinkCheck == true)
+            {
+                cl.LinkOpen3(_link3);
+            }
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D3) && Properties.Settings.Default.LinkCheck == true)
+            {
+                cl.LinkOpen3(_link3);
+            }
+            else if (Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D4) && Properties.Settings.Default.LinkCheck == true)
+            {
+                cl.LinkOpen4(_link4);
+            }
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D4) && Properties.Settings.Default.LinkCheck == true)
+            {
+                cl.LinkOpen4(_link4);
+            }
+            else if (Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D5) && Properties.Settings.Default.LinkCheck == true)
+            {
+                cl.LinkOpen5(_link5);
+            }
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D5) && Properties.Settings.Default.LinkCheck == true)
+            {
+                cl.LinkOpen5(_link5);
             }
         }
     }

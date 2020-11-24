@@ -272,6 +272,49 @@ namespace Auto_filler
         {
 
         }
+        private void ValueSaver_Click2(object sender, RoutedEventArgs e)
+        {
+            string link2 = ValueHolder2.Text;
+            _listener.CatchLink2(link2);
+        }
+
+        private void ValueHolder_TextChanged2(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void ValueSaver_Click3(object sender, RoutedEventArgs e)
+        {
+            string link3 = ValueHolder3.Text;
+            _listener.CatchLink3(link3);
+           
+        }
+
+        private void ValueHolder_TextChanged3(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void ValueSaver_Click4(object sender, RoutedEventArgs e)
+        {
+            string link4 = ValueHolder4.Text;
+            _listener.CatchLink4(link4);
+
+        }
+
+        private void ValueHolder_TextChanged4(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void ValueSaver_Click5(object sender, RoutedEventArgs e)
+        {
+            string link5 = ValueHolder5.Text;
+            _listener.CatchLink5(link5);
+
+        }
+
+        private void ValueHolder_TextChanged5(object sender, TextChangedEventArgs e)
+        {
+
+        }
 
         private void AutoTurnon_Click(object sender, RoutedEventArgs e)
         {
