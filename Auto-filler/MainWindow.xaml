@@ -134,7 +134,7 @@
                             </ToggleButton.Template>
                         </ToggleButton>
                         <Popup IsOpen="{Binding IsChecked ,ElementName=Popups}" StaysOpen="True" Margin="0,-7,0,0">
-                            <Border Background="blackw">
+                            <Border Background="black">
                                 <TextBlock>I'm the popup</TextBlock>
                             </Border>
                         </Popup>
