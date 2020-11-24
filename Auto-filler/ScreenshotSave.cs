@@ -28,9 +28,6 @@ namespace Auto_filler
         public void CaptureMyScreen(POINT startV,
         POINT endV)
         {
-            
-            if (MainWindow.ScreenShot)
-            {
                 try
                 {
                     _getCurrentTime = new GetCurrentTime();
@@ -65,14 +62,13 @@ namespace Auto_filler
                     Process photoViewer = new Process();
                     photoViewer.StartInfo.FileName = @path;
                     photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
-                    notification.CustomNotifyImageAlert(captureBitmap);
-                    // photoViewer.Start();
+                    //notification.CustomNotifyImageAlert(captureBitmap);
+                    photoViewer.Start();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }
         }
     }
 }

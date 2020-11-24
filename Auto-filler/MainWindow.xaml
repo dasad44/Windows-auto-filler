@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_filler"
         mc:Ignorable="d"
-        Title="Windows Auto Filler" Height="351.087" Width="803" Loaded="Window_Loaded" WindowStyle="None" AllowsTransparency="True">
+        Title="Windows Auto Filler" Height="351.087" Width="803" Loaded="Window_Loaded" WindowStyle="None" AllowsTransparency="True" MouseDown="Window_MouseDown">
     <Window.Resources>
         <SolidColorBrush x:Key="MenuBrush" Color="#2a2a29"/>
         <Style TargetType="{x:Type TabItem}">
@@ -13,6 +13,8 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TabItem}">
                         <Grid>
+                            <Rectangle x:Name="moveRectangle" Fill="Transparent"
+                                           Grid.Row="0" Grid.Column="0"/>
                             <Border 
                                 Name="Border"
                                 Margin="0,0,-4,0" 
@@ -51,13 +53,12 @@
                 </TabItem>
 
                 <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="ScreenShot" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-7,-54,0" VerticalAlignment="Top">
-
-                    <UniformGrid Columns="1" Margin="54,0,0,0">
-
+                    <UniformGrid Columns="1" x:Name="Screenshot" Margin="54,0,0,0">
                         <DockPanel Margin="0,80,10,-40" Height="74" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
                             <CheckBox x:Name="ScreenshotCheck" Content="ScreenShot ON" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Width="126" Margin="0,32,0,19" RenderTransformOrigin="0.508,0.262"/>
+
                             <Button x:Name="SaverDirectoryButton" Content="Path"  Width="72" Click="SaverDirectoryButton_Click" Margin="0,32,0,19" RenderTransformOrigin="0.76,0.522"/>
-                            <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Width="178"  Grid.ColumnSpan="3" Grid.Column="1" Margin="80,32,-20,0"/>
+                            <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" x:FieldModifier="public" Height="23" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Width="178"  Grid.ColumnSpan="3" Grid.Column="1" Margin="80,32,-20,0"/>
                             <Button x:Name="ListRefresh" Content="Odśwież"  VerticalAlignment="Top" Width="75"  Click="ListRefresh_Click" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.947,0.364" Margin="-190 0 0 0"/>
                         </DockPanel>
                         <DockPanel Margin="10,45,0,0" Height="26" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.735">
@@ -94,12 +95,17 @@
                 </TabItem>
 
                 <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="      Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-11,-54,11">
+
                     <UniformGrid Columns="1" Margin="54,0,0,0">
+                        <CheckBox x:Name="ClipboardCheck" Content="MultiClipboard ON" Checked="ClipboardCheck_Checked" Unchecked="ClipboardCheck_Unchecked" Margin="230,32,195,19" RenderTransformOrigin="0.508,0.262"/>
+
                     </UniformGrid>
 
                 </TabItem>
                 <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-54,15">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
+                        <CheckBox x:Name="SnippCheck" Content="Snipping Tool On" Checked="SnippCheck_Checked" Unchecked="SnippCheck_Unchecked" Margin="230,32,199,19" RenderTransformOrigin="0.508,0.262"/>
+
                         <Button Content="Button" VerticalAlignment="Top" Width="75" Margin="180,32,0,0" Click="Button_Click"/>
                         <Button Content="mousePossition" VerticalAlignment="Top" Margin="344,0,111,0" Click="Button_Click"/>
 
@@ -108,6 +114,8 @@
                 </TabItem>
                 <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="    Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-3,-19,-54,19">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
+                        <CheckBox x:Name="LinkCheck" Content="Link ON" Checked="LinkCheck_Checked" Unchecked="LinkCheck_Unchecked" Margin="230,32,195,19" RenderTransformOrigin="0.508,0.262"/>
+
                         <Button x:Name="ValueSaver" Content="Zapisz" Width="75" Click="ValueSaver_Click" Margin="254,0,253,0" Height="22" VerticalAlignment="Top" />
                         <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="48"  TextWrapping="Wrap" VerticalAlignment="Top" Width="129" TextChanged="ValueHolder_TextChanged" Margin="80,0,0,0"/>
                     </UniformGrid>

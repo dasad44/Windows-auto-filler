@@ -97,6 +97,8 @@ namespace Auto_filler
 
         private void saveImg()
         {
+            if (Properties.Settings.Default.ClipboardCheck == false)
+                return;
             if (Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.LeftAlt) || Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.RightAlt) || Keyboard.IsKeyDown(Key.PrintScreen))
             {
                 tmp_clipboard = Clipboard.GetDataObject();
@@ -108,6 +110,8 @@ namespace Auto_filler
 
         private void SaveMultiClipboard()
         {
+            if (Properties.Settings.Default.ClipboardCheck == false)
+                return;
             if (Keyboard.IsKeyDown(Key.C)           //ctrl+C
           && Keyboard.IsKeyDown(Key.LeftCtrl) && ctrl1clicked == false && ctrl2clicked == false
           || Keyboard.IsKeyDown(Key.RightCtrl)
@@ -185,14 +189,14 @@ namespace Auto_filler
         private ScreenshotSave _screenSave;
         public void ScreenShot()
         {
-            if (Keyboard.IsKeyDown(Key.PrintScreen))
+            if (Keyboard.IsKeyDown(Key.PrintScreen) && Properties.Settings.Default.ScreenCheck == true)
             {
                 POINT startV;
                 POINT endV;
                 startV.x = 0;
                 startV.y = 0;
-                endV.x = 0;
-                endV.y = 0;
+                endV.x = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+                endV.y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
                 _screenSave = new ScreenshotSave();
                 _screenSave.CaptureMyScreen(startV, endV);
             }
@@ -200,7 +204,7 @@ namespace Auto_filler
         public void MouseHookOn()
         {
 
-            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q))
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true)
             {
                 MouseHook.Start();
             }
@@ -220,7 +224,7 @@ namespace Auto_filler
         }
         public void LinkButton()
         {
-            if (Keyboard.IsKeyDown(Key.NumPad1))
+            if (Keyboard.IsKeyDown(Key.NumPad1) && Properties.Settings.Default.LinkCheck == true)
             {
                 cl.LinkOpen(_link);
             }

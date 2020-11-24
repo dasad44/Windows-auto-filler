@@ -30,7 +30,7 @@ namespace Auto_filler
         }
         void NIcon_Click(object sender, EventArgs e)
         {
-            MainWindow.Visibility = Visibility.Visible;
+            MainWindow.Visibility = System.Windows.Visibility.Visible;
             MainWindow.WindowState = WindowState.Normal;
         }
     }

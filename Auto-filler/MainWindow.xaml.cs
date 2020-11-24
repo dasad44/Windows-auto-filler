@@ -57,26 +57,59 @@ namespace Auto_filler
           //  && Keyboard.IsKeyDown(Key.RightAlt))
            //     this.Show();
         }
-
+        Visibility visibility = null;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _listener = new KeyboardListener(this);
             _listener.OnKeyPressed += _listener_OnKeyPressed;
-            _listener.HookKeyboard();    
+            _listener.HookKeyboard();
+            visibility = new Visibility(); //Now we can safely create an instantiation of our UI class.
             if (@Properties.Settings.Default.ScreenPath == "")
             {
                 SaverDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 Properties.Settings.Default.ScreenPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 Properties.Settings.Default.Save();
             }
+            
             else
                 SaverDirectory.Text = Properties.Settings.Default.ScreenPath;
+
+            if (Properties.Settings.Default.ScreenCheck == true)
+            {
+                ScreenshotCheck.IsChecked = true;
+            }
+            else
+                ScreenshotCheck.IsChecked = false;
+            if (Properties.Settings.Default.LinkCheck == true)
+            {
+                LinkCheck.IsChecked = true;
+            }
+            else
+                LinkCheck.IsChecked = false;
+            if (Properties.Settings.Default.ClipboardCheck == true)
+            {
+                ClipboardCheck.IsChecked = true;
+            }
+            else
+                ClipboardCheck.IsChecked = false;
+
+            if (Properties.Settings.Default.SnippCheck == true)
+            {
+                SnippCheck.IsChecked = true;
+            }
+            else
+                SnippCheck.IsChecked = false;
+
             _autoDelete = new ScreenshotAutoDelete();
             _autoDelete.AutoDelete();
             AllList();
         }
 
-
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
+        }
         private void Timer_(object sender, MouseEventArgs e)
         {
             posStart = e.GetPosition(this);
@@ -173,19 +206,45 @@ namespace Auto_filler
         }
         private void ScreenshotCheck_Checked(object sender, RoutedEventArgs e)
         {
-            ScreenShot = true;
-            SaverDirectory.Visibility = Visibility.Visible;
-            SaverDirectoryButton.Visibility = Visibility.Visible;
-            SaverListView.Visibility = Visibility.Visible;
-            ListRefresh.Visibility = Visibility.Visible;
+            Properties.Settings.Default.ScreenCheck = true;
+            Properties.Settings.Default.Save();
+            visibility.ScreenShotVis();
         }
         private void ScreenshotCheck_Unchecked(object sender, RoutedEventArgs e)
         {
-            ScreenShot = false;
-            SaverDirectory.Visibility = Visibility.Hidden;
-            SaverDirectoryButton.Visibility = Visibility.Hidden;
-            SaverListView.Visibility = Visibility.Hidden;
-            ListRefresh.Visibility = Visibility.Hidden;
+            Properties.Settings.Default.ScreenCheck = false;
+            Properties.Settings.Default.Save();
+            visibility.ScreenShotInVis();
+        }
+        private void SnippCheck_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.SnippCheck = true;
+            Properties.Settings.Default.Save();
+        }
+        private void SnippCheck_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.SnippCheck = false;
+            Properties.Settings.Default.Save();
+        }
+        private void LinkCheck_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.LinkCheck = true;
+            Properties.Settings.Default.Save();
+        }
+        private void LinkCheck_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.LinkCheck = false;
+            Properties.Settings.Default.Save();
+        }
+        private void ClipboardCheck_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.ClipboardCheck = true;
+            Properties.Settings.Default.Save();
+        }
+        private void ClipboardCheck_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.ClipboardCheck = false;
+            Properties.Settings.Default.Save();
         }
         private void SaverDirectoryButton_Click(object sender, RoutedEventArgs e)
         {
@@ -255,5 +314,7 @@ namespace Auto_filler
             if (WindowState == WindowState.Minimized) this.Hide();
             base.OnStateChanged(e);
         }
+
+        
     }
 }

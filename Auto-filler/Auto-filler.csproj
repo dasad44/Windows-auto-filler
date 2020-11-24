@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Visibility.cs" />
     <Compile Include="ImageOperation.cs" />
     <Compile Include="SnippingToolAlert.xaml.cs">
       <DependentUpon>SnippingToolAlert.xaml</DependentUpon>
