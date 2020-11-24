@@ -135,7 +135,14 @@
                         </ToggleButton>
                         <Popup IsOpen="{Binding IsChecked ,ElementName=Popups}" StaysOpen="True" Margin="0,-7,0,0">
                             <Border Background="black">
-                                <TextBlock>I'm the popup</TextBlock>
+                                <TextBlock TextWrapping="Wrap" Width="593" Height="77">
+                                    W pole tekstowe proszę wpisać link np: "youtube.com lub facebook.com" a nastpęnie nacisnnąć
+                                    zapisz. Link zapisze się w danym boxie. Liczymy od góry, i po kolei 1,2,3,4,5. Po nasiśnięciu
+                                    buttona zapisz, proszę kolejno uruchomić link skrótem klawiszowym control + 1/2/3/4/5. Nie ma różnicy
+                                    czy prawy control czy lewy control.
+                                    
+                                    
+                                </TextBlock>
                             </Border>
                         </Popup>
                     </UniformGrid>
