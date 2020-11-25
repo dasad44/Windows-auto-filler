@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="SnippingToolAlert" Height="240" Width="300" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Loaded="Window_Loaded" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseRightButtonDown="Window_MouseRightButtonDown">
     <Window.Background>
-        <SolidColorBrush Opacity="0.81" Color="#b20837"/>
+        <SolidColorBrush Opacity="0.80" Color="#b20837"/>
     </Window.Background>
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
                 <Storyboard >
-                    <DoubleAnimation Duration="0:0:.8" Storyboard.TargetProperty="Left" From="2320" To="{Binding Path=To}" AccelerationRatio=".1"/>
+                    <DoubleAnimation x:Name="showinganimation" Duration="0:0:1.1" Storyboard.TargetProperty="Left" From="2320" To="1605" AccelerationRatio=".1"/>
                 </Storyboard>
             </BeginStoryboard>
         </EventTrigger>

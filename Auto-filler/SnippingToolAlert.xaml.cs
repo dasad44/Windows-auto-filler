@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -29,8 +30,10 @@ namespace Auto_filler
         {
             //setting Alert position
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
-            this.Left = desktopWorkingArea.Right - this.Width - 15;
             this.Top = desktopWorkingArea.Bottom - this.Height - 15;
+            //setting start animation points
+            this.showinganimation.From = this.Left = desktopWorkingArea.Right - this.Width + 470;
+            this.showinganimation.To = this.Left = desktopWorkingArea.Right - this.Width - 15;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

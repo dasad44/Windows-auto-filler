@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Animation;
 
 namespace Auto_filler
 {
@@ -26,10 +27,8 @@ namespace Auto_filler
         {
             sta.screenshotimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
             sta.Show();
-            await Task.Delay(2500);
+            await Task.Delay(3000);
             sta.Close();
         }
-
-
     }
 }
