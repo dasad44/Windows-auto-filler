@@ -23,11 +23,12 @@ namespace Auto_filler
             notifyicon.Dispose();
         }
 
-        public async void CustomNotifyImageAlert(Bitmap bitmap)
+        public async void CustomNotifyImageAlert(string title, Bitmap bitmap)
         {
+            sta.notifytext.Text = title;
             sta.screenshotimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
             sta.Show();
-            await Task.Delay(3000);
+            await Task.Delay(3500);
             sta.Close();
         }
     }
