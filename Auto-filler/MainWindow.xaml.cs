@@ -107,7 +107,12 @@ namespace Auto_filler
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+           
+        }
+
+        private void redGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+             if (e.LeftButton == MouseButtonState.Pressed)
                 this.DragMove();
         }
         private void Timer_(object sender, MouseEventArgs e)
@@ -358,6 +363,6 @@ namespace Auto_filler
             base.OnStateChanged(e);
         }
 
-        
+       
     }
 }
