@@ -194,7 +194,7 @@
                 </Image.Style>
             </Image>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\Logo.png" Margin="240,8,471,252"/>
-            <Grid x:Name="redGrid" Height="13" Background="#b20837" Margin="217,0,-2,342"/>
+            <Grid x:Name="redGrid" Height="13" Background="#b20837" Margin="217,0,-2,342" MouseDown="redGrid_MouseDown"/>
         </Grid>
     </StackPanel>
 </Window>
