@@ -28,9 +28,19 @@ namespace Auto_filler
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //setting Alert position
-            //this.Top = 785;
-            //this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width - 20;
+            var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
+            this.Left = desktopWorkingArea.Right - this.Width - 15;
+            this.Top = desktopWorkingArea.Bottom - this.Height - 15;
         }
 
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace Auto_filler
         {
             sta.screenshotimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
             sta.Show();
-            await Task.Delay(2000);
+            await Task.Delay(2500);
             sta.Close();
         }
 
