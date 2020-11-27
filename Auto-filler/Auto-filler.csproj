@@ -64,6 +64,9 @@
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SnippingToolWindow.xaml.cs">
+      <DependentUpon>SnippingToolWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Visibility.cs" />
     <Compile Include="ImageOperation.cs" />
     <Compile Include="SnippingToolAlert.xaml.cs">
@@ -101,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SnippingToolAlert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SnippingToolWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

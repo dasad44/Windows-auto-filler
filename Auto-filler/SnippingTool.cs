@@ -16,7 +16,6 @@ namespace Auto_filler
             MouseHook.stop();
             _screenSave = new ScreenshotSave();
             _screenSave.CaptureMyScreen(startV, endV);
-            
         }
     }
 }

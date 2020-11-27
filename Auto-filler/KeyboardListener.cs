@@ -23,6 +23,7 @@ namespace Auto_filler
         private const int WM_KEYUP = 0x0101;
 
         private bool ctrl1clicked = false, ctrl2clicked = false;
+        SnippingToolWindow snippingtoolwindow = new SnippingToolWindow();
         string tmp1 = "";
         ClipboardHandler clipboardhandler = new ClipboardHandler();
         IDataObject tmp_clipboard;
@@ -214,17 +215,19 @@ namespace Auto_filler
         }
         public void MouseHookOn()
         {
-
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true)
             {
+                //snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+                //snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+                //snippingtoolwindow.Show();
                 MouseHook.Start();
             }
         }
         public void MouseHookOff()
         {
-
             if (Keyboard.IsKeyDown(Key.Escape))
             {
+                snippingtoolwindow.Close();
                 MouseHook.stop();
             }
         }
