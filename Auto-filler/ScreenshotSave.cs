@@ -72,6 +72,7 @@ namespace Auto_filler
                 photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
                 notification.CustomNotifyImageAlert("Screenshot has been captured", captureBitmap);
                 //photoViewer.Start();
+                KeyboardListener.SnippCondition = true;
             }
             catch (Exception ex)
             {

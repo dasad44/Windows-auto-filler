@@ -21,7 +21,7 @@ namespace Auto_filler
         //private const int WM_SYSKEYDOWN = 0x0104;
         private const int WM_SYSKEYUP = 0x0105;
         private const int WM_KEYUP = 0x0101;
-
+        public static bool SnippCondition = true; //SnippingToolLoop bug - SnippCondition sprawia by snipping tool wykonał się tylko raz i zapobiegał loopowaniu 
         private bool ctrl1clicked = false, ctrl2clicked = false;
         SnippingToolWindow snippingtoolwindow = new SnippingToolWindow();
         string tmp1 = "";
@@ -215,11 +215,12 @@ namespace Auto_filler
         }
         public void MouseHookOn()
         {
-            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true)
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true)
             {
                 //snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
                 //snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
-                //snippingtoolwindow.Show();
+                snippingtoolwindow.Show();
+                SnippCondition = false;
                 MouseHook.Start();
             }
         }

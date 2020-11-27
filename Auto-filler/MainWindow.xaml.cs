@@ -212,13 +212,13 @@ namespace Auto_filler
         {
             Properties.Settings.Default.ScreenCheck = true;
             Properties.Settings.Default.Save();
-            visibility.ScreenShotVis();
+            //visibility.ScreenShotVis();
         }
         private void ScreenshotCheck_Unchecked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.ScreenCheck = false;
             Properties.Settings.Default.Save();
-            visibility.ScreenShotInVis();
+            //visibility.ScreenShotInVis();
         }
         private void SnippCheck_Checked(object sender, RoutedEventArgs e)
         {
