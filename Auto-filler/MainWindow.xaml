@@ -167,7 +167,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image Height="30" Width="45" Stretch="Fill" Margin="713,13,45,312">
+            <Image Height="30" Width="45" Stretch="Fill" Margin="713,13,45,312" MouseLeftButtonDown="Image_MouseLeftButtonDown_1">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/settings.jpg" />

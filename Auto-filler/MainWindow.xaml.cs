@@ -363,6 +363,10 @@ namespace Auto_filler
             base.OnStateChanged(e);
         }
 
-
+        private void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            SettingsWindow settings = new SettingsWindow();
+            settings.Show();
+        }
     }
 }

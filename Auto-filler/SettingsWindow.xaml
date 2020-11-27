@@ -1,0 +1,23 @@
+﻿<Window x:Class="Auto_filler.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Auto_filler"
+        mc:Ignorable="d"
+        Title="Settings" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True">
+    <Grid>
+        <Image Height="30" Stretch="Fill" Margin="753,0,0,420" HorizontalAlignment="Left" Width="47" MouseLeftButtonDown="CloseButton_Click">
+            <Image.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="bin/debug/images/turnoff.png"/>
+                    <Style.Triggers>
+                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                            <Setter Property="Image.Source" Value="bin/debug/images/turnoffhover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+    </Grid>
+</Window>
