@@ -23,52 +23,60 @@ namespace Auto_filler
 {
     class ScreenshotSave
     {
+        IDataObject tmp_clipboard;
         private GetCurrentTime _getCurrentTime;
         Notification notification = new Notification();
+        ClipboardHandler clipboardhandler = new ClipboardHandler();
         public void CaptureMyScreen(POINT startV,
         POINT endV)
         {
-                try
-                {
-                    _getCurrentTime = new GetCurrentTime();
-                    String Date = _getCurrentTime.GetTime();
+            try
+            {
+                _getCurrentTime = new GetCurrentTime();
+                String Date = _getCurrentTime.GetTime();
 
-                    if(startV.x > endV.x)
-                    {
-                        int t = startV.x;
-                        startV.x = endV.x;
-                        endV.x = t;
-                    }
-                    if (startV.y > endV.y)
-                    {
-                        int t = startV.y;
-                        startV.y = endV.y;
-                        endV.y = t;
-                    }
-                    //MessageBox.Show(startV.x + "  " + startV.y + "  " + endV.x + "  " + endV.y + "  ");
-                    string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-" + Date + ".jpg";
-                    int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
-                    int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
-                    int x = screenWidth - startV.x - (screenWidth - endV.x);
-                    int y = screenHeight - startV.y - (screenHeight - endV.y);
-                    //MessageBox.Show(startV.x + "  " + startV.y + "  " + endV.x + "  " + endV.y + "  "+x + "  " + y);
-                    Bitmap captureBitmap = new Bitmap(x,y, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-                    System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
-                    Graphics captureGraphics = Graphics.FromImage(captureBitmap);
-                    captureGraphics.CopyFromScreen(startV.x, startV.y, 0, 0, captureRectangle.Size);
-                    captureBitmap.Save(@path, ImageFormat.Jpeg);
-                    Clipboard.SetDataObject(captureBitmap);
-                    //MessageBox.Show("Screen Captured  " + startV.x + "  "+ startV.y + "  "+ endV.x + "  "+ endV.y + "  ");
-                    Process photoViewer = new Process();
-                    photoViewer.StartInfo.FileName = @path;
-                    photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
-                    notification.CustomNotifyImageAlert("Screenshot has been captured", captureBitmap);
-                    //photoViewer.Start();
-                }
-                catch (Exception ex)
+                if (startV.x > endV.x)
                 {
-                    MessageBox.Show(ex.Message);
+                    int t = startV.x;
+                    startV.x = endV.x;
+                    endV.x = t;
                 }
+                if (startV.y > endV.y)
+                {
+                    int t = startV.y;
+                    startV.y = endV.y;
+                    endV.y = t;
+                }
+                //MessageBox.Show(startV.x + "  " + startV.y + "  " + endV.x + "  " + endV.y + "  ");
+                string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-" + Date + ".jpg";
+                int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+                int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
+                int x = screenWidth - startV.x - (screenWidth - endV.x);
+                int y = screenHeight - startV.y - (screenHeight - endV.y);
+                //MessageBox.Show(startV.x + "  " + startV.y + "  " + endV.x + "  " + endV.y + "  "+x + "  " + y);
+                Bitmap captureBitmap = new Bitmap(x, y, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
+                Graphics captureGraphics = Graphics.FromImage(captureBitmap);
+                captureGraphics.CopyFromScreen(startV.x, startV.y, 0, 0, captureRectangle.Size);
+                captureBitmap.Save(@path, ImageFormat.Jpeg);
+                //multiclipboard queue actions
+                Clipboard.SetDataObject(captureBitmap);
+                tmp_clipboard = Clipboard.GetDataObject();
+                ClipboardValueContainer.clipboard_3 = ClipboardValueContainer.clipboard_2;
+                ClipboardValueContainer.clipboard_2 = ClipboardValueContainer.clipboard_1;
+                ClipboardValueContainer.clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
+
+                //MessageBox.Show("Screen Captured  " + startV.x + "  "+ startV.y + "  "+ endV.x + "  "+ endV.y + "  ");
+                Process photoViewer = new Process();
+                photoViewer.StartInfo.FileName = @path;
+                photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
+                notification.CustomNotifyImageAlert("Screenshot has been captured", captureBitmap);
+                //photoViewer.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

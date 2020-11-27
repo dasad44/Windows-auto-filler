@@ -48,13 +48,13 @@ namespace Auto_filler
 
         void _listener_OnKeyPressed(object sender, KeyPressedArgs e)
         {
-           // if (Keyboard.IsKeyDown(Key.G)
-           // && Keyboard.IsKeyDown(Key.LeftCtrl)
-           // && Keyboard.IsKeyDown(Key.LeftAlt)
-          //  || Keyboard.IsKeyDown(Key.G)
-           // && Keyboard.IsKeyDown(Key.RightCtrl)
-          //  && Keyboard.IsKeyDown(Key.RightAlt))
-           //     this.Show();
+            // if (Keyboard.IsKeyDown(Key.G)
+            // && Keyboard.IsKeyDown(Key.LeftCtrl)
+            // && Keyboard.IsKeyDown(Key.LeftAlt)
+            //  || Keyboard.IsKeyDown(Key.G)
+            // && Keyboard.IsKeyDown(Key.RightCtrl)
+            //  && Keyboard.IsKeyDown(Key.RightAlt))
+            //     this.Show();
         }
         Visibility visibility = null;
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -69,7 +69,7 @@ namespace Auto_filler
                 Properties.Settings.Default.ScreenPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 Properties.Settings.Default.Save();
             }
-            
+
             else
                 SaverDirectory.Text = Properties.Settings.Default.ScreenPath;
 
@@ -106,12 +106,12 @@ namespace Auto_filler
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-           
+
         }
 
         private void redGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-             if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
                 this.DragMove();
         }
         private void Timer_(object sender, MouseEventArgs e)
@@ -264,7 +264,7 @@ namespace Auto_filler
             }
             AllList();
         }
-        
+
 
         private void ValueSaver_Click(object sender, RoutedEventArgs e)
         {
@@ -290,7 +290,7 @@ namespace Auto_filler
         {
             string link3 = ValueHolder3.Text;
             _listener.CatchLink3(link3);
-           
+
         }
 
         private void ValueHolder_TextChanged3(object sender, TextChangedEventArgs e)
@@ -342,11 +342,12 @@ namespace Auto_filler
             MouseHook.Start();
             //MouseHook.MouseAction += new EventHandler(Event);
         }
-       
+
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            notification.CustomNotifyAlert("Application turned off!", "Actions stopped");
+            this.Close();
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -362,6 +363,6 @@ namespace Auto_filler
             base.OnStateChanged(e);
         }
 
-       
+
     }
 }

@@ -23,12 +23,9 @@ namespace Auto_filler
         private const int WM_KEYUP = 0x0101;
 
         private bool ctrl1clicked = false, ctrl2clicked = false;
-        string text_1 = "", text_2 = "", text_3 = "", tmp1 = "";
+        string tmp1 = "";
         ClipboardHandler clipboardhandler = new ClipboardHandler();
         IDataObject tmp_clipboard;
-        DataObject clipboard_1 = new DataObject("");
-        DataObject clipboard_2 = new DataObject("");
-        DataObject clipboard_3 = new DataObject("");
         DataObject actualclipboard = new DataObject();
 
         string _link;
@@ -111,21 +108,20 @@ namespace Auto_filler
 
         private void SaveImageQueue()
         {
-
             tmp_clipboard = Clipboard.GetDataObject();
-            clipboard_3 = clipboard_2;
-            clipboard_2 = clipboard_1;
-            clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
+            ClipboardValueContainer.clipboard_3 = ClipboardValueContainer.clipboard_2;
+            ClipboardValueContainer.clipboard_2 = ClipboardValueContainer.clipboard_1;
+            ClipboardValueContainer.clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
         }
 
         private void SaveTextQueue()
         {
-            clipboard_3 = clipboard_2;
-            clipboard_2 = clipboard_1;
-            clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
-            text_3 = text_2;
-            text_2 = text_1;
-            text_1 = clipboardhandler.SaveText();
+            ClipboardValueContainer.clipboard_3 = ClipboardValueContainer.clipboard_2;
+            ClipboardValueContainer.clipboard_2 = ClipboardValueContainer.clipboard_1;
+            ClipboardValueContainer.clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
+            ClipboardValueContainer.text_3 = ClipboardValueContainer.text_2;
+            ClipboardValueContainer.text_2 = ClipboardValueContainer.text_1;
+            ClipboardValueContainer.text_1 = clipboardhandler.SaveText();
         }
 
         private void SaveMultiClipboard()
@@ -142,9 +138,9 @@ namespace Auto_filler
                 //checking if clipboard has new value(is marked)
                 tmp1 = Clipboard.GetText();
 
-                if (actualclipboard.Equals(clipboard_1) || actualclipboard.Equals(clipboard_2) || actualclipboard.Equals(clipboard_3) || tmp1 == "" || tmp1 == text_2 || tmp1 == text_3 || tmp1 == text_1)
+                if (actualclipboard.Equals(ClipboardValueContainer.clipboard_1) || actualclipboard.Equals(ClipboardValueContainer.clipboard_2) || actualclipboard.Equals(ClipboardValueContainer.clipboard_3) || tmp1 == "" || tmp1 == ClipboardValueContainer.text_2 || tmp1 == ClipboardValueContainer.text_3 || tmp1 == ClipboardValueContainer.text_1)
                 {
-                    clipboardhandler.UpdateClipboard(clipboard_1);
+                    clipboardhandler.UpdateClipboard(ClipboardValueContainer.clipboard_1);
                 }
                 else
                 {
@@ -169,7 +165,7 @@ namespace Auto_filler
           && Keyboard.IsKeyDown(Key.C) && ctrl1clicked == true && ctrl2clicked == false)
             {
                 ctrl2clicked = true;
-                clipboardhandler.UpdateClipboard(clipboard_2);
+                clipboardhandler.UpdateClipboard(ClipboardValueContainer.clipboard_2);
             }
             else if (Keyboard.IsKeyUp(Key.C)
           && Keyboard.IsKeyUp(Key.LeftCtrl)
@@ -187,7 +183,7 @@ namespace Auto_filler
           && Keyboard.IsKeyDown(Key.C) && ctrl2clicked == true && ctrl2clicked == true)
             {
                 //text_1 = clipboardhandler.SaveText();
-                clipboardhandler.UpdateClipboard(clipboard_3);
+                clipboardhandler.UpdateClipboard(ClipboardValueContainer.clipboard_3);
                 ctrl2clicked = false;
                 ctrl1clicked = false;
             }
