@@ -25,6 +25,7 @@ namespace Auto_filler
     {
         private KeyboardListener _listener;
         private ScreenshotAutoDelete _autoDelete;
+        Notification notification = new Notification();
         public static bool ScreenShot;
         public static bool leftButton;
         public static String path;
@@ -32,18 +33,16 @@ namespace Auto_filler
         public static System.Windows.Point posEnd;
         RegistryOnOff regis = new RegistryOnOff();
 
-
         public MainWindow()
         {
             InitializeComponent();
         }
 
-
-
         //private void Event(object sender, EventArgs e) => mh.mouse();
 
         private void HideButton_Click(object sender, RoutedEventArgs e)
         {
+            notification.CustomNotifyAlert("Application has been hidden!", "Use Alt + Ctrl + G to show application again");
             this.Hide();
         }
 

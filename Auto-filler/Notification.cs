@@ -14,6 +14,7 @@ namespace Auto_filler
     {
         ImageOperation imageoperation = new ImageOperation();
         SnippingToolAlert sta = new SnippingToolAlert();
+        NotificationAlert na = new NotificationAlert();
         public void Show(string title, string body, int timeout)
         {
             NotifyIcon notifyicon = new NotifyIcon();
@@ -30,6 +31,16 @@ namespace Auto_filler
             sta.Show();
             await Task.Delay(3500);
             sta.Close();
+        }
+
+        public async void CustomNotifyAlert(string title, string body)
+        {
+            na.notifytitle.Text = title;
+            na.notifibody.Text = body;
+            na.Show();
+            await Task.Delay(4000);
+            na.Close();
+
         }
     }
 }

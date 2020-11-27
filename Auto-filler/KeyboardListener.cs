@@ -105,11 +105,27 @@ namespace Auto_filler
                 return;
             if (Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.LeftAlt) || Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.RightAlt) || Keyboard.IsKeyDown(Key.PrintScreen))
             {
-                tmp_clipboard = Clipboard.GetDataObject();
-                clipboard_3 = clipboard_2;
-                clipboard_2 = clipboard_1;
-                clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
+                SaveImageQueue();
             }
+        }
+
+        private void SaveImageQueue()
+        {
+
+            tmp_clipboard = Clipboard.GetDataObject();
+            clipboard_3 = clipboard_2;
+            clipboard_2 = clipboard_1;
+            clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
+        }
+
+        private void SaveTextQueue()
+        {
+            clipboard_3 = clipboard_2;
+            clipboard_2 = clipboard_1;
+            clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
+            text_3 = text_2;
+            text_2 = text_1;
+            text_1 = clipboardhandler.SaveText();
         }
 
         private void SaveMultiClipboard()
@@ -132,12 +148,7 @@ namespace Auto_filler
                 }
                 else
                 {
-                    clipboard_3 = clipboard_2;
-                    clipboard_2 = clipboard_1;
-                    clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
-                    text_3 = text_2;
-                    text_2 = text_1;
-                    text_1 = clipboardhandler.SaveText();
+                    SaveTextQueue();
                 }
 
                 ctrl1clicked = true;
@@ -163,7 +174,7 @@ namespace Auto_filler
             else if (Keyboard.IsKeyUp(Key.C)
           && Keyboard.IsKeyUp(Key.LeftCtrl)
           || Keyboard.IsKeyUp(Key.RightCtrl)
-          && Keyboard.IsKeyUp(Key.C) 
+          && Keyboard.IsKeyUp(Key.C)
           || Keyboard.IsKeyUp(Key.LeftCtrl)
           || Keyboard.IsKeyUp(Key.C))
             {
