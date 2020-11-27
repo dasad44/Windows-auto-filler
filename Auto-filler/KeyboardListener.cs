@@ -217,8 +217,13 @@ namespace Auto_filler
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true)
             {
-                //snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
-                //snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+                snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+                snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+                //setting position of window
+                var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
+                snippingtoolwindow.Top = desktopWorkingArea.Bottom - snippingtoolwindow.Height;
+                snippingtoolwindow.Left = desktopWorkingArea.Right - snippingtoolwindow.Width;
+
                 snippingtoolwindow.Show();
                 SnippCondition = false;
                 MouseHook.Start();

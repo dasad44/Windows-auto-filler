@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="SnippingToolWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" MouseRightButtonDown="Window_MouseRightButtonDown">
     <Grid>
-        
+        <Image x:Name="wholescreenimage" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="800"/>
+
     </Grid>
 </Window>
