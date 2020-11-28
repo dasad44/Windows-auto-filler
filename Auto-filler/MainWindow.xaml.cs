@@ -341,13 +341,6 @@ namespace Auto_filler
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MouseHook.Start();
-            //MouseHook.MouseAction += new EventHandler(Event);
-        }
-
-
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             notification.CustomNotifyAlert("Application turned off!", "Actions stopped");
@@ -372,6 +365,5 @@ namespace Auto_filler
             SettingsWindow settings = new SettingsWindow();
             settings.Show();
         }
-
     }
 }
