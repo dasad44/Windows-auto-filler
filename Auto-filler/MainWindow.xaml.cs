@@ -325,6 +325,10 @@ namespace Auto_filler
             regis.AutoStartOn();
             MessageBox.Show("Udało się!");
         }
+        private void Information(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Udało się!");
+        }
 
         private void TurningOff_Click(object sender, RoutedEventArgs e)
         {
@@ -368,5 +372,6 @@ namespace Auto_filler
             SettingsWindow settings = new SettingsWindow();
             settings.Show();
         }
+
     }
 }

@@ -42,12 +42,15 @@
     </Window.Resources>
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
-            <TabControl TabStripPlacement="Left" BorderThickness="2" Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,-2,0">
-                <TabItem BorderBrush="Transparent" Height="60" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-4,-54,4">
+            <TabControl TabStripPlacement="Left" BorderThickness="2"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,-2,0">
+                <TabItem BorderBrush="Transparent" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-3,-4,-54,4">
                     <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5" Margin="54,0,0,0">
-                        <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="190,0,0,0" VerticalAlignment="Top" Width="99" Height="34" Click="HideButton_Click"/>
-                        <Button x:Name="AutoTurnon" Content="Uruchamiaj przy&#xA;starcie systemu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124"  Height="35" Click="AutoTurnon_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
-                        <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xA;przy starcie systemu" VerticalAlignment="Center" Width="161" Height="37" Click="TurningOff_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
+                        <TextBlock TextWrapping="Wrap" FontSize="18" Margin="55,150,36,20" Foreground="#FF110101">
+                            <Bold>Ty no nie wiem jak tam twoja szmaciura jebana zrogowaciala niedzwiedzica co sie kurwi pod mostem za wojaka i 
+                            siada kurwa na butle od vanisha i kurwe w taczce pijana wozili po osiedlu wiesz o co chodzi mnie nie przegadasz bo mi sperme z paly 
+                            zjadasz frajerze zrogowacialy frajerska chmuro chuj ci na matule i jebac ci starego</Bold>
+                        </TextBlock>
+
                     </UniformGrid>
                 </TabItem>
                 <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="ScreenShot" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-7,-54,0" VerticalAlignment="Top">
@@ -157,6 +160,7 @@
                         <Style.Triggers>
                             <Trigger  Property="Image.IsMouseOver" Value="True">
                                 <Setter Property="Image.Source" Value="bin/debug/images/settingshover.png" />
+
                             </Trigger>
                         </Style.Triggers>
                     </Style>
