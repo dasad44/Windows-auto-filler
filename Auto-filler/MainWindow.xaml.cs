@@ -18,6 +18,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Runtime.InteropServices;
 using static Auto_filler.MouseHook;
+using System.Text.RegularExpressions;
 
 namespace Auto_filler
 {
@@ -56,6 +57,12 @@ namespace Auto_filler
             //  && Keyboard.IsKeyDown(Key.RightAlt))
             //     this.Show();
         }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
         Visibility visibility = null;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -63,6 +70,7 @@ namespace Auto_filler
             _listener.OnKeyPressed += _listener_OnKeyPressed;
             _listener.HookKeyboard();
             visibility = new Visibility(); //Now we can safely create an instantiation of our UI class.
+            DayLimit.Text = Properties.Settings.Default.DayLimit.ToString();
             if (@Properties.Settings.Default.ScreenPath == "")
             {
                 SaverDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -380,6 +388,12 @@ namespace Auto_filler
         {
             SettingsWindow settings = new SettingsWindow();
             settings.Show();
+        }
+
+        private void DayLimitclick_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.DayLimit = int.Parse(DayLimit.Text);
+            Properties.Settings.Default.Save();
         }
     }
 }

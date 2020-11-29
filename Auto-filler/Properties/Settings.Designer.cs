@@ -82,5 +82,17 @@ namespace Auto_filler.Properties {
                 this["ClipboardCheck"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int DayLimit {
+            get {
+                return ((int)(this["DayLimit"]));
+            }
+            set {
+                this["DayLimit"] = value;
+            }
+        }
     }
 }

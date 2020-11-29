@@ -32,7 +32,7 @@ namespace Auto_filler
                 string Sdate = name.Substring(11, 10);
                 DateTime date = Convert.ToDateTime(Sdate);
                 int days = (DateTime.Now - date).Days;
-                if (days >= 3)
+                if (days >= Properties.Settings.Default.DayLimit)
                     File.Delete(element);
             }
         }
