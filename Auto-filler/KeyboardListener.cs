@@ -213,22 +213,47 @@ namespace Auto_filler
                 _screenSave.CaptureMyScreen(startV, endV);
             }
         }
+        private ScreenFreeze _screenFreeze;
+        ImageOperation imageoperation = new ImageOperation();
+        bool rdwd = false;
         public void MouseHookOn()
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true)
             {
+                
                 snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
                 snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
                 //setting position of window
                 var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
                 snippingtoolwindow.Top = desktopWorkingArea.Bottom - snippingtoolwindow.Height;
                 snippingtoolwindow.Left = desktopWorkingArea.Right - snippingtoolwindow.Width;
+                
+                POINT startV;
+                POINT endV;
+                startV.x = 0;
+                startV.y = 0;
+                endV.x = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+                endV.y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
+                _screenFreeze = new ScreenFreeze();
+                Bitmap bitmap = _screenFreeze.GetScreen(startV, endV);
+                Rectangle r = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
+                int alpha = 128;
+                using (Graphics g = Graphics.FromImage(bitmap))
+                {
+                    using (Brush cloud_brush = new SolidBrush(Color.FromArgb(alpha, Color.Black)))
+                    {
+                        g.FillRectangle(cloud_brush, r);
+                    }
+                }
 
+                snippingtoolwindow.wholescreenimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
+                snippingtoolwindow.WindowState = System.Windows.WindowState.Maximized;
                 snippingtoolwindow.Show();
                 SnippCondition = false;
                 MouseHook.Start();
             }
         }
+
         public void MouseHookOff()
         {
             if (Keyboard.IsKeyDown(Key.Escape))

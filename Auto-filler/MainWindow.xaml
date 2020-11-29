@@ -1,4 +1,4 @@
-﻿<Window x:Class="Auto_filler.MainWindow"
+<Window x:Class="Auto_filler.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,7 +8,8 @@
         Title="Windows Auto Filler" Height="351.087" Width="803" Loaded="Window_Loaded" WindowStyle="None" AllowsTransparency="True" MouseDown="Window_MouseDown">
     <Window.Resources>
         <SolidColorBrush x:Key="MenuBrush" Color="#2a2a29"/>
-        <Style TargetType="{x:Type TabItem}">
+        <SolidColorBrush x:Key="MenuBrush2" Color="#FF1B1B1A"/>
+        <Style  TargetType="{x:Type TabItem}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TabItem}">
@@ -31,7 +32,7 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter Property="Panel.ZIndex" Value="100" />
-                                <Setter TargetName="Border" Property="Background" Value="{StaticResource MenuBrush}" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource MenuBrush2}" />
                                 <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -39,6 +40,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+
+
+
+
+
     </Window.Resources>
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
@@ -53,7 +60,7 @@
 
                     </UniformGrid>
                 </TabItem>
-                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="ScreenShot" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-7,-54,0" VerticalAlignment="Top">
+                <TabItem x:Name="ScreenShotItem"  FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="ScreenShot" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-7,-54,0" VerticalAlignment="Top">
                     <UniformGrid Columns="1" x:Name="Screenshot" Margin="54,0,0,0">
                         <DockPanel Margin="0,80,10,-40" Height="74" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
                             <Button x:Name="SaverDirectoryButton" Content="Path"  Width="72" Click="SaverDirectoryButton_Click" Margin="0,32,0,19" RenderTransformOrigin="0.76,0.522"/>
@@ -91,15 +98,15 @@
                         </DockPanel>
                     </UniformGrid>
                 </TabItem>
-                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="      Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-11,-54,11">
+                <TabItem x:Name="ClipboardItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="      Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-11,-54,11">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
                     </UniformGrid>
                 </TabItem>
-                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-54,15">
+                <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-54,15">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
                     </UniformGrid>
                 </TabItem>
-                <TabItem FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="    Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-3,-19,-54,19">
+                <TabItem x:Name="LinkItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="    Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-3,-19,-54,19">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
                         <Button x:Name="ValueSaver" Content="Zapisz" Click="ValueSaver_Click" Margin="292,72,220,-65" Height="25" VerticalAlignment="Top" />
                         <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged" Margin="25,40,0,-33"/>

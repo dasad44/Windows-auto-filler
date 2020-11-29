@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static Auto_filler.MouseHook;
 
 namespace Auto_filler
 {
@@ -19,14 +21,15 @@ namespace Auto_filler
     /// </summary>
     public partial class SnippingToolWindow : Window
     {
+        
         public SnippingToolWindow()
         {
             InitializeComponent();
         }
-
-        private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+       
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
     }
 }

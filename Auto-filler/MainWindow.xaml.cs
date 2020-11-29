@@ -213,42 +213,58 @@ namespace Auto_filler
             Properties.Settings.Default.ScreenCheck = true;
             Properties.Settings.Default.Save();
             //visibility.ScreenShotVis();
+            var bc = new BrushConverter();
+            ScreenShotItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#b20837");
         }
         private void ScreenshotCheck_Unchecked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.ScreenCheck = false;
             Properties.Settings.Default.Save();
             //visibility.ScreenShotInVis();
+            var bc = new BrushConverter();
+            ScreenShotItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#e7e8ea");
         }
         private void SnippCheck_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.SnippCheck = true;
             Properties.Settings.Default.Save();
+            var bc = new BrushConverter();
+            SnippingItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#b20837");
         }
         private void SnippCheck_Unchecked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.SnippCheck = false;
             Properties.Settings.Default.Save();
+            var bc = new BrushConverter();
+            SnippingItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#e7e8ea");
         }
         private void LinkCheck_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.LinkCheck = true;
             Properties.Settings.Default.Save();
+            var bc = new BrushConverter();
+            LinkItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#b20837");
         }
         private void LinkCheck_Unchecked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.LinkCheck = false;
             Properties.Settings.Default.Save();
+            var bc = new BrushConverter();
+            LinkItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#e7e8ea");
         }
         private void ClipboardCheck_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.ClipboardCheck = true;
             Properties.Settings.Default.Save();
+            var bc = new BrushConverter();
+            ClipboardItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#b20837");
         }
         private void ClipboardCheck_Unchecked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.ClipboardCheck = false;
             Properties.Settings.Default.Save();
+            var bc = new BrushConverter();
+            ClipboardItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#e7e8ea");
         }
         private void SaverDirectoryButton_Click(object sender, RoutedEventArgs e)
         {

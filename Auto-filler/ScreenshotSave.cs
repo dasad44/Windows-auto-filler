@@ -47,6 +47,11 @@ namespace Auto_filler
                     startV.y = endV.y;
                     endV.y = t;
                 }
+                if(startV.x == endV.x || startV.y == endV.y)
+                {
+                    MessageBox.Show("Zaznacz fragment ekranu");
+                    return;
+                }
                 //MessageBox.Show(startV.x + "  " + startV.y + "  " + endV.x + "  " + endV.y + "  ");
                 string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-" + Date + ".jpg";
                 int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
