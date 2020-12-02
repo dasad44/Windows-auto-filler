@@ -54,9 +54,7 @@
                 <TabItem BorderBrush="Transparent" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-3,-4,-54,4">
                     <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5" Margin="54,0,0,0">
                         <TextBlock TextWrapping="Wrap" FontSize="18" Margin="55,150,36,20" Foreground="#FF110101">
-                            <Bold>Ty no nie wiem jak tam twoja szmaciura jebana zrogowaciala niedzwiedzica co sie kurwi pod mostem za wojaka i 
-                            siada kurwa na butle od vanisha i kurwe w taczce pijana wozili po osiedlu wiesz o co chodzi mnie nie przegadasz bo mi sperme z paly 
-                            zjadasz frajerze zrogowacialy frajerska chmuro chuj ci na matule i jebac ci starego</Bold>
+                            <Bold>Tutaj będzie tekst strony głównej aplikacji/może instrukcja</Bold>
                         </TextBlock>
 
                     </UniformGrid>
