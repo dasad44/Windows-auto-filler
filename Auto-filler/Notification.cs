@@ -13,8 +13,6 @@ namespace Auto_filler
     class Notification
     {
         ImageOperation imageoperation = new ImageOperation();
-        SnippingToolAlert sta = new SnippingToolAlert();
-        NotificationAlert na = new NotificationAlert();
         public void Show(string title, string body, int timeout)
         {
             NotifyIcon notifyicon = new NotifyIcon();
@@ -26,6 +24,7 @@ namespace Auto_filler
 
         public async void CustomNotifyImageAlert(string title, Bitmap bitmap)
         {
+            SnippingToolAlert sta = new SnippingToolAlert();
             sta.notifytext.Text = title;
             sta.screenshotimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
             sta.Show();
@@ -35,12 +34,20 @@ namespace Auto_filler
 
         public async void CustomNotifyAlert(string title, string body)
         {
+            NotificationAlert na = new NotificationAlert();
             na.notifytitle.Text = title;
             na.notifibody.Text = body;
             na.Show();
             await Task.Delay(4000);
             na.Close();
+        }
 
+        public async void CustomClipboardAlert()
+        {
+            MultiClipboardNotification mcn = new MultiClipboardNotification();
+            mcn.Show();
+            await Task.Delay(2200);
+            mcn.Close();
         }
     }
 }

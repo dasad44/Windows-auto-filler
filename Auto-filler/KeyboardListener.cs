@@ -24,6 +24,7 @@ namespace Auto_filler
         public static bool SnippCondition = true; //SnippingToolLoop bug - SnippCondition sprawia by snipping tool wykonał się tylko raz i zapobiegał loopowaniu 
         private bool ctrl1clicked = false, ctrl2clicked = false;
         SnippingToolWindow snippingtoolwindow = new SnippingToolWindow();
+        Notification notification = new Notification();
         string tmp1 = "";
         ClipboardHandler clipboardhandler = new ClipboardHandler();
         IDataObject tmp_clipboard;
@@ -147,7 +148,7 @@ namespace Auto_filler
                 {
                     SaveTextQueue();
                 }
-
+                //notification.CustomClipboardAlert();
                 ctrl1clicked = true;
             }
             else if (Keyboard.IsKeyUp(Key.C)
