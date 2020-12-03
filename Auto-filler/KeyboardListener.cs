@@ -221,7 +221,7 @@ namespace Auto_filler
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true)
             {
-                
+                snippingtoolwindow.Topmost = true;
                 snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
                 snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
                 //setting position of window
