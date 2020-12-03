@@ -66,6 +66,14 @@ namespace Auto_filler
         Visibility visibility = null;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //creating file in appdata/roaming for any cache files like tmp images or text
+            string appdatapath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Auto_filler");
+            if (!Directory.Exists(appdatapath))
+            {
+                DirectoryInfo di = Directory.CreateDirectory(appdatapath);
+            }
+
+
             _listener = new KeyboardListener(this);
             _listener.OnKeyPressed += _listener_OnKeyPressed;
             _listener.HookKeyboard();

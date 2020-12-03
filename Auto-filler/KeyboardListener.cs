@@ -105,6 +105,7 @@ namespace Auto_filler
             if (Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.LeftAlt) || Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.RightAlt) || Keyboard.IsKeyDown(Key.PrintScreen))
             {
                 SaveImageQueue();
+                notification.CustomClipboardAlert();
             }
         }
 
