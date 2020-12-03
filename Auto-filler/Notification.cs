@@ -25,6 +25,7 @@ namespace Auto_filler
         public async void CustomNotifyImageAlert(string title, Bitmap bitmap)
         {
             SnippingToolAlert sta = new SnippingToolAlert();
+            sta.Topmost = true;
             sta.notifytext.Text = title;
             sta.screenshotimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
             sta.Show();
@@ -35,6 +36,7 @@ namespace Auto_filler
         public async void CustomNotifyAlert(string title, string body)
         {
             NotificationAlert na = new NotificationAlert();
+            na.Topmost = true;
             na.notifytitle.Text = title;
             na.notifibody.Text = body;
             na.Show();
@@ -45,6 +47,7 @@ namespace Auto_filler
         public async void CustomClipboardAlert()
         {
             MultiClipboardNotification mcn = new MultiClipboardNotification();
+            mcn.Topmost = true;
             await Task.Delay(50);  
             mcn.Show();
             await Task.Delay(2200);
