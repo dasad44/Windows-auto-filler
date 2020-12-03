@@ -147,8 +147,8 @@ namespace Auto_filler
                 else
                 {
                     SaveTextQueue();
+                    notification.CustomClipboardAlert();
                 }
-                //notification.CustomClipboardAlert();
                 ctrl1clicked = true;
             }
             else if (Keyboard.IsKeyUp(Key.C)

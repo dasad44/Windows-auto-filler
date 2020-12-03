@@ -33,14 +33,6 @@ namespace Auto_filler
             this.showinganimation.From = this.Left = desktopWorkingArea.Right - this.Width + 390;
             this.showinganimation.To = this.Left = desktopWorkingArea.Right - this.Width - 15;
 
-            if(ClipboardValueContainer.clipboard_1.ContainsText())
-            {
-                this.clipboardtext1.Text = ClipboardValueContainer.clipboard_1.ToString();
-            }
-            else
-            {
-              //  this.clipboardimage1.Source = ClipboardValueContainer.clipboard_1;
-            }
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

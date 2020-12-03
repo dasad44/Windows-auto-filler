@@ -45,9 +45,9 @@ namespace Auto_filler
         public async void CustomClipboardAlert()
         {
             MultiClipboardNotification mcn = new MultiClipboardNotification();
-            mcn.Show();
-            await Task.Delay(2200);
-            mcn.Close();
+            //mcn.Show();
+            //await Task.Delay(2200);
+            //mcn.Close();
         }
     }
 }
