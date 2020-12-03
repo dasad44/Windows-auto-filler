@@ -216,7 +216,6 @@ namespace Auto_filler
         }
         private ScreenFreeze _screenFreeze;
         ImageOperation imageoperation = new ImageOperation();
-        bool rdwd = false;
         public void MouseHookOn()
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true)
