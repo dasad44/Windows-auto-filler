@@ -122,8 +122,11 @@
                         <TextBox x:Name="ValueHolder3" HorizontalAlignment="Left" Height="27"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged3" Margin="25,11,0,-6"/>
                         <Button x:Name="ValueSaver4" Content="Zapisz" Click="ValueSaver_Click4" Margin="292,25,220,-21" />
                         <TextBox x:Name="ValueHolder4" HorizontalAlignment="Left" Height="28"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged4" Margin="25,-7,0,0"/>
-                        <Button x:Name="ValueSaver5" Content="Zapisz" Click="ValueSaver_Click5" Margin="292,6,220,0" />
+                        <Button x:Name="ValueSaver5" Content="Zapisz" Click="ValueSaver_Click5" Margin="292,6,220,0"/>
                         <TextBox x:Name="ValueHolder5" HorizontalAlignment="Left" Height="26"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged5" Margin="25,-26,0,0"/>
+                        <Button x:Name="Remover" Content="Usun" Click="RemoveField" Margin="292,6,220,0" />
+                        <Button x:Name="Adder" Content="Dodaj" Click="AddField" Margin="378,-19,134,25" />
+
                         <ToggleButton Margin="422,-171,22,95" Name="Popups">
                             <ToggleButton.Template>
                                 <ControlTemplate TargetType="ToggleButton">

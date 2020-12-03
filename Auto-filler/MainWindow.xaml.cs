@@ -22,6 +22,7 @@ using System.Text.RegularExpressions;
 
 namespace Auto_filler
 {
+
     public partial class MainWindow : Window
     {
         private KeyboardListener _listener;
@@ -33,6 +34,7 @@ namespace Auto_filler
         public static System.Windows.Point posStart;
         public static System.Windows.Point posEnd;
         RegistryOnOff regis = new RegistryOnOff();
+        public static bool linkeditor = true;
 
         public MainWindow()
         {
@@ -332,16 +334,57 @@ namespace Auto_filler
         {
 
         }
+        private void donothing(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("xd");
+        }
         private void ValueSaver_Click5(object sender, RoutedEventArgs e)
         {
-            string link5 = ValueHolder5.Text;
-            _listener.CatchLink5(link5);
+            
+
+            if (ValueSaver5.IsVisible)
+            {
+                string link5 = ValueHolder5.Text;
+                _listener.CatchLink5(link5);
+                linkeditor = true;
+            }
+                
 
         }
 
         private void ValueHolder_TextChanged5(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+
+        private void RemoveField(object sender, RoutedEventArgs e)
+        {
+            //TextBox texboksik = new TextBox
+            //{
+            //     Width = 50,
+            //      Height = 100,
+            //      Foreground = System.Windows.Media.Brushes.Green,
+            //       Text = "essssa",
+            //       
+            //   };          
+            ValueSaver5.Visibility = System.Windows.Visibility.Hidden;
+            linkeditor = false;
+            ValueHolder5.Visibility = System.Windows.Visibility.Hidden;
+        }
+        private void AddField(object sender, RoutedEventArgs e)
+        {
+            //TextBox texboksik = new TextBox
+            //{
+            //     Width = 50,
+            //      Height = 100,
+            //      Foreground = System.Windows.Media.Brushes.Green,
+            //       Text = "essssa",
+            //       
+            //   };          
+            ValueSaver5.Visibility = System.Windows.Visibility.Visible;
+            linkeditor = true;
+            ValueHolder5.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void AutoTurnon_Click(object sender, RoutedEventArgs e)

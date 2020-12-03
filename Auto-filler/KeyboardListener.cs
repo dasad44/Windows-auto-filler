@@ -319,11 +319,18 @@ namespace Auto_filler
             }
             else if (Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D5) && Properties.Settings.Default.LinkCheck == true)
             {
-                cl.LinkOpen5(_link5);
+                if (MainWindow.linkeditor == true)
+                {
+                    cl.LinkOpen5(_link5);
+                }
+
             }
             else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D5) && Properties.Settings.Default.LinkCheck == true)
             {
-                cl.LinkOpen5(_link5);
+                if (MainWindow.linkeditor == true)
+                {
+                    cl.LinkOpen5(_link5);
+                }
             }
         }
     }
