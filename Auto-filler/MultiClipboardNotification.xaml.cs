@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,9 +34,13 @@ namespace Auto_filler
             this.showinganimation.From = this.Left = desktopWorkingArea.Right - this.Width + 390;
             this.showinganimation.To = this.Left = desktopWorkingArea.Right - this.Width - 15;
 
-            if(ClipboardValueContainer.clipboard_1.ContainsText())
+            if (ClipboardValueContainer.clipboard_1.ContainsText())
             {
                 this.clipboardtext1.Text = ClipboardValueContainer.clipboard_1.GetText();
+            }
+            else
+            {
+                this.clipboardimage1.Source = ClipboardValueContainer.clipboard_1.GetImage();
             }
         }
 
