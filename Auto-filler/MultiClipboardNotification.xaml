@@ -19,14 +19,17 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid>
-        <Image x:Name="clipboardimage1" HorizontalAlignment="Left" Height="78" Margin="78,0,0,0" VerticalAlignment="Top" Width="119"/>
-        <TextBlock x:Name="clipboardtext1" Foreground="#ECECEC" HorizontalAlignment="Left" Margin="4,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="286" RenderTransformOrigin="0.5,0.5" FontSize="20"/>
+        <TextBlock Foreground="#979899" Text="First clipboard:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="203" RenderTransformOrigin="0.5,0.5" Margin="5,5,0,0"/>
+        <Image x:Name="clipboardimage1" HorizontalAlignment="Left" Height="59" Margin="78,24,0,0" VerticalAlignment="Top" Width="101"/>
+        <TextBlock x:Name="clipboardtext1" Foreground="#ECECEC" HorizontalAlignment="Left" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="300" RenderTransformOrigin="0.5,0.5" FontSize="18"/>
 
-        <Image x:Name="clipboardimage2" HorizontalAlignment="Left" Height="78" Margin="78,78,0,0" VerticalAlignment="Top" Width="119"/>
-        <TextBlock x:Name="clipboardtext2" Foreground="#ECECEC" HorizontalAlignment="Left" Margin="0,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="286" RenderTransformOrigin="0.5,0.5" FontSize="20"/>
+        <TextBlock Foreground="#979899" Text="Second clipboard:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="203" RenderTransformOrigin="0.5,0.5" Margin="5,83,0,0"/>
+        <Image x:Name="clipboardimage2" HorizontalAlignment="Left" Height="59" Margin="78,103,0,0" VerticalAlignment="Top" Width="101"/>
+        <TextBlock x:Name="clipboardtext2" Foreground="#ECECEC" HorizontalAlignment="Left" Margin="0,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="300" RenderTransformOrigin="0.5,0.5" FontSize="18"/>
 
-        <Image x:Name="clipboardimage3" HorizontalAlignment="Left" Height="78" Margin="78,162,0,0" VerticalAlignment="Top" Width="119"/>
-        <TextBlock x:Name="clipboardtext3" Foreground="#ECECEC" HorizontalAlignment="Left" Margin="0,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="286" RenderTransformOrigin="0.5,0.5" FontSize="20"/>
+        <TextBlock Foreground="#979899" Text="Third clipboard:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="203" RenderTransformOrigin="0.5,0.5" Margin="5,162,0,0"/>
+        <Image x:Name="clipboardimage3" HorizontalAlignment="Left" Height="59" Margin="78,181,0,0" VerticalAlignment="Top" Width="101"/>
+        <TextBlock x:Name="clipboardtext3" Foreground="#ECECEC" HorizontalAlignment="Left" Margin="0,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="300" RenderTransformOrigin="0.5,0.5" FontSize="18"/>
 
     </Grid>
 </Window>

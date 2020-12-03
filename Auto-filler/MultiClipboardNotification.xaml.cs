@@ -33,14 +33,43 @@ namespace Auto_filler
             //setting start animation points
             this.showinganimation.From = this.Left = desktopWorkingArea.Right - this.Width + 390;
             this.showinganimation.To = this.Left = desktopWorkingArea.Right - this.Width - 15;
+            showClipboards();
+        }
 
-            if (ClipboardValueContainer.clipboard_1.ContainsText())
+        private void showClipboards()
+        {
+            try
             {
-                this.clipboardtext1.Text = ClipboardValueContainer.clipboard_1.GetText();
+                if (ClipboardValueContainer.clipboard_1.ContainsText())
+                {
+                    this.clipboardtext1.Text = ClipboardValueContainer.clipboard_1.GetText();
+                }
+                else
+                {
+                    this.clipboardimage1.Source = ClipboardValueContainer.clipboard_1.GetImage();
+                }
+
+                if (ClipboardValueContainer.clipboard_2.ContainsText())
+                {
+                    this.clipboardtext2.Text = ClipboardValueContainer.clipboard_2.GetText();
+                }
+                else
+                {
+                    this.clipboardimage2.Source = ClipboardValueContainer.clipboard_2.GetImage();
+                }
+
+                if (ClipboardValueContainer.clipboard_3.ContainsText())
+                {
+                    this.clipboardtext3.Text = ClipboardValueContainer.clipboard_3.GetText();
+                }
+                else
+                {
+                    this.clipboardimage3.Source = ClipboardValueContainer.clipboard_3.GetImage();
+                }
             }
-            else
+            catch(NullReferenceException e)
             {
-                this.clipboardimage1.Source = ClipboardValueContainer.clipboard_1.GetImage();
+                Console.WriteLine(e.Message + " /error occurs when clipboard 2 and 3 don't have value yet");
             }
         }
 
