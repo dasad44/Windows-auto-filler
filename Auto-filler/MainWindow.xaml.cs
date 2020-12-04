@@ -45,8 +45,8 @@ namespace Auto_filler
 
         private void HideButton_Click(object sender, RoutedEventArgs e)
         {
-            notification.CustomNotifyAlert("Application has been hidden!", "Use Alt + Ctrl + G to show application again");
-            this.Hide();
+            //notification.CustomNotifyAlert("Application has been hidden!", "Use Alt + Ctrl + G to show application again");
+            //this.Hide();
         }
 
         void _listener_OnKeyPressed(object sender, KeyPressedArgs e)

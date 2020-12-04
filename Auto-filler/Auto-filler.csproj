@@ -72,6 +72,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CloudNotification.xaml.cs">
+      <DependentUpon>CloudNotification.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MultiClipboardNotification.xaml.cs">
       <DependentUpon>MultiClipboardNotification.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
     <Compile Include="SnippingToolAlert.xaml.cs">
       <DependentUpon>SnippingToolAlert.xaml</DependentUpon>
     </Compile>
+    <Page Include="CloudNotification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

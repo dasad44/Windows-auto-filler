@@ -33,10 +33,22 @@ namespace Auto_filler
         }
         static POINT StartPoint;
         static POINT EndPoint;
+        static POINT CursorPosition;
         private static SnippingTool _snippingTool;
         private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
+            if (nCode >= 0)
+            {
+                MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
+                MouseAction(null, new EventArgs());
+
+                CursorPosition.x = Cursor.Position.X;
+                CursorPosition.y = Cursor.Position.Y;
+                //Console.WriteLine("Xx:" + Cursor.Position.X + " Yy: " + Cursor.Position.Y);
+            }
+
+
             if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam)
             {
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
