@@ -106,6 +106,7 @@
                 </TabItem>
                 <TabItem x:Name="ClipboardItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="      Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-11,-54,11">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
+                        <Button x:Name="notificationbutton" Content="Notification ON" Margin="200,123,234,0" Height="63" VerticalAlignment="Top" Click="notificationbutton_Click" />
                     </UniformGrid>
                 </TabItem>
                 <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-54,15">

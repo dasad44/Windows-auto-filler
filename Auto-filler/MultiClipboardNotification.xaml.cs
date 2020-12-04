@@ -34,6 +34,7 @@ namespace Auto_filler
             this.showinganimation.From = this.Left = desktopWorkingArea.Right - this.Width + 390;
             this.showinganimation.To = this.Left = desktopWorkingArea.Right - this.Width - 15;
             showClipboards();
+
         }
 
         private void showClipboards()
@@ -67,7 +68,7 @@ namespace Auto_filler
                     this.clipboardimage3.Source = ClipboardValueContainer.clipboard_3.GetImage();
                 }
             }
-            catch(NullReferenceException e)
+            catch (NullReferenceException e)
             {
                 Console.WriteLine(e.Message + " /error occurs when clipboard 2 and 3 don't have value yet");
             }

@@ -105,7 +105,10 @@ namespace Auto_filler
             if (Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.LeftAlt) || Keyboard.IsKeyDown(Key.PrintScreen) && Keyboard.IsKeyDown(Key.RightAlt) || Keyboard.IsKeyDown(Key.PrintScreen))
             {
                 SaveImageQueue();
-                notification.CustomClipboardAlert();
+                if (Properties.Settings.Default.ClipboardNotification)
+                {
+                    notification.CustomClipboardAlert();
+                }
             }
         }
 
@@ -148,7 +151,10 @@ namespace Auto_filler
                 else
                 {
                     SaveTextQueue();
-                    notification.CustomClipboardAlert();
+                    if (Properties.Settings.Default.ClipboardNotification)
+                    {
+                        notification.CustomClipboardAlert();
+                    }
                 }
                 ctrl1clicked = true;
             }

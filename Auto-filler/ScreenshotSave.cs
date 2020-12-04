@@ -73,9 +73,9 @@ namespace Auto_filler
 
                 //MessageBox.Show("Screen Captured  " + startV.x + "  "+ startV.y + "  "+ endV.x + "  "+ endV.y + "  ");
                 Process photoViewer = new Process();
+                notification.CustomNotifyImageAlert("Screenshot has been captured", captureBitmap);
                 photoViewer.StartInfo.FileName = @path;
                 photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
-                notification.CustomNotifyImageAlert("Screenshot has been captured", captureBitmap);
                 //photoViewer.Start();
                 KeyboardListener.SnippCondition = true;
             }

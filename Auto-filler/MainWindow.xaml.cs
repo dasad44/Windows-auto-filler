@@ -446,5 +446,21 @@ namespace Auto_filler
             Properties.Settings.Default.DayLimit = int.Parse(DayLimit.Text);
             Properties.Settings.Default.Save();
         }
+
+        private void notificationbutton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Properties.Settings.Default.ClipboardNotification)
+            {
+                Properties.Settings.Default.ClipboardNotification = false;
+                Properties.Settings.Default.Save();
+                notificationbutton.Content = "Notification On";
+            }
+            else
+            {
+                Properties.Settings.Default.ClipboardNotification = true;
+                Properties.Settings.Default.Save();
+                notificationbutton.Content = "Notification Off";
+            }
+        }
     }
 }
