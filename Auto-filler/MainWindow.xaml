@@ -60,20 +60,22 @@
                     </UniformGrid>
                 </TabItem>
                 <TabItem x:Name="ScreenShotItem"  FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="ScreenShot" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-7,-54,0" VerticalAlignment="Top">
-                    <UniformGrid Columns="1" x:Name="Screenshot" Margin="54,0,0,0">
-                        <DockPanel Margin="0,80,10,-40" Height="74" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
+                    <UniformGrid Columns="1" x:Name="Screenshot" Margin="55,0,0,0">
+
+                        <CheckBox x:Name="AutoDelete" Content="AutoDelete On" Checked="AutoDelete_Checked" Unchecked="AutoDelete_Unchecked" Margin="113,20,338,44" RenderTransformOrigin="-4.069,2.152"/>
+
+                        <DockPanel Margin="0,6,10,0" Height="79" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
 
                             <Button x:Name="SaverDirectoryButton" Content="Path"  Width="72" Click="SaverDirectoryButton_Click" Margin="0,32,0,19" RenderTransformOrigin="0.76,0.522"/>
                             <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" x:FieldModifier="public" Height="23" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Width="178"  Grid.ColumnSpan="3" Grid.Column="1" Margin="80,32,-20,0"/>
                             <Button x:Name="ListRefresh" Content="Odśwież"  VerticalAlignment="Top" Width="75"  Click="ListRefresh_Click" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.947,0.364" Margin="-190 0 0 0"/>
                             <UniformGrid Width="172" Margin="0,-10,0,19">
                                 <Label Content="Podaj ilość dni" Grid.ColumnSpan="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-23,0"  Width="109" Height="31"/>
-                                <TextBox x:Name="DayLimit" PreviewTextInput="NumberValidationTextBox" Grid.ColumnSpan="1" Grid.Column="2" VerticalAlignment="Top"  Margin="20,0,19,0" Width="47" RenderTransformOrigin="0.426,-0.522" Height="25"></TextBox>
-                                <Button x:Name="DayLimitclick" Content="Zapisz" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" Margin="46,4,-45,1" Width="85" RenderTransformOrigin="0.5,0.5" Click="DayLimitclick_Click">
-                                </Button>
+                                <TextBox x:Name="DayLimit" PreviewTextInput="NumberValidationTextBox" Grid.ColumnSpan="1" Grid.Column="2" VerticalAlignment="Top"  Margin="20,0,19,0" Width="47" RenderTransformOrigin="0.426,-0.522" Height="25"/>
+                                <Button x:Name="DayLimitclick" Content="Zapisz" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" Margin="46,4,-45,1" Width="85" RenderTransformOrigin="0.5,0.5" Click="DayLimitclick_Click"/>
                             </UniformGrid>
                         </DockPanel>
-                        <DockPanel Margin="10,45,0,0" Height="26" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.735">
+                        <DockPanel Margin="10,20,0,0" Height="51" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.735">
                             <Button x:Name="AllScreenList" Content="All" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"  Click="AllScreenList_Click"/>
                             <Button x:Name="ImportantScreenList" Content="Important" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"  Click="ImportantScreenList_Click"/>
                             <Button x:Name="TempScreenList" Content="Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="TempScreenList_Click"/>
@@ -92,7 +94,7 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                                                     <CheckBox Margin="5,2"
-                                          IsChecked="{Binding IsSelected,RelativeSource={RelativeSource TemplatedParent}}">
+                                          IsChecked="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}}">
                                                         <ContentPresenter />
                                                     </CheckBox>
                                                 </ControlTemplate>
@@ -106,11 +108,13 @@
                 </TabItem>
                 <TabItem x:Name="ClipboardItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="      Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-11,-54,11">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <Button x:Name="notificationbutton" Content="Notification ON" Margin="200,123,234,0" Height="63" VerticalAlignment="Top" Click="notificationbutton_Click" />
+                        <Button x:Name="notificationbutton" Content="Notification On" Margin="200,123,234,0" Height="63" VerticalAlignment="Top" Click="notificationbutton_Click" />
                     </UniformGrid>
                 </TabItem>
                 <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-54,15">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
+                        <CheckBox x:Name="ScreenshotShow" Content="PhotoViever On" Checked="ScreenshotShow_Checked" Unchecked="ScreenshotShow_Unchecked" Margin="10,126,443,199" RenderTransformOrigin="-4.069,2.152"/>
+
                     </UniformGrid>
                 </TabItem>
                 <TabItem x:Name="LinkItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="    Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-3,-19,-54,19">

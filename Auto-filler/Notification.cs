@@ -26,6 +26,7 @@ namespace Auto_filler
         {
             SnippingToolAlert sta = new SnippingToolAlert();
             sta.Topmost = true;
+            sta.ShowInTaskbar = false; // Nie pojawia się na pasku zadań
             sta.notifytext.Text = title;
             sta.screenshotimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
             sta.Show();
@@ -37,6 +38,7 @@ namespace Auto_filler
         {
             NotificationAlert na = new NotificationAlert();
             na.Topmost = true;
+            na.ShowInTaskbar = false; // Nie pojawia się na pasku zadań
             na.notifytitle.Text = title;
             na.notifibody.Text = body;
             na.Show();
@@ -48,6 +50,7 @@ namespace Auto_filler
         {
             MultiClipboardNotification mcn = new MultiClipboardNotification();
             mcn.Topmost = true;
+            mcn.ShowInTaskbar = false; // Nie pojawia się na pasku zadań
             await Task.Delay(50);  
             mcn.Show();
             await Task.Delay(2200);

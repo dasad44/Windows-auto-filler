@@ -120,6 +120,18 @@ namespace Auto_filler
             }
             else
                 SnippCheck.IsChecked = false;
+            if (Properties.Settings.Default.ScreenShowCheck == true)
+            {
+                ScreenshotShow.IsChecked = true;
+            }
+            else
+                ScreenshotShow.IsChecked = false;
+            if (Properties.Settings.Default.AutoDeleteCheck == true)
+            {
+                AutoDelete.IsChecked = true;
+            }
+            else
+                AutoDelete.IsChecked = false;
 
             _autoDelete = new ScreenshotAutoDelete();
             _autoDelete.AutoDelete();
@@ -245,6 +257,18 @@ namespace Auto_filler
             //visibility.ScreenShotInVis();
             var bc = new BrushConverter();
             ScreenShotItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#e7e8ea");
+        }
+        private void ScreenshotShow_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.ScreenShowCheck = true;
+            Properties.Settings.Default.Save();
+            //visibility.ScreenShotInVis();
+        }
+        private void ScreenshotShow_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.ScreenShowCheck = false;
+            Properties.Settings.Default.Save();
+            //visibility.ScreenShotInVis();
         }
         private void SnippCheck_Checked(object sender, RoutedEventArgs e)
         {
@@ -502,7 +526,8 @@ namespace Auto_filler
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            notification.CustomNotifyAlert("Application turned off!", "Actions stopped");
+            //notification.CustomNotifyAlert("Application turned off!", "Actions stopped");
+            _listener.SnippWindowClose();
             this.Close();
         }
 
@@ -545,6 +570,18 @@ namespace Auto_filler
                 Properties.Settings.Default.Save();
                 notificationbutton.Content = "Notification Off";
             }
+        }
+
+        private void AutoDelete_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.AutoDeleteCheck = false;
+            Properties.Settings.Default.Save();
+        }
+
+        private void AutoDelete_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.AutoDeleteCheck = true;
+            Properties.Settings.Default.Save();
         }
     }
 }
