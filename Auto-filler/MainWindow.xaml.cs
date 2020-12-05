@@ -526,7 +526,7 @@ namespace Auto_filler
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            //notification.CustomNotifyAlert("Application turned off!", "Actions stopped");
+            notification.CustomNotifyAlert("Application turned off!", "Actions stopped");
             _listener.SnippWindowClose();
             this.Close();
         }
