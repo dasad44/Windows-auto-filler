@@ -35,6 +35,10 @@ namespace Auto_filler
         public static System.Windows.Point posEnd;
         RegistryOnOff regis = new RegistryOnOff();
         public static bool linkeditor = true;
+        public static bool linkeditor2 = true;
+        public static bool linkeditor3 = true;
+        public static bool linkeditor4 = true;
+        public static bool linkeditor5 = true;
 
         public MainWindow()
         {
@@ -302,50 +306,63 @@ namespace Auto_filler
 
         private void ValueSaver_Click(object sender, RoutedEventArgs e)
         {
-            string link = ValueHolder.Text;
-            _listener.CatchLink(link);
+            if (ValueSaver.IsVisible)
+            {
+                string link = ValueHolder.Text;
+                _listener.CatchLink(link);
+                linkeditor5 = true;
+            }
+                
         }
-
         private void ValueHolder_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
         private void ValueSaver_Click2(object sender, RoutedEventArgs e)
         {
-            string link2 = ValueHolder2.Text;
-            _listener.CatchLink2(link2);
+            if (ValueSaver2.IsVisible)
+            {
+                string link2 = ValueHolder2.Text;
+                _listener.CatchLink2(link2);
+                linkeditor4 = true;
+            }
+                
         }
-
         private void ValueHolder_TextChanged2(object sender, TextChangedEventArgs e)
         {
 
         }
         private void ValueSaver_Click3(object sender, RoutedEventArgs e)
         {
-            string link3 = ValueHolder3.Text;
-            _listener.CatchLink3(link3);
-
+            if (ValueSaver3.IsVisible)
+            {
+                string link3 = ValueHolder3.Text;
+                _listener.CatchLink3(link3);
+                linkeditor3 = true;
+            }
         }
-
         private void ValueHolder_TextChanged3(object sender, TextChangedEventArgs e)
         {
 
         }
         private void ValueSaver_Click4(object sender, RoutedEventArgs e)
         {
-            string link4 = ValueHolder4.Text;
-            _listener.CatchLink4(link4);
-
+            if (ValueSaver4.IsVisible)
+            {
+                string link4 = ValueHolder4.Text;
+                _listener.CatchLink4(link4);
+                linkeditor2 = true;
+            }
         }
-
         private void ValueHolder_TextChanged4(object sender, TextChangedEventArgs e)
         {
 
         }
         private void donothing(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("xd");
+
         }
+
         private void ValueSaver_Click5(object sender, RoutedEventArgs e)
         {
             
@@ -356,6 +373,8 @@ namespace Auto_filler
                 _listener.CatchLink5(link5);
                 linkeditor = true;
             }
+           
+         
                 
 
         }
@@ -368,32 +387,97 @@ namespace Auto_filler
 
         private void RemoveField(object sender, RoutedEventArgs e)
         {
-            //TextBox texboksik = new TextBox
-            //{
-            //     Width = 50,
-            //      Height = 100,
-            //      Foreground = System.Windows.Media.Brushes.Green,
-            //       Text = "essssa",
-            //       
-            //   };          
-            ValueSaver5.Visibility = System.Windows.Visibility.Hidden;
-            linkeditor = false;
-            ValueHolder5.Visibility = System.Windows.Visibility.Hidden;
+            if (ValueSaver5.IsVisible)
+            {
+                ValueSaver5.Visibility = System.Windows.Visibility.Hidden;
+                linkeditor = false;
+                ValueHolder5.Visibility = System.Windows.Visibility.Hidden;
+                ValueHolder5.Text = string.Empty;
+
+            }
+            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible)
+            {
+                ValueSaver4.Visibility = System.Windows.Visibility.Hidden;
+                linkeditor2 = false;
+                ValueHolder4.Visibility = System.Windows.Visibility.Hidden;
+                ValueHolder4.Text = string.Empty;
+            }
+            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible)
+            {
+                ValueSaver3.Visibility = System.Windows.Visibility.Hidden;
+                linkeditor3 = false;
+                ValueHolder3.Visibility = System.Windows.Visibility.Hidden;
+                ValueHolder3.Text = string.Empty;
+            }
+
+            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible)
+            {
+                ValueSaver2.Visibility = System.Windows.Visibility.Hidden;
+                linkeditor4 = false;
+                ValueHolder2.Visibility = System.Windows.Visibility.Hidden;
+                ValueHolder2.Text = string.Empty;
+            }
+
+            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible == false && ValueSaver.IsVisible)
+            {
+                ValueSaver.Visibility = System.Windows.Visibility.Hidden;
+                linkeditor5 = false;
+                ValueHolder.Visibility = System.Windows.Visibility.Hidden;
+                ValueHolder.Text = string.Empty;
+            }
+
+
         }
         private void AddField(object sender, RoutedEventArgs e)
-        {
-            //TextBox texboksik = new TextBox
-            //{
-            //     Width = 50,
-            //      Height = 100,
-            //      Foreground = System.Windows.Media.Brushes.Green,
-            //       Text = "essssa",
-            //       
-            //   };          
-            ValueSaver5.Visibility = System.Windows.Visibility.Visible;
-            linkeditor = true;
-            ValueHolder5.Visibility = System.Windows.Visibility.Visible;
+        { 
+            if(ValueSaver5.IsVisible == false & ValueSaver4.IsVisible & ValueSaver3.IsVisible & ValueSaver2.IsVisible && ValueSaver.IsVisible)
+            {
+                ValueSaver5.Visibility = System.Windows.Visibility.Visible;
+                linkeditor = true;                
+                ValueHolder5.Visibility = System.Windows.Visibility.Visible;
+                
+            }
+            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible & ValueSaver2.IsVisible & ValueSaver.IsVisible)
+            {
+                ValueSaver4.Visibility = System.Windows.Visibility.Visible;
+                linkeditor2 = true;
+                ValueHolder4.Visibility = System.Windows.Visibility.Visible;
+            }
+            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible && ValueSaver.IsVisible)
+            {
+                ValueSaver3.Visibility = System.Windows.Visibility.Visible;
+                linkeditor3 = true;
+                ValueHolder3.Visibility = System.Windows.Visibility.Visible;
+            }
+            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible == false && ValueSaver.IsVisible)
+            {
+                ValueSaver2.Visibility = System.Windows.Visibility.Visible;
+                linkeditor4 = true;
+                ValueHolder2.Visibility = System.Windows.Visibility.Visible;
+            }
+            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible == false && ValueSaver.IsVisible == false)
+            {
+                ValueSaver.Visibility = System.Windows.Visibility.Visible;
+                linkeditor5 = true;
+                ValueHolder.Visibility = System.Windows.Visibility.Visible;
+            }
+
+
+
+
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void AutoTurnon_Click(object sender, RoutedEventArgs e)
         {
