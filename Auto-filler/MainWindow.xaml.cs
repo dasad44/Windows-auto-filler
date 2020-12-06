@@ -583,5 +583,21 @@ namespace Auto_filler
             Properties.Settings.Default.AutoDeleteCheck = true;
             Properties.Settings.Default.Save();
         }
+
+        private void cloudbutton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Properties.Settings.Default.ClipboardCloudNotification)
+            {
+                Properties.Settings.Default.ClipboardCloudNotification = false;
+                Properties.Settings.Default.Save();
+                cloudbutton.Content = "Cloud Notification On";
+            }
+            else
+            {
+                Properties.Settings.Default.ClipboardCloudNotification = true;
+                Properties.Settings.Default.Save();
+                cloudbutton.Content = "Cloud Notification Off";
+            }
+        }
     }
 }

@@ -109,6 +109,10 @@ namespace Auto_filler
                 {
                     notification.CustomClipboardAlert();
                 }
+                if (Properties.Settings.Default.ClipboardCloudNotification)
+                {
+                    notification.CloudNotificationClipboardAlert();
+                }
             }
         }
 
@@ -154,6 +158,10 @@ namespace Auto_filler
                     if (Properties.Settings.Default.ClipboardNotification)
                     {
                         notification.CustomClipboardAlert();
+                    }
+                    if (Properties.Settings.Default.ClipboardCloudNotification)
+                    {
+                        notification.CloudNotificationClipboardAlert();
                     }
                 }
                 ctrl1clicked = true;

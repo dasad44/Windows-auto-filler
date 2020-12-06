@@ -56,5 +56,15 @@ namespace Auto_filler
             await Task.Delay(2200);
             mcn.Close();
         }
+
+        public async void CloudNotificationClipboardAlert()
+        {
+            CloudNotification cn = new CloudNotification();
+            cn.Topmost = true;
+            cn.ShowInTaskbar = false;
+            cn.Show();
+            await Task.Delay(2200);
+            cn.Close();
+        }
     }
 }

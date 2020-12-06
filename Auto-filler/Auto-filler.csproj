@@ -78,6 +78,7 @@
     <Compile Include="MultiClipboardNotification.xaml.cs">
       <DependentUpon>MultiClipboardNotification.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Position.cs" />
     <Compile Include="ScreenFreeze.cs" />
     <Compile Include="ClipboardValueContainer.cs" />
     <Compile Include="NotificationAlert.xaml.cs">

@@ -108,7 +108,8 @@
                 </TabItem>
                 <TabItem x:Name="ClipboardItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="      Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-11,-54,11">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <Button x:Name="notificationbutton" Content="Notification On" Margin="200,123,234,0" Height="63" VerticalAlignment="Top" Click="notificationbutton_Click" />
+                        <Button x:Name="notificationbutton" Content="Notification On" Margin="200,123,234,-13" Height="64" VerticalAlignment="Top" Click="notificationbutton_Click" />
+                        <Button x:Name="cloudbutton" Content="Cloud Notification On" Margin="350,96,50,11" Click="cloudbutton_Click" />
                     </UniformGrid>
                 </TabItem>
                 <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-54,15">
