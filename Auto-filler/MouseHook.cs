@@ -37,6 +37,13 @@ namespace Auto_filler
         private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
+            //CloudNotification
+            if (nCode >= 0 && MouseMessages.WM_MOUSEMOVE == (MouseMessages)wParam)
+            {
+                MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
+                MouseAction(null, new EventArgs());
+                Auto_filler.CloudNotification.cloudnotification.SetPosition();
+            }
             if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam)
             {
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
@@ -57,6 +64,7 @@ namespace Auto_filler
                 _snippingTool = new SnippingTool();
                 _snippingTool.snippingTool(StartPoint, EndPoint);
             }
+
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
 
@@ -80,7 +88,7 @@ namespace Auto_filler
             WM_MOUSEMOVE = 0x0200,
             WM_MOUSEWHEEL = 0x020A,
             WM_RBUTTONDOWN = 0x0204,
-            WM_RBUTTONUP = 0x0205
+            WM_RBUTTONUP = 0x0205,
         }
 
         [StructLayout(LayoutKind.Sequential)]

@@ -59,12 +59,14 @@ namespace Auto_filler
 
         public async void CloudNotificationClipboardAlert()
         {
+            MouseHook.Start();
             CloudNotification cn = new CloudNotification();
             cn.Topmost = true;
             cn.ShowInTaskbar = false;
             cn.Show();
             await Task.Delay(2200);
             cn.Close();
+            MouseHook.stop();
         }
     }
 }
