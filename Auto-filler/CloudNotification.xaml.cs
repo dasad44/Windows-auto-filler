@@ -20,6 +20,7 @@ namespace Auto_filler
     /// </summary>
     public partial class CloudNotification : Window
     {
+        public const Int32 HTTRANSPARENT = 0x0084;
         public CloudNotification()
         {
             InitializeComponent();
@@ -37,8 +38,8 @@ namespace Auto_filler
         {
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
             Point point = Position.GetMousePosition();
-            this.Top = point.Y-25;
-            this.Left = point.X-25;
+            this.Top = point.Y;
+            this.Left = point.X;
         }
     }
 }
