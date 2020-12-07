@@ -51,7 +51,7 @@ namespace Auto_filler
             MultiClipboardNotification mcn = new MultiClipboardNotification();
             mcn.Topmost = true;
             mcn.ShowInTaskbar = false; // Nie pojawia się na pasku zadań
-            await Task.Delay(50);  
+            //await Task.Delay(50);  
             mcn.Show();
             await Task.Delay(2200);
             mcn.Close();
