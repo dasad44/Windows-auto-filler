@@ -27,7 +27,7 @@ namespace Auto_filler
             cloudnotification = this;
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
             Point point = Position.GetMousePosition();
-            this.Top = point.Y - 200;
+            this.Top = point.Y - 205;
             this.Left = point.X + 5;
         }
         public void SetPosition()

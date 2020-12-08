@@ -29,6 +29,7 @@ namespace Auto_filler
             sta.ShowInTaskbar = false; // Nie pojawia się na pasku zadań
             sta.notifytext.Text = title;
             sta.screenshotimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
+            await Task.Delay(20);
             sta.Show();
             await Task.Delay(3500);
             sta.Close();
@@ -41,6 +42,7 @@ namespace Auto_filler
             na.ShowInTaskbar = false; // Nie pojawia się na pasku zadań
             na.notifytitle.Text = title;
             na.notifibody.Text = body;
+            await Task.Delay(20);
             na.Show();
             await Task.Delay(4000);
             na.Close();
@@ -51,7 +53,7 @@ namespace Auto_filler
             MultiClipboardNotification mcn = new MultiClipboardNotification();
             mcn.Topmost = true;
             mcn.ShowInTaskbar = false; // Nie pojawia się na pasku zadań
-            //await Task.Delay(50);  
+            await Task.Delay(20);  
             mcn.Show();
             await Task.Delay(2200);
             mcn.Close();
@@ -63,6 +65,7 @@ namespace Auto_filler
             CloudNotification cn = new CloudNotification();
             cn.Topmost = true;
             cn.ShowInTaskbar = false;
+            await Task.Delay(20);
             cn.Show();
             await Task.Delay(2200);
             cn.Close();
