@@ -75,6 +75,7 @@
     <Compile Include="CloudNotification.xaml.cs">
       <DependentUpon>CloudNotification.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NumberOperation.cs" />
     <Compile Include="MultiClipboardNotification.xaml.cs">
       <DependentUpon>MultiClipboardNotification.xaml</DependentUpon>
     </Compile>

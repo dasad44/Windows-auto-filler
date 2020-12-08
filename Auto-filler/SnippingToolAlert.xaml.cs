@@ -31,9 +31,10 @@ namespace Auto_filler
             //setting Alert position
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
             this.Top = desktopWorkingArea.Bottom - this.Height - 15;
-            //setting start animation points
-            this.showinganimation.From = this.Left = desktopWorkingArea.Right - this.Width + 320;
-            this.showinganimation.To = this.Left = desktopWorkingArea.Right - this.Width - 15;
+            //setting start animation points    1940    1605 / 2240    1905
+            int virtualScreenWidth = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenLeft);
+            this.showinganimation.From = this.Left = (System.Windows.SystemParameters.VirtualScreenWidth - NumberOperation.ToPositive(virtualScreenWidth)) + 20;
+            this.showinganimation.To = this.Left = System.Windows.SystemParameters.VirtualScreenWidth - NumberOperation.ToPositive(virtualScreenWidth) - 315;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

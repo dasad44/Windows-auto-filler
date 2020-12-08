@@ -31,8 +31,9 @@ namespace Auto_filler
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
             this.Top = desktopWorkingArea.Bottom - this.Height - 15;
             //setting start animation points
-            this.showinganimation.From = this.Left = desktopWorkingArea.Right - this.Width + 310;
-            this.showinganimation.To = this.Left = desktopWorkingArea.Right - this.Width - 15;
+            int virtualScreenWidth = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenLeft);
+            this.showinganimation.From = this.Left = (System.Windows.SystemParameters.VirtualScreenWidth - NumberOperation.ToPositive(virtualScreenWidth)) + 20;
+            this.showinganimation.To = this.Left = System.Windows.SystemParameters.VirtualScreenWidth - NumberOperation.ToPositive(virtualScreenWidth) - 315;
             showClipboards();
         }
 

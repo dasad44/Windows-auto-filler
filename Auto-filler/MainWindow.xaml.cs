@@ -388,27 +388,19 @@ namespace Auto_filler
         }
 
         private void ValueSaver_Click5(object sender, RoutedEventArgs e)
-        {
-            
-
+        {    
             if (ValueSaver5.IsVisible)
             {
                 string link5 = ValueHolder5.Text;
                 _listener.CatchLink5(link5);
                 linkeditor = true;
-            }
-           
-         
-                
-
+            }        
         }
 
         private void ValueHolder_TextChanged5(object sender, TextChangedEventArgs e)
         {
 
         }
-
-
         private void RemoveField(object sender, RoutedEventArgs e)
         {
             if (ValueSaver5.IsVisible)
@@ -458,8 +450,7 @@ namespace Auto_filler
             {
                 ValueSaver5.Visibility = System.Windows.Visibility.Visible;
                 linkeditor = true;                
-                ValueHolder5.Visibility = System.Windows.Visibility.Visible;
-                
+                ValueHolder5.Visibility = System.Windows.Visibility.Visible;             
             }
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible & ValueSaver2.IsVisible & ValueSaver.IsVisible)
             {
@@ -485,24 +476,7 @@ namespace Auto_filler
                 linkeditor5 = true;
                 ValueHolder.Visibility = System.Windows.Visibility.Visible;
             }
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
         private void AutoTurnon_Click(object sender, RoutedEventArgs e)
         {
             regis.AutoStartOn();
@@ -534,9 +508,8 @@ namespace Auto_filler
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             WindowState = WindowState.Minimized;
+            notification.CustomNotifyAlert("Windows Auto-filler hidden!", "Click Alt + Ctrl + G to show application again");
         }
-
-
 
         protected override void OnStateChanged(EventArgs e)
         {
