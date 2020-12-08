@@ -241,6 +241,7 @@ namespace Auto_filler
                 snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
                 snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
                 //setting position of window
+                //System.Windows.SystemParameters.VirtualScreenTop;
                 var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
                 snippingtoolwindow.Top = desktopWorkingArea.Bottom - snippingtoolwindow.Height;
                 snippingtoolwindow.Left = desktopWorkingArea.Right - snippingtoolwindow.Width;
@@ -264,6 +265,7 @@ namespace Auto_filler
                 }
 
                 snippingtoolwindow.wholescreenimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
+                //////////////////////////////
                 snippingtoolwindow.WindowState = System.Windows.WindowState.Maximized;
                 snippingtoolwindow.Show();          
                 MouseHook.Start();
