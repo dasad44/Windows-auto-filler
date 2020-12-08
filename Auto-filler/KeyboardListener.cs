@@ -235,6 +235,7 @@ namespace Auto_filler
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true)
             {
+                SnippCondition = false;
                 snippingtoolwindow.Topmost = true;
                 snippingtoolwindow.ShowInTaskbar = false;
                 snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -264,8 +265,7 @@ namespace Auto_filler
 
                 snippingtoolwindow.wholescreenimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
                 snippingtoolwindow.WindowState = System.Windows.WindowState.Maximized;
-                snippingtoolwindow.Show();
-                SnippCondition = false;
+                snippingtoolwindow.Show();          
                 MouseHook.Start();
             }
         }
