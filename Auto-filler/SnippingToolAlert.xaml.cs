@@ -32,7 +32,7 @@ namespace Auto_filler
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
             this.Top = desktopWorkingArea.Bottom - this.Height - 15;
             //setting start animation points
-            this.showinganimation.From = this.Left = desktopWorkingArea.Right - this.Width + 470;
+            this.showinganimation.From = this.Left = desktopWorkingArea.Right - this.Width + 320;
             this.showinganimation.To = this.Left = desktopWorkingArea.Right - this.Width - 15;
         }
 
