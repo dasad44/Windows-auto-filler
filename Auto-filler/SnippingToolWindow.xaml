@@ -5,9 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_filler"
         mc:Ignorable="d"
-        Title="SnippingToolWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonUp="Window_MouseLeftButtonUp">
-    <Grid MouseMove="Grid_MouseMove">
-        <Image x:Name="wholescreenimage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
-    </Grid>
+        Title="SnippingToolWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove" Loaded="Window_Loaded">
+    
+    <Image x:Name="wholescreenimage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 </Window>

@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
+using System.Windows;
+using Microsoft.Win32;
+using System.IO;
+using System.Drawing;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using static Auto_filler.MouseHook;
-
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Threading;
 namespace Auto_filler
 {
     /// <summary>
@@ -26,64 +22,84 @@ namespace Auto_filler
     /// </summary>
     public partial class SnippingToolWindow : Window
     {
-        public static int startx = 2;
-        public static int starty = 2;
-        public static int endx = 1;
-        public static int endy = 1;
+        public static int startx = 0;
+        public static int starty = 0;
+        public static int endx = 0;
+        public static int endy = 0;
         public static bool MarkStart = false;
-        string path = Properties.Settings.Default.ScreenPath + "\\Test" + ".jpg";
-        Bitmap bit;
-        ImageOperation imageoperation = new ImageOperation();
         public SnippingToolWindow()
         {
             InitializeComponent();
-            POINT startV;
-            POINT endV;
-            startV.x = 0;
-            startV.y = 0;
-            endV.x = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
-            endV.y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
-            string path = Properties.Settings.Default.ScreenPath + "\\Test" + ".jpg";
-            int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
-            int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
-            int x = screenWidth - startV.x - (screenWidth - endV.x);
-            int y = screenHeight - startV.y - (screenHeight - endV.y);
-            Bitmap captureBitmap = new Bitmap(x, y, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-            System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
-            Graphics captureGraphics = Graphics.FromImage(captureBitmap);
-            captureGraphics.CopyFromScreen(startV.x, startV.y, 0, 0, captureRectangle.Size);
-            captureBitmap.Save(@path, ImageFormat.Jpeg);
-
-            bit = (Bitmap)Bitmap.FromFile(@path);
         }
        
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
             this.Hide();
+            MarkedScreen.Hide();
         }
 
+        MarkedScreenWindow MarkedScreen = new MarkedScreenWindow();
+        private ScreenFreeze _screenFreeze;
+        ImageOperation imageoperation = new ImageOperation();
+        public void Marking()
+        {
+            POINT startV;
+            POINT endV;
+            startV.x = startx;
+            startV.y = starty;
+            endV.x = endx;
+            endV.y = endy;
+            _screenFreeze = new ScreenFreeze();
 
-        public void Marking(Bitmap largeBmp)
+
+            if (startx > endx)
+            {
+                int t = startx;
+                startx = endx;
+                endx = t;
+            }
+            if (starty > endy)
+            {
+                int t = starty;
+                starty = endy;
+                endy = t;
+            }
+            MarkedScreen.Width = endx - startx;
+            MarkedScreen.Height = endy - starty;
+            if (startx != endx && starty != endy)
+            {
+                Bitmap Mainbitmap = _screenFreeze.GetScreen(startV, endV);
+                System.Drawing.Rectangle r = new System.Drawing.Rectangle(0, 0, Mainbitmap.Width, Mainbitmap.Height);
+                
+                
+                int alpha = 128;
+                using (Graphics g = Graphics.FromImage(Mainbitmap))
+                {
+                    using (Brush cloud_brush = new SolidBrush(Color.FromArgb(alpha, Color.Black)))
+                    {
+                        g.FillRectangle(cloud_brush, r);
+                    }
+                }
+                MarkedScreen.wholescreenimage.Source = imageoperation.ImageSourceFromBitmap(Mainbitmap);
+            }
+            Console.WriteLine("X:" + MarkedScreen.Width + " Y: " +  MarkedScreen.Height);   
+        }
+
+        private void Window_MouseMove(object sender, MouseEventArgs e)
         {
 
-            var bitmap = new Bitmap(3000, 3000, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-            var graphics = Graphics.FromImage(bitmap);
-            graphics.DrawRectangle(new System.Drawing.Pen(System.Drawing.Color.White), 10, 10, endx-startx, endy-starty);
-            Graphics g = Graphics.FromImage(largeBmp);
-            g.CompositingMode = CompositingMode.SourceOver;
-            g.DrawImage(bitmap, new System.Drawing.Point(startx, starty));
-            wholescreenimage.Source = imageoperation.ImageSourceFromBitmap(largeBmp);  // converting bitmap to Media.Source
-        }
-
-        private void Grid_MouseMove(object sender, MouseEventArgs e)
-        {    
             if (MarkStart == true)
             {
-                
-                bit = (Bitmap)Bitmap.FromFile(@path);
-                //Marking(bit);
+                MarkedScreen.Left = startx;
+                MarkedScreen.Top = starty;
+                MarkedScreen.Show();
+                Marking();
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

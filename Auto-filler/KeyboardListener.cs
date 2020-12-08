@@ -249,16 +249,7 @@ namespace Auto_filler
                 Mainbitmap = _screenFreeze.GetScreen(startV, endV);
 
                 //Make screen darker
-                Rectangle r = new Rectangle(0, 0, Mainbitmap.Width, Mainbitmap.Height);
-                int alpha = 128;
-                using (Graphics g = Graphics.FromImage(Mainbitmap))
-                {
-                    using (Brush cloud_brush = new SolidBrush(Color.FromArgb(alpha, Color.Black)))
-                    {
-                        g.FillRectangle(cloud_brush, r);
-                    }
-                }
-
+                
                 snippingtoolwindow.wholescreenimage.Source = imageoperation.ImageSourceFromBitmap(Mainbitmap);  // converting bitmap to Media.Source
                 snippingtoolwindow.WindowState = System.Windows.WindowState.Maximized;
                 snippingtoolwindow.Show();
