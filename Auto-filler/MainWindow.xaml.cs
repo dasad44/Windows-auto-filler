@@ -69,6 +69,27 @@ namespace Auto_filler
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        private void SetPropertyButtonVal()
+        {
+            if (Properties.Settings.Default.ClipboardNotification)
+            {
+                notificationbutton.Content = "Notification Off";
+            }
+            else
+            {
+                notificationbutton.Content = "Notification On";
+            }
+
+            if (Properties.Settings.Default.ClipboardCloudNotification)
+            {
+                cloudbutton.Content = "Cloud Notification Off";
+            }
+            else
+            {
+                cloudbutton.Content = "Cloud Notification On";
+            }
+        }
+
         Visibility visibility = null;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -78,8 +99,7 @@ namespace Auto_filler
             {
                 DirectoryInfo di = Directory.CreateDirectory(appdatapath);
             }
-
-
+            SetPropertyButtonVal();
             _listener = new KeyboardListener(this);
             _listener.OnKeyPressed += _listener_OnKeyPressed;
             _listener.HookKeyboard();
