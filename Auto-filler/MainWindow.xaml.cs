@@ -592,5 +592,71 @@ namespace Auto_filler
                 cloudbutton.Content = "Cloud Notification Off";
             }
         }
+        private void Clearclick(object sender, EventArgs e)
+        {
+            info1.Text = "";
+            info2.Text = "";
+            info3.Text = "";
+            info4.Text = "";
+            info5.Text = "";
+            info6.Text = "";
+            info7.Text = "";
+            info8.Text = "";
+        }
+        private void SystemInformation(object sender, EventArgs e)
+        {
+            info1.IsEnabled = true;
+            info2.IsEnabled = true;
+            info3.IsEnabled = true;
+            info4.IsEnabled = true;
+            info5.IsEnabled = true;
+            info6.IsEnabled = true;
+            info7.IsEnabled = true;
+            info8.IsEnabled = true;
+            string pcinfo = Environment.MachineName; //Nazwa naszego PC
+            info1.Text = pcinfo;
+
+            string userinfo = Environment.UserName; //Nazwa naszego aktualnego użytkownika
+            info2.Text = Convert.ToString(userinfo);
+
+            int proccount = Environment.ProcessorCount; //Liczy ilość wątków procesora
+            info6.Text = Convert.ToString(proccount);
+
+            bool systembit = Environment.Is64BitOperatingSystem; //Czy system jest 64 bitowy
+            if (systembit == true)
+            {
+                info7.Text = "64bit";
+            }
+            else
+            {
+                info7.Text = "32bit";
+            }
+
+            string procbit = System.Environment.GetEnvironmentVariable("PROCESSOR_ARCHITECTURE", EnvironmentVariableTarget.Machine);
+            if (procbit.IndexOf("64") > 0)
+            {
+                info8.Text = "64bit";
+            }
+            else
+            {
+                info8.Text = "32bit";
+            }
+
+            string osver = Environment.OSVersion.Version.ToString(); //Wersja systemu
+            info3.Text = osver;
+
+            string vers = (Environment.OSVersion.ToString()); //Identyfikator platformy i numer wersji
+            info4.Text = vers;
+
+            string platf = Environment.OSVersion.Platform.ToString(); //Platofrma systemu
+            info5.Text = platf;
+
+
+
+
+
+
+        }
+
     }
 }
