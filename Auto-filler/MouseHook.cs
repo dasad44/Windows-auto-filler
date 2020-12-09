@@ -41,28 +41,28 @@ namespace Auto_filler
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
             //CloudNotification 
-                if (nCode >= 0 && MouseMessages.WM_MOUSEMOVE == (MouseMessages)wParam)
-                {
-                    MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
-                    MouseAction(null, new EventArgs());
+            if (nCode >= 0 && MouseMessages.WM_MOUSEMOVE == (MouseMessages)wParam)
+            {
+                MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
+                MouseAction(null, new EventArgs());
                 if (KeyboardListener.SnippCondition == true)
                 {
                     Auto_filler.CloudNotification.cloudnotification.SetPosition();
                 }
                 CursorPosition.x = Cursor.Position.X;
-                    CursorPosition.y = Cursor.Position.Y;
-                    //Console.WriteLine("Xx:" + Cursor.Position.X + " Yy: " + Cursor.Position.Y);
-                }
+                CursorPosition.y = Cursor.Position.Y;
+                //Console.WriteLine("Xx:" + Cursor.Position.X + " Yy: " + Cursor.Position.Y);
+            }
 
             if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam)
-                {
+            {
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                 MouseAction(null, new EventArgs());
                 SnippingToolWindow.MarkStart = true;
                 StartPoint.x = Cursor.Position.X;
                 StartPoint.y = Cursor.Position.Y;
                 Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
-                }
+            }
             if (nCode >= 0 && MouseMessages.WM_LBUTTONUP == (MouseMessages)wParam)
             {
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
