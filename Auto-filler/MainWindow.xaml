@@ -44,8 +44,8 @@
     </Window.Resources>
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
-            <TabControl TabStripPlacement="Left" BorderThickness="2"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,-2,0" RenderTransformOrigin="1.252,0.538">
-                <TabItem BorderBrush="Transparent" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-3,-4,-54,4">
+            <TabControl TabStripPlacement="Left" Width="203" HorizontalAlignment="Left" BorderThickness="2"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,-2,0" RenderTransformOrigin="1.252,0.538">
+                <TabItem BorderBrush="Transparent" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-3,-4,-53,4">
                     <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5" Margin="54,0,0,0">
                         <TextBlock TextWrapping="Wrap" FontSize="18" Margin="55,150,36,20" Foreground="#FF110101">
                             <Bold>Welcome screen information for future changes</Bold>
@@ -186,6 +186,7 @@
                 <Button Content="Button" Height="100" Width="75"/>
                 <Rectangle Fill="#FFF4F4F5" Height="100" Stroke="Black" Width="100"/>
             </TabControl>
+            <Grid x:Name="redGrid" Height="13" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600" Background="#b20837" MouseDown="redGrid_MouseDown" Margin="203,0,0,0"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\screenshot.png" Margin="10,56,742.667,252"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\multiclipboard.png" Margin="10,103,742.667,206"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\snippingtool.png" Margin="7,149,742.667,162"/>
@@ -229,7 +230,6 @@
                 </Image.Style>
             </Image>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\Logo.png" Margin="240,8,471,252"/>
-            <Grid x:Name="redGrid" Height="13" Width="600" Background="#b20837" MouseDown="redGrid_MouseDown" Margin="218,0,0,342"/>
             <CheckBox x:Name="ScreenshotCheck" Content="" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="186,72,602,266" RenderTransformOrigin="0.508,0.262"/>
             <CheckBox x:Name="LinkCheck" Content="" Checked="LinkCheck_Checked" Unchecked="LinkCheck_Unchecked" Margin="186,205,602,127" RenderTransformOrigin="0.508,0.262"/>
             <CheckBox x:Name="ClipboardCheck" Content="" Checked="ClipboardCheck_Checked" Unchecked="ClipboardCheck_Unchecked" Margin="186,118,602,222" RenderTransformOrigin="0.508,0.262"/>
