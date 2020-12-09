@@ -41,18 +41,20 @@ namespace Auto_filler
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
             //CloudNotification
-            if(KeyboardListener.SnippCondition == true)
-            {
+            
                 if (nCode >= 0 && MouseMessages.WM_MOUSEMOVE == (MouseMessages)wParam)
                 {
                     MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                     MouseAction(null, new EventArgs());
+                if (KeyboardListener.SnippCondition == true)
+                {
                     Auto_filler.CloudNotification.cloudnotification.SetPosition();
-                    CursorPosition.x = Cursor.Position.X;
+                }
+                CursorPosition.x = Cursor.Position.X;
                     CursorPosition.y = Cursor.Position.Y;
                     //Console.WriteLine("Xx:" + Cursor.Position.X + " Yy: " + Cursor.Position.Y);
                 }
-            }
+
             if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam)
                 {
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
