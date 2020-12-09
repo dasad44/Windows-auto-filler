@@ -25,7 +25,7 @@ namespace Auto_filler
 
             nIcon.Icon = new Icon(@ff);
             nIcon.Visible = true;
-            nIcon.ShowBalloonTip(5000, "Auto Fillerek", "Schowałem się!", System.Windows.Forms.ToolTipIcon.Info);
+           
             nIcon.Click += NIcon_Click;
         }
         void NIcon_Click(object sender, EventArgs e)
