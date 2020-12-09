@@ -602,6 +602,14 @@ namespace Auto_filler
             info6.Text = "";
             info7.Text = "";
             info8.Text = "";
+            info1.IsEnabled = false;
+            info2.IsEnabled = false;
+            info3.IsEnabled = false;
+            info4.IsEnabled = false;
+            info5.IsEnabled = false;
+            info6.IsEnabled = false;
+            info7.IsEnabled = false;
+            info8.IsEnabled = false;
         }
         private void SystemInformation(object sender, EventArgs e)
         {
