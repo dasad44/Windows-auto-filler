@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Auto_filler"
         mc:Ignorable="d"
-        Title="SnippingToolWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonUp="Window_MouseLeftButtonUp">
+        Title="SnippingToolWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove" Loaded="Window_Loaded" WindowStartupLocation="CenterOwner">
+
     <Grid>
-        <Image x:Name="wholescreenimage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Grid.Background>
+            <ImageBrush x:Name="wholescreenimage" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Rectangle x:Name="MarkingSquare" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#FFF4F4F5" Height="0" Stroke="Black" Width="0" Opacity="0.5"/>
 
     </Grid>
+    
 </Window>
+    

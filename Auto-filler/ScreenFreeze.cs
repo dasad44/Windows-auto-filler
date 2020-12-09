@@ -23,11 +23,11 @@ namespace Auto_filler
 {
     class ScreenFreeze
     {
+
         
         public Bitmap GetScreen(POINT startV,
         POINT endV)
         {
-            
             int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
                 int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
                 int x = screenWidth - startV.x - (screenWidth - endV.x);

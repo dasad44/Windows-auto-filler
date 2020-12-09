@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Diagnostics;
 using Point = System.Drawing.Point;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace Auto_filler
 {
@@ -34,6 +36,7 @@ namespace Auto_filler
         static POINT StartPoint;
         static POINT EndPoint;
         private static SnippingTool _snippingTool;
+        static POINT CursorPosition;
         private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
@@ -45,34 +48,33 @@ namespace Auto_filler
                     MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                     MouseAction(null, new EventArgs());
                     Auto_filler.CloudNotification.cloudnotification.SetPosition();
-                }
-            }    
-            if(KeyboardListener.SnippCondition == false)
+                CursorPosition.x = Cursor.Position.X;
+                CursorPosition.y = Cursor.Position.Y;
+                //Console.WriteLine("Xx:" + Cursor.Position.X + " Yy: " + Cursor.Position.Y);
+            }
+
             {
                 if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam)
                 {
                     MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                     MouseAction(null, new EventArgs());
 
-                    StartPoint.x = Cursor.Position.X;
-                    StartPoint.y = Cursor.Position.Y;
-                    Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
-                }
-                if (nCode >= 0 && MouseMessages.WM_LBUTTONUP == (MouseMessages)wParam)
-                {
-                    MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
-                    MouseAction(null, new EventArgs());
+                SnippingToolWindow.MarkStart = true;
+                StartPoint.x = Cursor.Position.X;
+                StartPoint.y = Cursor.Position.Y;
+                Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
+            }
+            if (nCode >= 0 && MouseMessages.WM_LBUTTONUP == (MouseMessages)wParam)
+            {
+                MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
+                MouseAction(null, new EventArgs());
 
-                    EndPoint.x = Cursor.Position.X;
-                    EndPoint.y = Cursor.Position.Y;
-                    Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
-                    _snippingTool = new SnippingTool();
-                    _snippingTool.snippingTool(StartPoint, EndPoint);
-                }
-            }    
+                EndPoint.x = Cursor.Position.X;
+                EndPoint.y = Cursor.Position.Y;
+                Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
+            }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
-
         public static POINT getStartValue()
         {
             return StartPoint;
@@ -82,7 +84,10 @@ namespace Auto_filler
         {
             return EndPoint;
         }
-
+        public static POINT getMousePosition()
+        {
+            return CursorPosition;
+        }
 
         private const int WH_MOUSE_LL = 14;
 

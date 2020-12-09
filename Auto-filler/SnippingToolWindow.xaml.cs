@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows.Input;
-using System.Windows.Media;
+using System.Windows;
+using Microsoft.Win32;
+using System.IO;
+using System.Drawing;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using static Auto_filler.MouseHook;
-
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Threading;
 namespace Auto_filler
 {
     /// <summary>
@@ -21,16 +22,96 @@ namespace Auto_filler
     /// </summary>
     public partial class SnippingToolWindow : Window
     {
-        
+
+        POINT startV;
+        POINT endV;
+        public static bool MarkStart = false;
+        bool StartPosition = true;
+        bool v = false;
+        private static SnippingTool _snippingTool;
         public SnippingToolWindow()
         {
             InitializeComponent();
         }
        
-        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private async void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            StartPosition = true;
+            MarkStart = false;
+            Hide_window();
+            await Task.Delay(50);//
+            endV = MouseHook.getEndValue();
+            startV = MouseHook.getStartValue();
             this.Hide();
+            _snippingTool = new SnippingTool();
+            _snippingTool.snippingTool(startV, endV);
         }
-        
+        private void Hide_window()
+        {
+            this.MarkingSquare.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        public void Marking()
+        {
+            endV = MouseHook.getMousePosition();
+            startV = MouseHook.getStartValue();
+
+
+            if (startV.x > endV.x && startV.y < endV.y)
+            {
+
+                this.MarkingSquare.Margin = new Thickness(endV.x, startV.y, 0, 0);
+                this.MarkingSquare.Width = startV.x - endV.x;
+                this.MarkingSquare.Height = endV.y - startV.y;
+                return;
+            }
+            else if(startV.x < endV.x && startV.y > endV.y)
+            {
+                this.MarkingSquare.Width = endV.x - startV.x;
+                this.MarkingSquare.Height = startV.y - endV.y;
+                this.MarkingSquare.Margin = new Thickness(startV.x, endV.y, 0, 0);
+                return;
+            }
+            else if(startV.x > endV.x && startV.y > endV.y)
+            {
+                this.MarkingSquare.Margin = new Thickness(endV.x, endV.y, 0, 0);
+                this.MarkingSquare.Width = startV.x - endV.x;
+                this.MarkingSquare.Height = startV.y - endV.y;
+                return;
+            }   
+            else if(startV.x == endV.x || startV.y == endV.y)
+            {
+                this.MarkingSquare.Width = 0;
+                return;
+            }
+            else
+            {
+                this.MarkingSquare.Width = endV.x - startV.x;
+                this.MarkingSquare.Height = endV.y - startV.y;
+                return;
+            }    
+             
+        }
+
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            if (MarkStart == true)
+            {
+                if(StartPosition == true)
+                {
+                    this.MarkingSquare.Visibility = System.Windows.Visibility.Visible;
+                    startV = MouseHook.getStartValue();
+                    this.MarkingSquare.Margin = new Thickness(startV.x, startV.y, 0, 0);
+                }
+                StartPosition = false;
+                Marking();
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

@@ -12,6 +12,9 @@ using System.IO;
 using System.Drawing;
 using System.Windows.Media.Imaging;
 using static Auto_filler.MouseHook;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Threading;
 
 namespace Auto_filler
 {
@@ -29,7 +32,7 @@ namespace Auto_filler
         ClipboardHandler clipboardhandler = new ClipboardHandler();
         IDataObject tmp_clipboard;
         DataObject actualclipboard = new DataObject();
-
+        static Bitmap Mainbitmap;
         string _link;
         string _link2;
         string _link3;
@@ -241,8 +244,8 @@ namespace Auto_filler
                 snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
                 snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
                 //setting position of window
-                //System.Windows.SystemParameters.VirtualScreenTop;
                 var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
+                //System.Windows.SystemParameters.VirtualScreenTop;
                 snippingtoolwindow.Top = desktopWorkingArea.Bottom - snippingtoolwindow.Height;
                 snippingtoolwindow.Left = desktopWorkingArea.Right - snippingtoolwindow.Width;
                 
@@ -253,10 +256,11 @@ namespace Auto_filler
                 endV.x = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
                 endV.y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
                 _screenFreeze = new ScreenFreeze();
-                Bitmap bitmap = _screenFreeze.GetScreen(startV, endV);
-                Rectangle r = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
+                Mainbitmap = _screenFreeze.GetScreen(startV, endV);
+                System.Drawing.Rectangle r = new System.Drawing.Rectangle(0, 0, Mainbitmap.Width, Mainbitmap.Height);
+                //Make screen darker
                 int alpha = 128;
-                using (Graphics g = Graphics.FromImage(bitmap))
+                using (Graphics g = Graphics.FromImage(Mainbitmap))
                 {
                     using (Brush cloud_brush = new SolidBrush(Color.FromArgb(alpha, Color.Black)))
                     {
@@ -264,13 +268,16 @@ namespace Auto_filler
                     }
                 }
 
-                snippingtoolwindow.wholescreenimage.Source = imageoperation.ImageSourceFromBitmap(bitmap);  // converting bitmap to Media.Source
-                //////////////////////////////
-                snippingtoolwindow.WindowState = System.Windows.WindowState.Maximized;
-                snippingtoolwindow.Show();          
+                snippingtoolwindow.wholescreenimage.ImageSource = imageoperation.ImageSourceFromBitmap(Mainbitmap);  // converting bitmap to Media.Source
+                snippingtoolwindow.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
+                snippingtoolwindow.Show();
+                SnippCondition = false;
                 MouseHook.Start();
             }
         }
+        
+
+
         public void SnippWindowClose()
         {
             snippingtoolwindow.Close();
@@ -280,6 +287,7 @@ namespace Auto_filler
         {
             if (Keyboard.IsKeyDown(Key.Escape))
             {
+                SnippCondition = true;
                 snippingtoolwindow.Hide();
                 MouseHook.stop();
             }

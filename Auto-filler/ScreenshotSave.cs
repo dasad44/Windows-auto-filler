@@ -50,6 +50,7 @@ namespace Auto_filler
                 if(startV.x == endV.x || startV.y == endV.y)
                 {
                     MessageBox.Show("Zaznacz fragment ekranu");
+                    KeyboardListener.SnippCondition = true;
                     return;
                 }
                 string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-" + Date + ".jpg";
