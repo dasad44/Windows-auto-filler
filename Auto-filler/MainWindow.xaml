@@ -45,7 +45,7 @@
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
             <TabControl TabStripPlacement="Left" Width="803" HorizontalAlignment="Left" BorderThickness="2"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,-2,0" RenderTransformOrigin="1.252,0.538">
-                <TabItem BorderBrush="Transparent" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-3,-4,-53,4">
+                <TabItem BorderBrush="Transparent" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-3,-4,-54,4">
                     <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5" Margin="54,0,0,0">
                         <TextBlock TextWrapping="Wrap" FontSize="18" Margin="55,150,36,20" Foreground="#FF110101">
                             <Bold>Welcome screen information for future changes</Bold>
@@ -117,7 +117,7 @@
                 </TabItem>
                 <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-54,15">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <CheckBox x:Name="ScreenshotShow" Content="PhotoViever On" Checked="ScreenshotShow_Checked" Unchecked="ScreenshotShow_Unchecked" Margin="10,126,443,199" RenderTransformOrigin="-4.069,2.152"/>
+                        <CheckBox x:Name="ScreenshotShow" Content="PhotoViever On" Checked="ScreenshotShow_Checked" Unchecked="ScreenshotShow_Unchecked" Margin="10,126,431,199" RenderTransformOrigin="-4.069,2.152"/>
 
                     </UniformGrid>
                 </TabItem>
@@ -186,7 +186,7 @@
                 <Button Content="Button" Height="100" Width="75"/>
                 <Rectangle Fill="#FFF4F4F5" Height="100" Stroke="Black" Width="100"/>
             </TabControl>
-            <Grid x:Name="redGrid" Height="13" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600" Background="#b20837" MouseDown="redGrid_MouseDown" Margin="203,0,0,0"/>
+            <Grid x:Name="redGrid" Height="13" HorizontalAlignment="Left" VerticalAlignment="Top" Width="585" Background="#b20837" MouseDown="redGrid_MouseDown" Margin="218,0,0,0"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\screenshot.png" Margin="10,56,742.667,252"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\multiclipboard.png" Margin="10,103,742.667,206"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\snippingtool.png" Margin="7,149,742.667,162"/>
