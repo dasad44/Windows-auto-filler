@@ -230,14 +230,11 @@ namespace Auto_filler
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true)
             {
-                //snippingtoolwindow.Topmost = true;
+                snippingtoolwindow.Topmost = true;
                 snippingtoolwindow.ShowInTaskbar = false;
                 snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
                 snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
                 //setting position of window
-                var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
-                snippingtoolwindow.Top = desktopWorkingArea.Bottom - snippingtoolwindow.Height;
-                snippingtoolwindow.Left = desktopWorkingArea.Right - snippingtoolwindow.Width;
                 
                 POINT startV;
                 POINT endV;
@@ -247,11 +244,19 @@ namespace Auto_filler
                 endV.y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
                 _screenFreeze = new ScreenFreeze();
                 Mainbitmap = _screenFreeze.GetScreen(startV, endV);
-
+                System.Drawing.Rectangle r = new System.Drawing.Rectangle(0, 0, Mainbitmap.Width, Mainbitmap.Height);
                 //Make screen darker
-                
-                snippingtoolwindow.wholescreenimage.Source = imageoperation.ImageSourceFromBitmap(Mainbitmap);  // converting bitmap to Media.Source
-                snippingtoolwindow.WindowState = System.Windows.WindowState.Maximized;
+                int alpha = 128;
+                using (Graphics g = Graphics.FromImage(Mainbitmap))
+                {
+                    using (Brush cloud_brush = new SolidBrush(Color.FromArgb(alpha, Color.Black)))
+                    {
+                        g.FillRectangle(cloud_brush, r);
+                    }
+                }
+
+                snippingtoolwindow.wholescreenimage.ImageSource = imageoperation.ImageSourceFromBitmap(Mainbitmap);  // converting bitmap to Media.Source
+                snippingtoolwindow.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
                 snippingtoolwindow.Show();
                 SnippCondition = false;
 
@@ -270,6 +275,7 @@ namespace Auto_filler
         {
             if (Keyboard.IsKeyDown(Key.Escape))
             {
+                SnippCondition = true;
                 snippingtoolwindow.Hide();
                 MouseHook.stop();
             }

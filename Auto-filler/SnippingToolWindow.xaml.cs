@@ -22,67 +22,75 @@ namespace Auto_filler
     /// </summary>
     public partial class SnippingToolWindow : Window
     {
-        public static int startx = 0;
-        public static int starty = 0;
-        public static int endx = 0;
-        public static int endy = 0;
+
+        POINT startV;
+        POINT endV;
         public static bool MarkStart = false;
+        bool StartPosition = true;
+        bool v = false;
+        private static SnippingTool _snippingTool;
         public SnippingToolWindow()
         {
             InitializeComponent();
         }
        
-        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private async void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            StartPosition = true;
+            MarkStart = false;
+            Hide_window();
+            await Task.Delay(50);//
+            endV = MouseHook.getEndValue();
+            startV = MouseHook.getStartValue();
             this.Hide();
-            MarkedScreen.Hide();
+            _snippingTool = new SnippingTool();
+            _snippingTool.snippingTool(startV, endV);
+        }
+        private void Hide_window()
+        {
+            this.MarkingSquare.Visibility = System.Windows.Visibility.Hidden;
         }
 
-        MarkedScreenWindow MarkedScreen = new MarkedScreenWindow();
-        private ScreenFreeze _screenFreeze;
-        ImageOperation imageoperation = new ImageOperation();
         public void Marking()
         {
-            POINT startV;
-            POINT endV;
-            startV.x = startx;
-            startV.y = starty;
-            endV.x = endx;
-            endV.y = endy;
-            _screenFreeze = new ScreenFreeze();
+            endV = MouseHook.getMousePosition();
+            startV = MouseHook.getStartValue();
 
 
-            if (startx > endx)
+            if (startV.x > endV.x && startV.y < endV.y)
             {
-                int t = startx;
-                startx = endx;
-                endx = t;
+
+                this.MarkingSquare.Margin = new Thickness(endV.x, startV.y, 0, 0);
+                this.MarkingSquare.Width = startV.x - endV.x;
+                this.MarkingSquare.Height = endV.y - startV.y;
+                return;
             }
-            if (starty > endy)
+            else if(startV.x < endV.x && startV.y > endV.y)
             {
-                int t = starty;
-                starty = endy;
-                endy = t;
+                this.MarkingSquare.Width = endV.x - startV.x;
+                this.MarkingSquare.Height = startV.y - endV.y;
+                this.MarkingSquare.Margin = new Thickness(startV.x, endV.y, 0, 0);
+                return;
             }
-            MarkedScreen.Width = endx - startx;
-            MarkedScreen.Height = endy - starty;
-            if (startx != endx && starty != endy)
+            else if(startV.x > endV.x && startV.y > endV.y)
             {
-                Bitmap Mainbitmap = _screenFreeze.GetScreen(startV, endV);
-                System.Drawing.Rectangle r = new System.Drawing.Rectangle(0, 0, Mainbitmap.Width, Mainbitmap.Height);
-                
-                
-                int alpha = 128;
-                using (Graphics g = Graphics.FromImage(Mainbitmap))
-                {
-                    using (Brush cloud_brush = new SolidBrush(Color.FromArgb(alpha, Color.Black)))
-                    {
-                        g.FillRectangle(cloud_brush, r);
-                    }
-                }
-                MarkedScreen.wholescreenimage.Source = imageoperation.ImageSourceFromBitmap(Mainbitmap);
+                this.MarkingSquare.Margin = new Thickness(endV.x, endV.y, 0, 0);
+                this.MarkingSquare.Width = startV.x - endV.x;
+                this.MarkingSquare.Height = startV.y - endV.y;
+                return;
+            }   
+            else if(startV.x == endV.x || startV.y == endV.y)
+            {
+                this.MarkingSquare.Width = 0;
+                return;
             }
-            Console.WriteLine("X:" + MarkedScreen.Width + " Y: " +  MarkedScreen.Height);   
+            else
+            {
+                this.MarkingSquare.Width = endV.x - startV.x;
+                this.MarkingSquare.Height = endV.y - startV.y;
+                return;
+            }    
+             
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
@@ -90,9 +98,13 @@ namespace Auto_filler
 
             if (MarkStart == true)
             {
-                MarkedScreen.Left = startx;
-                MarkedScreen.Top = starty;
-                MarkedScreen.Show();
+                if(StartPosition == true)
+                {
+                    this.MarkingSquare.Visibility = System.Windows.Visibility.Visible;
+                    startV = MouseHook.getStartValue();
+                    this.MarkingSquare.Margin = new Thickness(startV.x, startV.y, 0, 0);
+                }
+                StartPosition = false;
                 Marking();
             }
         }

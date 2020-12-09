@@ -36,8 +36,7 @@ namespace Auto_filler
         static POINT StartPoint;
         static POINT EndPoint;
         static POINT CursorPosition;
-        private static SnippingTool _snippingTool;
-        SnippingToolWindow snippingtoolwindow = new SnippingToolWindow();
+
 
         private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
@@ -48,12 +47,9 @@ namespace Auto_filler
                 MouseAction(null, new EventArgs());
                 CursorPosition.x = Cursor.Position.X;
                 CursorPosition.y = Cursor.Position.Y;
-                SnippingToolWindow.endx = CursorPosition.x;
-                SnippingToolWindow.endy = CursorPosition.y;
                 //Console.WriteLine("Xx:" + Cursor.Position.X + " Yy: " + Cursor.Position.Y);
             }
 
-            MarkedScreenWindow MarkedScreen = new MarkedScreenWindow();
             if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam)
             {
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
@@ -62,8 +58,6 @@ namespace Auto_filler
                 StartPoint.x = Cursor.Position.X;
                 StartPoint.y = Cursor.Position.Y;
                 SnippingToolWindow.MarkStart = true;
-                SnippingToolWindow.startx = CursorPosition.x;
-                SnippingToolWindow.starty = CursorPosition.y;
                 Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
             }
             if (nCode >= 0 && MouseMessages.WM_LBUTTONUP == (MouseMessages)wParam)
@@ -74,8 +68,6 @@ namespace Auto_filler
                 EndPoint.x = Cursor.Position.X;
                 EndPoint.y = Cursor.Position.Y;
                 Console.WriteLine("X:" + Cursor.Position.X + " Y: " + Cursor.Position.Y);
-                _snippingTool = new SnippingTool();
-                _snippingTool.snippingTool(StartPoint, EndPoint);
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
@@ -88,7 +80,10 @@ namespace Auto_filler
         {
             return EndPoint;
         }
-
+        public static POINT getMousePosition()
+        {
+            return CursorPosition;
+        }
 
         private const int WH_MOUSE_LL = 14;
 

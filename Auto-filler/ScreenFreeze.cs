@@ -23,6 +23,7 @@ namespace Auto_filler
 {
     class ScreenFreeze
     {
+
         
         public Bitmap GetScreen(POINT startV,
         POINT endV)
