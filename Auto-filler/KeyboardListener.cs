@@ -244,10 +244,10 @@ namespace Auto_filler
                 snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
                 snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
                 //setting position of window
-                var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
+                //var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
                 //System.Windows.SystemParameters.VirtualScreenTop;
-                snippingtoolwindow.Top = desktopWorkingArea.Bottom - snippingtoolwindow.Height;
-                snippingtoolwindow.Left = desktopWorkingArea.Right - snippingtoolwindow.Width;
+                //snippingtoolwindow.Top = desktopWorkingArea.Bottom - snippingtoolwindow.Height;
+                //.Left = desktopWorkingArea.Right - snippingtoolwindow.Width;
                 
                 POINT startV;
                 POINT endV;

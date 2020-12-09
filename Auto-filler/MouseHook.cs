@@ -40,8 +40,7 @@ namespace Auto_filler
         private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            //CloudNotification
-            
+            //CloudNotification 
                 if (nCode >= 0 && MouseMessages.WM_MOUSEMOVE == (MouseMessages)wParam)
                 {
                     MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
