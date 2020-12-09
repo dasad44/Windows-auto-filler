@@ -21,6 +21,7 @@ namespace Auto_filler
     public partial class CloudNotification : Window
     {
         public static CloudNotification cloudnotification;
+        public static bool CloudCondition = false;
         public CloudNotification()
         {
             InitializeComponent();

@@ -271,7 +271,6 @@ namespace Auto_filler
                 snippingtoolwindow.wholescreenimage.ImageSource = imageoperation.ImageSourceFromBitmap(Mainbitmap);  // converting bitmap to Media.Source
                 snippingtoolwindow.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
                 snippingtoolwindow.Show();
-                SnippCondition = false;
                 MouseHook.Start();
             }
         }
