@@ -209,7 +209,7 @@
             <Image IsHitTestVisible="False" Source="bin/Debug/images\multiclipboard.png" Margin="10,103,742.667,206"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\snippingtool.png" Margin="7,149,742.667,162"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\pagehotkey.png" Margin="11,193,739,127"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\spec.png" Margin="11,244,743,79" RenderTransformOrigin="0.621,1.25"/>
+            <Image IsHitTestVisible="False" Source="bin/Debug/images\spec.png" Margin="11,244,743,83" RenderTransformOrigin="0.621,1.25"/>
             <Image Height="30" Stretch="Fill" Margin="758,13,-2,312" HorizontalAlignment="Left" Width="47" MouseLeftButtonDown="CloseButton_Click">
                 <Image.Style>
                     <Style>
