@@ -613,14 +613,14 @@ namespace Auto_filler
         }
         private void SystemInformation(object sender, EventArgs e)
         {
-            info1.IsEnabled = true;
-            info2.IsEnabled = true;
-            info3.IsEnabled = true;
-            info4.IsEnabled = true;
-            info5.IsEnabled = true;
-            info6.IsEnabled = true;
-            info7.IsEnabled = true;
-            info8.IsEnabled = true;
+            info1.IsEnabled = false;
+            info2.IsEnabled = false;
+            info3.IsEnabled = false;
+            info4.IsEnabled = false;
+            info5.IsEnabled = false;
+            info6.IsEnabled = false;
+            info7.IsEnabled = false;
+            info8.IsEnabled = false;
             string pcinfo = Environment.MachineName; //Nazwa naszego PC
             info1.Text = pcinfo;
 
@@ -658,6 +658,8 @@ namespace Auto_filler
 
             string platf = Environment.OSVersion.Platform.ToString(); //Platofrma systemu
             info5.Text = platf;
+
+           
 
 
 
