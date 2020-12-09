@@ -229,7 +229,7 @@
                 </Image.Style>
             </Image>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\Logo.png" Margin="240,8,471,252"/>
-            <Grid x:Name="redGrid" Height="13" Width="600" Background="#b20837" Margin="218,0,-2,342" MouseDown="redGrid_MouseDown"/>
+            <Grid x:Name="redGrid" Height="13" Width="600" Background="#b20837" MouseDown="redGrid_MouseDown" Margin="218,0,0,342"/>
             <CheckBox x:Name="ScreenshotCheck" Content="" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="186,72,602,266" RenderTransformOrigin="0.508,0.262"/>
             <CheckBox x:Name="LinkCheck" Content="" Checked="LinkCheck_Checked" Unchecked="LinkCheck_Unchecked" Margin="186,205,602,127" RenderTransformOrigin="0.508,0.262"/>
             <CheckBox x:Name="ClipboardCheck" Content="" Checked="ClipboardCheck_Checked" Unchecked="ClipboardCheck_Unchecked" Margin="186,118,602,222" RenderTransformOrigin="0.508,0.262"/>
