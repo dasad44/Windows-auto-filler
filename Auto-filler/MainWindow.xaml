@@ -41,12 +41,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-
-
-
-
-
     </Window.Resources>
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
@@ -166,7 +160,7 @@
 
                     <UniformGrid Columns="1" Margin="54,0,0,0">
 
-                        <Label Content="PC Name" Margin="0,154,497,-162"/>
+                        <Label Content="PC Name" Margin="0,154,433,-162"/>
                         <TextBox x:Name="info1" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="197,104,234,-113" RenderTransformOrigin="0.5,0.5"/>
                         <TextBox x:Name="info2" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="197,117,234,-125" RenderTransformOrigin="0.5,0.5"/>
                         <TextBox x:Name="info3" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="197,130,154,-142"/>
@@ -177,33 +171,20 @@
                         <TextBox x:Name="info6"  TextWrapping="Wrap" Text="" IsEnabled="False" Margin="498,-56,10,47" RenderTransformOrigin="0.5,0.5"/>
                         <TextBox x:Name="info7" TextWrapping="Wrap" Text="" IsEnabled="False" Margin="498,-42,10,33" RenderTransformOrigin="0.5,0.5"/>
                         <TextBox x:Name="info8" TextWrapping="Wrap" Text="" IsEnabled="False" Margin="498,-29,10,21" RenderTransformOrigin="0.5,0.5"/>
-                        <Label Content="User Name" Margin="0,-79,506,70"/>
-                        <Label Content="System Version" Margin="0,-34,470,22" HorizontalAlignment="Right" Width="121"/>
-                        <Label Content="Operating System" Margin="0,-17,455,7"/>
-                        <Label Content="Operatin System Platform" Margin="0,-3,399,-11"/>
-                        <Label Content="Thread Count" Margin="395,-184,93,175"/>
-                        <Label Content="OS Bit&#xD;&#xA;" Margin="395,-170,98,161"/>
-                        <Label Content="Processor bit" Margin="395,-156,93,148"/>
+                        <Label Content="User Name" Margin="0,-79,433,70"/>
+                        <Label Content="System Version" Margin="0,-34,433,22" HorizontalAlignment="Right" Width="149"/>
+                        <Label Content="Operating System" Margin="0,-17,433,7"/>
+                        <Label Content="Operatin System Platform" Margin="0,-3,385,-11"/>
+                        <Label Content="Thread Count" Margin="378,-184,93,175"/>
+                        <Label Content="OS Bit&#xD;&#xA;" Margin="378,-170,98,161"/>
+                        <Label Content="Processor bit" Margin="378,-156,93,148"/>
                         <Label Content="Computer Informations" Margin="168,-310,154,294" FontSize="20" FontWeight="Bold"/>
-
-
-
-
-
-
-
-
-
                     </UniformGrid>
                 </TabItem>
                 <TabItem IsHitTestVisible="False" BorderBrush="Transparent" Header="" Background="#2a2a29" Foreground="White" Margin="-3,-7,-54,-50">
-
                 </TabItem>
                 <Button Content="Button" Height="100" Width="75"/>
                 <Rectangle Fill="#FFF4F4F5" Height="100" Stroke="Black" Width="100"/>
-
-
-
             </TabControl>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\screenshot.png" Margin="10,56,742.667,252"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\multiclipboard.png" Margin="10,103,742.667,206"/>
