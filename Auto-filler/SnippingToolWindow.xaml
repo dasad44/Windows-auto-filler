@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="SnippingToolWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove" Loaded="Window_Loaded" WindowStartupLocation="CenterOwner">
 
-    <Grid>
+    <Grid Cursor="Cross">
         <Grid.Background>
             <ImageBrush x:Name="wholescreenimage" Stretch="UniformToFill"/>
         </Grid.Background>
