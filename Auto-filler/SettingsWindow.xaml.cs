@@ -33,7 +33,14 @@ namespace Auto_filler
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            if (Properties.Settings.Default.CheckOnOff)
+            {
+                CheckinOnOff.Content = "CheckOff";
+            }
+            else
+            {
+                CheckinOnOff.Content = "CheckOn";
+            }
         }
         private void AutoTurnon_Click(object sender, RoutedEventArgs e)
         {
@@ -65,5 +72,61 @@ namespace Auto_filler
             if (e.LeftButton == MouseButtonState.Pressed)
                 this.DragMove();
         }
+
+        private void CheckOff(object sender, EventArgs e)
+        {
+            if (Auto_filler.MainWindow.mainwindow.ScreenshotCheck.IsChecked == true)
+            {
+                Auto_filler.MainWindow.mainwindow.ScreenshotCheck.IsChecked = false;
+            }
+            if (Auto_filler.MainWindow.mainwindow.LinkCheck.IsChecked == true)
+            {
+                Auto_filler.MainWindow.mainwindow.LinkCheck.IsChecked = false;
+            }
+            if (Auto_filler.MainWindow.mainwindow.ClipboardCheck.IsChecked == true)
+            {
+                Auto_filler.MainWindow.mainwindow.ClipboardCheck.IsChecked = false;
+            }
+            if (Auto_filler.MainWindow.mainwindow.SnippCheck.IsChecked == true)
+            {
+                Auto_filler.MainWindow.mainwindow.SnippCheck.IsChecked = false;
+            }
+        }
+        private void CheckOn(object sender, EventArgs e)
+        {
+
+
+            if (Properties.Settings.Default.CheckOnOff)
+            {
+                Properties.Settings.Default.CheckOnOff = false;
+                Properties.Settings.Default.Save();
+                CheckinOnOff.Content = "CheckOn";
+
+
+                Auto_filler.MainWindow.mainwindow.ScreenshotCheck.IsChecked = false;
+                Auto_filler.MainWindow.mainwindow.LinkCheck.IsChecked = false;
+                Auto_filler.MainWindow.mainwindow.ClipboardCheck.IsChecked = false;
+                Auto_filler.MainWindow.mainwindow.SnippCheck.IsChecked = false;
+
+            }
+            else
+            {
+                Properties.Settings.Default.CheckOnOff = true;
+                Properties.Settings.Default.Save();
+                CheckinOnOff.Content = "CheckOff";
+
+
+
+                Auto_filler.MainWindow.mainwindow.ScreenshotCheck.IsChecked = true;
+                Auto_filler.MainWindow.mainwindow.LinkCheck.IsChecked = true;
+                Auto_filler.MainWindow.mainwindow.ClipboardCheck.IsChecked = true;
+                Auto_filler.MainWindow.mainwindow.SnippCheck.IsChecked = true;
+
+            }
+
+
+        }
+
+
     }
 }

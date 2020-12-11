@@ -142,5 +142,17 @@ namespace Auto_filler.Properties {
                 this["ClipboardCloudNotification"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CheckOnOff {
+            get {
+                return ((bool)(this["CheckOnOff"]));
+            }
+            set {
+                this["CheckOnOff"] = value;
+            }
+        }
     }
 }

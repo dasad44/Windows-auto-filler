@@ -47,9 +47,10 @@
             <TabControl TabStripPlacement="Left" Width="803" HorizontalAlignment="Left" BorderThickness="2"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,-2,0" RenderTransformOrigin="1.252,0.538">
                 <TabItem BorderBrush="Transparent" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-3,-4,-54,4">
                     <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5" Margin="54,0,0,0">
-                        <TextBlock TextWrapping="Wrap" FontSize="18" Margin="55,150,36,20" Foreground="#FF110101">
-                            <Bold>Welcome screen information for future changes</Bold>
-                        </TextBlock>
+
+
+                        <TextBlock TextWrapping="Wrap" FontSize="18" Margin="55,186,36,40" Foreground="#FF110101" RenderTransformOrigin="0.5,0.5"><Bold><Run Text="Welcome screen information for future changes"/></Bold></TextBlock>
+
 
                     </UniformGrid>
                 </TabItem>

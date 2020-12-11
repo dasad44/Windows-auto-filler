@@ -25,6 +25,7 @@ namespace Auto_filler
 
     public partial class MainWindow : Window
     {
+        public static MainWindow mainwindow;
         private KeyboardListener _listener;
         private ScreenshotAutoDelete _autoDelete;
         Notification notification = new Notification();
@@ -43,6 +44,7 @@ namespace Auto_filler
         public MainWindow()
         {
             InitializeComponent();
+            mainwindow = this;
         }
 
         //private void Event(object sender, EventArgs e) => mh.mouse();
@@ -659,14 +661,8 @@ namespace Auto_filler
             string platf = Environment.OSVersion.Platform.ToString(); //Platofrma systemu
             info5.Text = platf;
 
-           
-
-
-
-
-
-
         }
+        
 
     }
 }

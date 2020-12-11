@@ -40,7 +40,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    
+
     <StackPanel Height="450" VerticalAlignment="Top">
         <Grid Background="LightSlateGray">
             <Image Height="30" Stretch="Fill" Margin="753,0,0,420" HorizontalAlignment="Left" Width="47" MouseLeftButtonDown="CloseButton_Click">
@@ -59,7 +59,9 @@
             <Button x:Name="HideButton" Content="Hide" HorizontalAlignment="Left" Margin="19,413,0,0" VerticalAlignment="Top" Width="78" Height="27" Click="HideButton_Click"/>
             <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xA;przy starcie systemu" VerticalAlignment="Center" Height="92" Click="TurningOff_Click" Margin="350,10,292,348"/>
             <Button x:Name="About" Content="O aplikacji" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124"  Height="92" Click="Information" Margin="19,10,0,0" RenderTransformOrigin="-0.088,1.968"/>
-            
+            <Button x:Name="CheckinOnOff" Content="CheckOff" HorizontalAlignment="Left" Click="CheckOn" VerticalAlignment="Top" Width="117" Height="49" Margin="339,271,0,0"/>
+
+
         </Grid>
     </StackPanel>
 </Window>
