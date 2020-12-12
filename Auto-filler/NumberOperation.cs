@@ -18,7 +18,7 @@ namespace Auto_filler
             }
             else
             {
-                return 0;
+                return number;
             }
         }
     }

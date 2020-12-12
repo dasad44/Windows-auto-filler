@@ -238,16 +238,14 @@ namespace Auto_filler
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true)
             {
+               
                 SnippCondition = false;
                 snippingtoolwindow.Topmost = true;
                 snippingtoolwindow.ShowInTaskbar = false;
-                snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+                snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth - System.Windows.SystemParameters.VirtualScreenLeft;
                 snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
                 //setting position of window
                 //var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
-                //System.Windows.SystemParameters.VirtualScreenTop;
-                //snippingtoolwindow.Top = desktopWorkingArea.Bottom - snippingtoolwindow.Height;
-                //.Left = desktopWorkingArea.Right - snippingtoolwindow.Width;
                 
                 POINT startV;
                 POINT endV;
@@ -267,10 +265,12 @@ namespace Auto_filler
                         g.FillRectangle(cloud_brush, r);
                     }
                 }
-
+           
                 snippingtoolwindow.wholescreenimage.ImageSource = imageoperation.ImageSourceFromBitmap(Mainbitmap);  // converting bitmap to Media.Source
                 snippingtoolwindow.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
                 snippingtoolwindow.Show();
+                snippingtoolwindow.Top = System.Windows.SystemParameters.VirtualScreenTop;
+                snippingtoolwindow.Left = System.Windows.SystemParameters.VirtualScreenLeft;
                 MouseHook.Start();
             }
         }

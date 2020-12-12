@@ -28,14 +28,18 @@ namespace Auto_filler
         public Bitmap GetScreen(POINT startV,
         POINT endV)
         {
-            int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
-                int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
-                int x = screenWidth - startV.x - (screenWidth - endV.x);
-                int y = screenHeight - startV.y - (screenHeight - endV.y);
-                Bitmap captureBitmap = new Bitmap(x, y, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-                System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
-                Graphics captureGraphics = Graphics.FromImage(captureBitmap);
-                captureGraphics.CopyFromScreen(startV.x, startV.y, 0, 0, captureRectangle.Size);
+            string path = Properties.Settings.Default.ScreenPath + "\\TESTDWA";
+            int screenWidth = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenWidth);
+            int screenHeight = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenHeight);
+            int sourceX = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenLeft);
+            int sourceY = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenTop);
+            Bitmap captureBitmap = new Bitmap(screenWidth, screenHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
+            System.Drawing.Rectangle rectangle1 = new System.Drawing.Rectangle(sourceX, sourceY, screenWidth, screenHeight);
+            captureRectangle.Size = rectangle1.Size;
+            Graphics captureGraphics = Graphics.FromImage(captureBitmap);
+            captureGraphics.CopyFromScreen(sourceX, sourceY, 0, 0, captureRectangle.Size);
+            captureBitmap.Save(@path, ImageFormat.Jpeg);
             return captureBitmap;
         }
     }

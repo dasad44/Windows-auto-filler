@@ -51,7 +51,7 @@ namespace Auto_filler
                 }
                 CursorPosition.x = Cursor.Position.X;
                 CursorPosition.y = Cursor.Position.Y;
-                    //Console.WriteLine("Xx:" + Cursor.Position.X + " Yy: " + Cursor.Position.Y);
+                //Console.WriteLine("Xx:" + Cursor.Position.X + " Yy: " + Cursor.Position.Y);
                 }
             if(KeyboardListener.SnippCondition == false)
             {
