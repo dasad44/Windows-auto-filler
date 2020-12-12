@@ -45,11 +45,9 @@ namespace Auto_filler
             await Task.Delay(50);//
             endV = MouseHook.getEndValue();
             startV = MouseHook.getStartValue();
+            this.Hide();
             _snippingTool = new SnippingTool();
             _snippingTool.snippingTool(startV, endV);
-            this.Hide();
-           // _snippingTool = new SnippingTool();
-           // _snippingTool.snippingTool(startV, endV);
         }
         private void Hide_window()
         {

@@ -231,7 +231,7 @@ namespace Auto_filler
             {
                
                 SnippCondition = false;
-                //snippingtoolwindow.Topmost = true;
+                snippingtoolwindow.Topmost = true;
                 snippingtoolwindow.ShowInTaskbar = false;
                 snippingtoolwindow.Width = System.Windows.SystemParameters.VirtualScreenWidth;
                 snippingtoolwindow.Height = System.Windows.SystemParameters.VirtualScreenHeight;
