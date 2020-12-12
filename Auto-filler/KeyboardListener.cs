@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Windows.Input;
-using System.Windows;
-using Microsoft.Win32;
-using System.IO;
 using System.Drawing;
-using System.Windows.Media.Imaging;
+using System.Runtime.InteropServices;
+using System.Windows;
+using System.Windows.Input;
 using static Auto_filler.MouseHook;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Threading;
 
 namespace Auto_filler
 {
@@ -234,16 +224,17 @@ namespace Auto_filler
         }
         private ScreenFreeze _screenFreeze;
         ImageOperation imageoperation = new ImageOperation();
+        bool FirstStart = true; //pierwsze wykonanie 
         public void MouseHookOn()
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true)
             {
                
                 SnippCondition = false;
-                snippingtoolwindow.Topmost = true;
+                //snippingtoolwindow.Topmost = true;
                 snippingtoolwindow.ShowInTaskbar = false;
-                snippingtoolwindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth - System.Windows.SystemParameters.VirtualScreenLeft;
-                snippingtoolwindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+                snippingtoolwindow.Width = System.Windows.SystemParameters.VirtualScreenWidth;
+                snippingtoolwindow.Height = System.Windows.SystemParameters.VirtualScreenHeight;
                 //setting position of window
                 //var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
                 
@@ -268,9 +259,20 @@ namespace Auto_filler
            
                 snippingtoolwindow.wholescreenimage.ImageSource = imageoperation.ImageSourceFromBitmap(Mainbitmap);  // converting bitmap to Media.Source
                 snippingtoolwindow.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
-                snippingtoolwindow.Show();
-                snippingtoolwindow.Top = System.Windows.SystemParameters.VirtualScreenTop;
-                snippingtoolwindow.Left = System.Windows.SystemParameters.VirtualScreenLeft;
+                if(FirstStart == true)
+                {
+                    snippingtoolwindow.Show();
+                    snippingtoolwindow.Top = System.Windows.SystemParameters.VirtualScreenTop;
+                    snippingtoolwindow.Left = System.Windows.SystemParameters.VirtualScreenLeft;
+                    FirstStart = false;
+                }
+                else
+                {
+                    snippingtoolwindow.Top = System.Windows.SystemParameters.VirtualScreenTop;
+                    snippingtoolwindow.Left = System.Windows.SystemParameters.VirtualScreenLeft;
+                    snippingtoolwindow.Show();
+                }
+                
                 MouseHook.Start();
             }
         }

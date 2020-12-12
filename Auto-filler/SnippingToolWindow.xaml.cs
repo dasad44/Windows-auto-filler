@@ -29,7 +29,9 @@ namespace Auto_filler
         bool StartPosition = true;
         bool v = false;
         private static SnippingTool _snippingTool;
-        int sourceX = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenLeft);
+        int sourceX;
+        int sourceY;
+
         public SnippingToolWindow()
         {
             InitializeComponent();
@@ -57,12 +59,13 @@ namespace Auto_filler
         {
             endV = MouseHook.getMousePosition();
             startV = MouseHook.getStartValue();
-            
+            sourceX = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenLeft);
+            sourceY = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenTop);
 
             if (startV.x > endV.x && startV.y < endV.y)
             {
 
-                this.MarkingSquare.Margin = new Thickness(-sourceX + endV.x, startV.y, 0, 0);
+                this.MarkingSquare.Margin = new Thickness(-sourceX + endV.x, -sourceY + startV.y, 0, 0);
                 this.MarkingSquare.Width = startV.x - endV.x;
                 this.MarkingSquare.Height = endV.y - startV.y;
                 return;
@@ -71,12 +74,12 @@ namespace Auto_filler
             {
                 this.MarkingSquare.Width = endV.x - startV.x;
                 this.MarkingSquare.Height = startV.y - endV.y;
-                this.MarkingSquare.Margin = new Thickness(-sourceX + startV.x, endV.y, 0, 0);
+                this.MarkingSquare.Margin = new Thickness(-sourceX + startV.x, -sourceY + endV.y, 0, 0);
                 return;
             }
             else if(startV.x > endV.x && startV.y > endV.y)
             {
-                this.MarkingSquare.Margin = new Thickness(-sourceX + endV.x, endV.y, 0, 0);
+                this.MarkingSquare.Margin = new Thickness(-sourceX + endV.x, -sourceY + endV.y, 0, 0);
                 this.MarkingSquare.Width = startV.x - endV.x;
                 this.MarkingSquare.Height = startV.y - endV.y;
                 return;
@@ -102,9 +105,11 @@ namespace Auto_filler
             {
                 if(StartPosition == true)
                 {
+                    sourceX = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenLeft);
+                    sourceY = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenTop);
                     this.MarkingSquare.Visibility = System.Windows.Visibility.Visible;
                     startV = MouseHook.getStartValue();
-                    this.MarkingSquare.Margin = new Thickness(-sourceX + startV.x, startV.y, 0, 0);
+                    this.MarkingSquare.Margin = new Thickness(-sourceX + startV.x, -sourceY + startV.y, 0, 0);
                 }
                 StartPosition = false;
                 Marking();
