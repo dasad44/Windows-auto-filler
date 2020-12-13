@@ -28,7 +28,6 @@ namespace Auto_filler
         public Bitmap GetScreen(POINT startV,
         POINT endV)
         {
-            string path = Properties.Settings.Default.ScreenPath + "\\TESTDWA";
             int screenWidth = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenWidth);
             int screenHeight = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenHeight);
             int sourceX = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenLeft);
@@ -39,7 +38,6 @@ namespace Auto_filler
             captureRectangle.Size = rectangle1.Size;
             Graphics captureGraphics = Graphics.FromImage(captureBitmap);
             captureGraphics.CopyFromScreen(sourceX, sourceY, 0, 0, captureRectangle.Size);
-            captureBitmap.Save(@path, ImageFormat.Jpeg);
             return captureBitmap;
         }
     }
