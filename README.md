@@ -1,7 +1,7 @@
 # Windows-auto-filler
 >Created by Dawid Sokół, Michał Stasiewicz, Michał Wojdała
 
->Program for Windows users. There is 4 main features.
+>Program for Windows users. There are 4 main features.
 
 > Screenshot:
 
