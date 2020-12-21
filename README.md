@@ -5,7 +5,16 @@
 
 > Screenshot:
 
-
+This feature helps in creation and management 
+of a local screenshot database. Pressing printscreen 
+automatically saves a picture on our PC
+in a selected directory. All screenshots are
+divided into 2 groups - Temporary and Important.
+Temporary files are being deleted after amount of days
+user set(3 by default). By selecting screenshot 
+on a list and pressing cancel delete button we can 
+change its group to Important making it an exception
+from auto delete feature.
 
 > MultiClipboard:
 
@@ -22,7 +31,13 @@ We have buttons delete and add. After pressing them we can delete or add field f
 
 
 > SnippngTool:
-
+This feature allows us to quickly capture 
+any part of a screen we need to send, 
+edit or simply save just as any other 
+screenshot. By pressing Ctrl + q our app 
+enters snipping mode when we use mouse
+to cut part that we want or press Escape 
+to quit.
 
 > PCSpec
 
