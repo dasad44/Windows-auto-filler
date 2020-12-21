@@ -44,39 +44,30 @@
     </Window.Resources>
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
-            <TabControl TabStripPlacement="Left" Width="803" HorizontalAlignment="Left" BorderThickness="2"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,-2,0" RenderTransformOrigin="1.252,0.538">
-                <TabItem BorderBrush="Transparent" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-3,-4,-54,4">
-                    <UniformGrid Columns="1" RenderTransformOrigin="0.5,0.5" Margin="54,0,0,0">
+            <TabControl TabStripPlacement="Left" Width="803"  BorderThickness="0"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,0,0">
+                <TabItem x:Name="Welcomer" FontSize="15" FontFamily="Century Gothic" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-4,-3,-57,4">
+                    <UniformGrid Columns="1" Margin="53,10,-3,1">
 
 
-                        <TextBlock TextWrapping="Wrap" FontSize="18" Margin="55,186,36,40" Foreground="#FF110101" RenderTransformOrigin="0.5,0.5"><Bold><Run Text="Welcome screen information for future changes"/></Bold></TextBlock>
+                        <TextBlock TextWrapping="Wrap" FontSize="18" Margin="55,186,36,40" Foreground="#FF110101"><Bold><Run Text="Welcome screen information for future changes"/></Bold></TextBlock>
 
 
                     </UniformGrid>
                 </TabItem>
-                <TabItem x:Name="ScreenShotItem"  FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="ScreenShot" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-7,-54,0" VerticalAlignment="Top">
-                    <UniformGrid Columns="1" x:Name="Screenshot" Margin="55,0,0,0">
+                <TabItem x:Name="ScreenShotItem" FontSize="15" FontFamily="Century Gothic"  Height="60" Header="ScreenShot" Background="#2a2a29" Foreground="White" Margin="-4,-6,-54,4">
+                    <UniformGrid Columns="1" x:Name="Screenshot" Margin="55,11,-1,2">
 
-                        <CheckBox x:Name="AutoDelete" Content="AutoDelete On" Checked="AutoDelete_Checked" Unchecked="AutoDelete_Unchecked" Margin="113,20,338,44" RenderTransformOrigin="-4.069,2.152"/>
+                        <CheckBox x:Name="AutoDelete" Content="AutoDelete On" Checked="AutoDelete_Checked" Unchecked="AutoDelete_Unchecked" Margin="113,20,288,44"/>
 
-                        <DockPanel Margin="0,6,10,0" Height="79" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
+                        <DockPanel Margin="10,0" Height="84" VerticalAlignment="Top" >
 
                             <Button x:Name="SaverDirectoryButton" Content="Path"  Width="88" Click="SaverDirectoryButton_Click" Margin="0,32,0,24" RenderTransformOrigin="0.76,0.522"/>
-                            <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" x:FieldModifier="public" Height="23" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Width="154"  Grid.ColumnSpan="3" Grid.Column="1" Margin="80,32,-20,0" RenderTransformOrigin="0.5,0.5">
-                                <TextBox.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="-0.19"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </TextBox.RenderTransform>
-                            </TextBox>
+                            <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" x:FieldModifier="public" TextWrapping="Wrap" Text="C:\" Width="148"  Grid.ColumnSpan="3" Grid.Column="1" Margin="80,32,-20,29" RenderTransformOrigin="0.5,0.5"/>
                             <Button x:Name="ListRefresh" Content="Refresh"  VerticalAlignment="Top" Width="76"  Click="ListRefresh_Click" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.947,0.364" Margin="-190 0 0 0"/>
-                            <UniformGrid Width="172" Margin="0,-10,0,19">
-                                <Label Content="Specify day number" Grid.ColumnSpan="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-12,0,-48,0"  Width="146" Height="31"/>
-                                <TextBox x:Name="DayLimit" PreviewTextInput="NumberValidationTextBox" Grid.ColumnSpan="1" Grid.Column="2" VerticalAlignment="Top"  Margin="63,0,-19,0" RenderTransformOrigin="0.426,-0.522" Height="25"/>
-                                <Button x:Name="DayLimitclick" Content="Save" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" Margin="41,4,-27,0" Width="72" RenderTransformOrigin="0.5,0.5" Click="DayLimitclick_Click" Height="21" VerticalAlignment="Top"/>
+                            <UniformGrid >
+                                <Label Content="Specify day number" Grid.ColumnSpan="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-58,4"  Width="178" Height="30"/>
+                                <TextBox x:Name="DayLimit" PreviewTextInput="NumberValidationTextBox" Grid.ColumnSpan="1" Grid.Column="2" VerticalAlignment="Top"  Margin="63,10,1,0" RenderTransformOrigin="0.426,-0.522" Height="30" Width="37"/>
+                                <Button x:Name="DayLimitclick" Content="Save" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" Margin="70,4,-58,0" Width="90" RenderTransformOrigin="0.5,0.5" Click="DayLimitclick_Click" Height="21" VerticalAlignment="Top"/>
                             </UniformGrid>
                         </DockPanel>
                         <DockPanel Margin="10,20,0,0" Height="51" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.735">
@@ -89,7 +80,7 @@
                             <ListBox x:Name="SaverListView"
                                 ItemsSource="{Binding Items}"
                                 HorizontalAlignment="Right"
-                                SelectionMode="Multiple" Width="576" Height="141" VerticalAlignment="Bottom" Margin="0,0,0,-45">
+                                SelectionMode="Multiple" Width="573" Height="123" VerticalAlignment="Bottom" Margin="0,0,0,-27">
                                 <ListBox.Resources>
                                     <Style TargetType="{x:Type ListBoxItem}">
                                         <Setter Property="OverridesDefaultStyle" Value="true" />
@@ -110,41 +101,32 @@
                         </DockPanel>
                     </UniformGrid>
                 </TabItem>
-                <TabItem x:Name="ClipboardItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="      Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-11,-54,11">
+                <TabItem x:Name="ClipboardItem" FontSize="15" FontFamily="Century Gothic"  Height="60" Header="      Multi Clipboard" Background="#2a2a29" Foreground="#e7e8ea" Margin="-4,-7,-57,8">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <Button x:Name="notificationbutton" Content="Notification On" Margin="133,123,329,-13" Height="64" VerticalAlignment="Top" Click="notificationbutton_Click" />
-                        <Button x:Name="cloudbutton" Content="Cloud Notification On" Margin="295,-51,125,161" Click="cloudbutton_Click" />
+                        <Button x:Name="notificationbutton" Content="Notification On" Margin="108,125,311,-26" Height="77" VerticalAlignment="Top" Click="notificationbutton_Click" />
+                        <Button x:Name="cloudbutton" Content="Cloud Notification On" Margin="295,-51,72,150" Click="cloudbutton_Click" />
                     </UniformGrid>
                 </TabItem>
-                <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Height="50" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-3,-15,-54,15">
+                <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" Height="60" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-4,-10,-57,11">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
                         <CheckBox x:Name="ScreenshotShow" Content="PhotoViever On" Checked="ScreenshotShow_Checked" Unchecked="ScreenshotShow_Unchecked" Margin="10,126,431,199" RenderTransformOrigin="-4.069,2.152"/>
 
                     </UniformGrid>
                 </TabItem>
-                <TabItem x:Name="LinkItem" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Header="    Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-3,-20,-54,3">
+                <TabItem x:Name="LinkItem" FontSize="15" FontFamily="Century Gothic" Height="60" Header="   Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-4,-23,-54,3">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <Button x:Name="ValueSaver" Content="Save" Click="ValueSaver_Click" Margin="292,138,220,-136" Height="23" VerticalAlignment="Top" />
-                        <Button x:Name="Remover" Content="Delete" Click="RemoveField" Margin="422,46,110,-43" />
-                        <Button x:Name="Adder" Content="Add" Click="AddField" Margin="497,21,34,-18" />
-                        <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged" Margin="25,63,0,-61"/>
-                        <Button x:Name="ValueSaver2" Content="Save" Click="ValueSaver_Click2" Margin="292,83,220,-82" Height="24" VerticalAlignment="Top" />
-                        <TextBox x:Name="ValueHolder2" HorizontalAlignment="Left" Height="24"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged2" Margin="25,58,0,-57"/>
-                        <Button x:Name="ValueSaver3" Content="Save" Click="ValueSaver_Click3" Margin="292,74,220,-74" Height="25" VerticalAlignment="Top" />
-                        <TextBox x:Name="ValueHolder3" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged3" Margin="25,49,0,-49"/>
-                        <Button x:Name="ValueSaver4" Content="Save" Click="ValueSaver_Click4" Margin="292,63,220,-60" />
-                        <TextBox x:Name="ValueHolder4" HorizontalAlignment="Left" Height="22"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged4" Margin="25,38,0,-35"/>
-                        <Button x:Name="ValueSaver5" Content="Save" Click="ValueSaver_Click5" Margin="292,50,220,-43"/>
-                        <TextBox x:Name="ValueHolder5" HorizontalAlignment="Left" Height="18"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged5" Margin="25,25,0,-18"/>
-
-                        <ToggleButton Margin="422,-171,22,95" Name="Popups">
-                            <ToggleButton.Template>
-                                <ControlTemplate TargetType="ToggleButton">
-                                    <TextBlock>Instruction
-                                    </TextBlock>
-                                </ControlTemplate>
-                            </ToggleButton.Template>
-                        </ToggleButton>
+                        <Button x:Name="ValueSaver" Content="Save" Click="ValueSaver_Click" Margin="292,129,220,-134" Height="32" VerticalAlignment="Top" />
+                        <Button x:Name="Remover" Content="Delete" Click="RemoveField" Margin="384,46,110,-43" />
+                        <Button x:Name="Adder" Content="Add" Click="AddField" Margin="497,19,10,-16" />
+                        <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="32"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged" Margin="25,48,0,-53"/>
+                        <Button x:Name="ValueSaver2" Content="Save" Click="ValueSaver_Click2" Margin="292,58,220,-62" Height="31" VerticalAlignment="Top" />
+                        <TextBox x:Name="ValueHolder2" HorizontalAlignment="Left" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged2" Margin="25,31,0,-35"/>
+                        <Button x:Name="ValueSaver3" Content="Save" Click="ValueSaver_Click3" Margin="292,40,220,-43" Height="30" VerticalAlignment="Top" />
+                        <TextBox x:Name="ValueHolder3" HorizontalAlignment="Left" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged3" Margin="25,13,0,-16"/>
+                        <Button x:Name="ValueSaver4" Content="Save" Click="ValueSaver_Click4" Margin="292,21,220,-27" />
+                        <TextBox x:Name="ValueHolder4" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged4" Margin="25,-6,0,0"/>
+                        <Button x:Name="ValueSaver5" Content="Save" Click="ValueSaver_Click5" Margin="292,9,220,-15" Height="33" VerticalAlignment="Top"/>
+                        <TextBox x:Name="ValueHolder5" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged5" Margin="25,-18,0,0"/>
                         <Popup IsOpen="{Binding IsChecked ,ElementName=Popups}" StaysOpen="True" Margin="0,-7,0,0">
                             <Border Background="black">
                                 <TextBlock TextWrapping="Wrap" Width="593" Height="77">
@@ -157,28 +139,28 @@
                         </Popup>
                     </UniformGrid>
                 </TabItem>
-                <TabItem x:Name="pcspec" FontSize="15" FontFamily="Century Gothic" BorderBrush="Transparent" Header="    PC Specification" Foreground="#e7e8ea" Background="#2a2a29" Margin="-3,-5,-54,5" Height="50" VerticalAlignment="Bottom">
+                <TabItem x:Name="pcspec" FontSize="15" FontFamily="Century Gothic" Header="       PC Specification" Foreground="#e7e8ea" Background="#2a2a29" Margin="-4,-27,-54,5" Height="66" >
 
                     <UniformGrid Columns="1" Margin="54,0,0,0">
 
-                        <Label Content="PC Name" Margin="0,154,433,-162"/>
-                        <TextBox x:Name="info1" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="197,104,234,-113" RenderTransformOrigin="0.5,0.5"/>
-                        <TextBox x:Name="info2" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="197,117,234,-125" RenderTransformOrigin="0.5,0.5"/>
-                        <TextBox x:Name="info3" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="197,130,154,-142"/>
-                        <TextBox x:Name="info4" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="197,147,154,-157"/>
-                        <TextBox x:Name="info5" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="197,162,154,-176"/>
-                        <Button x:Name="buttons1" Content="Get system info" Click="SystemInformation" Margin="47,195,433,-209"/>
-                        <Button x:Name="buttons2" Click="Clearclick" Content="Clear" Margin="291,177,200,-191"/>
+                        <Label Content="PC Name" Margin="10,154,433,-162"/>
+                        <TextBox x:Name="info1" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="225,104,200,-113" RenderTransformOrigin="0.5,0.5"/>
+                        <TextBox x:Name="info2" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="225,117,200,-125" RenderTransformOrigin="0.5,0.5"/>
+                        <TextBox x:Name="info3" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="225,130,38,-142"/>
+                        <TextBox x:Name="info4" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="225,147,38,-157"/>
+                        <TextBox x:Name="info5" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="225,162,38,-176"/>
+                        <Button x:Name="buttons1" Content="Get system info" Click="SystemInformation" Margin="47,195,388,-209"/>
+                        <Button x:Name="buttons2" Click="Clearclick" Content="Clear" Margin="291,177,184,-191"/>
                         <TextBox x:Name="info6"  TextWrapping="Wrap" Text="" IsEnabled="False" Margin="498,-56,10,47" RenderTransformOrigin="0.5,0.5"/>
                         <TextBox x:Name="info7" TextWrapping="Wrap" Text="" IsEnabled="False" Margin="498,-42,10,33" RenderTransformOrigin="0.5,0.5"/>
                         <TextBox x:Name="info8" TextWrapping="Wrap" Text="" IsEnabled="False" Margin="498,-29,10,21" RenderTransformOrigin="0.5,0.5"/>
-                        <Label Content="User Name" Margin="0,-79,433,70"/>
-                        <Label Content="System Version" Margin="0,-34,433,22" HorizontalAlignment="Right" Width="149"/>
-                        <Label Content="Operating System" Margin="0,-17,433,7"/>
-                        <Label Content="Operatin System Platform" Margin="0,-3,385,-11"/>
-                        <Label Content="Thread Count" Margin="378,-184,93,175"/>
-                        <Label Content="OS Bit&#xD;&#xA;" Margin="378,-170,98,161"/>
-                        <Label Content="Processor bit" Margin="378,-156,93,148"/>
+                        <Label Content="User Name" Margin="10,-79,433,70"/>
+                        <Label Content="System Version" Margin="0,-34,433,22" HorizontalAlignment="Right" Width="129"/>
+                        <Label Content="Operating System" Margin="10,-17,433,7"/>
+                        <Label Content="Operatin System Platform" Margin="10,-3,352,-11"/>
+                        <Label Content="Thread Count" Margin="387,-184,74,175"/>
+                        <Label Content="OS Bit&#xD;&#xA;" Margin="387,-170,93,161"/>
+                        <Label Content="Processor bit" Margin="387,-156,79,148"/>
                         <Label Content="Computer Informations" Margin="168,-310,154,294" FontSize="20" FontWeight="Bold"/>
                     </UniformGrid>
                 </TabItem>
@@ -187,13 +169,13 @@
                 <Button Content="Button" Height="100" Width="75"/>
                 <Rectangle Fill="#FFF4F4F5" Height="100" Stroke="Black" Width="100"/>
             </TabControl>
-            <Grid x:Name="redGrid" Height="13" HorizontalAlignment="Left" VerticalAlignment="Top" Width="585" Background="#b20837" MouseDown="redGrid_MouseDown" Margin="218,0,0,0"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\screenshot.png" Margin="10,56,742.667,252"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\multiclipboard.png" Margin="10,103,742.667,206"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\snippingtool.png" Margin="7,149,742.667,162"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\pagehotkey.png" Margin="11,193,739,127"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\spec.png" Margin="11,244,743,83" RenderTransformOrigin="0.621,1.25"/>
-            <Image Height="30" Stretch="Fill" Margin="758,13,-2,312" HorizontalAlignment="Left" Width="47" MouseLeftButtonDown="CloseButton_Click">
+            <Grid x:Name="redGrid" Height="13" HorizontalAlignment="Left" VerticalAlignment="Top" Width="573" Background="#b20837" MouseDown="redGrid_MouseDown" Margin="230,0,0,0"/>
+            <Image IsHitTestVisible="False" Source="bin/Debug/images\screenshot.png" Margin="7,64,723,252"/>
+            <Image IsHitTestVisible="False" Source="bin/Debug/images\multiclipboard.png" Margin="7,118,723,194"/>
+            <Image IsHitTestVisible="False" Source="bin/Debug/images\snippingtool.png" Margin="0,175,732,127"/>
+            <Image IsHitTestVisible="False" Source="bin/Debug/images\pagehotkey.png" Margin="0,228,723,67" RenderTransformOrigin="0.482,0.767"/>
+            <Image IsHitTestVisible="False" Source="bin/Debug/images\spec.png" Margin="10,302,737,10" RenderTransformOrigin="0.621,1.25"/>
+            <Image Height="30" Stretch="Fill" Margin="758,13,0,312" HorizontalAlignment="Left" Width="45" MouseLeftButtonDown="CloseButton_Click">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/turnoff.png"/>
@@ -205,7 +187,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image Height="30" Width="45" Stretch="Fill" Margin="713,13,45,312" MouseLeftButtonDown="Image_MouseLeftButtonDown_1">
+            <Image Height="30" Stretch="Fill" Margin="713,13,50,312" MouseLeftButtonDown="Image_MouseLeftButtonDown_1">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/settings.jpg" />
@@ -230,12 +212,20 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\Logo.png" Margin="240,8,471,252"/>
-            <CheckBox x:Name="ScreenshotCheck" Content="" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="186,72,602,266" RenderTransformOrigin="0.508,0.262"/>
-            <CheckBox x:Name="LinkCheck" Content="" Checked="LinkCheck_Checked" Unchecked="LinkCheck_Unchecked" Margin="186,205,602,127" RenderTransformOrigin="0.508,0.262"/>
-            <CheckBox x:Name="ClipboardCheck" Content="" Checked="ClipboardCheck_Checked" Unchecked="ClipboardCheck_Unchecked" Margin="186,118,602,222" RenderTransformOrigin="0.508,0.262"/>
-            <CheckBox x:Name="SnippCheck" Content="" Checked="SnippCheck_Checked" Unchecked="SnippCheck_Unchecked" Margin="186,161,602,178" RenderTransformOrigin="0.508,0.262"/>
+            <Image IsHitTestVisible="False" Source="bin/Debug/images\Logo.png" Margin="240,13,471,252"/>
+            <CheckBox x:Name="ScreenshotCheck" Content="" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="200,81,587,260" RenderTransformOrigin="0.508,0.262"/>
+            <CheckBox x:Name="LinkCheck" Content="" Checked="LinkCheck_Checked" Unchecked="LinkCheck_Unchecked" Margin="200,254,587,85" RenderTransformOrigin="0.508,0.262">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.051"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+            </CheckBox>
+            <CheckBox x:Name="ClipboardCheck" Content="" Checked="ClipboardCheck_Checked" Unchecked="ClipboardCheck_Unchecked" Margin="200,139,587,194" RenderTransformOrigin="0.508,0.262"/>
+            <CheckBox x:Name="SnippCheck" Content="" Checked="SnippCheck_Checked" Unchecked="SnippCheck_Unchecked" Margin="200,196,587,142" RenderTransformOrigin="0.508,0.262"/>
         </Grid>
-        <Label Content="Label" Height="25" RenderTransformOrigin="0.5,0.5"/>
     </StackPanel>
 </Window>

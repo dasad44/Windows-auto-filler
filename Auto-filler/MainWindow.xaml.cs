@@ -19,6 +19,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using static Auto_filler.MouseHook;
 using System.Text.RegularExpressions;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace Auto_filler
 {
@@ -467,7 +468,8 @@ namespace Auto_filler
 
         }
         private void AddField(object sender, RoutedEventArgs e)
-        { 
+        {
+            Adder.Background = Brushes.Green;
             if(ValueSaver5.IsVisible == false & ValueSaver4.IsVisible & ValueSaver3.IsVisible & ValueSaver2.IsVisible && ValueSaver.IsVisible)
             {
                 ValueSaver5.Visibility = System.Windows.Visibility.Visible;
@@ -662,7 +664,10 @@ namespace Auto_filler
             info5.Text = platf;
 
         }
-        
 
+        private void Popups_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
