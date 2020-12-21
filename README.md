@@ -31,6 +31,7 @@ We have buttons delete and add. After pressing them we can delete or add field f
 
 
 > SnippngTool:
+
 This feature allows us to quickly capture 
 any part of a screen we need to send, 
 edit or simply save just as any other 
