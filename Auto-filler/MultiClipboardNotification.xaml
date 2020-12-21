@@ -1,0 +1,35 @@
+﻿<Window x:Class="Auto_filler.MultiClipboardNotification"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Auto_filler"
+        mc:Ignorable="d"
+        Title="MultiClipboardNotification" Height="240" Width="300" WindowStyle="None" AllowsTransparency="True" Loaded="Window_Loaded" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseRightButtonDown="Window_MouseRightButtonDown">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.80" Color="#b20837"/>
+    </Window.Background>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard >
+                    <DoubleAnimation x:Name="showinganimation" Duration="0:0:0.3" Storyboard.TargetProperty="Left" From="2320" To="1605" AccelerationRatio=".1"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <TextBlock Foreground="#979899" Text="First clipboard:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="203" RenderTransformOrigin="0.5,0.5" Margin="5,5,0,0"/>
+        <Image x:Name="clipboardimage1" HorizontalAlignment="Left" Height="73" Margin="105,5,0,0" VerticalAlignment="Top" Width="122"/>
+        <TextBlock x:Name="clipboardtext1" Foreground="#ECECEC" HorizontalAlignment="Left" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="300" RenderTransformOrigin="0.5,0.5" FontSize="18"/>
+
+        <TextBlock Foreground="#979899" Text="Second clipboard:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="203" RenderTransformOrigin="0.5,0.5" Margin="5,83,0,0"/>
+        <Image x:Name="clipboardimage2" HorizontalAlignment="Left" Height="73" Margin="105,83,0,0" VerticalAlignment="Top" Width="122"/>
+        <TextBlock x:Name="clipboardtext2" Foreground="#ECECEC" HorizontalAlignment="Left" Margin="0,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="300" RenderTransformOrigin="0.5,0.5" FontSize="18"/>
+
+        <TextBlock Foreground="#979899" Text="Third clipboard:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="203" RenderTransformOrigin="0.5,0.5" Margin="5,162,0,0"/>
+        <Image x:Name="clipboardimage3" HorizontalAlignment="Left" Height="73" Margin="105,161,0,0" VerticalAlignment="Top" Width="122"/>
+        <TextBlock x:Name="clipboardtext3" Foreground="#ECECEC" HorizontalAlignment="Left" Margin="0,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="300" RenderTransformOrigin="0.5,0.5" FontSize="18"/>
+
+    </Grid>
+</Window>

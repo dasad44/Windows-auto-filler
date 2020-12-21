@@ -1,0 +1,22 @@
+﻿<Window x:Class="Auto_filler.CloudNotification"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="209.326"
+    Width="300" IsHitTestVisible="false" Background="Transparent" Loaded="Window_Loaded" AllowsTransparency="True" WindowStyle="None" MouseMove="Window_MouseMove">
+    <Border CornerRadius="35" Background="AliceBlue" BorderThickness="3" BorderBrush="#171214">
+        <Grid Background="AliceBlue" Margin="14,13,13,11">
+            <TextBlock Foreground="#6c706c" Text="First clipboard:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="15" Width="203" RenderTransformOrigin="0.5,0.5" Margin="5,5,0,0" FontSize="10"/>
+            <Image x:Name="clipboardimage1" HorizontalAlignment="Left" Height="57" Margin="89,6,0,0" VerticalAlignment="Top" Width="92"/>
+            <TextBlock x:Name="clipboardtext1" Foreground="#2c2b25" HorizontalAlignment="Left" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="267" RenderTransformOrigin="0.5,0.5" FontSize="14"/>
+
+            <TextBlock Foreground="#6c706c" Text="Second clipboard:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="15" Width="203" RenderTransformOrigin="0.5,0.5" Margin="5,63,0,0" FontSize="10"/>
+            <Image x:Name="clipboardimage2" HorizontalAlignment="Left" Height="57" Margin="89,66,0,0" VerticalAlignment="Top" Width="92"/>
+            <TextBlock x:Name="clipboardtext2" Foreground="#2c2b25" HorizontalAlignment="Left" Margin="0,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="267" RenderTransformOrigin="0.5,0.5" FontSize="14"/>
+
+            <TextBlock Foreground="#6c706c" Text="Third clipboard:" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="203" RenderTransformOrigin="0.5,0.5" Margin="5,120,0,0" FontSize="10" Grid.RowSpan="2"/>
+            <Image x:Name="clipboardimage3" HorizontalAlignment="Left" Height="57" Margin="89,128,0,-6" VerticalAlignment="Top" Width="92"/>
+            <TextBlock x:Name="clipboardtext3" Foreground="#2c2b25" HorizontalAlignment="Left" Margin="0,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="267" RenderTransformOrigin="0.5,0.5" FontSize="14"/>
+
+        </Grid>
+    </Border>
+</Window>
