@@ -24,7 +24,7 @@ using Brushes = System.Windows.Media.Brushes;
 namespace Auto_filler
 {
 
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window 
     {
         public static MainWindow mainwindow;
         private KeyboardListener _listener;
@@ -46,6 +46,7 @@ namespace Auto_filler
         {
             InitializeComponent();
             mainwindow = this;
+           
         }
 
         //private void Event(object sender, EventArgs e) => mh.mouse();
@@ -526,7 +527,7 @@ namespace Auto_filler
         {
             notification.CustomNotifyAlert("Application turned off!", "Actions stopped");
             _listener.SnippWindowClose();
-            this.Close();
+            this.Close();                                      
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
