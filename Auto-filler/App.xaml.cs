@@ -20,10 +20,10 @@ namespace Auto_filler
         {
             string ff = System.Reflection.Assembly.GetExecutingAssembly().Location;
             ff = ff.Remove(ff.Length - 25);
-            ff = ff + "bin/Debug/images\\favicon.ico";
+            ff = ff + "favicon.ico";
+             
 
-
-            nIcon.Icon = new Icon(@ff);
+            nIcon.Icon = new Icon("favicon.ico");
             nIcon.Visible = true;
            
             nIcon.Click += NIcon_Click;
