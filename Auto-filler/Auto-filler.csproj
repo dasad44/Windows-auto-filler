@@ -53,6 +53,9 @@
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
       <Private>True</Private>
@@ -233,6 +236,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="bin\Debug\images\spec.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

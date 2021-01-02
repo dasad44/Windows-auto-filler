@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Auto_filler
 {
-    class RegistryOnOff
+    public class RegistryOnOff
     {
         RegistryKey reg;
         public void AutoStartOn()

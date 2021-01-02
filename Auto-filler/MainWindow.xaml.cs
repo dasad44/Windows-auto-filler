@@ -20,6 +20,7 @@ using System.Runtime.InteropServices;
 using static Auto_filler.MouseHook;
 using System.Text.RegularExpressions;
 using Brushes = System.Windows.Media.Brushes;
+using System.Diagnostics;
 
 namespace Auto_filler
 {
@@ -46,7 +47,9 @@ namespace Auto_filler
         {
             InitializeComponent();
             mainwindow = this;
-           
+            this.Hide();
+
+
         }
 
         //private void Event(object sender, EventArgs e) => mh.mouse();
