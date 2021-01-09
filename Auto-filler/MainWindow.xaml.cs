@@ -47,7 +47,7 @@ namespace Auto_filler
         {
             InitializeComponent();
             mainwindow = this;
-            this.Hide();
+  
 
 
         }
@@ -100,6 +100,7 @@ namespace Auto_filler
         Visibility visibility = null;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             //creating file in appdata/roaming for any cache files like tmp images or text
             string appdatapath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Auto_filler");
             if (!Directory.Exists(appdatapath))
