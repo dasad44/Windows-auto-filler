@@ -520,9 +520,18 @@ namespace Auto_filler
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            App linker = new App();
+
             notification.CustomNotifyAlert("Application turned off!", "Actions stopped");
             _listener.SnippWindowClose();
+
+            
+                if (App.nIcon != null)
+                {
+                    App.nIcon.Visible = false;
+                App.nIcon.Icon = null;
+                App.nIcon.Dispose();
+                App.nIcon = null;
+                }
             
            
 

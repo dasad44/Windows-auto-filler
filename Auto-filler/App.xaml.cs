@@ -15,7 +15,7 @@ namespace Auto_filler
     /// </summary>
     public partial class App : Application
     {
-        System.Windows.Forms.NotifyIcon nIcon = new System.Windows.Forms.NotifyIcon();
+       public static System.Windows.Forms.NotifyIcon nIcon = new System.Windows.Forms.NotifyIcon();
         public App()
         {
             string ff = System.Reflection.Assembly.GetExecutingAssembly().Location;
