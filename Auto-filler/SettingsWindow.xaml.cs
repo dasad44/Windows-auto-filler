@@ -44,6 +44,7 @@ namespace Auto_filler
         }
         private void AutoTurnon_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Halo");
             regis.AutoStartOn();
             MessageBox.Show("Udało się!");
         }

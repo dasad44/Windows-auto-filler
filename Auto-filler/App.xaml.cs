@@ -28,6 +28,7 @@ namespace Auto_filler
             nIcon.ShowBalloonTip(5000, "AutoFiller", "Minimized to tray!", System.Windows.Forms.ToolTipIcon.Info);
 
             nIcon.Click += NIcon_Click;
+           
         }
         void NIcon_Click(object sender, EventArgs e)
         {

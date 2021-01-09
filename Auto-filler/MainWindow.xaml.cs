@@ -431,6 +431,7 @@ namespace Auto_filler
         }
         private void RemoveField(object sender, RoutedEventArgs e)
         {
+            
             if (ValueSaver5.IsVisible)
             {
                 ValueSaver5.Visibility = System.Windows.Visibility.Hidden;
@@ -474,18 +475,12 @@ namespace Auto_filler
         }
         private void AddField(object sender, RoutedEventArgs e)
         {
-            Adder.Background = Brushes.Green;
-            if(ValueSaver5.IsVisible == false & ValueSaver4.IsVisible & ValueSaver3.IsVisible & ValueSaver2.IsVisible && ValueSaver.IsVisible)
+           
+            if(ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible == false && ValueSaver.IsVisible)
             {
-                ValueSaver5.Visibility = System.Windows.Visibility.Visible;
-                linkeditor = true;                
-                ValueHolder5.Visibility = System.Windows.Visibility.Visible;             
-            }
-            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible & ValueSaver2.IsVisible & ValueSaver.IsVisible)
-            {
-                ValueSaver4.Visibility = System.Windows.Visibility.Visible;
-                linkeditor2 = true;
-                ValueHolder4.Visibility = System.Windows.Visibility.Visible;
+                ValueSaver2.Visibility = System.Windows.Visibility.Visible;
+                linkeditor4 = true;                
+                ValueHolder2.Visibility = System.Windows.Visibility.Visible;             
             }
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible && ValueSaver.IsVisible)
             {
@@ -493,11 +488,17 @@ namespace Auto_filler
                 linkeditor3 = true;
                 ValueHolder3.Visibility = System.Windows.Visibility.Visible;
             }
-            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible == false && ValueSaver.IsVisible)
+            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible & ValueSaver2.IsVisible && ValueSaver.IsVisible)
             {
-                ValueSaver2.Visibility = System.Windows.Visibility.Visible;
-                linkeditor4 = true;
-                ValueHolder2.Visibility = System.Windows.Visibility.Visible;
+                ValueSaver4.Visibility = System.Windows.Visibility.Visible;
+                linkeditor2 = true;
+                ValueHolder4.Visibility = System.Windows.Visibility.Visible;
+            }
+            else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible & ValueSaver3.IsVisible & ValueSaver2.IsVisible && ValueSaver.IsVisible)
+            {
+                ValueSaver5.Visibility = System.Windows.Visibility.Visible;
+                linkeditor = true;
+                ValueHolder5.Visibility = System.Windows.Visibility.Visible;
             }
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible == false && ValueSaver.IsVisible == false)
             {
@@ -505,22 +506,12 @@ namespace Auto_filler
                 linkeditor5 = true;
                 ValueHolder.Visibility = System.Windows.Visibility.Visible;
             }
-        }
-        private void AutoTurnon_Click(object sender, RoutedEventArgs e)
-        {
-            regis.AutoStartOn();
-            MessageBox.Show("Udało się!");
-        }
+        }   
         private void Information(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Udało się!");
         }
 
-        private void TurningOff_Click(object sender, RoutedEventArgs e)
-        {
-            regis.AutoStartOff();
-            MessageBox.Show("Udało się!");
-        }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -529,8 +520,13 @@ namespace Auto_filler
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
+            App linker = new App();
             notification.CustomNotifyAlert("Application turned off!", "Actions stopped");
             _listener.SnippWindowClose();
+            
+           
+
+
             this.Close();                                      
         }
 

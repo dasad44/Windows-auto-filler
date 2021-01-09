@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Auto_filler"
         mc:Ignorable="d"
         Title="Windows Auto Filler" Height="351.087" Width="803" Loaded="Window_Loaded" WindowStyle="None" AllowsTransparency="True" MouseDown="Window_MouseDown">
+        
     <Window.Resources>
         <SolidColorBrush x:Key="MenuBrush" Color="#2a2a29"/>
         <SolidColorBrush x:Key="MenuBrush2" Color="#FF1B1B1A"/>
@@ -116,17 +117,17 @@
                 <TabItem x:Name="LinkItem" FontSize="15" FontFamily="Century Gothic" Height="60" Header="   Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-4,-23,-54,3">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
                         <Button x:Name="ValueSaver" Content="Save" Click="ValueSaver_Click" Margin="292,129,220,-134" Height="32" VerticalAlignment="Top" />
-                        <Button x:Name="Remover" Content="Delete" Click="RemoveField" Margin="384,46,110,-43" />
-                        <Button x:Name="Adder" Content="Add" Click="AddField" Margin="497,19,10,-16" />
+                        <Button x:Name="Remover" Content="Delete" Click="RemoveField" Margin="384,46,110,-43" Background="Red" />
+                        <Button x:Name="Adder" Content="Add" Click="AddField" Margin="497,19,10,-16" Background="Green" />
                         <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="32"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged" Margin="25,48,0,-53"/>
-                        <Button x:Name="ValueSaver2" Content="Save" Click="ValueSaver_Click2" Margin="292,58,220,-62" Height="31" VerticalAlignment="Top" />
-                        <TextBox x:Name="ValueHolder2" HorizontalAlignment="Left" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged2" Margin="25,31,0,-35"/>
-                        <Button x:Name="ValueSaver3" Content="Save" Click="ValueSaver_Click3" Margin="292,40,220,-43" Height="30" VerticalAlignment="Top" />
-                        <TextBox x:Name="ValueHolder3" HorizontalAlignment="Left" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged3" Margin="25,13,0,-16"/>
-                        <Button x:Name="ValueSaver4" Content="Save" Click="ValueSaver_Click4" Margin="292,21,220,-27" />
-                        <TextBox x:Name="ValueHolder4" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged4" Margin="25,-6,0,0"/>
-                        <Button x:Name="ValueSaver5" Content="Save" Click="ValueSaver_Click5" Margin="292,9,220,-15" Height="33" VerticalAlignment="Top"/>
-                        <TextBox x:Name="ValueHolder5" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged5" Margin="25,-18,0,0"/>
+                        <Button x:Name="ValueSaver2" Content="Save" Click="ValueSaver_Click2" Margin="292,58,220,-62" Height="31" VerticalAlignment="Top" Visibility="Hidden" />
+                        <TextBox x:Name="ValueHolder2" HorizontalAlignment="Left" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged2" Margin="25,31,0,-35" Visibility="Hidden"/>
+                        <Button x:Name="ValueSaver3" Content="Save" Click="ValueSaver_Click3" Margin="292,40,220,-43" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
+                        <TextBox x:Name="ValueHolder3" HorizontalAlignment="Left" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged3" Margin="25,13,0,-16" Visibility="Hidden"/>
+                        <Button x:Name="ValueSaver4" Content="Save" Click="ValueSaver_Click4" Margin="292,21,220,-27" Visibility="Hidden" />
+                        <TextBox x:Name="ValueHolder4" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged4" Margin="25,-6,0,0" Visibility="Hidden"/>
+                        <Button x:Name="ValueSaver5" Content="Save" Click="ValueSaver_Click5" Margin="292,9,220,-15" Height="33" VerticalAlignment="Top" Visibility="Hidden"/>
+                        <TextBox x:Name="ValueHolder5" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged5" Margin="25,-18,0,0" Visibility="Hidden"/>
                         <Popup IsOpen="{Binding IsChecked ,ElementName=Popups}" StaysOpen="True" Margin="0,-7,0,0">
                             <Border Background="black">
                                 <TextBlock TextWrapping="Wrap" Width="593" Height="77">
