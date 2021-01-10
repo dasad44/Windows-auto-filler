@@ -251,13 +251,17 @@ namespace Auto_filler
                 var list = SaverListView.SelectedItems;
                 string sourceFile = System.IO.Path.Combine(@Properties.Settings.Default.ScreenPath, list[i].ToString());
                 string destFile = System.IO.Path.Combine(path, list[i].ToString());
-                File.Move(sourceFile, destFile);
+                try
+                {
+                    File.Move(sourceFile, destFile);
+                }
+                catch
+                {
+                }
             }
-        }
-        private void ListRefresh_Click(object sender, RoutedEventArgs e)
-        {
             AllList();
         }
+
         private void AllScreenList_Click(object sender, RoutedEventArgs e)
         {
             AllList();
@@ -274,7 +278,7 @@ namespace Auto_filler
         {
             Properties.Settings.Default.ScreenCheck = true;
             Properties.Settings.Default.Save();
-            //visibility.ScreenShotVis();
+            visibility.ScreenShotVis();
             var bc = new BrushConverter();
             ScreenShotItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#b20837");
         }
@@ -282,7 +286,7 @@ namespace Auto_filler
         {
             Properties.Settings.Default.ScreenCheck = false;
             Properties.Settings.Default.Save();
-            //visibility.ScreenShotInVis();
+            visibility.ScreenShotInVis();
             var bc = new BrushConverter();
             ScreenShotItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#e7e8ea");
         }
@@ -679,5 +683,6 @@ namespace Auto_filler
         {
 
         }
+
     }
 }

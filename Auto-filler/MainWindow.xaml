@@ -6,10 +6,61 @@
         xmlns:local="clr-namespace:Auto_filler"
         mc:Ignorable="d"
         Title="Windows Auto Filler" Height="351.087" Width="803" Loaded="Window_Loaded" WindowStyle="None" AllowsTransparency="True" MouseDown="Window_MouseDown">
-        
+
     <Window.Resources>
         <SolidColorBrush x:Key="MenuBrush" Color="#2a2a29"/>
         <SolidColorBrush x:Key="MenuBrush2" Color="#FF1B1B1A"/>
+
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#b20837"/>
+            <Setter Property="Foreground" Value="#e7e8ea"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        BorderBrush="DarkGray" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused"  Value="True">
+                                <Setter Property="Background"  Value="#FFC7305A" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MyButtonStyle2" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#b20837"/>
+            <Setter Property="Foreground" Value="#e7e8ea"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        BorderBrush="DarkGray" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed"  Value="True">
+                                <Setter Property="Background"  Value="#FFC7305A" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style  TargetType="{x:Type TabItem}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -57,25 +108,23 @@
                 </TabItem>
                 <TabItem x:Name="ScreenShotItem" FontSize="15" FontFamily="Century Gothic"  Height="60" Header="ScreenShot" Background="#2a2a29" Foreground="White" Margin="-4,-6,-54,4">
                     <UniformGrid Columns="1" x:Name="Screenshot" Margin="55,11,-1,2">
-
-                        <CheckBox x:Name="AutoDelete" Content="AutoDelete On" Checked="AutoDelete_Checked" Unchecked="AutoDelete_Unchecked" Margin="113,20,288,44"/>
-
-                        <DockPanel Margin="10,0" Height="84" VerticalAlignment="Top" >
-
-                            <Button x:Name="SaverDirectoryButton" Content="Path"  Width="88" Click="SaverDirectoryButton_Click" Margin="0,32,0,24" RenderTransformOrigin="0.76,0.522"/>
-                            <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" x:FieldModifier="public" TextWrapping="Wrap" Text="C:\" Width="148"  Grid.ColumnSpan="3" Grid.Column="1" Margin="80,32,-20,29" RenderTransformOrigin="0.5,0.5"/>
-                            <Button x:Name="ListRefresh" Content="Refresh"  VerticalAlignment="Top" Width="76"  Click="ListRefresh_Click" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.947,0.364" Margin="-190 0 0 0"/>
-                            <UniformGrid >
-                                <Label Content="Specify day number" Grid.ColumnSpan="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,-58,4"  Width="178" Height="30"/>
-                                <TextBox x:Name="DayLimit" PreviewTextInput="NumberValidationTextBox" Grid.ColumnSpan="1" Grid.Column="2" VerticalAlignment="Top"  Margin="63,10,1,0" RenderTransformOrigin="0.426,-0.522" Height="30" Width="37"/>
-                                <Button x:Name="DayLimitclick" Content="Save" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" Margin="70,4,-58,0" Width="90" RenderTransformOrigin="0.5,0.5" Click="DayLimitclick_Click" Height="21" VerticalAlignment="Top"/>
-                            </UniformGrid>
+                        <DockPanel Margin="10,0,0,-40" VerticalAlignment="Bottom" Height="28" HorizontalAlignment="Left" Width="572" >
+                            <CheckBox x:Name="AutoDelete" Content="Auto Delete" Width="100" Checked="AutoDelete_Checked" Unchecked="AutoDelete_Unchecked" VerticalAlignment="Center"/>
+                            <Label x:Name="DayLimitText" Content="Specify day number" HorizontalAlignment="Right"  Width="140" Margin="10,0,0,0"/>
+                            <TextBox x:Name="DayLimit" HorizontalAlignment="Right"  PreviewTextInput="NumberValidationTextBox" Width="50"/>
+                            <Button x:Name="DayLimitclick" Content="Save"   Width="80" Click="DayLimitclick_Click" Margin="10,0,0,0" HorizontalAlignment="Left"/>
                         </DockPanel>
-                        <DockPanel Margin="10,20,0,0" Height="51" VerticalAlignment="Top" RenderTransformOrigin="0.503,0.735">
-                            <Button x:Name="AllScreenList" Content="All" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"  Click="AllScreenList_Click"/>
-                            <Button x:Name="ImportantScreenList" Content="Important" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"  Click="ImportantScreenList_Click"/>
-                            <Button x:Name="TempScreenList" Content="Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="TempScreenList_Click"/>
-                            <Button x:Name="CancelDeleteList" Content="Cancel Delete"  VerticalAlignment="Top" Width="115" Click="CancelDeleteList_Click" Grid.ColumnSpan="5" Grid.Column="1" RenderTransformOrigin="1.467,0.409" Margin="-80 0 0 0"/>
+                        <DockPanel Margin="10,0,0,0" VerticalAlignment="Bottom" >
+                            <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" x:FieldModifier="public" TextWrapping="Wrap" Text="C:\" Width="300"/>
+                            <Button x:Name="SaverDirectoryButton" HorizontalAlignment="Left" Content="Path" Height="28" Width="80" Click="SaverDirectoryButton_Click" Margin="10,0,0,0"/>
+                        </DockPanel>
+
+                        <DockPanel Margin="10,20,0,0" Height="51" VerticalAlignment="Top">
+                            <Button x:Name="AllScreenList" Content="All" Style="{StaticResource MyButtonStyle}"  VerticalAlignment="Top" Width="100"   Click="AllScreenList_Click" AutomationProperties.IsRowHeader="True" Margin="0 3 0 0"></Button>
+                            <Button x:Name="ImportantScreenList" Content="Important" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="100"   Click="ImportantScreenList_Click" Margin="1 3 0 0" />
+                            <Button x:Name="TempScreenList" Content="Temp"  Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="100"   Click="TempScreenList_Click" Margin="1 3 0 0"/>
+                            <Button x:Name="CancelDeleteList" Content="Cancel Delete"  Width="100" Style="{StaticResource MyButtonStyle2}" Click="CancelDeleteList_Click" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 3 0 0"/>
+
                         </DockPanel>
                         <DockPanel Margin="0,-39,0,0" Height="96" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
                             <ListBox x:Name="SaverListView"
