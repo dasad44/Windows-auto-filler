@@ -11,6 +11,10 @@
         <SolidColorBrush x:Key="MenuBrush" Color="#2a2a29"/>
         <SolidColorBrush x:Key="MenuBrush2" Color="#FF1B1B1A"/>
 
+
+        
+
+
         <Style x:Key="MyButtonStyle" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Margin" Value="5"/>
@@ -96,7 +100,19 @@
     </Window.Resources>
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
-            <TabControl TabStripPlacement="Left" Width="803"  BorderThickness="0"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.1*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TabControl TabStripPlacement="Left" Width="803"  BorderThickness="0"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Grid.RowSpan="6" Grid.ColumnSpan="2">
                 <TabItem x:Name="Welcomer" FontSize="15" FontFamily="Century Gothic" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-4,-3,-57,4">
                     <UniformGrid Columns="1" Margin="53,10,-3,1">
 
@@ -159,7 +175,8 @@
                 </TabItem>
                 <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" Height="60" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-4,-10,-57,11">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <CheckBox x:Name="ScreenshotShow" Content="PhotoViever On" Checked="ScreenshotShow_Checked" Unchecked="ScreenshotShow_Unchecked" Margin="10,126,431,199" RenderTransformOrigin="-4.069,2.152"/>
+                        <CheckBox x:Name="ScreenshotShow" Content="PhotoViever On" Checked="ScreenshotShow_Checked" Unchecked="ScreenshotShow_Unchecked" Margin="10,126,431,25"/>
+                        <CheckBox x:Name="SaveOn" Content="Save with ScreenShots On" Margin="10,-20,374,170" Checked="SaveOn_Checked" Unchecked="SaveOn_Unchecked"/>
 
                     </UniformGrid>
                 </TabItem>
@@ -219,13 +236,13 @@
                 <Button Content="Button" Height="100" Width="75"/>
                 <Rectangle Fill="#FFF4F4F5" Height="100" Stroke="Black" Width="100"/>
             </TabControl>
-            <Grid x:Name="redGrid" Height="13" HorizontalAlignment="Left" VerticalAlignment="Top" Width="573" Background="#b20837" MouseDown="redGrid_MouseDown" Margin="230,0,0,0"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\screenshot.png" Margin="7,64,723,252"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\multiclipboard.png" Margin="7,118,723,194"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\snippingtool.png" Margin="0,175,732,127"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\pagehotkey.png" Margin="0,228,723,67" RenderTransformOrigin="0.482,0.767"/>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\spec.png" Margin="10,302,737,10" RenderTransformOrigin="0.621,1.25"/>
-            <Image Height="30" Stretch="Fill" Margin="758,13,0,312" HorizontalAlignment="Left" Width="45" MouseLeftButtonDown="CloseButton_Click">
+            <Grid x:Name="redGrid" Height="13" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#b20837" MouseDown="redGrid_MouseDown" Grid.Column="1"/>
+            <Image Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Left" Width="75" IsHitTestVisible="False" Source="bin/Debug/images\screenshot.png" />
+            <Image Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Width="75" IsHitTestVisible="False" Source="bin/Debug/images\multiclipboard.png"/>
+            <Image Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Width="75" IsHitTestVisible="False" Source="bin/Debug/images\snippingtool.png"/>
+            <Image Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Width="75" IsHitTestVisible="False" Source="bin/Debug/images\pagehotkey.png"/>
+            <Image Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" Width="40" IsHitTestVisible="False" Source="bin/Debug/images\spec.png" Margin="19,10,0,10"/>
+            <Image Height="30" Stretch="Fill" Grid.Column="1" HorizontalAlignment="Right" Width="45" MouseLeftButtonDown="CloseButton_Click">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/turnoff.png"/>
@@ -237,7 +254,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image Height="30" Stretch="Fill" Margin="713,13,50,312" MouseLeftButtonDown="Image_MouseLeftButtonDown_1">
+            <Image Height="30" Grid.Column="1" HorizontalAlignment="Right" MouseLeftButtonDown="Image_MouseLeftButtonDown_1" Margin="0,15,45,15">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/settings.jpg" />
@@ -250,7 +267,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image Height="30" Width="45" Stretch="Fill" Margin="668,13,90,312" MouseLeftButtonDown="Image_MouseLeftButtonDown">
+            <Image Height="30" Width="45" Stretch="Fill" Grid.Column="1" HorizontalAlignment="Right" MouseLeftButtonDown="Image_MouseLeftButtonDown" Margin="0,15,96,15">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/minimalize.png" />
@@ -262,20 +279,13 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\Logo.png" Margin="240,13,471,252"/>
-            <CheckBox x:Name="ScreenshotCheck" Content="" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="200,81,587,260" RenderTransformOrigin="0.508,0.262"/>
-            <CheckBox x:Name="LinkCheck" Content="" Checked="LinkCheck_Checked" Unchecked="LinkCheck_Unchecked" Margin="200,254,587,85" RenderTransformOrigin="0.508,0.262">
-                <CheckBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.051"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </CheckBox.RenderTransform>
+            <Image IsHitTestVisible="False" Grid.Column="1" HorizontalAlignment="Left" Source="bin/Debug/images\Logo.png" Margin="30,13,0,25" Grid.RowSpan="2" Width="58"/>
+            <CheckBox x:Name="ScreenshotCheck" Content="" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked"/>
+            
+            <CheckBox x:Name="LinkCheck" Content="" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Checked="LinkCheck_Checked" Unchecked="LinkCheck_Unchecked">
             </CheckBox>
-            <CheckBox x:Name="ClipboardCheck" Content="" Checked="ClipboardCheck_Checked" Unchecked="ClipboardCheck_Unchecked" Margin="200,139,587,194" RenderTransformOrigin="0.508,0.262"/>
-            <CheckBox x:Name="SnippCheck" Content="" Checked="SnippCheck_Checked" Unchecked="SnippCheck_Unchecked" Margin="200,196,587,142" RenderTransformOrigin="0.508,0.262"/>
+            <CheckBox x:Name="ClipboardCheck" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Content="" Checked="ClipboardCheck_Checked" Unchecked="ClipboardCheck_Unchecked" />
+            <CheckBox x:Name="SnippCheck" Content="" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Checked="SnippCheck_Checked" Unchecked="SnippCheck_Unchecked"/>
         </Grid>
     </StackPanel>
 </Window>

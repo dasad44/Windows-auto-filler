@@ -23,7 +23,7 @@ namespace Auto_filler
             ff = ff + "favicon.ico";
              
 
-            nIcon.Icon = new Icon("favicon.ico");
+            //nIcon.Icon = new Icon("favicon.ico");
             nIcon.Visible = true;
             nIcon.ShowBalloonTip(5000, "AutoFiller", "Minimized to tray!", System.Windows.Forms.ToolTipIcon.Info);
 

@@ -62,7 +62,8 @@ namespace Auto_filler
                 System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
                 Graphics captureGraphics = Graphics.FromImage(captureBitmap);
                 captureGraphics.CopyFromScreen(startV.x, startV.y, 0, 0, captureRectangle.Size);
-                captureBitmap.Save(@path, ImageFormat.Jpeg);
+                if(Properties.Settings.Default.SnippSaveCheck == true || KeyboardListener.SnippCondition == true)
+                    captureBitmap.Save(@path, ImageFormat.Jpeg);
                 
                 if (KeyboardListener.SnippCondition == false)
                 {

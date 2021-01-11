@@ -160,7 +160,12 @@ namespace Auto_filler
             }
             else
                 AutoDelete.IsChecked = false;
-
+            if (Properties.Settings.Default.SnippSaveCheck == true)
+            {
+                SaveOn.IsChecked = true;
+            }
+            else
+                SaveOn.IsChecked = false;
             _autoDelete = new ScreenshotAutoDelete();
             _autoDelete.AutoDelete();
             AllList();
@@ -274,6 +279,19 @@ namespace Auto_filler
         {
             TempList();
         }
+
+        private void SaveOn_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.SnippSaveCheck = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void SaveOn_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.SnippSaveCheck = false;
+            Properties.Settings.Default.Save();
+        }
+
         private void ScreenshotCheck_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.ScreenCheck = true;
@@ -683,6 +701,7 @@ namespace Auto_filler
         {
 
         }
+
 
     }
 }
