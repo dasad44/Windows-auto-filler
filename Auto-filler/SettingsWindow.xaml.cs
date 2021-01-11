@@ -24,12 +24,14 @@ namespace Auto_filler
         public SettingsWindow()
         {
             InitializeComponent();
+           
         }
 
-        private void CloseButton_Click(object sender, MouseButtonEventArgs e)
+        public void CloseButton_Click(object sender, MouseButtonEventArgs e)
         {
             this.Close();
         }
+       
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

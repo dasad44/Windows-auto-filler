@@ -21,12 +21,14 @@ using static Auto_filler.MouseHook;
 using System.Text.RegularExpressions;
 using Brushes = System.Windows.Media.Brushes;
 using System.Diagnostics;
+using System.Threading;
 
 namespace Auto_filler
 {
 
     public partial class MainWindow : Window 
     {
+        SettingsWindow secondform;
         public static MainWindow mainwindow;
         private KeyboardListener _listener;
         private ScreenshotAutoDelete _autoDelete;
@@ -42,16 +44,18 @@ namespace Auto_filler
         public static bool linkeditor3 = true;
         public static bool linkeditor4 = true;
         public static bool linkeditor5 = true;
-
+        
+        
         public MainWindow()
         {
+            
             InitializeComponent();
             mainwindow = this;
-  
 
 
+            
         }
-
+       
         //private void Event(object sender, EventArgs e) => mh.mouse();
 
         private void HideButton_Click(object sender, RoutedEventArgs e)
@@ -521,11 +525,11 @@ namespace Auto_filler
         {
 
         }
-
+        
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-
-            notification.CustomNotifyAlert("Application turned off!", "Actions stopped");
+            
+           
             _listener.SnippWindowClose();
 
             
@@ -536,12 +540,20 @@ namespace Auto_filler
                 App.nIcon.Dispose();
                 App.nIcon = null;
                 }
+
+
             
+                
+                App.Current.Shutdown();
+            
+                
            
 
 
-            this.Close();                                      
-        }
+            
+
+         }
+        
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -555,7 +567,7 @@ namespace Auto_filler
             base.OnStateChanged(e);
         }
 
-        private void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        public void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
             SettingsWindow settings = new SettingsWindow();
             settings.Show();
