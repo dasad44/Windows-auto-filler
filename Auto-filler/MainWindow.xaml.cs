@@ -104,6 +104,7 @@ namespace Auto_filler
         Visibility visibility = null;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            notification.CustomNotifyAlert("Windows Auto-filler hidden!", "Click Alt + Ctrl + G to show application again");
             this.Hide();
             //creating file in appdata/roaming for any cache files like tmp images or text
             string appdatapath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Auto_filler");
