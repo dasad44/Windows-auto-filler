@@ -717,7 +717,7 @@ namespace Auto_filler
 
         private void Image_MouseLeftButtonDown_5(object sender, MouseButtonEventArgs e)
         {
-            string pagehotkeyInstruction = "We have fields with text boxes to input links to internet pages for example www.youtube.com . After click on save, value is assigned to our hotkey. We have hotkeys from 1 to 5. It goes from the top to buttom. We have buttons delete and add. After pressing them we can delete or add field for internet link.";
+            string pagehotkeyInstruction = "We have fields with text boxes to input links to internet pages for example www.youtube.com . After click on save, value is assigned to our hotkey. We have hotkeys from ctrl + 1 to 5. It goes from the top to buttom. We have buttons delete and add. After pressing them we can delete or add field for internet link.";
             MessageBox.Show(pagehotkeyInstruction, "PageHotKey Instruction");
         }
     }

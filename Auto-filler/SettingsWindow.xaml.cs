@@ -95,6 +95,11 @@ namespace Auto_filler
                 Auto_filler.MainWindow.mainwindow.SnippCheck.IsChecked = false;
             }
         }
+        private void redGrid_MouseDown2(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
+        }
         private void CheckOn(object sender, EventArgs e)
         {
 
