@@ -240,5 +240,26 @@
   <ItemGroup>
     <Resource Include="icons.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="snippingtoolM.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\images\snippingtoolM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\images\screenshotM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\images\pagehotkeyM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\images\multiclipboardM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\images\multiclipboardMhover.png" />
+    <Resource Include="bin\Debug\images\pagehotkeyMhover.png" />
+    <Resource Include="bin\Debug\images\screenshotMhover.png" />
+    <Resource Include="bin\Debug\images\snippingtoolMhover.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

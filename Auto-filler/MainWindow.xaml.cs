@@ -696,5 +696,28 @@ namespace Auto_filler
 
         }
 
+        private void Image_MouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)
+        {
+            string snippingtoolInstruction = "This feature allows us to quickly capture any part of a screen we need to send, edit or simply save just as any other screenshot. By pressing Ctrl + q our app enters snipping mode when we use mouse to cut part that we want or press Escape to quit.";
+            MessageBox.Show(snippingtoolInstruction, "SnippingTool Instruction");
+        }
+
+        private void Image_MouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)
+        {
+            string screenshotInstruction = "This feature helps in creation and management of a local screenshot database. Pressing printscreen automatically saves a picture on our PC in a selected directory. All screenshots are divided into 2 groups - Temporary and Important. Temporary files are being deleted after amount of days user set(3 by default). By selecting screenshot on a list and pressing cancel delete button we can change its group to Important making it an exception from auto delete feature.";
+            MessageBox.Show(screenshotInstruction, "ScreenShot Instruction");
+        }
+
+        private void Image_MouseLeftButtonDown_4(object sender, MouseButtonEventArgs e)
+        {
+            string multiclipboardInstruction = "We have additional 2 clipboards(Ctrl + C/Ctrl + V) to use. Ctrl + C is adding element to clipboard queue. After clicking that first clipboard comes to second place and second clipboard comes to third. To get access to second or third clipboard click " + "'Ctrl + CC'" + " for second and " + "'Ctrl + CCC'" + " for third clipboard. Ctrl + V will show current element.";
+            MessageBox.Show(multiclipboardInstruction, "MultiClipboard Instruction");
+        }
+
+        private void Image_MouseLeftButtonDown_5(object sender, MouseButtonEventArgs e)
+        {
+            string pagehotkeyInstruction = "We have fields with text boxes to input links to internet pages for example www.youtube.com . After click on save, value is assigned to our hotkey. We have hotkeys from 1 to 5. It goes from the top to buttom. We have buttons delete and add. After pressing them we can delete or add field for internet link.";
+            MessageBox.Show(pagehotkeyInstruction, "PageHotKey Instruction");
+        }
     }
 }

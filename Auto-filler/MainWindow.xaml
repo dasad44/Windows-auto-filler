@@ -99,9 +99,54 @@
             <TabControl TabStripPlacement="Left" Width="803"  BorderThickness="0"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,0,0">
                 <TabItem x:Name="Welcomer" FontSize="15" FontFamily="Century Gothic" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-4,-3,-57,4">
                     <UniformGrid Columns="1" Margin="53,10,-3,1">
-
-
-                        <TextBlock TextWrapping="Wrap" FontSize="18" Margin="55,186,36,40" Foreground="#FF110101"><Bold><Run Text="Welcome screen information for future changes"/></Bold></TextBlock>
+                        <Image Margin="152,36,284,-90" MouseLeftButtonDown="Image_MouseLeftButtonDown_2">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Source" Value="bin/Debug/images\snippingtoolM.png" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Source" Value="bin/Debug/images\snippingtoolMhover.png" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Image Margin="309,-49,128,-5" MouseLeftButtonDown="Image_MouseLeftButtonDown_3">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Source" Value="bin/Debug/images\screenshotM.png" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Source" Value="bin/Debug/images\screenshotMhover.png" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Image Margin="309,22,128,-76" MouseLeftButtonDown="Image_MouseLeftButtonDown_5">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Source" Value="bin/Debug/images\pagehotkeyM.png" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Source" Value="bin/Debug/images\pagehotkeyMhover.png" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Image Margin="152,-63,284,9" MouseLeftButtonDown="Image_MouseLeftButtonDown_4">
+                            <Image.Style>
+                                <Style>
+                                    <Setter Property="Image.Source" Value="bin/Debug/images\multiclipboardM.png" />
+                                    <Style.Triggers>
+                                        <Trigger  Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Source" Value="bin/Debug/images\multiclipboardMhover.png" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
 
 
                     </UniformGrid>
