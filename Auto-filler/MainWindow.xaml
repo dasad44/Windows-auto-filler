@@ -204,7 +204,8 @@
                 </TabItem>
                 <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" Height="60" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-4,-10,-57,11">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <CheckBox x:Name="ScreenshotShow" Content="PhotoViever On" Checked="ScreenshotShow_Checked" Unchecked="ScreenshotShow_Unchecked" Margin="10,126,431,199" RenderTransformOrigin="-4.069,2.152"/>
+                        <CheckBox x:Name="ScreenshotShow" Content="PhotoViever On" Checked="ScreenshotShow_Checked" Unchecked="ScreenshotShow_Unchecked" Margin="10,126,431,28" RenderTransformOrigin="-4.069,2.152"/>
+                        <Button Content="Button" Margin="10,0,406,118" Click="Button_Click"/>
 
                     </UniformGrid>
                 </TabItem>

@@ -102,6 +102,13 @@ namespace Auto_filler
         }
 
         Visibility visibility = null;
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ShortcutChange shortcutChange = new ShortcutChange();
+            shortcutChange.Show();
+        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             notification.CustomNotifyAlert("Windows Auto-filler hidden!", "Click Alt + Ctrl + G to show application again");
@@ -720,5 +727,7 @@ namespace Auto_filler
             string pagehotkeyInstruction = "We have fields with text boxes to input links to internet pages for example www.youtube.com . After click on save, value is assigned to our hotkey. We have hotkeys from ctrl + 1 to 5. It goes from the top to buttom. We have buttons delete and add. After pressing them we can delete or add field for internet link.";
             MessageBox.Show(pagehotkeyInstruction, "PageHotKey Instruction");
         }
+
+
     }
 }

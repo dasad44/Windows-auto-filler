@@ -11,6 +11,9 @@ namespace Auto_filler
     class KeyboardListener
     {
         private const int WH_KEYBOARD_LL = 13;
+
+        System.Windows.Input.Key[] SnippKey;
+
         //private const int WM_SYSKEYDOWN = 0x0104;
         private const int WM_SYSKEYUP = 0x0105;
         private const int WM_KEYUP = 0x0101;
@@ -227,8 +230,16 @@ namespace Auto_filler
         bool FirstStart = true; //pierwsze wykonanie 
         public void MouseHookOn()
         {
-            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.Q) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true)
+            String[] SnippKeyString = Properties.Settings.Default.SnippKey.Split('+');
+            foreach (string t in SnippKeyString)
             {
+                Enum.TryParse(t, out Key c);
+                if (Keyboard.IsKeyDown(c) && Properties.Settings.Default.SnippCheck == true && SnippCondition == true) { }
+
+                else
+                    return;
+
+            }               
                
                 SnippCondition = false;
                 snippingtoolwindow.Topmost = true;
@@ -274,7 +285,6 @@ namespace Auto_filler
                 }
                 
                 MouseHook.Start();
-            }
         }
         
 

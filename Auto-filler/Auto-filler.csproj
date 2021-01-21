@@ -131,6 +131,9 @@
     <Compile Include="SnippingToolAlert.xaml.cs">
       <DependentUpon>SnippingToolAlert.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShortcutChange.xaml.cs">
+      <DependentUpon>ShortcutChange.xaml</DependentUpon>
+    </Compile>
     <Page Include="CloudNotification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SnippingToolWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShortcutChange.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

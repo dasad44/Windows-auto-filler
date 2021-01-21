@@ -35,5 +35,8 @@
     <Setting Name="CheckOnOff" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="SnippKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LeftCtrl+Q</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
