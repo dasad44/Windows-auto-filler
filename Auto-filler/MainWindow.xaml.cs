@@ -115,7 +115,7 @@ namespace Auto_filler
                 ScreenshotShow.Content = "Photoviewer On";
                 ScreenshotShow.Style = Resources["DefaultButton"] as Style;
             }
-            if (Properties.Settings.Default.ScreenShowCheck)
+            if (Properties.Settings.Default.SnippSaveCheck)
             {
                 SnippSaveCheck.Content = "Save Snipp Off";
                 SnippSaveCheck.Style = Resources["FeatureOnButton"] as Style;
