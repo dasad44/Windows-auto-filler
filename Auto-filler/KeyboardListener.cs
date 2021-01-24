@@ -12,7 +12,6 @@ namespace Auto_filler
     {
         private const int WH_KEYBOARD_LL = 13;
 
-        System.Windows.Input.Key[] SnippKey;
 
         //private const int WM_SYSKEYDOWN = 0x0104;
         private const int WM_SYSKEYUP = 0x0105;
@@ -204,6 +203,7 @@ namespace Auto_filler
 
         public void AppShow()
         {
+
             if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.G))
             {
                 Mainwindow.Show();

@@ -11,7 +11,7 @@
         <SolidColorBrush x:Key="MenuBrush" Color="#2a2a29"/>
         <SolidColorBrush x:Key="MenuBrush2" Color="#FF1B1B1A"/>
 
-        <Style x:Key="MyButtonStyle" TargetType="Button">
+        <Style x:Key="CategoryButton" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Background" Value="#b20837"/>
@@ -36,7 +36,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="MyButtonStyle2" TargetType="Button">
+        <Style x:Key="DefaultButton" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Background" Value="#b20837"/>
@@ -55,6 +55,31 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsPressed"  Value="True">
                                 <Setter Property="Background"  Value="#FFC7305A" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FeatureOnButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#FF2FB208"/>
+            <Setter Property="Foreground" Value="#e7e8ea"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        BorderBrush="DarkGray" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed"  Value="True">
+                                <Setter Property="Background"  Value="#FF45C730" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -157,18 +182,18 @@
                             <CheckBox x:Name="AutoDelete" Content="Auto Delete" Width="100" Checked="AutoDelete_Checked" Unchecked="AutoDelete_Unchecked" VerticalAlignment="Center"/>
                             <Label x:Name="DayLimitText" Content="Specify day number" HorizontalAlignment="Right"  Width="140" Margin="10,0,0,0"/>
                             <TextBox x:Name="DayLimit" HorizontalAlignment="Right"  PreviewTextInput="NumberValidationTextBox" Width="50"/>
-                            <Button x:Name="DayLimitclick" Content="Save"   Width="80" Click="DayLimitclick_Click" Margin="10,0,0,0" HorizontalAlignment="Left"/>
+                            <Button x:Name="DayLimitclick" Content="Save" Style="{StaticResource DefaultButton}"  Width="80" Click="DayLimitclick_Click" Margin="10,0,0,0" HorizontalAlignment="Left"/>
                         </DockPanel>
                         <DockPanel Margin="10,0,0,0" VerticalAlignment="Bottom" >
                             <TextBox x:Name="SaverDirectory" HorizontalAlignment="Left" x:FieldModifier="public" TextWrapping="Wrap" Text="C:\" Width="300"/>
-                            <Button x:Name="SaverDirectoryButton" HorizontalAlignment="Left" Content="Path" Height="28" Width="80" Click="SaverDirectoryButton_Click" Margin="10,0,0,0"/>
+                            <Button x:Name="SaverDirectoryButton" Style="{StaticResource DefaultButton}" HorizontalAlignment="Left" Content="Path" Height="28" Width="80" Click="SaverDirectoryButton_Click" Margin="10,0,0,0"/>
                         </DockPanel>
 
                         <DockPanel Margin="10,20,0,0" Height="51" VerticalAlignment="Top">
-                            <Button x:Name="AllScreenList" Content="All" Style="{StaticResource MyButtonStyle}"  VerticalAlignment="Top" Width="100"   Click="AllScreenList_Click" AutomationProperties.IsRowHeader="True" Margin="0 3 0 0"></Button>
-                            <Button x:Name="ImportantScreenList" Content="Important" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="100"   Click="ImportantScreenList_Click" Margin="1 3 0 0" />
-                            <Button x:Name="TempScreenList" Content="Temp"  Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="100"   Click="TempScreenList_Click" Margin="1 3 0 0"/>
-                            <Button x:Name="CancelDeleteList" Content="Cancel Delete"  Width="100" Style="{StaticResource MyButtonStyle2}" Click="CancelDeleteList_Click" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 3 0 0"/>
+                            <Button x:Name="AllScreenList" Content="All" Style="{StaticResource CategoryButton}"  VerticalAlignment="Top" Width="100"   Click="AllScreenList_Click" AutomationProperties.IsRowHeader="True" Margin="0 3 0 0"></Button>
+                            <Button x:Name="ImportantScreenList" Content="Important" Style="{StaticResource CategoryButton}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="100"   Click="ImportantScreenList_Click" Margin="1 3 0 0" />
+                            <Button x:Name="TempScreenList" Content="Temp"  Style="{StaticResource CategoryButton}" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="100"   Click="TempScreenList_Click" Margin="1 3 0 0"/>
+                            <Button x:Name="CancelDeleteList" Content="Cancel Delete"  Width="100" Style="{StaticResource DefaultButton}" Click="CancelDeleteList_Click" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 3 0 0"/>
 
                         </DockPanel>
                         <DockPanel Margin="0,-39,0,0" Height="96" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
@@ -204,24 +229,23 @@
                 </TabItem>
                 <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" Height="60" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-4,-10,-57,11">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <CheckBox x:Name="ScreenshotShow" Content="PhotoViever On" Checked="ScreenshotShow_Checked" Unchecked="ScreenshotShow_Unchecked" Margin="10,126,431,28" RenderTransformOrigin="-4.069,2.152"/>
-                        <Button Content="Button" Margin="10,0,406,118" Click="Button_Click"/>
+                        <Button x:Name="ScreenshotShow" Content="PhotoViever On" Margin="10,126,431,188" RenderTransformOrigin="-4.069,2.152" Click="ScreenshotShow_Click"/>
 
                     </UniformGrid>
                 </TabItem>
                 <TabItem x:Name="LinkItem" FontSize="15" FontFamily="Century Gothic" Height="60" Header="   Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-4,-23,-54,3">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <Button x:Name="ValueSaver" Content="Save" Click="ValueSaver_Click" Margin="292,129,220,-134" Height="32" VerticalAlignment="Top" />
-                        <Button x:Name="Remover" Content="Delete" Click="RemoveField" Margin="384,46,110,-43" Background="Red" />
-                        <Button x:Name="Adder" Content="Add" Click="AddField" Margin="497,19,10,-16" Background="Green" />
+                        <Button  x:Name="ValueSaver" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click" Margin="292,129,220,-134" Height="32" VerticalAlignment="Top" />
+                        <Button x:Name="Remover" Content="Delete" Style="{StaticResource DefaultButton}" Click="RemoveField" Margin="384,46,110,-43" />
+                        <Button x:Name="Adder" Content="Add" Style="{StaticResource FeatureOnButton}" Click="AddField" Margin="497,19,10,-16"/>
                         <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="32"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged" Margin="25,48,0,-53"/>
-                        <Button x:Name="ValueSaver2" Content="Save" Click="ValueSaver_Click2" Margin="292,58,220,-62" Height="31" VerticalAlignment="Top" Visibility="Hidden" />
+                        <Button x:Name="ValueSaver2" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click2" Margin="292,58,220,-62" Height="31" VerticalAlignment="Top" Visibility="Hidden" />
                         <TextBox x:Name="ValueHolder2" HorizontalAlignment="Left" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged2" Margin="25,31,0,-35" Visibility="Hidden"/>
-                        <Button x:Name="ValueSaver3" Content="Save" Click="ValueSaver_Click3" Margin="292,40,220,-43" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
+                        <Button x:Name="ValueSaver3" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click3" Margin="292,40,220,-43" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
                         <TextBox x:Name="ValueHolder3" HorizontalAlignment="Left" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged3" Margin="25,13,0,-16" Visibility="Hidden"/>
-                        <Button x:Name="ValueSaver4" Content="Save" Click="ValueSaver_Click4" Margin="292,21,220,-27" Visibility="Hidden" />
+                        <Button x:Name="ValueSaver4" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click4" Margin="292,21,220,-27" Visibility="Hidden" />
                         <TextBox x:Name="ValueHolder4" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged4" Margin="25,-6,0,0" Visibility="Hidden"/>
-                        <Button x:Name="ValueSaver5" Content="Save" Click="ValueSaver_Click5" Margin="292,9,220,-15" Height="33" VerticalAlignment="Top" Visibility="Hidden"/>
+                        <Button x:Name="ValueSaver5" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click5" Margin="292,9,220,-15" Height="33" VerticalAlignment="Top" Visibility="Hidden"/>
                         <TextBox x:Name="ValueHolder5" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged5" Margin="25,-18,0,0" Visibility="Hidden"/>
                         <Popup IsOpen="{Binding IsChecked ,ElementName=Popups}" StaysOpen="True" Margin="0,-7,0,0">
                             <Border Background="black">
@@ -245,8 +269,8 @@
                         <TextBox x:Name="info3" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="225,130,38,-142"/>
                         <TextBox x:Name="info4" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="225,147,38,-157"/>
                         <TextBox x:Name="info5" TextWrapping="Wrap" IsEnabled="False" Text="" Margin="225,162,38,-176"/>
-                        <Button x:Name="buttons1" Content="Get system info" Click="SystemInformation" Margin="47,195,388,-209"/>
-                        <Button x:Name="buttons2" Click="Clearclick" Content="Clear" Margin="291,177,184,-191"/>
+                        <Button x:Name="buttons1" Style="{StaticResource DefaultButton}" Content="Get system info" Click="SystemInformation" Margin="47,195,388,-209"/>
+                        <Button x:Name="buttons2" Style="{StaticResource DefaultButton}" Click="Clearclick" Content="Clear" Margin="291,177,184,-191"/>
                         <TextBox x:Name="info6"  TextWrapping="Wrap" Text="" IsEnabled="False" Margin="498,-56,10,47" RenderTransformOrigin="0.5,0.5"/>
                         <TextBox x:Name="info7" TextWrapping="Wrap" Text="" IsEnabled="False" Margin="498,-42,10,33" RenderTransformOrigin="0.5,0.5"/>
                         <TextBox x:Name="info8" TextWrapping="Wrap" Text="" IsEnabled="False" Margin="498,-29,10,21" RenderTransformOrigin="0.5,0.5"/>

@@ -85,30 +85,41 @@ namespace Auto_filler
             if (Properties.Settings.Default.ClipboardNotification)
             {
                 notificationbutton.Content = "Notification Off";
+                notificationbutton.Style = Resources["FeatureOnButton"] as Style;
             }
             else
             {
                 notificationbutton.Content = "Notification On";
+                notificationbutton.Style = Resources["DefaultButton"] as Style;
+                
             }
 
             if (Properties.Settings.Default.ClipboardCloudNotification)
             {
                 cloudbutton.Content = "Cloud Notification Off";
+                cloudbutton.Style = Resources["FeatureOnButton"] as Style;
             }
             else
             {
                 cloudbutton.Content = "Cloud Notification On";
+                cloudbutton.Style = Resources["DefaultButton"] as Style;
+            }
+
+            if (Properties.Settings.Default.ScreenShowCheck)
+            {
+                ScreenshotShow.Content = "Photoviewer Off";
+                ScreenshotShow.Style = Resources["FeatureOnButton"] as Style; ;
+            }
+            else
+            {
+                ScreenshotShow.Content = "Photoviewer On";
+                ScreenshotShow.Style = Resources["DefaultButton"] as Style; ;
             }
         }
 
         Visibility visibility = null;
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ShortcutChange shortcutChange = new ShortcutChange();
-            shortcutChange.Show();
-        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             notification.CustomNotifyAlert("Windows Auto-filler hidden!", "Click Alt + Ctrl + G to show application again");
@@ -160,12 +171,6 @@ namespace Auto_filler
             }
             else
                 SnippCheck.IsChecked = false;
-            if (Properties.Settings.Default.ScreenShowCheck == true)
-            {
-                ScreenshotShow.IsChecked = true;
-            }
-            else
-                ScreenshotShow.IsChecked = false;
             if (Properties.Settings.Default.AutoDeleteCheck == true)
             {
                 AutoDelete.IsChecked = true;
@@ -301,6 +306,24 @@ namespace Auto_filler
             visibility.ScreenShotInVis();
             var bc = new BrushConverter();
             ScreenShotItem.Foreground = (System.Windows.Media.Brush)bc.ConvertFrom("#e7e8ea");
+        }
+        private void ScreenshotShow_Click(object sender, RoutedEventArgs e)
+        {
+            if(Properties.Settings.Default.ScreenShowCheck)
+            {
+                Properties.Settings.Default.ScreenShowCheck = false;
+                Properties.Settings.Default.Save();
+                ScreenshotShow.Content = "Photoviewer On";
+                ScreenshotShow.Style = Resources["DefaultButton"] as Style; ;
+            }
+            else
+            {
+                Properties.Settings.Default.ScreenShowCheck = true;
+                Properties.Settings.Default.Save();
+                ScreenshotShow.Content = "Photoviewer Off";
+                ScreenshotShow.Style = Resources["FeatureOnButton"] as Style; ;
+            }
+
         }
         private void ScreenshotShow_Checked(object sender, RoutedEventArgs e)
         {
@@ -594,12 +617,15 @@ namespace Auto_filler
                 Properties.Settings.Default.ClipboardNotification = false;
                 Properties.Settings.Default.Save();
                 notificationbutton.Content = "Notification On";
+                notificationbutton.Style = Resources["DefaultButton"] as Style;
             }
+
             else
             {
                 Properties.Settings.Default.ClipboardNotification = true;
                 Properties.Settings.Default.Save();
                 notificationbutton.Content = "Notification Off";
+                notificationbutton.Style = Resources["FeatureOnButton"] as Style;
             }
         }
 
@@ -622,12 +648,14 @@ namespace Auto_filler
                 Properties.Settings.Default.ClipboardCloudNotification = false;
                 Properties.Settings.Default.Save();
                 cloudbutton.Content = "Cloud Notification On";
+                cloudbutton.Style = Resources["DefaultButton"] as Style;
             }
             else
             {
                 Properties.Settings.Default.ClipboardCloudNotification = true;
                 Properties.Settings.Default.Save();
                 cloudbutton.Content = "Cloud Notification Off";
+                cloudbutton.Style = Resources["FeatureOnButton"] as Style;
             }
         }
         private void Clearclick(object sender, EventArgs e)
