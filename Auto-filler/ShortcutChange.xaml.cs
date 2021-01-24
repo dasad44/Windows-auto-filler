@@ -36,6 +36,7 @@ namespace Auto_filler
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
+            Shortcut.Focus();
             Shortcut.Text = "";
             t = "";
         }
@@ -58,6 +59,7 @@ namespace Auto_filler
 
         private void Window_Activated(object sender, EventArgs e)
         {
+            Shortcut.Focus();
             Shortcut.Text = Properties.Settings.Default.SnippKey;
         }
     }
