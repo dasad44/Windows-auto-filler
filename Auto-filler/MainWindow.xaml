@@ -10,6 +10,9 @@
     <Window.Resources>
         <SolidColorBrush x:Key="MenuBrush" Color="#2a2a29"/>
         <SolidColorBrush x:Key="MenuBrush2" Color="#FF1B1B1A"/>
+        <Image x:Key="dark11" Source="bin/Debug/images\turnoffhover.png"/>
+        <Image x:Key="normal11" Source="bin/Debug/images\settingshover.png"/>
+
 
         <Style x:Key="CategoryButton" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -121,10 +124,16 @@
     </Window.Resources>
     <StackPanel Height="352" VerticalAlignment="Top">
         <Grid Height="355">
-            <TabControl TabStripPlacement="Left" Width="803"  BorderThickness="0"  Background="#f8f8f7" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,0,0">
+            <TabControl x:Name="element1" TabStripPlacement="Left" Width="803"  BorderThickness="0"  Background="White" SelectionChanged="TabControl_SelectionChanged" Margin="0,0,0,0">
                 <TabItem x:Name="Welcomer" FontSize="15" FontFamily="Century Gothic" Height="60" Header="Welcome" Background="#2a2a29" Foreground="White" Margin="-4,-3,-57,4">
-                    <UniformGrid Columns="1" Margin="53,10,-3,1">
+                    <UniformGrid x:Name="element2" Columns="1" Margin="53,10,-3,1" Background="White">
                         <Image Margin="152,36,284,-90" MouseLeftButtonDown="Image_MouseLeftButtonDown_2">
+                            <Image.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black" Offset="0"/>
+                                    <GradientStop Color="#FF803C3C" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Image.OpacityMask>
                             <Image.Style>
                                 <Style>
                                     <Setter Property="Image.Source" Value="bin/Debug/images\snippingtoolM.png" />
@@ -236,18 +245,27 @@
                 </TabItem>
                 <TabItem x:Name="LinkItem" FontSize="15" FontFamily="Century Gothic" Height="60" Header="   Page Hot-Key" Foreground="#e7e8ea" Background="#2a2a29" Margin="-4,-23,-54,3">
                     <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <Button  x:Name="ValueSaver" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click" Margin="292,129,220,-134" Height="32" VerticalAlignment="Top" />
-                        <Button x:Name="Remover" Content="Delete" Style="{StaticResource DefaultButton}" Click="RemoveField" Margin="384,46,110,-43" />
-                        <Button x:Name="Adder" Content="Add" Style="{StaticResource FeatureOnButton}" Click="AddField" Margin="497,19,10,-16"/>
-                        <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="32"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged" Margin="25,48,0,-53"/>
-                        <Button x:Name="ValueSaver2" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click2" Margin="292,58,220,-62" Height="31" VerticalAlignment="Top" Visibility="Hidden" />
-                        <TextBox x:Name="ValueHolder2" HorizontalAlignment="Left" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged2" Margin="25,31,0,-35" Visibility="Hidden"/>
-                        <Button x:Name="ValueSaver3" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click3" Margin="292,40,220,-43" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
-                        <TextBox x:Name="ValueHolder3" HorizontalAlignment="Left" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged3" Margin="25,13,0,-16" Visibility="Hidden"/>
-                        <Button x:Name="ValueSaver4" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click4" Margin="292,21,220,-27" Visibility="Hidden" />
-                        <TextBox x:Name="ValueHolder4" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged4" Margin="25,-6,0,0" Visibility="Hidden"/>
-                        <Button x:Name="ValueSaver5" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click5" Margin="292,9,220,-15" Height="33" VerticalAlignment="Top" Visibility="Hidden"/>
-                        <TextBox x:Name="ValueHolder5" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged5" Margin="25,-18,0,0" Visibility="Hidden"/>
+                        <Button  x:Name="ValueSaver" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click" Margin="292,114,220,-129" Height="33" VerticalAlignment="Top" />
+                        <Button x:Name="Remover" Content="Delete" Style="{StaticResource DefaultButton}" Click="RemoveField" Margin="309,33,199,-41" />
+                        <Button x:Name="Adder" Content="Add" Style="{StaticResource FeatureOnButton}" Click="AddField" Margin="392,15,123,-23"/>
+                        <TextBox x:Name="ValueHolder" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged" Margin="25,60,0,-75"/>
+                        <Button x:Name="ValueSaver2" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click2" Margin="292,80,220,-95" Height="33" VerticalAlignment="Top" Visibility="Hidden"  />
+                        <TextBox x:Name="ValueHolder2" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged2" Margin="25,62,0,-77" Visibility="Hidden" />
+                        <Button x:Name="ValueSaver3" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click3" Margin="292,82,220,-97" Height="33" VerticalAlignment="Top" Visibility="Hidden" />
+                        <TextBox x:Name="ValueHolder3" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged3" Margin="25,64,0,-79" Visibility="Hidden" />
+                        <Button x:Name="ValueSaver4" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click4" Margin="292,84,220,-99" Visibility="Hidden" />
+                        <TextBox x:Name="ValueHolder4" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged4" Margin="25,66,0,-81" Visibility="Hidden"/>
+                        <Button x:Name="ValueSaver5" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click5" Margin="292,86,220,-101" Height="33" VerticalAlignment="Top" Visibility="Hidden" />
+
+                        <TextBox x:Name="ValueHolder5" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged5" Margin="25,68,0,-83" Visibility="Hidden" />
+                        <Button x:Name="changerer" Content="Dark" Click="darkclick" Margin="410,95,103,-107" Height="29" VerticalAlignment="Top"/>
+                        <Button x:Name="saverset" Content="SAVE" Click="SaveHotkey" Margin="309,88,182,-97" Height="26" VerticalAlignment="Top"/>
+                        <Button x:Name="hotkeychange" Content="Change HotKey 1" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="152" Height="33" Margin="410,-120,0,0" Click="ChangeHotKey_Click1"/>
+                        <Button x:Name="hotkeychange2" Content="Change HotKey 2" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="152" Height="33" Margin="410,-100,0,0" Click="ChangeHotKey_Click2" Visibility="Hidden"/>
+                        <Button x:Name="hotkeychange3" Content="Change HotKey 3" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="152" Height="33" Margin="410,-80,0,0" Click="ChangeHotKey_Click3" Visibility="Hidden"/>
+                        <Button x:Name="hotkeychange4" Content="Change HotKey 4" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Bottom" Width="152" Height="33" Margin="410,-60,0,45" Click="ChangeHotKey_Click4" Visibility="Hidden"/>
+                        <Button x:Name="hotkeychange5" Content="Change HotKey 5" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="152" Height="33" Margin="410,-40,0,0" Click="ChangeHotKey_Click5" Visibility="Hidden"/>
+                        <Button x:Name="changerer2" Content="Normal" Click="normalclick" Margin="502,-20,10,0" Height="26" VerticalAlignment="Top"/>
                         <Popup IsOpen="{Binding IsChecked ,ElementName=Popups}" StaysOpen="True" Margin="0,-7,0,0">
                             <Border Background="black">
                                 <TextBlock TextWrapping="Wrap" Width="593" Height="77">
@@ -308,7 +326,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image Height="30" Stretch="Fill" Margin="713,13,50,312" MouseLeftButtonDown="Image_MouseLeftButtonDown_1">
+            <Image x:Name="obrazek1" Height="30" Stretch="Fill" Margin="713,13,50,312" MouseLeftButtonDown="Image_MouseLeftButtonDown_1">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/settings.jpg" />

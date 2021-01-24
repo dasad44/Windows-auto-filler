@@ -123,6 +123,9 @@
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShortcutLink.xaml.cs">
+      <DependentUpon>ShortcutLink.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SnippingToolWindow.xaml.cs">
       <DependentUpon>SnippingToolWindow.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShortcutLink.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

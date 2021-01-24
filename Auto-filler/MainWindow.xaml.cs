@@ -22,6 +22,7 @@ using System.Text.RegularExpressions;
 using Brushes = System.Windows.Media.Brushes;
 using System.Diagnostics;
 using System.Threading;
+using Image = System.Windows.Controls.Image;
 
 namespace Auto_filler
 {
@@ -44,8 +45,17 @@ namespace Auto_filler
         public static bool linkeditor3 = true;
         public static bool linkeditor4 = true;
         public static bool linkeditor5 = true;
-        
-        
+        public static string linkhot;
+        public static string link;
+        public static string link2;
+        public static string link3;
+        public static string link4;
+        public static string link5;
+
+
+
+
+
         public MainWindow()
         {
             
@@ -192,6 +202,14 @@ namespace Auto_filler
             _autoDelete = new ScreenshotAutoDelete();
             _autoDelete.AutoDelete();
             AllList();
+
+             ValueHolder.Text = Properties.Settings.Default.FirstLink;
+            ValueHolder2.Text = Properties.Settings.Default.SecondLink;
+            ValueHolder3.Text = Properties.Settings.Default.ThirdLink;
+            ValueHolder4.Text = Properties.Settings.Default.FourthLink;
+            ValueHolder5.Text = Properties.Settings.Default.FifthLink;
+
+
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -423,25 +441,25 @@ namespace Auto_filler
         }
 
 
-        private void ValueSaver_Click(object sender, RoutedEventArgs e)
+        public void ValueSaver_Click(object sender, RoutedEventArgs e)
         {
             if (ValueSaver.IsVisible)
             {
-                string link = ValueHolder.Text;
+                link = ValueHolder.Text;
                 _listener.CatchLink(link);
                 linkeditor5 = true;
             }
                 
         }
-        private void ValueHolder_TextChanged(object sender, TextChangedEventArgs e)
+        public void ValueHolder_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-        private void ValueSaver_Click2(object sender, RoutedEventArgs e)
+        public void ValueSaver_Click2(object sender, RoutedEventArgs e)
         {
             if (ValueSaver2.IsVisible)
             {
-                string link2 = ValueHolder2.Text;
+                 link2 = ValueHolder2.Text;
                 _listener.CatchLink2(link2);
                 linkeditor4 = true;
             }
@@ -451,11 +469,11 @@ namespace Auto_filler
         {
 
         }
-        private void ValueSaver_Click3(object sender, RoutedEventArgs e)
+        public void ValueSaver_Click3(object sender, RoutedEventArgs e)
         {
             if (ValueSaver3.IsVisible)
             {
-                string link3 = ValueHolder3.Text;
+                 link3 = ValueHolder3.Text;
                 _listener.CatchLink3(link3);
                 linkeditor3 = true;
             }
@@ -464,11 +482,11 @@ namespace Auto_filler
         {
 
         }
-        private void ValueSaver_Click4(object sender, RoutedEventArgs e)
+        public void ValueSaver_Click4(object sender, RoutedEventArgs e)
         {
             if (ValueSaver4.IsVisible)
             {
-                string link4 = ValueHolder4.Text;
+                 link4 = ValueHolder4.Text;
                 _listener.CatchLink4(link4);
                 linkeditor2 = true;
             }
@@ -482,11 +500,11 @@ namespace Auto_filler
 
         }
 
-        private void ValueSaver_Click5(object sender, RoutedEventArgs e)
+        public void ValueSaver_Click5(object sender, RoutedEventArgs e)
         {    
             if (ValueSaver5.IsVisible)
             {
-                string link5 = ValueHolder5.Text;
+                 link5 = ValueHolder5.Text;
                 _listener.CatchLink5(link5);
                 linkeditor = true;
             }        
@@ -504,22 +522,24 @@ namespace Auto_filler
                 ValueSaver5.Visibility = System.Windows.Visibility.Hidden;
                 linkeditor = false;
                 ValueHolder5.Visibility = System.Windows.Visibility.Hidden;
-                ValueHolder5.Text = string.Empty;
-
+       
+                hotkeychange5.Visibility = System.Windows.Visibility.Hidden;
             }
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible)
             {
                 ValueSaver4.Visibility = System.Windows.Visibility.Hidden;
                 linkeditor2 = false;
                 ValueHolder4.Visibility = System.Windows.Visibility.Hidden;
-                ValueHolder4.Text = string.Empty;
+           
+                hotkeychange4.Visibility = System.Windows.Visibility.Hidden;
             }
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible)
             {
                 ValueSaver3.Visibility = System.Windows.Visibility.Hidden;
                 linkeditor3 = false;
                 ValueHolder3.Visibility = System.Windows.Visibility.Hidden;
-                ValueHolder3.Text = string.Empty;
+               
+                hotkeychange3.Visibility = System.Windows.Visibility.Hidden;
             }
 
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible)
@@ -527,7 +547,8 @@ namespace Auto_filler
                 ValueSaver2.Visibility = System.Windows.Visibility.Hidden;
                 linkeditor4 = false;
                 ValueHolder2.Visibility = System.Windows.Visibility.Hidden;
-                ValueHolder2.Text = string.Empty;
+             
+                hotkeychange2.Visibility = System.Windows.Visibility.Hidden;
             }
 
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible == false && ValueSaver.IsVisible)
@@ -536,6 +557,8 @@ namespace Auto_filler
                 linkeditor5 = false;
                 ValueHolder.Visibility = System.Windows.Visibility.Hidden;
                 ValueHolder.Text = string.Empty;
+                hotkeychange.Visibility = System.Windows.Visibility.Hidden;
+
             }
 
 
@@ -547,31 +570,36 @@ namespace Auto_filler
             {
                 ValueSaver2.Visibility = System.Windows.Visibility.Visible;
                 linkeditor4 = true;                
-                ValueHolder2.Visibility = System.Windows.Visibility.Visible;             
+                ValueHolder2.Visibility = System.Windows.Visibility.Visible;
+                hotkeychange2.Visibility = System.Windows.Visibility.Visible;
             }
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible && ValueSaver.IsVisible)
             {
                 ValueSaver3.Visibility = System.Windows.Visibility.Visible;
                 linkeditor3 = true;
                 ValueHolder3.Visibility = System.Windows.Visibility.Visible;
+                hotkeychange3.Visibility = System.Windows.Visibility.Visible;
             }
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible & ValueSaver2.IsVisible && ValueSaver.IsVisible)
             {
                 ValueSaver4.Visibility = System.Windows.Visibility.Visible;
                 linkeditor2 = true;
                 ValueHolder4.Visibility = System.Windows.Visibility.Visible;
+                hotkeychange4.Visibility = System.Windows.Visibility.Visible;
             }
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible & ValueSaver3.IsVisible & ValueSaver2.IsVisible && ValueSaver.IsVisible)
             {
                 ValueSaver5.Visibility = System.Windows.Visibility.Visible;
                 linkeditor = true;
                 ValueHolder5.Visibility = System.Windows.Visibility.Visible;
+                hotkeychange5.Visibility = System.Windows.Visibility.Visible;
             }
             else if (ValueSaver5.IsVisible == false & ValueSaver4.IsVisible == false & ValueSaver3.IsVisible == false & ValueSaver2.IsVisible == false && ValueSaver.IsVisible == false)
             {
                 ValueSaver.Visibility = System.Windows.Visibility.Visible;
                 linkeditor5 = true;
                 ValueHolder.Visibility = System.Windows.Visibility.Visible;
+                hotkeychange.Visibility = System.Windows.Visibility.Visible;
             }
         }   
         private void Information(object sender, RoutedEventArgs e)
@@ -584,7 +612,26 @@ namespace Auto_filler
         {
 
         }
-        
+        private void darkclick(object sender, RoutedEventArgs e)
+        {
+            element1.Background = Brushes.Gray;
+            element2.Background = Brushes.Gray;
+
+            Image dark123 = new Image();
+            dark123.Source = new BitmapImage(new Uri(@"bin\Debug\images\Logo.PNG", UriKind.RelativeOrAbsolute));
+
+            obrazek1.Source = dark123.Source;
+        }
+        private void normalclick(object sender, RoutedEventArgs e)
+        {
+            
+           
+
+            element1.Background = Brushes.White;
+            element2.Background = Brushes.White;
+            
+
+        }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             
@@ -784,6 +831,51 @@ namespace Auto_filler
             MessageBox.Show(pagehotkeyInstruction, "PageHotKey Instruction");
         }
 
+        private void ChangeHotKey_Click1(object sender, RoutedEventArgs e)
+        {
+            linkhot = "1";
+            ShortcutLink shortcutChange = new ShortcutLink();
+            shortcutChange.Show();
+        }
+        private void ChangeHotKey_Click2(object sender, RoutedEventArgs e)
+        {
+            linkhot = "2";
+            ShortcutLink shortcutChange = new ShortcutLink();
+            shortcutChange.Show();
+        }
+        private void ChangeHotKey_Click3(object sender, RoutedEventArgs e)
+        {
+            linkhot = "3";
+            ShortcutLink shortcutChange = new ShortcutLink();
+            shortcutChange.Show();
+        }
+        private void ChangeHotKey_Click4(object sender, RoutedEventArgs e)
+        {
+            linkhot = "4";
+            ShortcutLink shortcutChange = new ShortcutLink();
+            shortcutChange.Show();
+        }
+        private void ChangeHotKey_Click5(object sender, RoutedEventArgs e)
+        {
+            linkhot = "5";
+            ShortcutLink shortcutChange = new ShortcutLink();
+            shortcutChange.Show();
+        }
+        private void LinkSave()
+        {
+            Properties.Settings.Default.FirstLink = link;
+            Properties.Settings.Default.SecondLink = link2;
+            Properties.Settings.Default.ThirdLink = link3;
+            Properties.Settings.Default.FourthLink = link4;
+            Properties.Settings.Default.FifthLink = link5;
 
+            Properties.Settings.Default.Save();
+        }
+
+        private void SaveHotkey(object sender, RoutedEventArgs e)
+        {
+            LinkSave();
+            
+        }
     }
 }

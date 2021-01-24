@@ -86,6 +86,10 @@ namespace Auto_filler
                 AppShow();
                 ScreenShot();
                 LinkButton();
+                LinkButton2();
+                LinkButton3();
+                LinkButton4();
+                LinkButton5();
                 saveImg();
                 MouseHookOn();
                 MouseHookOff();
@@ -325,43 +329,95 @@ namespace Auto_filler
             _link5 = link5;
         }
         public void LinkButton()
-        {            
-            if (Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D1) && Properties.Settings.Default.LinkCheck == true || Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D1) && Properties.Settings.Default.LinkCheck == true)
+        {
+            String[] LinkKeyString1 = Properties.Settings.Default.Linkkey1.Split('+');
+            foreach (string t in LinkKeyString1)
             {
-                if (MainWindow.linkeditor5 == true)
-                {
-                    cl.LinkOpen5(_link);
-                }
-            }           
-            else if (Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D2) && Properties.Settings.Default.LinkCheck == true || Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D2) && Properties.Settings.Default.LinkCheck == true)
-            {
-                if (MainWindow.linkeditor4 == true)
-                {
-                    cl.LinkOpen5(_link2);
-                }
+                Enum.TryParse(t, out Key c);
+                if (Keyboard.IsKeyDown(c) && Properties.Settings.Default.LinkCheck == true) { }
+
+                else
+                    return;
+
             }
-            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D3) && Properties.Settings.Default.LinkCheck == true || Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D3) && Properties.Settings.Default.LinkCheck == true)
+
+            if (MainWindow.linkeditor5 == true)
             {
-                if (MainWindow.linkeditor3 == true)
-                {
-                    cl.LinkOpen5(_link3);
-                }
-            }
-            else if (Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D4) && Properties.Settings.Default.LinkCheck == true || Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D4) && Properties.Settings.Default.LinkCheck == true)
-            {
-                if (MainWindow.linkeditor2 == true)
-                {
-                    cl.LinkOpen5(_link4);
-                }
-            }        
-            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D5) && Properties.Settings.Default.LinkCheck == true || Keyboard.IsKeyDown(Key.RightCtrl) && Keyboard.IsKeyDown(Key.D5) && Properties.Settings.Default.LinkCheck == true)
-            {
-                if (MainWindow.linkeditor == true)
-                {
-                    cl.LinkOpen5(_link5);
-                }
+                cl.LinkOpen5(_link);
             }
         }
+        public void LinkButton2()
+        {
+            String[] LinkKeyString1 = Properties.Settings.Default.Linkkey2.Split('+');
+            foreach (string t in LinkKeyString1)
+            {
+                Enum.TryParse(t, out Key c);
+                if (Keyboard.IsKeyDown(c) && Properties.Settings.Default.LinkCheck == true) { }
+
+                else
+                    return;
+
+            }
+            if (MainWindow.linkeditor4 == true)
+            {
+                cl.LinkOpen5(_link2);
+            }
+        }
+        public void LinkButton3()
+        {
+            String[] LinkKeyString1 = Properties.Settings.Default.Linkkey3.Split('+');
+            foreach (string t in LinkKeyString1)
+            {
+                Enum.TryParse(t, out Key c);
+                if (Keyboard.IsKeyDown(c) && Properties.Settings.Default.LinkCheck == true) { }
+
+                else
+                    return;
+
+            }
+            if (MainWindow.linkeditor3 == true)
+            {
+                cl.LinkOpen5(_link3);
+            }
+        }
+        public void LinkButton4()
+        {
+            String[] LinkKeyString1 = Properties.Settings.Default.Linkkey4.Split('+');
+            foreach (string t in LinkKeyString1)
+            {
+                Enum.TryParse(t, out Key c);
+                if (Keyboard.IsKeyDown(c) && Properties.Settings.Default.LinkCheck == true) { }
+
+                else
+                    return;
+
+            }
+            if (MainWindow.linkeditor2 == true)
+            {
+                cl.LinkOpen5(_link4);
+            }
+        }
+        public void LinkButton5()
+        {
+            String[] LinkKeyString1 = Properties.Settings.Default.Linkkey5.Split('+');
+            foreach (string t in LinkKeyString1)
+            {
+                Enum.TryParse(t, out Key c);
+                if (Keyboard.IsKeyDown(c) && Properties.Settings.Default.LinkCheck == true) { }
+
+                else
+                    return;
+
+            }
+            if (MainWindow.linkeditor == true)
+            {
+                cl.LinkOpen5(_link5);
+            }
+
+        }
+
+                     
+                        
     }
 
     public class KeyPressedArgs : EventArgs
