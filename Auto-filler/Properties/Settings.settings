@@ -38,5 +38,8 @@
     <Setting Name="SnippKey" Type="System.String" Scope="User">
       <Value Profile="(Default)">LeftCtrl+Q</Value>
     </Setting>
+    <Setting Name="SnippSaveCheck" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -108,12 +108,23 @@ namespace Auto_filler
             if (Properties.Settings.Default.ScreenShowCheck)
             {
                 ScreenshotShow.Content = "Photoviewer Off";
-                ScreenshotShow.Style = Resources["FeatureOnButton"] as Style; ;
+                ScreenshotShow.Style = Resources["FeatureOnButton"] as Style;
             }
             else
             {
                 ScreenshotShow.Content = "Photoviewer On";
-                ScreenshotShow.Style = Resources["DefaultButton"] as Style; ;
+                ScreenshotShow.Style = Resources["DefaultButton"] as Style;
+            }
+            if (Properties.Settings.Default.ScreenShowCheck)
+            {
+                SnippSaveCheck.Content = "Save Snipp Off";
+                SnippSaveCheck.Style = Resources["FeatureOnButton"] as Style;
+
+            }
+            else
+            {
+                SnippSaveCheck.Content = "Save Snipp On";
+                SnippSaveCheck.Style = Resources["DefaultButton"] as Style;
             }
         }
 
@@ -314,16 +325,33 @@ namespace Auto_filler
                 Properties.Settings.Default.ScreenShowCheck = false;
                 Properties.Settings.Default.Save();
                 ScreenshotShow.Content = "Photoviewer On";
-                ScreenshotShow.Style = Resources["DefaultButton"] as Style; ;
+                ScreenshotShow.Style = Resources["DefaultButton"] as Style;
             }
             else
             {
                 Properties.Settings.Default.ScreenShowCheck = true;
                 Properties.Settings.Default.Save();
                 ScreenshotShow.Content = "Photoviewer Off";
-                ScreenshotShow.Style = Resources["FeatureOnButton"] as Style; ;
+                ScreenshotShow.Style = Resources["FeatureOnButton"] as Style;
             }
 
+        }
+        private void SnippSaveCheck_Click(object sender, RoutedEventArgs e)
+        {
+            if (Properties.Settings.Default.SnippSaveCheck)
+            {
+                Properties.Settings.Default.SnippSaveCheck = false;
+                Properties.Settings.Default.Save();
+                SnippSaveCheck.Content = "Save Snipp On";
+                SnippSaveCheck.Style = Resources["DefaultButton"] as Style;
+            }
+            else
+            {
+                Properties.Settings.Default.SnippSaveCheck = true;
+                Properties.Settings.Default.Save();
+                SnippSaveCheck.Content = "Save Snipp Off";
+                SnippSaveCheck.Style = Resources["FeatureOnButton"] as Style;
+            }
         }
         private void ScreenshotShow_Checked(object sender, RoutedEventArgs e)
         {
