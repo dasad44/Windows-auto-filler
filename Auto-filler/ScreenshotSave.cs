@@ -53,19 +53,19 @@ namespace Auto_filler
                     KeyboardListener.SnippCondition = true;
                     return;
                 }
-                string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-" + Date + ".jpg";
+                string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-" + Date + ".tiff";
                 int screenWidth = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
                 int screenHeight = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
                 int x = screenWidth - startV.x - (screenWidth - endV.x);
                 int y = screenHeight - startV.y - (screenHeight - endV.y);
-                Bitmap captureBitmap = new Bitmap(x, y, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                Bitmap captureBitmap = new Bitmap(x, y, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
                 System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
                 Graphics captureGraphics = Graphics.FromImage(captureBitmap);
                 captureGraphics.CopyFromScreen(startV.x, startV.y, 0, 0, captureRectangle.Size);
-                string filePath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "TempScreenShot.jpg");
-                captureBitmap.Save(@filePath, ImageFormat.Jpeg);
+                string filePath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "TempScreenShot.tiff");
+                captureBitmap.Save(@filePath, ImageFormat.Tiff);
                 if (Properties.Settings.Default.SnippSaveCheck == true || KeyboardListener.SnippCondition == true)
-                    captureBitmap.Save(@path, ImageFormat.Jpeg);
+                    captureBitmap.Save(@path, ImageFormat.Tiff);
                 
                 if (KeyboardListener.SnippCondition == false)
                 {

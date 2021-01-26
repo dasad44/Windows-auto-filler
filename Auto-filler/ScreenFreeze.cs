@@ -32,7 +32,7 @@ namespace Auto_filler
             int screenHeight = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenHeight);
             int sourceX = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenLeft);
             int sourceY = Convert.ToInt32(System.Windows.SystemParameters.VirtualScreenTop);
-            Bitmap captureBitmap = new Bitmap(screenWidth, screenHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            Bitmap captureBitmap = new Bitmap(screenWidth, screenHeight, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
             System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
             System.Drawing.Rectangle rectangle1 = new System.Drawing.Rectangle(sourceX, sourceY, screenWidth, screenHeight);
             captureRectangle.Size = rectangle1.Size;
