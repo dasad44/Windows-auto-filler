@@ -62,6 +62,8 @@ namespace Auto_filler
                 System.Drawing.Rectangle captureRectangle = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
                 Graphics captureGraphics = Graphics.FromImage(captureBitmap);
                 captureGraphics.CopyFromScreen(startV.x, startV.y, 0, 0, captureRectangle.Size);
+                string filePath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "TempScreenShot.jpg");
+                captureBitmap.Save(@filePath, ImageFormat.Jpeg);
                 if (Properties.Settings.Default.SnippSaveCheck == true || KeyboardListener.SnippCondition == true)
                     captureBitmap.Save(@path, ImageFormat.Jpeg);
                 
@@ -75,9 +77,9 @@ namespace Auto_filler
                     ClipboardValueContainer.clipboard_1 = clipboardhandler.ReadClipboard(tmp_clipboard);
                     notification.CustomNotifyImageAlert("Screenshot has been captured", captureBitmap);
                     if (Properties.Settings.Default.ScreenShowCheck == true)
-                    {
+                    {                        
                         Process photoViewer = new Process();
-                        photoViewer.StartInfo.FileName = @path;
+                        photoViewer.StartInfo.FileName = @filePath;
                         photoViewer.StartInfo.Arguments = @"\Windows Photo Viewer\PhotoViewer.dll";
                         photoViewer.Start();
                     }
