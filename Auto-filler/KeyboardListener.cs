@@ -343,7 +343,7 @@ namespace Auto_filler
 
             if (MainWindow.linkeditor5 == true)
             {
-                cl.LinkOpen5(_link);
+                cl.LinkOpen5(Properties.Settings.Default.FirstLink);
             }
         }
         public void LinkButton2()
@@ -360,7 +360,7 @@ namespace Auto_filler
             }
             if (MainWindow.linkeditor4 == true)
             {
-                cl.LinkOpen5(_link2);
+                cl.LinkOpen5(Properties.Settings.Default.SecondLink);
             }
         }
         public void LinkButton3()
@@ -377,7 +377,7 @@ namespace Auto_filler
             }
             if (MainWindow.linkeditor3 == true)
             {
-                cl.LinkOpen5(_link3);
+                cl.LinkOpen5(Properties.Settings.Default.ThirdLink);
             }
         }
         public void LinkButton4()
@@ -394,7 +394,7 @@ namespace Auto_filler
             }
             if (MainWindow.linkeditor2 == true)
             {
-                cl.LinkOpen5(_link4);
+                cl.LinkOpen5(Properties.Settings.Default.FourthLink);
             }
         }
         public void LinkButton5()
@@ -411,7 +411,7 @@ namespace Auto_filler
             }
             if (MainWindow.linkeditor == true)
             {
-                cl.LinkOpen5(_link5);
+                cl.LinkOpen5(Properties.Settings.Default.FifthLink);
             }
 
         }

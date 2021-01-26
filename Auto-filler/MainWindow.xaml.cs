@@ -447,9 +447,12 @@ namespace Auto_filler
             {
                 link = ValueHolder.Text;
                 _listener.CatchLink(link);
+                Properties.Settings.Default.FirstLink = link;
+                Properties.Settings.Default.Save();
                 linkeditor5 = true;
             }
-                
+            
+
         }
         public void ValueHolder_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -461,6 +464,9 @@ namespace Auto_filler
             {
                  link2 = ValueHolder2.Text;
                 _listener.CatchLink2(link2);
+                Properties.Settings.Default.SecondLink = link2;
+                Properties.Settings.Default.Save();
+
                 linkeditor4 = true;
             }
                 
@@ -475,6 +481,9 @@ namespace Auto_filler
             {
                  link3 = ValueHolder3.Text;
                 _listener.CatchLink3(link3);
+                Properties.Settings.Default.ThirdLink = link3;
+                Properties.Settings.Default.Save();
+
                 linkeditor3 = true;
             }
         }
@@ -488,6 +497,9 @@ namespace Auto_filler
             {
                  link4 = ValueHolder4.Text;
                 _listener.CatchLink4(link4);
+                Properties.Settings.Default.FourthLink = link4;
+                Properties.Settings.Default.Save();
+
                 linkeditor2 = true;
             }
         }
@@ -506,6 +518,8 @@ namespace Auto_filler
             {
                  link5 = ValueHolder5.Text;
                 _listener.CatchLink5(link5);
+                Properties.Settings.Default.FifthLink = link5;
+                Properties.Settings.Default.Save();
                 linkeditor = true;
             }        
         }
@@ -861,21 +875,6 @@ namespace Auto_filler
             ShortcutLink shortcutChange = new ShortcutLink();
             shortcutChange.Show();
         }
-        private void LinkSave()
-        {
-            Properties.Settings.Default.FirstLink = link;
-            Properties.Settings.Default.SecondLink = link2;
-            Properties.Settings.Default.ThirdLink = link3;
-            Properties.Settings.Default.FourthLink = link4;
-            Properties.Settings.Default.FifthLink = link5;
 
-            Properties.Settings.Default.Save();
-        }
-
-        private void SaveHotkey(object sender, RoutedEventArgs e)
-        {
-            LinkSave();
-            
-        }
     }
 }
