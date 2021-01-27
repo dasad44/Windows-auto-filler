@@ -135,6 +135,34 @@ namespace Auto_filler
 
         }
 
+        private void Darkclick(object sender, RoutedEventArgs e)
+        {
+            Auto_filler.MainWindow.mainwindow.element1.Background = Brushes.Gray;
+            Auto_filler.MainWindow.mainwindow.element2.Background = Brushes.Gray;
+            settbackground.Background = Brushes.Gray;
+            Auto_filler.MainWindow.mainwindow.SaverListView.Background = Brushes.Gray;
+            
+
+
+            Image dark123 = new Image();
+            dark123.Source = new BitmapImage(new Uri(@"bin\Debug\images\Logo.PNG", UriKind.RelativeOrAbsolute));
+
+            Auto_filler.MainWindow.mainwindow.settingimagemain.Source = dark123.Source;
+        }
+
+        private void Normalclick(object sender, RoutedEventArgs e)
+        {
+
+
+
+            Auto_filler.MainWindow.mainwindow.element1.Background = Brushes.White;
+            Auto_filler.MainWindow.mainwindow.element2.Background = Brushes.White;
+            settbackground.Background = Brushes.White;
+            Auto_filler.MainWindow.mainwindow.SaverListView.Background = Brushes.White;
+
+
+        }
+
         private void ChangeHotKey_Click(object sender, RoutedEventArgs e)
         {
             ShortcutChange shortcutChange = new ShortcutChange();

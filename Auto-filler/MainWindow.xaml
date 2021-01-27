@@ -205,7 +205,7 @@
                             <Button x:Name="CancelDeleteList" Content="Cancel Delete"  Width="100" Style="{StaticResource DefaultButton}" Click="CancelDeleteList_Click" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 3 0 0"/>
 
                         </DockPanel>
-                        <DockPanel Margin="0,-39,0,0" Height="96" VerticalAlignment="Top" RenderTransformOrigin="0.496,1">
+                        <DockPanel Margin="0,-39,0,0" Height="96" VerticalAlignment="Top" RenderTransformOrigin="0.496,1" >
                             <ListBox x:Name="SaverListView"
                                 ItemsSource="{Binding Items}"
                                 HorizontalAlignment="Right"
@@ -258,13 +258,13 @@
                         <Button x:Name="ValueSaver5" Content="Save" Style="{StaticResource DefaultButton}" Click="ValueSaver_Click5" Margin="292,86,220,-101" Height="33" VerticalAlignment="Top" Visibility="Hidden" />
 
                         <TextBox x:Name="ValueHolder5" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap" VerticalAlignment="Top" Width="244" TextChanged="ValueHolder_TextChanged5" Margin="25,68,0,-83" Visibility="Hidden" />
-                        <Button x:Name="changerer" Content="Dark" Click="darkclick" Margin="410,95,103,-107" Height="29" VerticalAlignment="Top"/>
+                        
                         <Button x:Name="hotkeychange" Content="Change HotKey 1" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="152" Height="33" Margin="410,-120,0,0" Click="ChangeHotKey_Click1"/>
                         <Button x:Name="hotkeychange2" Content="Change HotKey 2" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="152" Height="33" Margin="410,-100,0,0" Click="ChangeHotKey_Click2" Visibility="Hidden"/>
                         <Button x:Name="hotkeychange3" Content="Change HotKey 3" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="152" Height="33" Margin="410,-80,0,0" Click="ChangeHotKey_Click3" Visibility="Hidden"/>
                         <Button x:Name="hotkeychange4" Content="Change HotKey 4" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Bottom" Width="152" Height="33" Margin="410,-60,0,45" Click="ChangeHotKey_Click4" Visibility="Hidden"/>
                         <Button x:Name="hotkeychange5" Content="Change HotKey 5" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="152" Height="33" Margin="410,-40,0,0" Click="ChangeHotKey_Click5" Visibility="Hidden"/>
-                        <Button x:Name="changerer2" Content="Normal" Click="normalclick" Margin="502,-20,10,0" Height="26" VerticalAlignment="Top"/>
+                        
                         <Popup IsOpen="{Binding IsChecked ,ElementName=Popups}" StaysOpen="True" Margin="0,-7,0,0">
                             <Border Background="black">
                                 <TextBlock TextWrapping="Wrap" Width="593" Height="77">
@@ -325,7 +325,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image x:Name="obrazek1" Height="30" Stretch="Fill" Margin="713,13,50,312" MouseLeftButtonDown="Image_MouseLeftButtonDown_1">
+            <Image x:Name="settingimagemain" Height="30" Stretch="Fill" Margin="713,13,50,312" MouseLeftButtonDown="Image_MouseLeftButtonDown_1">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/settings.jpg" />

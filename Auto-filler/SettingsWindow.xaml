@@ -67,8 +67,8 @@
     </Window.Resources>
 
     <StackPanel Height="450" VerticalAlignment="Top">
-        <Grid Background="LightSlateGray">
-            <Image Stretch="Fill" Margin="176,8,0,424" HorizontalAlignment="Left" Width="24" MouseLeftButtonDown="CloseButton_Click">
+        <Grid x:Name="settbackground" Background="White">
+            <Image Stretch="Fill" Margin="148,8,0,402" HorizontalAlignment="Left" Width="52" MouseLeftButtonDown="CloseButton_Click">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/turnoff.png"/>
@@ -85,7 +85,17 @@
             <Button x:Name="About" Content="O aplikacji" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}"  VerticalAlignment="Top" Width="133"  Height="32" Click="Information" Margin="10,255,0,0" RenderTransformOrigin="-0.088,1.968"/>
             <Button x:Name="CheckinOnOff" Content="CheckOff" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}"  Click="CheckOn" VerticalAlignment="Top" Width="97" Height="33" Margin="10,217,0,0"/>
             <Button x:Name="ChangeHotKey" Content="Change HotKey" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="97" Height="33" Margin="10,292,0,0" Click="ChangeHotKey_Click"/>
-
+            <Button x:Name="changerer" Content="Dark" Click="Darkclick" Margin="36,51,118,376"/>
+            <Button x:Name="changerer2" Content="Normal" Click="Normalclick" Margin="93,51,57,0" Height="24" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.357"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-0.327"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
             <Grid x:Name="redGrid" Height="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Background="#b20837" MouseDown="redGrid_MouseDown2" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
                     <TransformGroup>

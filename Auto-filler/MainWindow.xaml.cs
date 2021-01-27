@@ -626,26 +626,7 @@ namespace Auto_filler
         {
 
         }
-        private void darkclick(object sender, RoutedEventArgs e)
-        {
-            element1.Background = Brushes.Gray;
-            element2.Background = Brushes.Gray;
-
-            Image dark123 = new Image();
-            dark123.Source = new BitmapImage(new Uri(@"bin\Debug\images\Logo.PNG", UriKind.RelativeOrAbsolute));
-
-            obrazek1.Source = dark123.Source;
-        }
-        private void normalclick(object sender, RoutedEventArgs e)
-        {
-            
-           
-
-            element1.Background = Brushes.White;
-            element2.Background = Brushes.White;
-            
-
-        }
+        
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             
