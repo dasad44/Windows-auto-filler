@@ -135,6 +135,7 @@ namespace Auto_filler
 
         }
 
+<<<<<<< HEAD
         private void Darkclick(object sender, RoutedEventArgs e)
         {
             Auto_filler.MainWindow.mainwindow.element1.Background = Brushes.Gray;
@@ -168,5 +169,8 @@ namespace Auto_filler
             ShortcutChange shortcutChange = new ShortcutChange();
             shortcutChange.Show();
         }
+=======
+        
+>>>>>>> 321f0c26bad32c43bd20c3e64d9216bc86def1d1
     }
 }

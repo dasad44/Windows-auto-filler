@@ -856,6 +856,10 @@ namespace Auto_filler
             ShortcutLink shortcutChange = new ShortcutLink();
             shortcutChange.Show();
         }
-
+        private void ChangeHotKey_Click(object sender, RoutedEventArgs e)
+        {
+            ShortcutChange shortcutChange = new ShortcutChange();
+            shortcutChange.Show();
+        }
     }
 }

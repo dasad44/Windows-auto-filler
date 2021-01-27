@@ -237,9 +237,10 @@
                     </UniformGrid>
                 </TabItem>
                 <TabItem x:Name="SnippingItem" FontSize="15" FontFamily="Century Gothic" Height="60" Header="  Snipping Tool" Background="#2a2a29" Foreground="#e7e8ea" Margin="-4,-10,-57,11">
-                    <UniformGrid Columns="1" Margin="54,0,0,0">
-                        <Button x:Name="ScreenshotShow" VerticalAlignment="Top" Content="PhotoViever On" Margin="10,126,431,17"  Click="ScreenshotShow_Click"/>
-                        <Button x:Name="SnippSaveCheck" VerticalAlignment="Top" Content="Save Snipp On" Margin="10,-10,431,0" Height="22" Click="SnippSaveCheck_Click" />
+                    <UniformGrid Margin="54,0,0,0">
+                        <Button x:Name="ScreenshotShow" VerticalAlignment="Center" HorizontalAlignment="Center" Content="PhotoViever On"   Click="ScreenshotShow_Click" Height="106" Width="220" Margin="46,128,25,-60"/>
+                        <Button x:Name="SnippSaveCheck" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Save Snipp On" Height="106" Click="SnippSaveCheck_Click" Width="220" Margin="38,128,0,-60" />
+                        <Button x:Name="ChangeHotKey" Content="Change HotKey" HorizontalAlignment="Right" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="148" Height="41" Click="ChangeHotKey_Click" Margin="0,105,-258,0"/>
 
                     </UniformGrid>
                 </TabItem>

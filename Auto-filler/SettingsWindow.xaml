@@ -32,6 +32,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+<<<<<<< HEAD
         </Style>
         <Style TargetType="{x:Type TabItem}">
             <Setter Property="Template">
@@ -110,3 +111,72 @@
         </Grid>
     </StackPanel>
 </Window>
+=======
+        </Style>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Rectangle x:Name="moveRectangle" Fill="Transparent"
+                                           Grid.Row="0" Grid.Column="0"/>
+                            <Border 
+                                Name="Border"
+                                Margin="0,0,-4,0" 
+                                Background="{StaticResource MenuBrush}"
+                                BorderThickness="1,1,1,1">
+                                <ContentPresenter x:Name="ContentSite"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    ContentSource="Header"
+                                    Margin="12,2,12,2"
+                                    RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource MenuBrush}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel Height="450" VerticalAlignment="Top">
+        <Grid Background="LightSlateGray">
+            <Image Stretch="Fill" Margin="176,8,0,424" HorizontalAlignment="Left" Width="24" MouseLeftButtonDown="CloseButton_Click">
+                <Image.Style>
+                    <Style>
+                        <Setter Property="Image.Source" Value="bin/debug/images/turnoff.png"/>
+                        <Style.Triggers>
+                            <Trigger  Property="Image.IsMouseOver" Value="True">
+                                <Setter Property="Image.Source" Value="bin/debug/images/turnoffhover.png" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+            <Button x:Name="AutoTurnon" Content="Uruchamiaj przy&#xA;starcie systemu" Style="{StaticResource DefaultButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97"  Height="56" Click="AutoTurnon_Click" Margin="10,108,0,0" RenderTransformOrigin="-0.088,1.968"/>
+            <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xA;przy starcie systemu" Style="{StaticResource DefaultButton}"  VerticalAlignment="Center" Height="43" Click="TurningOff_Click" Margin="10,169,57,238"/>
+            <Button x:Name="About" Content="O aplikacji" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}"  VerticalAlignment="Top" Width="133"  Height="32" Click="Information" Margin="10,255,0,0" RenderTransformOrigin="-0.088,1.968"/>
+            <Button x:Name="CheckinOnOff" Content="CheckOff" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}"  Click="CheckOn" VerticalAlignment="Top" Width="97" Height="33" Margin="10,217,0,0"/>
+
+            <Grid x:Name="redGrid" Height="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Background="#b20837" MouseDown="redGrid_MouseDown2" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.002"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+            </Grid>
+
+        </Grid>
+    </StackPanel>
+</Window>
+>>>>>>> 321f0c26bad32c43bd20c3e64d9216bc86def1d1
