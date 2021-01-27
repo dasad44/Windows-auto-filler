@@ -135,10 +135,6 @@ namespace Auto_filler
 
         }
 
-        private void ChangeHotKey_Click(object sender, RoutedEventArgs e)
-        {
-            ShortcutChange shortcutChange = new ShortcutChange();
-            shortcutChange.Show();
-        }
+        
     }
 }

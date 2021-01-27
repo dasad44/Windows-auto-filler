@@ -84,7 +84,6 @@
             <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xA;przy starcie systemu" Style="{StaticResource DefaultButton}"  VerticalAlignment="Center" Height="43" Click="TurningOff_Click" Margin="10,169,57,238"/>
             <Button x:Name="About" Content="O aplikacji" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}"  VerticalAlignment="Top" Width="133"  Height="32" Click="Information" Margin="10,255,0,0" RenderTransformOrigin="-0.088,1.968"/>
             <Button x:Name="CheckinOnOff" Content="CheckOff" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}"  Click="CheckOn" VerticalAlignment="Top" Width="97" Height="33" Margin="10,217,0,0"/>
-            <Button x:Name="ChangeHotKey" Content="Change HotKey" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="97" Height="33" Margin="10,292,0,0" Click="ChangeHotKey_Click"/>
 
             <Grid x:Name="redGrid" Height="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Background="#b20837" MouseDown="redGrid_MouseDown2" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
