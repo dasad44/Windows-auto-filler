@@ -112,7 +112,7 @@
             </Image>
 
             <Image x:Name="changerer" Stretch="Fill" Margin="16,18,146,400" MouseLeftButtonDown="Darkclick" RenderTransformOrigin="0.5,0.5">
-                
+
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/darkmode.png" />
@@ -121,7 +121,7 @@
             </Image>
 
             <Image x:Name="changerer2" Stretch="Fill" Margin="61,18,99,400" MouseLeftButtonDown="Normalclick" RenderTransformOrigin="0.5,0.5">
-              
+
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/lightmode.png" />
@@ -129,11 +129,11 @@
                 </Image.Style>
             </Image>
 
-            <Button x:Name="AutoTurnon" Content="Uruchamiaj przy&#xA;starcie systemu" Style="{StaticResource DefaultButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97"  Height="56" Click="AutoTurnon_Click" Margin="10,108,0,0" RenderTransformOrigin="-0.088,1.968"/>
-            <Button x:Name="TurningOff" Content="Wylącz uruchaminanie&#xA;przy starcie systemu" Style="{StaticResource DefaultButton}"  VerticalAlignment="Center" Height="43" Click="TurningOff_Click" Margin="10,169,57,238"/>
-            <Button x:Name="About" Content="O aplikacji" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}"  VerticalAlignment="Top" Width="133"  Height="32" Click="Information" Margin="10,255,0,0" RenderTransformOrigin="-0.088,1.968"/>
-            <Button x:Name="CheckinOnOff" Content="CheckOff" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}"  Click="CheckOn" VerticalAlignment="Top" Width="97" Height="33" Margin="10,217,0,0"/>
-            <Button x:Name="ChangeHotKey" Content="Change HotKey" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="97" Height="33" Margin="10,292,0,0" Click="ChangeHotKey_Click"/>
+            <Button x:Name="AutoTurnon" Content="System start turn on" Style="{StaticResource DefaultButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151"  Height="56" Click="AutoTurnon_Click" Margin="10,108,0,0" RenderTransformOrigin="-0.088,1.968"/>
+            <Button x:Name="TurningOff" Content="System start turn off" Style="{StaticResource DefaultButton}"  VerticalAlignment="Center" Height="42" Click="TurningOff_Click" Margin="10,172,39,241"/>
+            <Button x:Name="About" Content="About" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}"  VerticalAlignment="Top" Width="151"  Height="32" Click="Information" Margin="10,255,0,0" RenderTransformOrigin="-0.088,1.968"/>
+            <Button x:Name="CheckinOnOff" Content="Check Off app features" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}"  Click="CheckOn" VerticalAlignment="Top" Width="151" Height="33" Margin="10,217,0,0"/>
+            <Button x:Name="ChangeHotKey" Content="Change hotkey" HorizontalAlignment="Left" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" Width="151" Height="33" Margin="10,292,0,0" Click="ChangeHotKey_Click"/>
 
             <!--<Button x:Name="changerer" Content="Dark" Click="Darkclick" Margin="36,51,118,376"/>
             <Button x:Name="changerer2" Content="Normal" Click="Normalclick" Margin="93,51,57,0" Height="24" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
