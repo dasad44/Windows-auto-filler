@@ -275,5 +275,22 @@
     <Resource Include="bin\Debug\images\screenshotMhover.png" />
     <Resource Include="bin\Debug\images\snippingtoolMhover.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\images\DarkLogo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\images\darksetting.png" />
+    <Resource Include="bin\Debug\images\darkturnoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\images\darkminimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\images\darkmode.png" />
+    <Resource Include="bin\Debug\images\lightmode.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>(if exist "$(TargetDir)*old.pdb" del "$(TargetDir)*old.pdb") &amp; (if exist "$(TargetDir)*.pdb" ren "$(TargetDir)*.pdb" *.old.pdb)</PreBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -39,6 +39,61 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="colorsfore" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#b20837"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        BorderBrush="DarkGray" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed"  Value="True">
+                                <Setter Property="Background"  Value="#FFC7305A" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+
+        <Style x:Key="CategoryButtondark" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#b20837"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        BorderBrush="DarkGray" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused"  Value="True">
+                                <Setter Property="Background"  Value="#FFC7305A" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="DefaultButton" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Margin" Value="5"/>
@@ -89,6 +144,33 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="FeatureOnButtonDark" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="DarkGreen"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        BorderBrush="DarkGray" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed"  Value="True">
+                                <Setter Property="Background"  Value="#FF45C730" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style  TargetType="{x:Type TabItem}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -314,7 +396,7 @@
             <Image IsHitTestVisible="False" Source="bin/Debug/images\snippingtool.png" Margin="0,175,732,127"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\pagehotkey.png" Margin="0,228,723,67" RenderTransformOrigin="0.482,0.767"/>
             <Image IsHitTestVisible="False" Source="bin/Debug/images\spec.png" Margin="10,302,737,10" RenderTransformOrigin="0.621,1.25"/>
-            <Image Height="30" Stretch="Fill" Margin="758,13,0,312" HorizontalAlignment="Left" Width="45" MouseLeftButtonDown="CloseButton_Click">
+            <Image x:Name="darkturnoff" Height="30" Stretch="Fill" Margin="758,13,0,312" HorizontalAlignment="Left" Width="45" MouseLeftButtonDown="CloseButton_Click">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/turnoff.png"/>
@@ -339,7 +421,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image Height="30" Width="45" Stretch="Fill" Margin="668,13,90,312" MouseLeftButtonDown="Image_MouseLeftButtonDown">
+            <Image x:Name="minimizedark" Height="30" Width="45" Stretch="Fill" Margin="668,13,90,312" MouseLeftButtonDown="Image_MouseLeftButtonDown">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/minimalize.png" />
@@ -351,7 +433,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Image IsHitTestVisible="False" Source="bin/Debug/images\Logo.png" Margin="240,13,471,252"/>
+            <Image x:Name="Logoimage" IsHitTestVisible="False" Source="bin/Debug/images\Logo.png" Margin="240,13,471,252"/>
             <CheckBox x:Name="ScreenshotCheck" Content="" Checked="ScreenshotCheck_Checked" Unchecked="ScreenshotCheck_Unchecked" Margin="200,81,587,260" RenderTransformOrigin="0.508,0.262"/>
             <CheckBox x:Name="LinkCheck" Content="" Checked="LinkCheck_Checked" Unchecked="LinkCheck_Unchecked" Margin="200,254,587,85" RenderTransformOrigin="0.508,0.262">
                 <CheckBox.RenderTransform>

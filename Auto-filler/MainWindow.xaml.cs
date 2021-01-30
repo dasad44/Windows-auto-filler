@@ -51,6 +51,7 @@ namespace Auto_filler
         public static string link3;
         public static string link4;
         public static string link5;
+        public static bool darkmod = false;
 
 
 
@@ -343,14 +344,23 @@ namespace Auto_filler
                 Properties.Settings.Default.ScreenShowCheck = false;
                 Properties.Settings.Default.Save();
                 ScreenshotShow.Content = "Photoviewer On";
+                if(darkmod == false)
                 ScreenshotShow.Style = Resources["DefaultButton"] as Style;
+                else
+                    ScreenshotShow.Style = Resources["colorsfore"] as Style;
+
             }
             else
             {
                 Properties.Settings.Default.ScreenShowCheck = true;
                 Properties.Settings.Default.Save();
                 ScreenshotShow.Content = "Photoviewer Off";
+                if(darkmod == false)
                 ScreenshotShow.Style = Resources["FeatureOnButton"] as Style;
+                else
+                    ScreenshotShow.Style = Resources["FeatureOnButtonDark"] as Style;
+                
+
             }
 
         }
@@ -361,14 +371,20 @@ namespace Auto_filler
                 Properties.Settings.Default.SnippSaveCheck = false;
                 Properties.Settings.Default.Save();
                 SnippSaveCheck.Content = "Save Snipp On";
-                SnippSaveCheck.Style = Resources["DefaultButton"] as Style;
+                if (darkmod == false)
+                    SnippSaveCheck.Style = Resources["DefaultButton"] as Style;
+                else
+                    SnippSaveCheck.Style = Resources["colorsfore"] as Style;
             }
             else
             {
                 Properties.Settings.Default.SnippSaveCheck = true;
                 Properties.Settings.Default.Save();
                 SnippSaveCheck.Content = "Save Snipp Off";
-                SnippSaveCheck.Style = Resources["FeatureOnButton"] as Style;
+                if (darkmod == false)
+                    SnippSaveCheck.Style = Resources["FeatureOnButton"] as Style;
+                else
+                    SnippSaveCheck.Style = Resources["FeatureOnButtonDark"] as Style;
             }
         }
         private void ScreenshotShow_Checked(object sender, RoutedEventArgs e)
@@ -687,7 +703,10 @@ namespace Auto_filler
                 Properties.Settings.Default.ClipboardNotification = false;
                 Properties.Settings.Default.Save();
                 notificationbutton.Content = "Notification On";
+                if(darkmod == false)
                 notificationbutton.Style = Resources["DefaultButton"] as Style;
+                else
+                    notificationbutton.Style = Resources["colorsfore"] as Style;
             }
 
             else
@@ -695,7 +714,10 @@ namespace Auto_filler
                 Properties.Settings.Default.ClipboardNotification = true;
                 Properties.Settings.Default.Save();
                 notificationbutton.Content = "Notification Off";
-                notificationbutton.Style = Resources["FeatureOnButton"] as Style;
+                if (darkmod == false)
+                    notificationbutton.Style = Resources["FeatureOnButton"] as Style;
+                else
+                    notificationbutton.Style = Resources["FeatureOnButtonDark"] as Style;
             }
         }
 
@@ -718,14 +740,20 @@ namespace Auto_filler
                 Properties.Settings.Default.ClipboardCloudNotification = false;
                 Properties.Settings.Default.Save();
                 cloudbutton.Content = "Cloud Notification On";
+                if(darkmod == false )
                 cloudbutton.Style = Resources["DefaultButton"] as Style;
+                else
+                    cloudbutton.Style = Resources["colorsfore"] as Style;
             }
             else
             {
                 Properties.Settings.Default.ClipboardCloudNotification = true;
                 Properties.Settings.Default.Save();
                 cloudbutton.Content = "Cloud Notification Off";
+                if(darkmod == false)
                 cloudbutton.Style = Resources["FeatureOnButton"] as Style;
+                else
+                    cloudbutton.Style = Resources["FeatureOnButtonDark"] as Style;
             }
         }
         private void Clearclick(object sender, EventArgs e)

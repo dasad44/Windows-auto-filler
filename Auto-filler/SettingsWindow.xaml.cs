@@ -135,9 +135,9 @@ namespace Auto_filler
 
         }
 
-<<<<<<< HEAD
         private void Darkclick(object sender, RoutedEventArgs e)
         {
+            MainWindow.darkmod = true;
             Auto_filler.MainWindow.mainwindow.element1.Background = Brushes.Gray;
             Auto_filler.MainWindow.mainwindow.element2.Background = Brushes.Gray;
             settbackground.Background = Brushes.Gray;
@@ -145,15 +145,59 @@ namespace Auto_filler
             
 
 
-            Image dark123 = new Image();
-            dark123.Source = new BitmapImage(new Uri(@"bin\Debug\images\Logo.PNG", UriKind.RelativeOrAbsolute));
+            Image darkpropertyimg = new Image();
+            darkpropertyimg.Source = new BitmapImage(new Uri(@"bin\Debug\images\darksetting.PNG", UriKind.RelativeOrAbsolute));
+            Auto_filler.MainWindow.mainwindow.settingimagemain.Source = darkpropertyimg.Source;
 
-            Auto_filler.MainWindow.mainwindow.settingimagemain.Source = dark123.Source;
+            Image darkminimize = new Image();
+            darkminimize.Source = new BitmapImage(new Uri(@"bin\Debug\images\darkminimize.PNG", UriKind.RelativeOrAbsolute));
+            Auto_filler.MainWindow.mainwindow.minimizedark.Source = darkminimize.Source;
+
+            Image turnoffdark = new Image();
+            turnoffdark.Source = new BitmapImage(new Uri(@"bin\Debug\images\darkturnoff.PNG", UriKind.RelativeOrAbsolute));
+            Auto_filler.MainWindow.mainwindow.darkturnoff.Source = turnoffdark.Source;
+
+
+            Image logoimagedark = new Image();
+            logoimagedark.Source = new BitmapImage(new Uri(@"bin\Debug\images\DarkLogo.PNG", UriKind.RelativeOrAbsolute));
+            Auto_filler.MainWindow.mainwindow.Logoimage.Source = logoimagedark.Source;
+
+            AutoTurnon.Style = Resources["colorsfore"] as Style;
+            TurningOff.Style = Resources["colorsfore"] as Style;
+            About.Style = Resources["colorsfore"] as Style;
+            CheckinOnOff.Style = Resources["colorsfore"] as Style;
+            ChangeHotKey.Style = Resources["colorsfore"] as Style;
+
+            Auto_filler.MainWindow.mainwindow.DayLimitclick.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.SaverDirectoryButton.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.CancelDeleteList.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.AllScreenList.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.ImportantScreenList.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.TempScreenList.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.ChangeHotKey.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.Remover.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.Adder.Style = Resources["FeatureOnButtonDark"] as Style;
+            Auto_filler.MainWindow.mainwindow.ValueSaver.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.ValueSaver2.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.ValueSaver3.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.ValueSaver4.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.ValueSaver5.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.hotkeychange.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.hotkeychange2.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.hotkeychange3.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.hotkeychange4.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.hotkeychange5.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.buttons1.Style = Resources["colorsfore"] as Style;
+            Auto_filler.MainWindow.mainwindow.buttons2.Style = Resources["colorsfore"] as Style;
+
+
+
+
         }
 
         private void Normalclick(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.darkmod = false;
 
 
             Auto_filler.MainWindow.mainwindow.element1.Background = Brushes.White;
@@ -161,6 +205,50 @@ namespace Auto_filler
             settbackground.Background = Brushes.White;
             Auto_filler.MainWindow.mainwindow.SaverListView.Background = Brushes.White;
 
+            Image lightpropertyimg = new Image();
+            lightpropertyimg.Source = new BitmapImage(new Uri(@"bin\Debug\images\settings.jpg", UriKind.RelativeOrAbsolute));
+            Auto_filler.MainWindow.mainwindow.settingimagemain.Source = lightpropertyimg.Source;
+
+            Image lightminimize = new Image();
+            lightminimize.Source = new BitmapImage(new Uri(@"bin\Debug\images\minimalize.png", UriKind.RelativeOrAbsolute));
+            Auto_filler.MainWindow.mainwindow.minimizedark.Source = lightminimize.Source;
+
+            Image turnofflight = new Image();
+            turnofflight.Source = new BitmapImage(new Uri(@"bin\Debug\images\turnoff.png", UriKind.RelativeOrAbsolute));
+            Auto_filler.MainWindow.mainwindow.darkturnoff.Source = turnofflight.Source;
+
+            Image logoimagelight = new Image();
+            logoimagelight.Source = new BitmapImage(new Uri(@"bin\Debug\images\Logo.PNG", UriKind.RelativeOrAbsolute));
+            Auto_filler.MainWindow.mainwindow.Logoimage.Source = logoimagelight.Source;
+
+
+            AutoTurnon.Style = Resources["DefaultButton"] as Style;
+            TurningOff.Style = Resources["DefaultButton"] as Style;
+            About.Style = Resources["DefaultButton"] as Style;
+            CheckinOnOff.Style = Resources["DefaultButton"] as Style;
+            ChangeHotKey.Style = Resources["DefaultButton"] as Style;
+
+            Auto_filler.MainWindow.mainwindow.DayLimitclick.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.SaverDirectoryButton.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.CancelDeleteList.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.AllScreenList.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.ImportantScreenList.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.TempScreenList.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.ChangeHotKey.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.Remover.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.Adder.Style = Resources["FeatureOnButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.ValueSaver.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.ValueSaver2.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.ValueSaver3.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.ValueSaver4.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.ValueSaver5.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.hotkeychange.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.hotkeychange2.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.hotkeychange3.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.hotkeychange4.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.hotkeychange5.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.buttons1.Style = Resources["DefaultButton"] as Style;
+            Auto_filler.MainWindow.mainwindow.buttons2.Style = Resources["DefaultButton"] as Style;
 
         }
 
@@ -169,8 +257,6 @@ namespace Auto_filler
             ShortcutChange shortcutChange = new ShortcutChange();
             shortcutChange.Show();
         }
-=======
-        
->>>>>>> 321f0c26bad32c43bd20c3e64d9216bc86def1d1
+
     }
 }
