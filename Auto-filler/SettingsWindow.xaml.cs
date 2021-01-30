@@ -52,7 +52,11 @@ namespace Auto_filler
         }
         private void Information(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Udało się!");
+            MessageBox.Show("Aplikacja została stworzona przez Dawida Sokoła, Michała Stasiewicza oraz Michała Wojdałę. Jesteśmy studentami czwartego roku Technologii Informatycznych na " +
+                "Nadnoteckim Instytucie UAM w Pile. Zadaniem aplikacji jest ułatwienie i usprawnienie działania różnych funkcjonalności systemów Windows. Planujemy regularne ulepszanie " +
+                "i udoskonalanie aplikacji. Dziękujemy za każde pobranie i zachęcamy do poinformowania o niej znajomych. Jesteśmy otwarci na wszelakie sugestie i pomysły nowych udoskonaleń, " +
+                "w celu skontaktowania się z nami prosimy wysłać maila pod adres ti.pila.amu@gmail.com.");
+            
         }
 
         private void TurningOff_Click(object sender, RoutedEventArgs e)
