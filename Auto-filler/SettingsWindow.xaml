@@ -98,7 +98,7 @@
 
     <StackPanel Height="450" VerticalAlignment="Top">
         <Grid x:Name="settbackground" Background="White">
-            <Image Stretch="Fill" Margin="148,8,0,402" HorizontalAlignment="Left" Width="52" MouseLeftButtonDown="CloseButton_Click">
+            <Image x:Name="turnoffset" Stretch="Fill" Margin="148,8,0,402" HorizontalAlignment="Left" Width="52" MouseLeftButtonDown="CloseButton_Click">
                 <Image.Style>
                     <Style>
                         <Setter Property="Image.Source" Value="bin/debug/images/turnoff.png"/>

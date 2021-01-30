@@ -166,6 +166,10 @@ namespace Auto_filler
             logoimagedark.Source = new BitmapImage(new Uri(@"bin\Debug\images\DarkLogo.PNG", UriKind.RelativeOrAbsolute));
             Auto_filler.MainWindow.mainwindow.Logoimage.Source = logoimagedark.Source;
 
+            Image turnoffsetdark = new Image();
+            turnoffsetdark.Source = new BitmapImage(new Uri(@"bin\Debug\images\darkturnoff.PNG", UriKind.RelativeOrAbsolute));
+            turnoffset.Source = turnoffsetdark.Source;
+
             AutoTurnon.Style = Resources["colorsfore"] as Style;
             TurningOff.Style = Resources["colorsfore"] as Style;
             About.Style = Resources["colorsfore"] as Style;
@@ -224,6 +228,11 @@ namespace Auto_filler
             Image logoimagelight = new Image();
             logoimagelight.Source = new BitmapImage(new Uri(@"bin\Debug\images\Logo.PNG", UriKind.RelativeOrAbsolute));
             Auto_filler.MainWindow.mainwindow.Logoimage.Source = logoimagelight.Source;
+
+            Image turnoffsetlight = new Image();
+            turnoffsetlight.Source = new BitmapImage(new Uri(@"bin\Debug\images\turnoff.png", UriKind.RelativeOrAbsolute));
+            turnoffset.Source = turnoffsetlight.Source;
+
 
 
             AutoTurnon.Style = Resources["DefaultButton"] as Style;
