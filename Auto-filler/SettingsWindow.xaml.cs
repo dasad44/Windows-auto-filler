@@ -37,18 +37,17 @@ namespace Auto_filler
         {
             if (Properties.Settings.Default.CheckOnOff)
             {
-                CheckinOnOff.Content = "CheckOff";
+                CheckinOnOff.Content = "Check Off App Features";
             }
             else
             {
-                CheckinOnOff.Content = "CheckOn";
+                CheckinOnOff.Content = "Check On App Features";
             }
         }
         private void AutoTurnon_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Halo");
+            MessageBox.Show("Application will run with system start!");
             regis.AutoStartOn();
-            MessageBox.Show("Udało się!");
         }
         private void Information(object sender, RoutedEventArgs e)
         {
@@ -62,7 +61,7 @@ namespace Auto_filler
         private void TurningOff_Click(object sender, RoutedEventArgs e)
         {
             regis.AutoStartOff();
-            MessageBox.Show("Udało się!");
+            MessageBox.Show("Application won't run with system start!");
         }
         private void HideButton_Click(object sender, RoutedEventArgs e)
         {
@@ -112,7 +111,7 @@ namespace Auto_filler
             {
                 Properties.Settings.Default.CheckOnOff = false;
                 Properties.Settings.Default.Save();
-                CheckinOnOff.Content = "CheckOn";
+                CheckinOnOff.Content = "Check On App Features";
 
 
                 Auto_filler.MainWindow.mainwindow.ScreenshotCheck.IsChecked = false;
@@ -125,7 +124,7 @@ namespace Auto_filler
             {
                 Properties.Settings.Default.CheckOnOff = true;
                 Properties.Settings.Default.Save();
-                CheckinOnOff.Content = "CheckOff";
+                CheckinOnOff.Content = "Check Off App Features";
 
 
 
