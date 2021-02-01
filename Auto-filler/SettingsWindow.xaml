@@ -98,13 +98,13 @@
 
     <StackPanel Height="450" VerticalAlignment="Top">
         <Grid x:Name="settbackground" Background="White">
-            <Image x:Name="turnoffset" Stretch="Fill" Margin="148,8,0,402" HorizontalAlignment="Left" Width="52" MouseLeftButtonDown="CloseButton_Click">
+            <Image x:Name="turnoffset" Stretch="Fill" Margin="165,8,0,419" HorizontalAlignment="Left" Width="35" MouseLeftButtonDown="CloseButton_Click">
                 <Image.Style>
                     <Style>
-                        <Setter Property="Image.Source" Value="bin/debug/images/turnoff.png"/>
+                        <Setter Property="Image.Source" Value="bin/debug/images/closesettings.png"/>
                         <Style.Triggers>
                             <Trigger  Property="Image.IsMouseOver" Value="True">
-                                <Setter Property="Image.Source" Value="bin/debug/images/turnoffhover.png" />
+                                <Setter Property="Image.Source" Value="bin/debug/images/closesettingshover.png" />
                             </Trigger>
                         </Style.Triggers>
                     </Style>
