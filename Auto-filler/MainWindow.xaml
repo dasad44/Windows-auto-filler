@@ -272,7 +272,7 @@
                         <DockPanel Margin="10,0,0,-40" VerticalAlignment="Bottom" Height="28" HorizontalAlignment="Left" Width="572" >
                             <CheckBox x:Name="AutoDelete" Content="Auto Delete" Width="117" Checked="AutoDelete_Checked" Unchecked="AutoDelete_Unchecked" VerticalAlignment="Center" Margin="0,6"/>
                             <Label x:Name="DayLimitText" Content="Specify day number" HorizontalAlignment="Right"  Width="165" Margin="10,0,0,0"/>
-                            <TextBox x:Name="DayLimit" HorizontalAlignment="Right"  PreviewTextInput="NumberValidationTextBox" Width="50"/>
+                            <TextBox x:Name="DayLimit" HorizontalAlignment="Right"  PreviewTextInput="NumberValidationTextBox" Width="50" Height="22" VerticalAlignment="Top" Margin="0,6,0,0"/>
                             <Button x:Name="DayLimitclick" Content="Save" Style="{StaticResource DefaultButton}"  Width="85" Click="DayLimitclick_Click" Margin="10,0,0,0" HorizontalAlignment="Left"/>
                         </DockPanel>
                         <DockPanel Margin="10,0,0,0" VerticalAlignment="Bottom" >
