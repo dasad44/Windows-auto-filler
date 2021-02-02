@@ -163,7 +163,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsPressed"  Value="True">
-                                <Setter Property="Background"  Value="#FF45C730" />
+                                <Setter Property="Background"  Value="#FF034F03" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

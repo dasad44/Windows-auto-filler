@@ -25,7 +25,7 @@ namespace Auto_filler
         public void AutoDelete()
         {
 
-            filePaths = Directory.GetFiles(@Properties.Settings.Default.ScreenPath, "AutoFiller*.jpg");
+            filePaths = Directory.GetFiles(@Properties.Settings.Default.ScreenPath, "AutoFiller*.tiff");
             foreach (string element in filePaths)
             {
                 string name = System.IO.Path.GetFileName(element);

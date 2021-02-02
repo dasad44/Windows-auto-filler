@@ -207,11 +207,17 @@ namespace Auto_filler
 
         public void AppShow()
         {
-
-            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.LeftAlt) && Keyboard.IsKeyDown(Key.G))
+            String[] AppShowString = Properties.Settings.Default.AppShowKey.Split('+');
+            foreach (string t in AppShowString)
             {
-                Mainwindow.Show();
+                Enum.TryParse(t, out Key c);
+                if (Keyboard.IsKeyDown(c)) { }
+
+                else
+                    return;
+
             }
+             Mainwindow.Show();
         }
 
         private ScreenshotSave _screenSave;

@@ -198,8 +198,22 @@ namespace Auto_filler
             Auto_filler.MainWindow.mainwindow.buttons2.Style = Resources["colorsfore"] as Style;
 
 
-
-
+            if(Properties.Settings.Default.ClipboardNotification)
+                Auto_filler.MainWindow.mainwindow.notificationbutton.Style = Resources["FeatureOnButtonDark"] as Style;
+            else
+                Auto_filler.MainWindow.mainwindow.notificationbutton.Style = Resources["colorsfore"] as Style;
+            if (Properties.Settings.Default.ClipboardCloudNotification)
+                Auto_filler.MainWindow.mainwindow.cloudbutton.Style = Resources["FeatureOnButtonDark"] as Style;
+            else
+                Auto_filler.MainWindow.mainwindow.cloudbutton.Style = Resources["colorsfore"] as Style;
+            if (Properties.Settings.Default.SnippSaveCheck)
+                Auto_filler.MainWindow.mainwindow.SnippSaveCheck.Style = Resources["FeatureOnButtonDark"] as Style;
+            else
+                Auto_filler.MainWindow.mainwindow.SnippSaveCheck.Style = Resources["colorsfore"] as Style;
+            if (Properties.Settings.Default.ScreenShowCheck)
+                Auto_filler.MainWindow.mainwindow.ScreenshotShow.Style = Resources["FeatureOnButtonDark"] as Style;
+            else
+                Auto_filler.MainWindow.mainwindow.ScreenshotShow.Style = Resources["colorsfore"] as Style;
         }
 
         private void Normalclick(object sender, RoutedEventArgs e)
@@ -261,12 +275,27 @@ namespace Auto_filler
             Auto_filler.MainWindow.mainwindow.hotkeychange5.Style = Resources["DefaultButton"] as Style;
             Auto_filler.MainWindow.mainwindow.buttons1.Style = Resources["DefaultButton"] as Style;
             Auto_filler.MainWindow.mainwindow.buttons2.Style = Resources["DefaultButton"] as Style;
-
+            if (Properties.Settings.Default.ClipboardNotification)
+                Auto_filler.MainWindow.mainwindow.notificationbutton.Style = Resources["FeatureOnButton"] as Style;
+            else
+                Auto_filler.MainWindow.mainwindow.notificationbutton.Style = Resources["DefaultButton"] as Style;
+            if (Properties.Settings.Default.ClipboardCloudNotification)
+                Auto_filler.MainWindow.mainwindow.cloudbutton.Style = Resources["FeatureOnButton"] as Style;
+            else
+                Auto_filler.MainWindow.mainwindow.cloudbutton.Style = Resources["DefaultButton"] as Style;
+            if (Properties.Settings.Default.SnippSaveCheck)
+                Auto_filler.MainWindow.mainwindow.SnippSaveCheck.Style = Resources["FeatureOnButton"] as Style;
+            else
+                Auto_filler.MainWindow.mainwindow.SnippSaveCheck.Style = Resources["DefaultButton"] as Style;
+            if (Properties.Settings.Default.ScreenShowCheck)
+                Auto_filler.MainWindow.mainwindow.ScreenshotShow.Style = Resources["FeatureOnButton"] as Style;
+            else
+                Auto_filler.MainWindow.mainwindow.ScreenshotShow.Style = Resources["DefaultButton"] as Style;
         }
 
         private void ChangeHotKey_Click(object sender, RoutedEventArgs e)
         {
-            ShortcutChange shortcutChange = new ShortcutChange();
+            ShortcutChange shortcutChange = new ShortcutChange("AppShow");
             shortcutChange.Show();
         }
 

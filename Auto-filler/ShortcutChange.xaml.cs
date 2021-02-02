@@ -20,17 +20,25 @@ namespace Auto_filler
     public partial class ShortcutChange : Window
     {
         string t;
-        public ShortcutChange()
+        String Feature;
+        public ShortcutChange(string feature)
         {
             InitializeComponent();
-            t = Properties.Settings.Default.SnippKey;
+            Feature = feature;
+            if (Feature == "Snipp")
+                t = Properties.Settings.Default.SnippKey;
+            else if(Feature == "AppShow")
+                t = Properties.Settings.Default.AppShowKey;
         }
         private void TextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (t != "")
                 t = t.Insert(t.Length, "+");
-            t = t + e.Key.ToString();
-            Shortcut.Text = t;          
+            if (e.SystemKey.ToString() != "None")
+                t = t + e.SystemKey.ToString();
+            else
+                t = t + e.Key.ToString();
+            Shortcut.Text = t;
         }
 
 
@@ -42,25 +50,44 @@ namespace Auto_filler
         }
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            if (t.Length != 0)
+            if (Feature == "Snipp")
             {
-                Properties.Settings.Default.SnippKey = t;
-                Properties.Settings.Default.Save();
-                this.Hide();
+                if (t.Length != 0)
+                {
+                    Properties.Settings.Default.SnippKey = t;
+                    Properties.Settings.Default.Save();
+                    this.Hide();
+                }
+                else
+                {
+                    t = Properties.Settings.Default.SnippKey;
+                    MessageBox.Show("Enter hotkey");
+                }
             }
-            else
+            if (Feature == "AppShow")
             {
-                t = Properties.Settings.Default.SnippKey;
-                MessageBox.Show("Enter hotkey");
+                if (t.Length != 0)
+                {
+                    Properties.Settings.Default.AppShowKey = t;
+                    Properties.Settings.Default.Save();
+                    this.Hide();
+                }
+                else
+                {
+                    t = Properties.Settings.Default.AppShowKey;
+                    MessageBox.Show("Enter hotkey");
+                }
             }
-
         }
 
 
         private void Window_Activated(object sender, EventArgs e)
         {
             Shortcut.Focus();
+            if(Feature == "Snipp")
             Shortcut.Text = Properties.Settings.Default.SnippKey;
+            else if (Feature == "AppShow")
+            Shortcut.Text = Properties.Settings.Default.AppShowKey;
         }
     }
 }

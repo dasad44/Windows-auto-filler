@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ShortcutChange" Height="175.82" Width="310.656" Activated="Window_Activated">
     <Grid>
-        <TextBox x:Name="Shortcut" HorizontalAlignment="Left" Height="25" Margin="33,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="218" KeyUp="TextBox_KeyUp"/>
+        <TextBox x:Name="Shortcut" HorizontalAlignment="Left" AcceptsTab="True" Height="25" Margin="33,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="218" KeyUp="TextBox_KeyUp"/>
         <Button x:Name="Confirm" Content="Confirm" HorizontalAlignment="Left" Margin="33,106,0,0" VerticalAlignment="Top" Width="75" Click="Confirm_Click"/>
         <Button x:Name="Clear" Content="Clear" HorizontalAlignment="Left" Margin="176,106,0,0" VerticalAlignment="Top" Width="75" Click="Clear_Click"/>
 

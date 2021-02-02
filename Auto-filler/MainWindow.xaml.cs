@@ -52,7 +52,7 @@ namespace Auto_filler
         public static string link4;
         public static string link5;
         public static bool darkmod = false;
-
+        SettingsWindow settings = new SettingsWindow();
 
 
 
@@ -144,7 +144,7 @@ namespace Auto_filler
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            notification.CustomNotifyAlert("Windows Auto-filler hidden!", "Click Alt + Ctrl + G to show application again");
+            notification.CustomNotifyAlert("Windows Auto-filler hidden!", ("Click " + Properties.Settings.Default.AppShowKey + " to show application again"));
             this.Hide();
             //creating file in appdata/roaming for any cache files like tmp images or text
             string appdatapath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Auto_filler");
@@ -675,7 +675,8 @@ namespace Auto_filler
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             WindowState = WindowState.Minimized;
-            notification.CustomNotifyAlert("Windows Auto-filler hidden!", "Click Alt + Ctrl + G to show application again");
+            settings.Hide();
+            notification.CustomNotifyAlert("Windows Auto-filler hidden!", ("Click " + Properties.Settings.Default.AppShowKey + " to show application again"));
         }
 
         protected override void OnStateChanged(EventArgs e)
@@ -686,8 +687,9 @@ namespace Auto_filler
 
         public void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
-            SettingsWindow settings = new SettingsWindow();
+            
             settings.Show();
+
         }
 
         private void DayLimitclick_Click(object sender, RoutedEventArgs e)
@@ -886,7 +888,7 @@ namespace Auto_filler
         }
         private void ChangeHotKey_Click(object sender, RoutedEventArgs e)
         {
-            ShortcutChange shortcutChange = new ShortcutChange();
+            ShortcutChange shortcutChange = new ShortcutChange("Snipp");
             shortcutChange.Show();
         }
     }

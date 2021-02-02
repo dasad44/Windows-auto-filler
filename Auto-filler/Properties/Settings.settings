@@ -71,5 +71,8 @@
     <Setting Name="FifthLink" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="AppShowKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LeftAlt+LeftCtrl+G</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

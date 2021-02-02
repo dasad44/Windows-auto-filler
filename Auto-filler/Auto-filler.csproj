@@ -289,10 +289,6 @@
     <Resource Include="bin\Debug\images\darkmode.png" />
     <Resource Include="bin\Debug\images\lightmode.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bin\Debug\images\closesettings.png" />
-    <Resource Include="bin\Debug\images\closesettingshover.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>(if exist "$(TargetDir)*old.pdb" del "$(TargetDir)*old.pdb") &amp; (if exist "$(TargetDir)*.pdb" ren "$(TargetDir)*.pdb" *.old.pdb)</PreBuildEvent>
