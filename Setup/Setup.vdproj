@@ -969,7 +969,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_426C0C9627EE47A99618CAE1A6E87B27"
+        "ARPPRODUCTICON" = "8:_0CC635EB18774584BA3E7EA032E48327"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1627,7 +1627,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_95628DB3EB834336826B8F82A4E3B58E"
             {
-            "SourcePath" = "8:..\\Auto-filler\\obj\\Release\\Auto-filler.exe"
+            "SourcePath" = "8:..\\Auto-filler\\obj\\Debug\\Auto-filler.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF607587730B4E9C969522DFBC4B46E2"
