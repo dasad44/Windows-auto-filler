@@ -52,7 +52,7 @@ namespace Auto_filler
         public static string link4;
         public static string link5;
         public static bool darkmod = false;
-        SettingsWindow settings = new SettingsWindow();
+        
 
 
 
@@ -671,12 +671,13 @@ namespace Auto_filler
 
          }
         
+        
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            WindowState = WindowState.Minimized;
-            settings.Hide();
+            WindowState = WindowState.Minimized;                          
             notification.CustomNotifyAlert("Windows Auto-filler hidden!", ("Click " + Properties.Settings.Default.AppShowKey + " to show application again"));
+         
         }
 
         protected override void OnStateChanged(EventArgs e)
@@ -684,13 +685,15 @@ namespace Auto_filler
             if (WindowState == WindowState.Minimized) this.Hide();
             base.OnStateChanged(e);
         }
-
         public void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
-            
+            SettingsWindow settings = new SettingsWindow();
             settings.Show();
 
         }
+        
+
+
 
         private void DayLimitclick_Click(object sender, RoutedEventArgs e)
         {
