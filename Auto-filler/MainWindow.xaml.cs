@@ -241,7 +241,7 @@ namespace Auto_filler
             DirectoryInfo dinfo;
             SaverListView.Items.Clear();
             dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
-            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
+            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.tiff");
             foreach (FileInfo file in Files)
             {
                 SaverListView.Items.Add(file.Name);
@@ -252,7 +252,7 @@ namespace Auto_filler
                 Directory.CreateDirectory(path);
             }
             dinfo = new DirectoryInfo(@path);
-            Files = dinfo.GetFiles("AutoFiller*.jpg");
+            Files = dinfo.GetFiles("AutoFiller*.tiff");
             foreach (FileInfo file in Files)
             {
                 SaverListView.Items.Add(file.Name);
@@ -267,7 +267,7 @@ namespace Auto_filler
                 Directory.CreateDirectory(path);
             }
             DirectoryInfo dinfo = new DirectoryInfo(path);
-            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
+            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.tiff");
             foreach (FileInfo file in Files)
             {
                 SaverListView.Items.Add(file.Name);
@@ -278,7 +278,7 @@ namespace Auto_filler
             DirectoryInfo dinfo;
             SaverListView.Items.Clear();
             dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
-            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
+            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.tiff");
             foreach (FileInfo file in Files)
             {
                 SaverListView.Items.Add(file.Name);
@@ -287,7 +287,7 @@ namespace Auto_filler
         private void CancelDeleteList_Click(object sender, RoutedEventArgs e)
         {
             DirectoryInfo dinfo = new DirectoryInfo(@Properties.Settings.Default.ScreenPath);
-            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.jpg");
+            FileInfo[] Files = dinfo.GetFiles("AutoFiller*.tiff");
             string path = Properties.Settings.Default.ScreenPath + "\\AutoFiller-Important";
             if (!Directory.Exists(path))
             {
