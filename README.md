@@ -1,7 +1,7 @@
 # Windows-auto-filler
 >Created by Dawid Sokół, Michał Stasiewicz, Michał Wojdała
 
->C#/XAML .NET 4.7.2
+>WPF C#/XAML .NET 4.7.2
 
 >Program for Windows users. There are 4 main features.
 
